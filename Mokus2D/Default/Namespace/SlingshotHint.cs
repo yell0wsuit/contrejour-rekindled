@@ -1,0 +1,75 @@
+﻿using System;
+
+using Mokus2D.Visual;
+
+namespace Default.Namespace
+{
+    public class SlingshotHint : FadeHint
+    {
+        public SlingshotHint(ContreJourLevelBuilder _builder, object _body, Sprite _clip, Hashtable _config)
+            : base(_builder, null, _clip, _config)
+        {
+            hasToRun = false;
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            trampoline = (TrampolineBodyClip)FarseerUtil.Query(builder.World, builder.ToVec(clip.Position), 10f, typeof(TrampolineBodyClip));
+            if (trampoline != null)
+            {
+                trampoline.DragEvent.AddListenerSelector(new Action(OnStartDrag));
+                trampoline.HeroTouchEvent.AddListenerSelector(new Action(OnHeroTouch));
+            }
+        }
+
+        public override void Update(float time)
+        {
+            base.Update(time);
+            if (trampoline == null)
+            {
+                Initialize();
+            }
+        }
+
+        public override void Restart()
+        {
+            base.Restart();
+            hasToRun = false;
+            touched = false;
+        }
+
+        public override bool HasToHide()
+        {
+            return false;
+        }
+
+        private void OnHeroTouch()
+        {
+            if (!trampoline.Dragging && !touched)
+            {
+                touched = true;
+                Show(0.5f);
+            }
+        }
+
+        private void OnStartDrag()
+        {
+            if (!touched)
+            {
+                return;
+            }
+            if (!hiding)
+            {
+                hiding = true;
+                Hide(1f);
+            }
+        }
+
+        private const float QUERY_RADIUS = 10f;
+
+        protected TrampolineBodyClip trampoline;
+
+        protected bool touched;
+    }
+}

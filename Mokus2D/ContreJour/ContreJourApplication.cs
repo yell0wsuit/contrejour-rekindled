@@ -1,0 +1,315 @@
+﻿using System;
+using System.Collections.Generic;
+
+using Default.Namespace;
+using Default.Namespace.Interfaces;
+
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input.Touch;
+
+using Mokus2D;
+using Mokus2D.Effects.Transitions;
+using Mokus2D.Util;
+using Mokus2D.Visual;
+using Mokus2D.Visual.Util;
+
+namespace ContreJour
+{
+    public class ContreJourApplication : Mokus2DGame
+    {
+        public static Dictionary<int, SpriteFont> Fonts
+        {
+            get
+            {
+                return fonts;
+            }
+        }
+
+        public ContreJourApplication()
+        {
+            gamerServicesComponent = new GamerServicesComponent(this);
+            Components.Add(gamerServicesComponent);
+            IsFixedTimeStep = false;
+            graphics = new GraphicsDeviceManager(this);
+            graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
+            graphics.PreferredBackBufferFormat = (HardwareCapabilities.IsLowMemoryDevice ? SurfaceFormat.Dxt5 : SurfaceFormat.Color);
+            ContentRootDirectory = "content";
+            TargetElapsedTime = TimeSpan.FromTicks(166667L);
+            graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(OnPreparingDeviceSettings);
+            InactiveSleepTime = TimeSpan.FromSeconds(1.0);
+            TouchPanel.EnabledGestures = GestureType.HorizontalDrag;
+            graphics.IsFullScreen = false;
+            IsMouseVisible = true;
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 480;
+        }
+
+        protected override void Draw(GameTime gameTime)
+        {
+            try
+            {
+                base.Draw(gameTime);
+            }
+            catch
+            {
+            }
+        }
+
+        protected override void Update(GameTime gameTime)
+        {
+            try
+            {
+                base.Update(gameTime);
+            }
+            catch (GameUpdateRequiredException)
+            {
+                XBoxUtil.ShowUpdateRequired();
+                gamerServicesComponent.Enabled = false;
+            }
+            catch
+            {
+            }
+        }
+
+        private void OnPreparingDeviceSettings(object sender, PreparingDeviceSettingsEventArgs e)
+        {
+            e.GraphicsDeviceInformation.PresentationParameters.PresentationInterval = PresentInterval.One;
+        }
+
+        protected override void LoadContent()
+        {
+            base.LoadContent();
+            ResetElapsedTime();
+            fonts[14] = Content.Load<SpriteFont>("Font14");
+            fonts[20] = Content.Load<SpriteFont>("Font20");
+            fonts[28] = Content.Load<SpriteFont>("Font28");
+            fonts[40] = Content.Load<SpriteFont>("Font40");
+        }
+
+        private void CreateDebugFields()
+        {
+            Node node = new();
+            Root.AddChild(node);
+            upsField = new IntLabel(fonts[14]);
+            memoryField = new IntLabel(fonts[14]);
+            upsField.Color = Color.Aquamarine;
+            memoryField.Color = Color.Aquamarine;
+            upsField.Position = new Vector2(60f, 40f);
+            memoryField.Position = new Vector2(90f, 40f);
+        }
+
+        protected override void Initialize()
+        {
+            base.Initialize();
+            GraphicsDevice.PresentationParameters.DisplayOrientation = DisplayOrientation.LandscapeRight;
+            PrimitivesDrawing.RefreshGraphicsDevice(Device);
+            XNAUtil.RefreshViewport(GraphicsDevice);
+            gameContainer = new Node();
+            gameContainer.Scale = ScreenConstants.Scales.fromIPhone2ByHeight;
+            gameContainer.Position = (ScreenConstants.OsSizes.W7 - ScreenConstants.W7FromIPhoneSize * gameContainer.Scale) / 2f;
+            Root.AddChild(gameContainer);
+            Root.Position = new Vector2(0f, ScreenSize.Y);
+            Root.ScaleY = -1f;
+            SoundManager.MusicPath = "Music";
+            SoundManager.PreloadSongs(["chapter1", "chapter2", "chapter3", "chapter4", "chapter5", "intro-5", "menu"]);
+            ShowSplash();
+        }
+
+        protected override RootNode CreateRootNode()
+        {
+            return new RootNode(Device.PresentationParameters.BackBufferWidth, Device.PresentationParameters.BackBufferHeight, new Vector2(1f, -1f));
+        }
+
+        private void ShowSplash()
+        {
+            Splash splash = new();
+            gameContainer.AddChild(splash);
+            splash.EndEvent.AddListenerSelector(new Action(OnSplashExit));
+            currentNode = splash;
+        }
+
+        private void OnSplashExit()
+        {
+            if (!UserData.Instance.IntroWatched)
+            {
+                UserData.Instance.IntroWatched = true;
+                LoadLevel(0);
+                return;
+            }
+            ChangeScene(new Func<MainMenu>(CreateMainMenu));
+        }
+
+        private FadeTransition ChangeScene<T>(Func<T> sceneFactory) where T : Node
+        {
+            FadeTransition fadeTransition = new(0.5f, 1f, currentNode, () => SetCurrentNode(sceneFactory), 1);
+            fadeTransition.MiddleEvent += new Action(OnChangeScene);
+            gameContainer.Run(fadeTransition);
+            return fadeTransition;
+        }
+
+        private void OnChangeScene()
+        {
+            UserData.SaveUserData();
+            GC.Collect();
+            SharedContent.UnloadUnused();
+        }
+
+        private Node SetCurrentNode<T>(Func<T> nodeFactory) where T : Node
+        {
+            if (currentNode != null && currentNode != null)
+            {
+                currentNode.Dispose();
+            }
+            currentNode = null;
+            GC.Collect();
+            SharedContent.UnloadUnused();
+            currentNode = nodeFactory.Invoke();
+            return currentNode;
+        }
+
+        private MainMenu CreateMainMenu(int chapter)
+        {
+            MainMenu mainMenu = CreateMainMenu();
+            mainMenu.ShowChapter(chapter);
+            return mainMenu;
+        }
+
+        private MainMenu CreateMainMenu()
+        {
+            MainMenu mainMenu = new();
+            mainMenu.LevelSelectEvent.AddListenerSelector(new Action<int>(LoadLevel));
+            return mainMenu;
+        }
+
+        public void LoadLevel(int _level)
+        {
+            bool flag = IsFirstLevel(currentNode) || _level == 0;
+            Func<ContreJourGame> func = new(ProcessLoadLevel);
+            if (flag)
+            {
+                func = CleanLoad(func);
+            }
+            lastLevel = _level;
+            ChangeScene(func);
+        }
+
+        private Func<T> CleanLoad<T>(Func<T> action) where T : Node
+        {
+            ForceRemoveTextures();
+            return action;
+        }
+
+        private ContreJourGame ProcessLoadLevel()
+        {
+            int chapter = LevelsMenu.GetLevelPosition(lastLevel).Chapter;
+            ContreJourGame contreJourGame = new(chapter);
+            contreJourGame.CanShowIntro = canShowIntro;
+            contreJourGame.BackEvent.AddListenerSelector(new Action(OnLevelBack));
+            contreJourGame.RestartEvent.AddListenerSelector(new Action(RestartLevel));
+            contreJourGame.NextLevelEvent.AddListenerSelector(new Action(NextLevel));
+            contreJourGame.LoadLevelIndex(lastLevel);
+            SoundManager.PlayMusic(string.Format("chapter{0}", Maths.min(chapter + 1, 4)));
+            return contreJourGame;
+        }
+
+        private void OnLevelBack()
+        {
+            canShowIntro = true;
+            Func<MainMenu> func = new(CreateMainMenu);
+            if (IsFirstLevel(currentNode))
+            {
+                func = CleanLoad(new Func<MainMenu>(CreateMainMenu));
+            }
+            ChangeScene(func);
+        }
+
+        private void RestartLevel()
+        {
+            canShowIntro = false;
+            ChangeScene(new Func<ContreJourGame>(ProcessLoadLevel));
+        }
+
+        public void NextLevel()
+        {
+            canShowIntro = true;
+            LevelPosition levelPosition = LevelsMenu.GetLevelPosition(lastLevel);
+            if (levelPosition.Index < Constants.LevelsToPlay - 1)
+            {
+                levelPosition.Index++;
+                LoadLevel(LevelsMenu.GetLevelIndex(levelPosition));
+                return;
+            }
+            if (levelPosition.Chapter == 5)
+            {
+                ChangeScene(() => CreateMainMenu(5));
+                return;
+            }
+            if (CocosUtil.lite(true, levelPosition.Chapter + 1 < Constants.NormalChaptersCount))
+            {
+                int chapter = levelPosition.Chapter + 1;
+                ChangeScene(() => CreateMainMenu(chapter));
+                return;
+            }
+            LoadLevel(169);
+        }
+
+        public void ForceRemoveTextures()
+        {
+        }
+
+        public bool IsFirstLevel(Node node)
+        {
+            return node is ContreJourGame && ((ContreJourGame)node).LevelIndex == 0;
+        }
+
+        private void OnSplashEnd()
+        {
+        }
+
+        protected override void OnActivated(object sender, EventArgs args)
+        {
+            base.OnActivated(sender, args);
+            UserData.Instance.RefreshSoundManager();
+            if (currentNode is IActivatedDependent)
+            {
+                ((IActivatedDependent)currentNode).OnGameActivated();
+            }
+        }
+
+        protected override void OnDeactivated(object sender, EventArgs args)
+        {
+            UserData.SaveUserData();
+        }
+
+        protected void OnExiting(object sender, EventArgs args)
+        {
+            UserData.SaveUserData();
+        }
+
+        private const float FADE_OUT_DURATION = 0.5f;
+
+        private const float FADE_IN_DURATION = 1f;
+
+        private readonly GraphicsDeviceManager graphics;
+
+        private Node gameContainer;
+
+        protected Node currentNode;
+
+        protected int lastLevel;
+
+        private bool canShowIntro = true;
+
+        private readonly FpsCounter upsCounter = new(10);
+
+        private IntLabel upsField;
+
+        private IntLabel memoryField;
+
+        private static readonly Dictionary<int, SpriteFont> fonts = new();
+
+        private GamerServicesComponent gamerServicesComponent;
+    }
+}

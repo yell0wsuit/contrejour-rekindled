@@ -1,0 +1,38 @@
+﻿using System;
+
+using Microsoft.Xna.Framework;
+
+namespace Default.Namespace
+{
+    public class BlackTrampolineSprite(ContreJourGame _game, SnotBodyClipBase _snot, float _startWidth, float _centerWidth, float _endWidth) : BlackSnotSprite(_game, _snot, _startWidth, _centerWidth, _endWidth)
+    {
+        public virtual Color MiddleColor()
+        {
+            return MIDDLE_COLOR;
+        }
+
+        public virtual Color StartColor()
+        {
+            return START_TRAMPOLINE_COLOR;
+        }
+
+        public override Color GetIntermidiateColorLineSize(int index, int lineSize)
+        {
+            return CocosUtil.ccc4Mix(StartColor(), MiddleColor(), Math.Abs(index - lineSize / 2f) / (lineSize / 2f));
+        }
+
+        public override void SetBorderColors()
+        {
+            BlackDrawUtil.SetBorderColors(allPointsSize / 2, StartColor(), MiddleColor(), EndColor(), border);
+            int num = border.Length / 2;
+            for (int i = 0; i < num; i++)
+            {
+                border[num + i].Color = border[i].Color;
+            }
+        }
+
+        private Color MIDDLE_COLOR = new(0, 254, 254, 255);
+
+        private Color START_TRAMPOLINE_COLOR = new(0, 94, 118, 255);
+    }
+}
