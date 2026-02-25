@@ -16,8 +16,10 @@ namespace Default.Namespace
         {
             if (_clip == null)
             {
-                _clip = new Node();
-                _clip.Scale = _config.GetVector("scale").X;
+                _clip = new Node
+                {
+                    Scale = _config.GetVector("scale").X
+                };
                 _ = _builder.AddChild(_clip);
                 clip = _clip;
             }
@@ -105,8 +107,10 @@ namespace Default.Namespace
             for (int i = 0; i < GrassCount(); i++)
             {
                 Particle particle = grassSystem.Particles[i];
-                RotatorGrass rotatorGrass = new(particle);
-                rotatorGrass.InitialAngle = grassSystem.GetItemAngle(i);
+                RotatorGrass rotatorGrass = new(particle)
+                {
+                    InitialAngle = grassSystem.GetItemAngle(i)
+                };
                 grass.Add(rotatorGrass);
             }
         }

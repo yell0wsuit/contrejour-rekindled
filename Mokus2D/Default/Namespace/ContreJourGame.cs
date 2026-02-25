@@ -274,8 +274,10 @@ namespace Default.Namespace
                 }
             }
             string texturePath = ClipFactory.GetTexturePath(string.Format("{0}Chapter16Bit", chapter + 1));
-            Sprite sprite = new(Mokus2DGame.SharedContent.Load<Texture2D>(texturePath));
-            sprite.Anchor = new Vector2(0f, 1f);
+            Sprite sprite = new(Mokus2DGame.SharedContent.Load<Texture2D>(texturePath))
+            {
+                Anchor = new Vector2(0f, 1f)
+            };
             Builder.AddAlphaBackground(sprite);
         }
 

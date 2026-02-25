@@ -79,8 +79,10 @@ namespace Default.Namespace
             sprite.Run(new FadeIn(0.1f));
             sprite.Color = color2;
             sprite.Scale = 1.2f;
-            clickableLayer = new ClickableLayer(0);
-            clickableLayer.Position = sprite.Position;
+            clickableLayer = new ClickableLayer(0)
+            {
+                Position = sprite.Position
+            };
             AddChild(clickableLayer);
             Button button3 = Button.ButtonBigWithIcon("McRestartIcon");
             button3.ClickEvent.AddListenerSelector(new Action(restartEvent.SendEvent));

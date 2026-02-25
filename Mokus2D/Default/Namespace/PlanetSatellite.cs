@@ -10,9 +10,11 @@ namespace Default.Namespace
         public PlanetSatellite()
         {
             satellite = ClipFactory.CreateWithAnchor("McSatellite");
-            changer = new CosChanger(0.03f, 0.035f);
-            changer.MinValue = CocosUtil.iPadValue(-150f);
-            changer.MaxValue = CocosUtil.iPadValue(150f);
+            changer = new CosChanger(0.03f, 0.035f)
+            {
+                MinValue = CocosUtil.iPadValue(-150f),
+                MaxValue = CocosUtil.iPadValue(150f)
+            };
             AddChild(satellite);
         }
 

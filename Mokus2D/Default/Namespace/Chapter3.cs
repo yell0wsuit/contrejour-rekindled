@@ -45,9 +45,11 @@ namespace Default.Namespace
 
         private RotatingSprite AddShesterna(string spriteName, int speed, Vector2 position)
         {
-            RotatingSprite rotatingSprite = new(spriteName);
-            rotatingSprite.Speed = speed;
-            rotatingSprite.Position = position;
+            RotatingSprite rotatingSprite = new(spriteName)
+            {
+                Speed = speed,
+                Position = position
+            };
             container.AddChild(rotatingSprite);
             AddUpdating(rotatingSprite);
             return rotatingSprite;

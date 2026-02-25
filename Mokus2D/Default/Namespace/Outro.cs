@@ -17,8 +17,10 @@ namespace Default.Namespace
             minY = CocosUtil.iPad(190, -100);
             margins = CocosUtil.iPad(15f, 20f);
             maxY = CocosUtil.iPad(820, 760);
-            background = new LayerColor(ContreJourConstants.BLACK_COLOR);
-            background.Opacity = 0;
+            background = new LayerColor(ContreJourConstants.BLACK_COLOR)
+            {
+                Opacity = 0
+            };
             background.Run(new FadeTo(2f, 0.5882353f));
             AddChild(background);
             this.text = new Node();

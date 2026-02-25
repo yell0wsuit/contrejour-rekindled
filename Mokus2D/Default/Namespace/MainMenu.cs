@@ -203,8 +203,10 @@ namespace Default.Namespace
 
         public void CreateLabels()
         {
-            names = new NamesChanger();
-            names.Position = CocosUtil.iPad(NAMES_POSITION, NAMES_POSITION_IPHONE);
+            names = new NamesChanger
+            {
+                Position = CocosUtil.iPad(NAMES_POSITION, NAMES_POSITION_IPHONE)
+            };
             AddChild(names, 4);
             logo = ClipFactory.CreateWithAnchor("McMainMenuLogo");
             AddChild(logo, 4);
@@ -229,8 +231,10 @@ namespace Default.Namespace
                 if (HardwareCapabilities.IsLowMemoryDevice)
                 {
                     string texturePath = ClipFactory.GetTexturePath(string.Format("{0}Chapter16Bit", num));
-                    sprite = new Sprite(Mokus2DGame.SharedContent.Load<Texture2D>(texturePath));
-                    sprite.Position = ScreenConstants.IPhoneScreenCenter;
+                    sprite = new Sprite(Mokus2DGame.SharedContent.Load<Texture2D>(texturePath))
+                    {
+                        Position = ScreenConstants.IPhoneScreenCenter
+                    };
                 }
                 else
                 {

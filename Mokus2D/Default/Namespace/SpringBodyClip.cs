@@ -38,9 +38,11 @@ namespace Default.Namespace
             suckPoint = builder.ToVec(SUCK_POINT * clip.ScaleX);
             suckDistance = 150f * clip.ScaleX * builder.SizeMult;
             bodyCenterVec = FarseerUtil.rotate(builder.ToVec(BODY_CENTER * clip.ScaleX), InitialBodyAngle);
-            breatheChanger = new CosChanger(0.06f, 0.07f);
-            breatheChanger.MinValue = 0.95f;
-            breatheChanger.MaxValue = 1.04f;
+            breatheChanger = new CosChanger(0.06f, 0.07f)
+            {
+                MinValue = 0.95f,
+                MaxValue = 1.04f
+            };
             foreach (Fixture fixture in Body.FixtureList)
             {
                 fixture.Friction = 1f;

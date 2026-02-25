@@ -36,8 +36,10 @@ namespace Default.Namespace
             touchPointSpeed = Maths.randRange(0.02f, 0.03f) / 1.5f;
             touchPointNeededSpeed = touchPointSpeed;
             startSpringWidth = _config.GetFloat("Width");
-            trajectory = new Trajectory(game);
-            trajectory.Impulse = startSpringWidth / 32f;
+            trajectory = new Trajectory(game)
+            {
+                Impulse = startSpringWidth / 32f
+            };
             builder.AddChildAfter(trajectory, circle);
             foreach (Fixture fixture in Body.FixtureList)
             {

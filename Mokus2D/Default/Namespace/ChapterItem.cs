@@ -82,9 +82,11 @@ namespace Default.Namespace
 
         protected virtual void CreateClickListener()
         {
-            clickListener = new RadiusClickListener(this, CocosUtil.iPad(180, 90), 0);
-            clickListener.Radius = 40f;
-            clickListener.DisableDrag = true;
+            clickListener = new RadiusClickListener(this, CocosUtil.iPad(180, 90), 0)
+            {
+                Radius = 40f,
+                DisableDrag = true
+            };
             clickListener.ClickEvent.AddListenerSelector(new Action(OnClick));
         }
 

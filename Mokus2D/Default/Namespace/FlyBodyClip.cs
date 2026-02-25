@@ -20,8 +20,10 @@ namespace Default.Namespace
             _clip = bodySprite;
             clip = _clip;
             _ = _builder.AddChild(_clip);
-            eye = new FlyEye(Game, true, Body.Position);
-            eye.Scale = 0.65f;
+            eye = new FlyEye(Game, true, Body.Position)
+            {
+                Scale = 0.65f
+            };
             clip.AddChild(eye);
             scaredTime = 0f;
             _ = Schedule(new Action(StartFly), Maths.randRange(7f, 11f));

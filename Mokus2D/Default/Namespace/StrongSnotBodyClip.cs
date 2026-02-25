@@ -104,10 +104,12 @@ namespace Default.Namespace
         {
             if (base.TouchBegan(_touch))
             {
-                dragJoint = new FixedMouseJoint(Physics.EndBody, Physics.EndBody.Position);
-                dragJoint.MaxForce = 100f;
-                dragJoint.Frequency = 100f;
-                dragJoint.WorldAnchorB = GetDragTarget().Point;
+                dragJoint = new FixedMouseJoint(Physics.EndBody, Physics.EndBody.Position)
+                {
+                    MaxForce = 100f,
+                    Frequency = 100f,
+                    WorldAnchorB = GetDragTarget().Point
+                };
                 return true;
             }
             return false;

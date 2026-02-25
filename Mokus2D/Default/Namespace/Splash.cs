@@ -25,13 +25,17 @@ namespace Default.Namespace
             }
             else if (Constants.IS_RETINA)
             {
-                originalLogo = new Sprite(ClipFactory.CreateWithoutConfig("Default@2x"));
-                originalLogo.Rotation = -90f;
+                originalLogo = new Sprite(ClipFactory.CreateWithoutConfig("Default@2x"))
+                {
+                    Rotation = -90f
+                };
             }
             else
             {
-                originalLogo = new Sprite("Default.png");
-                originalLogo.Rotation = -90f;
+                originalLogo = new Sprite("Default.png")
+                {
+                    Rotation = -90f
+                };
             }
             originalLogo.Position = center;
             AddChild(originalLogo);

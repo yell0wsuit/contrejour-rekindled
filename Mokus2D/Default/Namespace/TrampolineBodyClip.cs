@@ -39,8 +39,10 @@ namespace Default.Namespace
             startDistance = impulseMultiplier * 1.621671f;
             maxDistance = impulseMultiplier * 5f;
             centerDistanceDiff = maxDistance - startDistance;
-            trajectory = new Trajectory(game);
-            trajectory.Impulse = impulseMultiplier;
+            trajectory = new Trajectory(game)
+            {
+                Impulse = impulseMultiplier
+            };
             builder.Add(trajectory, 11);
             trajectory.Position = builder.ToIPadPoint(center);
             trajectory.Angle = _config.GetFloat("rotation").ToRadians() + 1.5707964f;

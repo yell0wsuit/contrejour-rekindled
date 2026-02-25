@@ -115,8 +115,10 @@ namespace Default.Namespace
             vector = FarseerUtil.GetCenter(points[points.Count - 1], points[0]);
             list.Add(vector);
             list.Insert(0, vector);
-            List<Vector2> list2 = new();
-            list2.Capacity = list.Count * 5;
+            List<Vector2> list2 = new()
+            {
+                Capacity = list.Count * 5
+            };
             for (int j = 0; j < list.Count - 1; j++)
             {
                 GetBezierVerticesControlEndWidth(list[j], points[j], list[j + 1], width, ref list2);

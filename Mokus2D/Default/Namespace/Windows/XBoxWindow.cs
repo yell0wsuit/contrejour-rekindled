@@ -203,8 +203,10 @@ namespace Default.Namespace.Windows
         {
             gamerProfile = result;
             Texture2D texture2D = Texture2D.FromStream(Mokus2DGame.Device, gamerProfile.GetGamerPicture());
-            picture = new Sprite(texture2D);
-            picture.Scale = 1.4f;
+            picture = new Sprite(texture2D)
+            {
+                Scale = 1.4f
+            };
             pictureBackground.AddChild(picture);
             ShowItem(picture);
             ProcessGamerProfile();

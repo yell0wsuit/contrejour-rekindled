@@ -44,11 +44,13 @@ namespace Mokus2D.Visual
         public MaskedSprite(Vector2 size)
             : base(size)
         {
-            blendState = new BlendState();
-            blendState.ColorDestinationBlend = Microsoft.Xna.Framework.Graphics.Blend.SourceAlpha;
-            blendState.AlphaDestinationBlend = Microsoft.Xna.Framework.Graphics.Blend.SourceAlpha;
-            blendState.ColorSourceBlend = Microsoft.Xna.Framework.Graphics.Blend.Zero;
-            blendState.AlphaSourceBlend = Microsoft.Xna.Framework.Graphics.Blend.Zero;
+            blendState = new BlendState
+            {
+                ColorDestinationBlend = Microsoft.Xna.Framework.Graphics.Blend.SourceAlpha,
+                AlphaDestinationBlend = Microsoft.Xna.Framework.Graphics.Blend.SourceAlpha,
+                ColorSourceBlend = Microsoft.Xna.Framework.Graphics.Blend.Zero,
+                AlphaSourceBlend = Microsoft.Xna.Framework.Graphics.Blend.Zero
+            };
             maskRoot = new MaskRoot((int)size.X, (int)size.Y);
         }
 

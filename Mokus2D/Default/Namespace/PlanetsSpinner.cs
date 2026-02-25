@@ -88,8 +88,10 @@ namespace Default.Namespace
             exploding = true;
             pager.Enabled = false;
             data.UnlockChapter(chapter.Index);
-            explodingChapter = new ChapterLocked(chapter.Index, menu);
-            explodingChapter.TargetChapter = chapter;
+            explodingChapter = new ChapterLocked(chapter.Index, menu)
+            {
+                TargetChapter = chapter
+            };
             chapter.AddChild(explodingChapter);
             explodingChapter.ExplodeEvent.AddListenerSelector(delegate
             {

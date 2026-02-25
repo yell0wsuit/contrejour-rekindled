@@ -37,8 +37,10 @@ namespace Default.Namespace
                 {
                     flag3 = i >= (ROWS - LockedRows) * COLUMNS;
                 }
-                LevelItem levelItem = new(num, flag2 && !flag3, flag3);
-                levelItem.RealScale = 1.15f;
+                LevelItem levelItem = new(num, flag2 && !flag3, flag3)
+                {
+                    RealScale = 1.15f
+                };
                 AddChild(levelItem);
                 levelItem.Position = vector2 + new Vector2(vector3.X * (i % COLUMNS), -vector3.Y * (i / COLUMNS));
                 levelItem.ClickEvent.AddListenerSelector(new Action<TouchSprite>(OnLevelClick));
@@ -104,8 +106,10 @@ namespace Default.Namespace
             touchSprite.ClickEvent.AddListenerSelector(new Action(GetMoreEvent.SendEvent));
             node.Y = 10f;
             touchSprite.Scale = 1.45f;
-            ButtonSprite buttonSprite = new(touchSprite);
-            buttonSprite.TargetScale = touchSprite.Scale * 1.03f;
+            ButtonSprite buttonSprite = new(touchSprite)
+            {
+                TargetScale = touchSprite.Scale * 1.03f
+            };
             AddChild(touchSprite);
             adsButtonPosition = GetMorePosition;
             touchSprite.Position = GetMorePosition;

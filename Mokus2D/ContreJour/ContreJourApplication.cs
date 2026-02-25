@@ -26,9 +26,11 @@ namespace ContreJour
             gamerServicesComponent = new GamerServicesComponent(this);
             Components.Add(gamerServicesComponent);
             IsFixedTimeStep = false;
-            graphics = new GraphicsDeviceManager(this);
-            graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
-            graphics.PreferredBackBufferFormat = HardwareCapabilities.IsLowMemoryDevice ? SurfaceFormat.Dxt5 : SurfaceFormat.Color;
+            graphics = new GraphicsDeviceManager(this)
+            {
+                SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight,
+                PreferredBackBufferFormat = HardwareCapabilities.IsLowMemoryDevice ? SurfaceFormat.Dxt5 : SurfaceFormat.Color
+            };
             ContentRootDirectory = "content";
             TargetElapsedTime = TimeSpan.FromTicks(166667L);
             graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(OnPreparingDeviceSettings);
@@ -100,8 +102,10 @@ namespace ContreJour
             GraphicsDevice.PresentationParameters.DisplayOrientation = DisplayOrientation.LandscapeRight;
             PrimitivesDrawing.RefreshGraphicsDevice(Device);
             XNAUtil.RefreshViewport(GraphicsDevice);
-            gameContainer = new Node();
-            gameContainer.Scale = ScreenConstants.Scales.fromIPhone2ByHeight;
+            gameContainer = new Node
+            {
+                Scale = ScreenConstants.Scales.fromIPhone2ByHeight
+            };
             gameContainer.Position = (ScreenConstants.OsSizes.W7 - ScreenConstants.W7FromIPhoneSize * gameContainer.Scale) / 2f;
             Root.AddChild(gameContainer);
             Root.Position = new Vector2(0f, ScreenSize.Y);
@@ -198,8 +202,10 @@ namespace ContreJour
         private ContreJourGame ProcessLoadLevel()
         {
             int chapter = LevelsMenu.GetLevelPosition(lastLevel).Chapter;
-            ContreJourGame contreJourGame = new(chapter);
-            contreJourGame.CanShowIntro = canShowIntro;
+            ContreJourGame contreJourGame = new(chapter)
+            {
+                CanShowIntro = canShowIntro
+            };
             contreJourGame.BackEvent.AddListenerSelector(new Action(OnLevelBack));
             contreJourGame.RestartEvent.AddListenerSelector(new Action(RestartLevel));
             contreJourGame.NextLevelEvent.AddListenerSelector(new Action(NextLevel));

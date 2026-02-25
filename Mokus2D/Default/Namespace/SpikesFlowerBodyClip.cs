@@ -44,8 +44,10 @@ namespace Default.Namespace
         private void CreateEye()
         {
             Vector2 vector = container.LocalToNode(EYE_POSITION, Game.Root, true);
-            eye = new FlowerEye(Game, true, builder.ToVec(vector));
-            eye.Scale = movie.ScaleY * 0.7f;
+            eye = new FlowerEye(Game, true, builder.ToVec(vector))
+            {
+                Scale = movie.ScaleY * 0.7f
+            };
             container.AddChild(eye);
             eye.RefreshRootAngle();
             eye.Position = CocosUtil.toIPad(EYE_POSITION);

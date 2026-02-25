@@ -37,8 +37,10 @@ namespace Default.Namespace.Windows.Items
         private void OnGetProfile(GamerProfile result)
         {
             Texture2D texture2D = Texture2D.FromStream(Mokus2DGame.Device, result.GetGamerPicture());
-            Sprite sprite = new(texture2D);
-            sprite.OpacityFloat = 0f;
+            Sprite sprite = new(texture2D)
+            {
+                OpacityFloat = 0f
+            };
             sprite.Run(new FadeIn(0.5f));
             CreatePicture(sprite);
             sprite.Y -= 1.7f;

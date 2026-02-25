@@ -9,9 +9,11 @@ namespace Default.Namespace
             : base(_builder, _body, _clip, _config)
         {
             float @float = _config.GetFloat("alphaStep");
-            changer = new CosChanger(@float, @float);
-            changer.MaxValue = _config.GetFloat("maximumAlpha");
-            changer.MinValue = _config.GetFloat("minimumAlpha");
+            changer = new CosChanger(@float, @float)
+            {
+                MaxValue = _config.GetFloat("maximumAlpha"),
+                MinValue = _config.GetFloat("minimumAlpha")
+            };
         }
 
         public override void Update(float time)

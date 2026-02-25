@@ -31,10 +31,12 @@ namespace Default.Namespace
 
         protected BouncingSprite CreateBouncingSprite(string spriteName, int rotation, Vector2 position, float scale)
         {
-            BouncingSprite bouncingSprite = new(spriteName);
-            bouncingSprite.Rotation = rotation;
-            bouncingSprite.Position = position;
-            bouncingSprite.Scale = scale;
+            BouncingSprite bouncingSprite = new(spriteName)
+            {
+                Rotation = rotation,
+                Position = position,
+                Scale = scale
+            };
             bouncingSprite.MaxBounceEvent += new Action<BouncingSprite>(OnSpringSpit);
             container.AddChild(bouncingSprite);
             AddUpdating(bouncingSprite);

@@ -8,8 +8,10 @@ namespace Default.Namespace
         public CosPropertyChanger(NodeBase target, float minValue, float maxValue, float step)
         {
             this.target = target;
-            changer = new CosChanger(minValue, maxValue, step);
-            changer.Progress = Maths.randRange(0f, 6.2831855f);
+            changer = new CosChanger(minValue, maxValue, step)
+            {
+                Progress = Maths.randRange(0f, 6.2831855f)
+            };
         }
 
         public virtual float Value => changer.Value;
