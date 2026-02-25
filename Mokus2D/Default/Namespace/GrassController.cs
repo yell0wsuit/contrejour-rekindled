@@ -140,7 +140,7 @@ namespace Default.Namespace
         public void CreateFlyes()
         {
             flyes = new ArrayList();
-            int num = ((game.RoseChapter || game.BonusChapter) ? 1 : 2);
+            int num = (game.RoseChapter || game.BonusChapter) ? 1 : 2;
             for (int i = 0; i < num; i++)
             {
                 Vector2 vector = new(Maths.RandRangeMinMax(-plasticine.Width, plasticine.Width), Maths.RandRangeMinMax(1.3333334f, 2f));

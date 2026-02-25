@@ -26,7 +26,7 @@ namespace Default.Namespace
                 vector += bodyClip.Clip.Position;
                 MoveTo moveTo = new(0.02f, vector);
                 float num = 1f + i / 15f / 5f;
-                num += ((i % 2 != 0) ? 0.05f : (-0.05f));
+                num += (i % 2 != 0) ? 0.05f : (-0.05f);
                 ScaleTo scaleTo = new(0.02f, num);
                 Spawn spawn = new([moveTo, scaleTo]);
                 if (nodeAction == null)

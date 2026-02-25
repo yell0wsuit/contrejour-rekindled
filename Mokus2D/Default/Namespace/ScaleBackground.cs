@@ -11,7 +11,7 @@ namespace Default.Namespace
         {
             initialScale.X = node.ScaleX;
             initialScale.Y = node.ScaleY;
-            currentStep = (config.Exists("angleOffset") ? (config.GetFloat("angleOffset") * 10f) : 0f);
+            currentStep = config.Exists("angleOffset") ? (config.GetFloat("angleOffset") * 10f) : 0f;
         }
 
         public override void Update(float time)

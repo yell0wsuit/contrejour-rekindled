@@ -42,9 +42,9 @@ namespace Default.Namespace
                 num = builder.EngineConfig.Density;
             }
             Fixture fixture = body.CreateFixture(shape, num);
-            float num2 = (hashtable.Exists("friction") ? hashtable.GetFloat("friction") : builder.EngineConfig.Friction);
+            float num2 = hashtable.Exists("friction") ? hashtable.GetFloat("friction") : builder.EngineConfig.Friction;
             fixture.Friction = num2;
-            float num3 = (hashtable.Exists("restitution") ? hashtable.GetFloat("restitution") : builder.EngineConfig.Restitution);
+            float num3 = hashtable.Exists("restitution") ? hashtable.GetFloat("restitution") : builder.EngineConfig.Restitution;
             fixture.Restitution = num3;
             fixture.IsSensor = hashtable.GetBool("sensor");
             if (hashtable.Exists("categoryBits") || hashtable.Exists("maskBits"))

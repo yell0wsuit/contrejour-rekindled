@@ -205,7 +205,7 @@ namespace Default.Namespace
             float num = (s2.B.Y - s2.A.Y) * (s1.B.X - s1.A.X) - (s2.B.X - s2.A.X) * (s1.B.Y - s1.A.Y);
             float num2 = (s2.B.X - s2.A.X) * (s1.A.Y - s2.A.Y) - (s2.B.Y - s2.A.Y) * (s1.A.X - s2.A.X);
             float num3 = (s1.B.X - s1.A.X) * (s1.A.Y - s2.A.Y) - (s1.B.Y - s1.A.Y) * (s1.A.X - s2.A.X);
-            return num != 0f && (num2 / num <= 1f && num2 / num >= 0f && num3 / num <= 1f && num3 / num >= 0f);
+            return num != 0f && num2 / num <= 1f && num2 / num >= 0f && num3 / num <= 1f && num3 / num >= 0f;
         }
 
         public static void SetLength(ref Vector2 value, float length)

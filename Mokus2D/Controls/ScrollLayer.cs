@@ -27,7 +27,7 @@ namespace Mokus2D.Controls
 
         public void RefreshBorders()
         {
-            MinPosition = (MaxPosition = Position);
+            MinPosition = MaxPosition = Position;
         }
 
         protected override bool OnTouchMove(Touch touch)

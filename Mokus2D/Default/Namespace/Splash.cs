@@ -67,7 +67,7 @@ namespace Default.Namespace
 
         private void StartLogo()
         {
-            blackHeroPosition = (Constants.IS_IPAD ? BLACK_HERO_POSITION : BLACK_HERO_POSITION_IPHONE);
+            blackHeroPosition = Constants.IS_IPAD ? BLACK_HERO_POSITION : BLACK_HERO_POSITION_IPHONE;
             logo = (MovieClip)ClipFactory.CreateWithAnchor("McChillingoLogo");
             AddChild(logo);
             logo.Visible = false;

@@ -88,7 +88,7 @@ namespace Mokus2D.Visual
             base.Update(time);
             if (!stoped)
             {
-                int num = (rewind ? (-1) : 1);
+                int num = rewind ? (-1) : 1;
                 float num2 = time * fps * Speed * num;
                 float num3 = currentFrame + num2;
                 CurrentFrame = num3;

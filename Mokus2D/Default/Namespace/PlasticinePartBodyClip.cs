@@ -81,7 +81,7 @@ namespace Default.Namespace
             targetPosition = initialPosition;
             targetAngle = Body.Rotation;
             initialAngle = Body.Rotation;
-            float num2 = (game.WhiteSide ? 1.0471976f : 0.62831855f);
+            float num2 = game.WhiteSide ? 1.0471976f : 0.62831855f;
             if (Maths.Between(num, -num2, num2))
             {
                 isFloor = true;
@@ -385,7 +385,7 @@ namespace Default.Namespace
         public void UpdateCircle()
         {
             float num = FarseerUtil.GetProjectionTarget(Body.Position - initialPosition, normal) / builder.EngineConfig.SizeMultiplier;
-            float num2 = ((num > 0f) ? (num / circleSize / 2f) : 0f);
+            float num2 = (num > 0f) ? (num / circleSize / 2f) : 0f;
             circle.Scale = circleScale + num2;
         }
 

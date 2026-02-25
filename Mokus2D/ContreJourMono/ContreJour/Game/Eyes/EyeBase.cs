@@ -114,7 +114,7 @@ namespace ContreJourMono.ContreJour.Game.Eyes
             endDispatcher = null;
             currentBackground = background;
             currentEyeBall = eyeBall;
-            lockX = (lockY = false);
+            lockX = lockY = false;
             RefreshLayout();
         }
 

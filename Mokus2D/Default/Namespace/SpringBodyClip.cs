@@ -425,7 +425,7 @@ namespace Default.Namespace
 
         public void UpdateSuckingClip()
         {
-            float num = ((sticked.Body.BodyType == BodyType.Dynamic) ? Maths.min(1f, relativeStickedPosition.Y / suckDistance) : 0f);
+            float num = (sticked.Body.BodyType == BodyType.Dynamic) ? Maths.min(1f, relativeStickedPosition.Y / suckDistance) : 0f;
             movie.CurrentFrame = 7f + Maths.max(5f * (1f - num) - 1f, 0f);
             if (Maths.FuzzyEquals(num, 0f, 0.0001f))
             {

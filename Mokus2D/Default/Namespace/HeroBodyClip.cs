@@ -126,7 +126,7 @@ namespace Default.Namespace
             }
             else
             {
-                Color color = (Game.WhiteSide ? ContreJourConstants.WHITE_TAIL_COLOR : ContreJourConstants.BLACK_COLOR);
+                Color color = Game.WhiteSide ? ContreJourConstants.WHITE_TAIL_COLOR : ContreJourConstants.BLACK_COLOR;
                 tail = new HeroTail(color);
                 _clip.AddChild(tail, -1);
             }
@@ -363,7 +363,7 @@ namespace Default.Namespace
             {
                 lastOnGroundTime = Game.TotalTime;
             }
-            Body.AngularDamping = ((Game.TotalTime - lastOnGroundTime > 0.3f) ? 0.5f : 0f);
+            Body.AngularDamping = (Game.TotalTime - lastOnGroundTime > 0.3f) ? 0.5f : 0f;
             if (Body != null && Body.BodyType == BodyType.Static && !onGround && snotJoinedCount == 0)
             {
                 airTime += time;
@@ -386,7 +386,7 @@ namespace Default.Namespace
                 UpdateShadow(time);
             }
             float num2 = Maths.atan2Vec(Body.LinearVelocity);
-            float num3 = (speedLocked ? 0f : Body.LinearVelocity.Length());
+            float num3 = speedLocked ? 0f : Body.LinearVelocity.Length();
             if (!speedyPosted && onGroundTime > 0.2f && num3 >= 11.666667f && hitEnabled)
             {
                 XBoxUtil.AwardAchievement("speedy");
@@ -397,7 +397,7 @@ namespace Default.Namespace
                 XBoxUtil.AwardAchievement("mighty_bird");
                 migthyPosted = true;
             }
-            float num4 = ((snotJoinedCount > 0) ? 33.333332f : 66.666664f);
+            float num4 = (snotJoinedCount > 0) ? 33.333332f : 66.666664f;
             if (num3 > num4)
             {
                 num3 = num4;
@@ -410,7 +410,7 @@ namespace Default.Namespace
                 tail.LimitAngles = onGround;
                 tail.SetMovementDirection(num2);
                 tail.Speed = num3;
-                tail.UpdateSpeed = (sleep ? 0.2f : 1f);
+                tail.UpdateSpeed = sleep ? 0.2f : 1f;
             }
             previousSpeed = Body.LinearVelocity;
             velocity = num3;
@@ -570,7 +570,7 @@ namespace Default.Namespace
             else
             {
                 EyeAnimationsAllowed = true;
-                targetScale.X = (targetScale.Y = 1f);
+                targetScale.X = targetScale.Y = 1f;
                 timeToSleep = 7f;
             }
             clip.ScaleX = Maths.StepToTargetMaxStep(clip.ScaleX, targetScale.X, 0.002f);

@@ -32,7 +32,7 @@ namespace Default.Namespace
             _plasticine.Highlite = this;
             parent = _parent;
             index = _index;
-            noLightBorderOut = (game.BlackSide ? NO_LIGHT_BORDER_OUT_BLUE : NO_LIGHT_BORDER_OUT);
+            noLightBorderOut = game.BlackSide ? NO_LIGHT_BORDER_OUT_BLUE : NO_LIGHT_BORDER_OUT;
             noLightBorderOut = NO_LIGHT_BORDER_OUT;
         }
 
@@ -102,16 +102,16 @@ namespace Default.Namespace
             LightColor lightColor = game.LightColor;
             if (plasticine.Index == 0)
             {
-                vertices[0].Color = (array[0].Color = (flag ? lightColor.LightOutColor : mainColor));
-                vertices[1].Color = (flag ? lightColor.LightInColor : mainColor);
-                array[1].Color = (flag ? lightColor.LightBorderColor : noLightBorderOut);
+                vertices[0].Color = array[0].Color = flag ? lightColor.LightOutColor : mainColor;
+                vertices[1].Color = flag ? lightColor.LightInColor : mainColor;
+                array[1].Color = flag ? lightColor.LightBorderColor : noLightBorderOut;
             }
-            vertices[index].Color = (array[index].Color = (flag ? lightColor.LightOutColor : mainColor));
-            vertices[index + 1].Color = (flag ? lightColor.LightInColor : mainColor);
-            array[index + 1].Color = (flag ? lightColor.LightBorderColor : noLightBorderOut);
-            vertices[index + 2].Color = (array[index + 2].Color = (hasLight ? lightColor.LightOutColor : mainColor));
-            vertices[index + 3].Color = (hasLight ? lightColor.LightInColor : mainColor);
-            array[index + 3].Color = (hasLight ? lightColor.LightBorderColor : noLightBorderOut);
+            vertices[index].Color = array[index].Color = flag ? lightColor.LightOutColor : mainColor;
+            vertices[index + 1].Color = flag ? lightColor.LightInColor : mainColor;
+            array[index + 1].Color = flag ? lightColor.LightBorderColor : noLightBorderOut;
+            vertices[index + 2].Color = array[index + 2].Color = hasLight ? lightColor.LightOutColor : mainColor;
+            vertices[index + 3].Color = hasLight ? lightColor.LightInColor : mainColor;
+            array[index + 3].Color = hasLight ? lightColor.LightBorderColor : noLightBorderOut;
         }
 
         public PlasticinePartHighlite PreviousHighlite()
@@ -147,12 +147,12 @@ namespace Default.Namespace
             if (plasticine.Index == 0)
             {
                 vertices[0].Position = inBorder[0].Position;
-                vertices[1].Position = (flag ? PreviousHighlite().LightBottom.ToVector3() : vertices[0].Position);
+                vertices[1].Position = flag ? PreviousHighlite().LightBottom.ToVector3() : vertices[0].Position;
             }
             vertices[index].Position = inBorder[index].Position;
             vertices[index + 2].Position = inBorder[index + 2].Position;
-            vertices[index + 1].Position = (flag ? PreviousHighlite().LightBottom.Middle(lightBottom).ToVector3() : vertices[index].Position);
-            vertices[index + 3].Position = (hasLight ? lightBottom.ToVector3() : vertices[index + 2].Position);
+            vertices[index + 1].Position = flag ? PreviousHighlite().LightBottom.Middle(lightBottom).ToVector3() : vertices[index].Position;
+            vertices[index + 3].Position = hasLight ? lightBottom.ToVector3() : vertices[index + 2].Position;
         }
 
         private void SetColors(ref List<Color> target, Color first, Color second)

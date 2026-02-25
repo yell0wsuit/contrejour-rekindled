@@ -17,7 +17,7 @@ namespace Default.Namespace
             game = _game;
             data = UserData.Instance;
             Mokus2DGame.SoundManager.MusicDisableEvent.AddListenerSelector(new Action(OnMusicDisable));
-            Color color = (game.BlackSide ? ColorUtil.Mult(ContreJourConstants.BLUE_LIGHT_COLOR, 1.5f) : ContreJourConstants.GREY_COLOR);
+            Color color = game.BlackSide ? ColorUtil.Mult(ContreJourConstants.BLUE_LIGHT_COLOR, 1.5f) : ContreJourConstants.GREY_COLOR;
             if (game.BonusChapter)
             {
                 color = ContreJourConstants.GreenLightColor;

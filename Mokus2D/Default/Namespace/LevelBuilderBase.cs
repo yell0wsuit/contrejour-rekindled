@@ -344,7 +344,7 @@ namespace Default.Namespace
                     {
                         node.ScaleY *= -1f;
                     }
-                    int num = (hashtable.Exists("z") ? hashtable.GetInt("z") : DefaultZ);
+                    int num = hashtable.Exists("z") ? hashtable.GetInt("z") : DefaultZ;
                     Add(node, num);
                     Vector2 vector2 = item.GetVector("position");
                     node.Position = ToIPadPoint(vector2);
@@ -353,7 +353,7 @@ namespace Default.Namespace
                 if (!hashtable.Exists("skipClip"))
                 {
                     string clipType = GetClipType(hashtable);
-                    Type type = ((clipType != null) ? Type.GetType(NamespacePrefix + clipType) : typeof(BodyClip));
+                    Type type = (clipType != null) ? Type.GetType(NamespacePrefix + clipType) : typeof(BodyClip);
                     if (type == null)
                     {
                         DebugLog.errorFmt("type not found {0}", null, [clipType]);

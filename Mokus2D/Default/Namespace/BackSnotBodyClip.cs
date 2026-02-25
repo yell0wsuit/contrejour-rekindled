@@ -106,7 +106,7 @@ namespace Default.Namespace
                     Body body = Physics.BodyAt(i);
                     body.GravityScale = stabilize ? 0 : 1;
                 }
-                Physics.EndBody.GravityScale = (stabilize ? 0.2f : 0f);
+                Physics.EndBody.GravityScale = stabilize ? 0.2f : 0f;
                 float num2 = force / 4f * 3f + force * Maths.Cos(forceProgress) / 4f;
                 forceProgress += forceStep;
                 Physics.EndBody.ApplyForce(FarseerUtil.ToVecAngle(num2, eye.ViewAngle), Physics.EndBody.WorldCenter);

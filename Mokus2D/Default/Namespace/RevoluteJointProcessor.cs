@@ -41,7 +41,7 @@ namespace Default.Namespace
                     num += bodies[i].Inertia;
                 }
                 revoluteJoint.MotorSpeed = config.GetFloat("motorSpeed");
-                revoluteJoint.MaxMotorTorque = (config.Exists("maxMotorTorque") ? config.GetFloat("maxMotorTorque") : (30f * num));
+                revoluteJoint.MaxMotorTorque = config.Exists("maxMotorTorque") ? config.GetFloat("maxMotorTorque") : (30f * num);
                 revoluteJoint.MotorEnabled = true;
             }
             if (config.Exists("upperAngle"))

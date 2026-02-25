@@ -167,8 +167,8 @@ namespace Default.Namespace
             int num = bezierPoints.Count + 1;
             for (int i = bezierPoints.Count - 1; i >= 0; i--)
             {
-                Vector2 vector = ((i == bezierPoints.Count - 1) ? bezierPoints[bezierPoints.Count - 1] : bezierPoints[i + 1]);
-                Vector2 vector2 = ((i == 0) ? currentPosition : bezierPoints[i - 1]);
+                Vector2 vector = (i == bezierPoints.Count - 1) ? bezierPoints[bezierPoints.Count - 1] : bezierPoints[i + 1];
+                Vector2 vector2 = (i == 0) ? currentPosition : bezierPoints[i - 1];
                 float num2 = width * (1f - (i + 1) / (float)num);
                 if (num2 > 1f)
                 {

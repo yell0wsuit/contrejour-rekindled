@@ -89,7 +89,7 @@ namespace Default.Namespace
 
         public void SetFlying(bool value)
         {
-            float num = (value ? 0f : Maths.ToRadians(30f));
+            float num = value ? 0f : Maths.ToRadians(30f);
             leftWings.Run(new RotateTo(0.5f, num));
             rightWings.Run(new RotateTo(0.5f, -num));
             leftWings.SetFlying(value);

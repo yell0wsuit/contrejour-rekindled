@@ -48,7 +48,7 @@ namespace Default.Namespace
 
         public void ShowMessageRightMessageIndex(string message, string rightMessage, int index)
         {
-            Color color = (HardwareCapabilities.IsLowMemoryDevice ? Color.Black : ContreJourConstants.GREY_COLOR);
+            Color color = HardwareCapabilities.IsLowMemoryDevice ? Color.Black : ContreJourConstants.GREY_COLOR;
             MultilineLabel multilineLabel = ContreJourLabel.CreateMultilineLabel(CocosUtil.RetinaWp7(30f), message);
             multilineLabel.AnchorX = 1f;
             multilineLabel.Color = color;

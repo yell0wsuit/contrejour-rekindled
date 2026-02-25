@@ -110,7 +110,7 @@ namespace Default.Namespace
                 if (zooming && (_touch == zoomTouch1 || _touch == zoomTouch2))
                 {
                     zooming = false;
-                    zoomTouch1 = (zoomTouch2 = null);
+                    zoomTouch1 = zoomTouch2 = null;
                 }
             }
         }
@@ -216,7 +216,7 @@ namespace Default.Namespace
             }
             else
             {
-                num = (zoomOut ? minScale : targetScale);
+                num = zoomOut ? minScale : targetScale;
             }
             if (noMoveTime > 0f || heroStill)
             {

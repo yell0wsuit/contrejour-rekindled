@@ -327,9 +327,9 @@ namespace Default.Namespace
 
         public void RefreshScore()
         {
-            int num = (inChapter ? data.GetChapterStars(currentChapter) : data.TotalStars);
-            int num2 = (inChapter ? data.GetChapterScore(currentChapter) : data.TotalScore);
-            int num3 = (inChapter ? 60 : (ContreJourConstants.LEVEL_COUNT * 3));
+            int num = inChapter ? data.GetChapterStars(currentChapter) : data.TotalStars;
+            int num2 = inChapter ? data.GetChapterScore(currentChapter) : data.TotalScore;
+            int num3 = inChapter ? 60 : (ContreJourConstants.LEVEL_COUNT * 3);
             string text = string.Format(Messages.STARS_AND_SCORE, num, num3, num2);
             starsField.TextString = text;
         }
@@ -658,7 +658,7 @@ namespace Default.Namespace
             GreenColor
         ];
 
-        private static readonly Color[] BackColors = (Constants.IsTrial ? new Color[]
+        private static readonly Color[] BackColors = Constants.IsTrial ? new Color[]
         {
             GREY_COLOR,
             BLUE_COLOR,
@@ -671,7 +671,7 @@ namespace Default.Namespace
             ColorUtil.Mult(GREY_COLOR, 0.5f),
             GREY_COLOR,
             GreenColor
-        ]);
+        ];
 
         private readonly Vector2 NAMES_POSITION_IPHONE = CocosUtil.Vector2Retina(80f, 236f);
 

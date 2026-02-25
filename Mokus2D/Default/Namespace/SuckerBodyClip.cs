@@ -212,7 +212,7 @@ namespace Default.Namespace
             ghostSprite.StopAllActions();
             ghostSprite.Visible = true;
             touch = _touch;
-            startDragPosition = ((end != null) ? endBody.Position : builder.TouchRootVec(touch));
+            startDragPosition = (end != null) ? endBody.Position : builder.TouchRootVec(touch);
         }
 
         public void DestroyBodies()

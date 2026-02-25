@@ -29,7 +29,7 @@ namespace Default.Namespace
                 for (int i = 0; i < 3; i++)
                 {
                     bool flag = levelData != null && i < levelData.StarsCount;
-                    string text = (flag ? "McLevelEnergy" : "McLevelEnergyInactive");
+                    string text = flag ? "McLevelEnergy" : "McLevelEnergyInactive";
                     Node node = ClipFactory.CreateWithAnchor(text);
                     node.IgnoreParentColor = flag;
                     node.Position = CocosUtil.ccpIPad(36f, 22f * (-1f + i));
@@ -74,10 +74,10 @@ namespace Default.Namespace
         {
             Sprite sprite = ClipFactory.CreateWithAnchor(string.Format("McLevels{0}", character));
             Color color = CocosUtil.ccc4Mix(ContreJourConstants.BLUE_LIGHT_COLOR, ContreJourConstants.WHITE_COLOR_3, 0.5f);
-            sprite.Color = ((chapter == 1) ? color : ContreJourConstants.GREY_COLOR);
+            sprite.Color = (chapter == 1) ? color : ContreJourConstants.GREY_COLOR;
             if (!unlocked)
             {
-                sprite.Opacity = ((chapter == 1) ? 150 : 80);
+                sprite.Opacity = (chapter == 1) ? 150 : 80;
             }
             return sprite;
         }

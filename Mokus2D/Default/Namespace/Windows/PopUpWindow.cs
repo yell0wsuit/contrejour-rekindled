@@ -68,7 +68,7 @@ namespace Default.Namespace.Windows
 
         private void Disable()
         {
-            UpdateEnabled = (Visible = false);
+            UpdateEnabled = Visible = false;
         }
 
         private void ShowItems()

@@ -89,7 +89,7 @@ namespace Default.Namespace
             if (key != null && sounds.ContainsKey(key))
             {
                 List<string> list = sounds[key];
-                float num = (key.StartsWith("McEyeBlink") ? 0.3f : 0.75f);
+                float num = key.StartsWith("McEyeBlink") ? 0.3f : 0.75f;
                 Mokus2DGame.SoundManager.PlayRandomSound(list, num);
                 return true;
             }

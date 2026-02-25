@@ -200,7 +200,7 @@ namespace Default.Namespace
                 Body.BodyType = BodyType.Static;
                 Body.SetTransform(initialPosition, Body.Rotation);
             }
-            float num = (draging ? 255f : 150f);
+            float num = draging ? 255f : 150f;
             SetAlpha(Maths.stepTo(currentAlpha, num, 5f));
             base.Update(time);
         }

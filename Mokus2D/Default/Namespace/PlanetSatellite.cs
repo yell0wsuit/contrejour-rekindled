@@ -23,7 +23,7 @@ namespace Default.Namespace
             satellite.Scale = changer.GetValue(0.5f, 1f, changer.Progress - 1.5707964f);
             satellite.OpacityFloat = satellite.Scale;
             Rotation += 20f * time;
-            int num = ((satellite.Scale < 0.75f) ? (-1) : 1);
+            int num = (satellite.Scale < 0.75f) ? (-1) : 1;
             Parent.ChangeChildLayer(this, num);
         }
 

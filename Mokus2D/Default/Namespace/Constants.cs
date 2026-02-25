@@ -54,9 +54,9 @@ namespace Default.Namespace
 
         public static bool IS_RETINA = true;
 
-        public static readonly int ChaptersCount = (IsTrial ? 2 : 6);
+        public static readonly int ChaptersCount = IsTrial ? 2 : 6;
 
-        public static readonly int NormalChaptersCount = (IsTrial ? 2 : 5);
+        public static readonly int NormalChaptersCount = IsTrial ? 2 : 5;
 
         public static class config
         {

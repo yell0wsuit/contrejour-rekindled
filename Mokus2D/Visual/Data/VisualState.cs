@@ -64,7 +64,7 @@ namespace Mokus2D.Visual.Data
 
         public void RefreshValues(VisualState parentState, float nodeOpacity, Color nodeColor, bool ignoreParentOpacity, bool ignoreParentColor)
         {
-            opacity = (ignoreParentOpacity ? nodeOpacity : (nodeOpacity * parentState.opacity));
+            opacity = ignoreParentOpacity ? nodeOpacity : (nodeOpacity * parentState.opacity);
             if (!ignoreParentColor)
             {
                 color = nodeColor.Mult(parentState.color);

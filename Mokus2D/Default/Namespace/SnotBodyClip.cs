@@ -221,7 +221,7 @@ namespace Default.Namespace
 
         public virtual void CreateTail()
         {
-            string text = (game.BlackSide ? "snotTailTextureBlack.png" : "McTailTextureGreen.png");
+            string text = game.BlackSide ? "snotTailTextureBlack.png" : "McTailTextureGreen.png";
             blackTail = new BlackTail(Physics.EndBody, builder, text);
             builder.Add(blackTail, 3);
             blackTail.Width = CocosUtil.r(20f);

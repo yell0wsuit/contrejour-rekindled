@@ -41,7 +41,7 @@ namespace Default.Namespace
             container.AddChild(background);
             tablo = new Tablo();
             tablo.Position = CocosUtil.ccpIPad(-74f, 28f);
-            tablo.Color = ((index == 1) ? ContreJourConstants.BLUE_LIGHT_COLOR : ContreJourConstants.GREY_COLOR);
+            tablo.Color = (index == 1) ? ContreJourConstants.BLUE_LIGHT_COLOR : ContreJourConstants.GREY_COLOR;
             container.AddChild(tablo);
             background.Color = tablo.Color;
             int num = UserData.StarsToUnlock(index);

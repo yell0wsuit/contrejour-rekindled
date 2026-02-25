@@ -26,7 +26,7 @@ namespace Default.Namespace
             textPosition.Y = minY;
             this.text.Position = textPosition;
             AddChild(this.text);
-            string text = (success ? "YOU_DID_IT" : "YOU_TRIED_HARD");
+            string text = success ? "YOU_DID_IT" : "YOU_TRIED_HARD";
             Label label = ContreJourLabel.CreateMultilineLabel(CocosUtil.iPad(28, 22), text);
             label.Position = new Vector2(0f, CocosUtil.iPad(-120, 160));
             label.Color = ContreJourConstants.WHITE_COLOR_3;
@@ -65,7 +65,7 @@ namespace Default.Namespace
                 {
                     textVisible = value;
                     text.StopAllActions();
-                    float num = (value ? 1f : 0f);
+                    float num = value ? 1f : 0f;
                     text.Run(new FadeTo(2f, num));
                 }
             }

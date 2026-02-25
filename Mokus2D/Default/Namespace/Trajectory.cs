@@ -9,7 +9,7 @@ namespace Default.Namespace
         public Trajectory(ContreJourGame _game)
             : base(_game.BlackSide ? "McTrampolinePathBlack.png" : "McTrampolinePath.png", 7)
         {
-            enabledOpacity = ((_game.Chapter == 4) ? 0.7f : 0.5f);
+            enabledOpacity = (_game.Chapter == 4) ? 0.7f : 0.5f;
             Visible = false;
             int num = 0;
             foreach (Particle particle in Particles)

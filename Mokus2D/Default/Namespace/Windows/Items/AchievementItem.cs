@@ -18,7 +18,7 @@ namespace Default.Namespace.Windows.Items
             label.AnchorX = 0f;
             label.Position = new Vector2(83f, -22f);
             AddChild(label);
-            float num = ((ContreJourLabel.CultureName == "de") ? 8.25f : 9f);
+            float num = (ContreJourLabel.CultureName == "de") ? 8.25f : 9f;
             Label label2 = ContreJourLabel.CreateLabel(num, achievement.Description, false);
             label2.Y = -10f;
             AddChild(label2);

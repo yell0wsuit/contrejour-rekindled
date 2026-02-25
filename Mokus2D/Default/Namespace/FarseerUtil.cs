@@ -332,7 +332,7 @@ namespace Default.Namespace
         public static Body BodyFromShape(World world, Shape shape, Vector2 position, float rotation, bool sensor, float density, bool dynamic)
         {
             Body body = BodyFactory.CreateBody(world);
-            body.BodyType = (dynamic ? BodyType.Dynamic : BodyType.Static);
+            body.BodyType = dynamic ? BodyType.Dynamic : BodyType.Static;
             body.Position = position;
             body.Rotation = rotation;
             Fixture fixture = AddShapeToDensity(shape, body, density);

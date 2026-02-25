@@ -28,7 +28,7 @@ namespace ContreJour
             IsFixedTimeStep = false;
             graphics = new GraphicsDeviceManager(this);
             graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
-            graphics.PreferredBackBufferFormat = (HardwareCapabilities.IsLowMemoryDevice ? SurfaceFormat.Dxt5 : SurfaceFormat.Color);
+            graphics.PreferredBackBufferFormat = HardwareCapabilities.IsLowMemoryDevice ? SurfaceFormat.Dxt5 : SurfaceFormat.Color;
             ContentRootDirectory = "content";
             TargetElapsedTime = TimeSpan.FromTicks(166667L);
             graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(OnPreparingDeviceSettings);

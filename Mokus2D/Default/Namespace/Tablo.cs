@@ -27,7 +27,7 @@ namespace Default.Namespace
                     open = value;
                     StopAllActions();
                     float num = open ? 1 : 0;
-                    float num2 = (open ? 0f : 1.5707964f);
+                    float num2 = open ? 0f : 1.5707964f;
                     Spawn spawn = new(
                     [
                         new ScaleTo(0.2f, num),

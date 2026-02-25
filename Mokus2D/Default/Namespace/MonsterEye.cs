@@ -63,7 +63,7 @@ namespace Default.Namespace
 
         protected override void CreateDefaultView()
         {
-            string text = (BlackEye ? "McEyeMonsterBlack" : "McEyeMonster");
+            string text = BlackEye ? "McEyeMonsterBlack" : "McEyeMonster";
             string text2 = Game.ChooseSide("McEyeBallMonsterBlack", "McEyeBallMonsterWhite", "McEyeBallMonster", "McEyeBallMonster", "McEyeBallMonster_6");
             background = ClipFactory.CreateWithAnchor(text);
             eyeBall = ClipFactory.CreateWithAnchor(text2);

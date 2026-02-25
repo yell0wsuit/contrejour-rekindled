@@ -62,9 +62,9 @@ namespace Default.Namespace
         private void OnShow()
         {
             bool flag = levelPosition.Chapter == 1;
-            this.color = (flag ? BLUE_LIGHT_COLOR : GREY_COLOR);
-            Color color = (flag ? CocosUtil.ccc4Mix(BLUE_LIGHT_COLOR, ContreJourConstants.WHITE_COLOR_3, 0.9f) : GREY_COLOR);
-            Color color2 = (flag ? BLUE_LIGHT_COLOR : ColorUtil.Mult(GREY_COLOR, 0.7f));
+            this.color = flag ? BLUE_LIGHT_COLOR : GREY_COLOR;
+            Color color = flag ? CocosUtil.ccc4Mix(BLUE_LIGHT_COLOR, ContreJourConstants.WHITE_COLOR_3, 0.9f) : GREY_COLOR;
+            Color color2 = flag ? BLUE_LIGHT_COLOR : ColorUtil.Mult(GREY_COLOR, 0.7f);
             if (game.BonusChapter)
             {
                 this.color = ContreJourConstants.GreenLightColor;
@@ -116,9 +116,9 @@ namespace Default.Namespace
             energies = new List<Sprite>();
             for (int j = 0; j < 3; j++)
             {
-                string text = ((j < stars) ? "McEnergyBig" : "McEnergyBigInactive");
+                string text = (j < stars) ? "McEnergyBig" : "McEnergyBigInactive";
                 Sprite energy = ClipFactory.CreateWithAnchor(text);
-                energy.Opacity = ((j < stars) ? 255 : 70);
+                energy.Opacity = (j < stars) ? 255 : 70;
                 energy.Scale = 1.7f;
                 energy.Visible = false;
                 clickableLayer.AddChild(energy);

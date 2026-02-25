@@ -163,7 +163,7 @@ namespace Mokus2D.Visual.Util
         {
             for (int i = 0; i < polygon.Count - 1; i += 2)
             {
-                int num = ((i == polygon.Count - 2) ? 0 : (i + 2));
+                int num = (i == polygon.Count - 2) ? 0 : (i + 2);
                 GetBezierPoints(polygon[i], polygon[i + 1], polygon[num], segments, false, i, result);
             }
         }
@@ -225,7 +225,7 @@ namespace Mokus2D.Visual.Util
         {
             for (int i = 0; i < colors.Count; i++)
             {
-                colors[i] = ((i % 2 != 0) ? endColor : startColor);
+                colors[i] = (i % 2 != 0) ? endColor : startColor;
             }
         }
 
@@ -402,7 +402,7 @@ namespace Mokus2D.Visual.Util
                 array[i].Color = color;
                 array[i].TextureCoordinate = textureCoords[i];
             }
-            int num = ((loopType == PrimitiveType.TriangleList) ? (vertices.Count / 3) : (vertices.Count - 2));
+            int num = (loopType == PrimitiveType.TriangleList) ? (vertices.Count / 3) : (vertices.Count - 2);
             Mokus2DGame.Device.DrawUserPrimitives(loopType, array, 0, num, VertexPositionColorTexture.VertexDeclaration);
         }
 
@@ -594,7 +594,7 @@ namespace Mokus2D.Visual.Util
         {
             for (int i = 0; i < polygon.Count - 1; i += 2)
             {
-                int num = ((i == polygon.Count - 2) ? 0 : (i + 2));
+                int num = (i == polygon.Count - 2) ? 0 : (i + 2);
                 Maths.GetBezierPointsControlDestinationSegmentsInsertLastResult(polygon[i], polygon[i + 1], polygon[num], segments, false, surface);
             }
         }

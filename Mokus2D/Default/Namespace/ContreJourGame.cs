@@ -150,7 +150,7 @@ namespace Default.Namespace
             touchEnabled = true;
             CGSize cgsize = ScreenConstants.W7FromIPhoneSize;
             Vector2 vector = CocosUtil.toIPhone(new Vector2(cgsize.Width, cgsize.Height));
-            Vector2 vector2 = (blackSide ? new Vector2(cgsize.Width / 2f, cgsize.Height * 2f) : vector);
+            Vector2 vector2 = blackSide ? new Vector2(cgsize.Width / 2f, cgsize.Height * 2f) : vector;
             lightPoint = Box2DConfig.DefaultConfig.ToVec(vector2);
             lightPower = 1f;
             lightColor = ChooseSide(PlasticineConstants.BLUE, PlasticineConstants.BLACK_LIGHT, PlasticineConstants.LAST_LIGHT, PlasticineConstants.WHITE, PlasticineConstants.Green);
@@ -176,7 +176,7 @@ namespace Default.Namespace
             AddChild(restartLayer, 100);
             restartLayer.Visible = false;
             Color color = ColorUtil.Mult(ContreJourConstants.BLUE_LIGHT_COLOR, 2f);
-            buttonsColor = (blackSide ? color : ContreJourConstants.GREY_COLOR);
+            buttonsColor = blackSide ? color : ContreJourConstants.GREY_COLOR;
             int cornerOffset = CocosUtil.CornerOffset;
             pausePanel = new PausePanel(this);
             AddChild(pausePanel, 15);

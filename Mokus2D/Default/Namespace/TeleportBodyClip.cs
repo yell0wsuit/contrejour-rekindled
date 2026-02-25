@@ -38,7 +38,7 @@ namespace Default.Namespace
             }
             else
             {
-                text2 = (contreJourGame.BlackSide ? "McTeleportPartBlue.png" : "McTeleportPart.png");
+                text2 = contreJourGame.BlackSide ? "McTeleportPartBlue.png" : "McTeleportPart.png";
             }
             portal = new Portal(contreJourGame, _clip.Position, text2);
             if (contreJourGame.BonusChapter)
@@ -102,7 +102,7 @@ namespace Default.Namespace
                 Mokus2DGame.SoundManager.PlaySound("teleport", 0.5f, 0f, 0f);
                 teleportable.SnotEnabled = false;
                 float num = body2.LinearVelocity.Length() / builder.EngineConfig.SizeMultiplier;
-                float num2 = ((num > 200f) ? (20f / num) : 0.1f);
+                float num2 = (num > 200f) ? (20f / num) : 0.1f;
                 num2 = Maths.max(num2, 0.01f);
                 teleportable.SetScaleTime(0f, num2);
                 portal.TargetScale = 0.2f;

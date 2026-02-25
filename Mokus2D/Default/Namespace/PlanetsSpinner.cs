@@ -65,7 +65,7 @@ namespace Default.Namespace
             for (int i = 0; i < list.Count; i++)
             {
                 bool flag = CocosUtil.lite(false, i < Constants.NormalChaptersCount && UserData.StarsToUnlock(i) > totalStars);
-                Type type = (flag ? typeof(ChapterLocked) : list[i]);
+                Type type = flag ? typeof(ChapterLocked) : list[i];
                 ChapterItem chapterItem = (ChapterItem)ReflectUtil.CreateInstance(type, [i, menu]);
                 if (!flag && i >= data.UnlockedChapters && i < Constants.NormalChaptersCount && UserData.StarsToUnlock(i) > 0)
                 {

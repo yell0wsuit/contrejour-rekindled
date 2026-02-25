@@ -91,7 +91,7 @@ namespace Mokus2D.Integration.Farseer
 
         private Color GetColor(Body body, Fixture fixture)
         {
-            float num = (fixture.IsSensor ? 0.5f : 1f);
+            float num = fixture.IsSensor ? 0.5f : 1f;
             switch (body.BodyType)
             {
                 case BodyType.Static:
