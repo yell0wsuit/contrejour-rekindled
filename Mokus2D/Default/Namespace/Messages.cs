@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-using ContreJourLocalization.LocalizedMessages;
+using Mokus2D.Localization;
 
 namespace Default.Namespace
 {
