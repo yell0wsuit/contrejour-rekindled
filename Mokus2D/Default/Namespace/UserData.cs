@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -111,6 +112,8 @@ namespace Default.Namespace
         public int BlocksDestroyed { get; set; }
 
         public bool RefreshHighscores { get; set; }
+
+        public List<string> EarnedAchievements { get; set; } = [];
 
         public int UnlockedChapters
         {

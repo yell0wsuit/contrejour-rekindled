@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 using Default.Namespace;
 
-using Microsoft.Xna.Framework;
 using Mokus2D.GamerServices;
 
 namespace Mokus2D.Util
@@ -16,10 +15,15 @@ namespace Mokus2D.Util
             {
                 return;
             }
-            if (!awardedAchievements.Contains(achievement) && Gamer.SignedInGamers.Count > 0)
+            if (!awardedAchievements.Contains(achievement))
             {
-                _ = Gamer.SignedInGamers[PlayerIndex.One].BeginAwardAchievement(achievement, null, null);
                 awardedAchievements.Add(achievement);
+                List<string> earned = UserData.Instance.EarnedAchievements;
+                if (!earned.Contains(achievement))
+                {
+                    earned.Add(achievement);
+                    UserData.SaveUserData();
+                }
             }
         }
 
