@@ -86,7 +86,7 @@ namespace Default.Namespace
 
         public override readonly bool Equals(object obj)
         {
-            if (!(obj is CGSize))
+            if (obj is not CGSize)
             {
                 return false;
             }

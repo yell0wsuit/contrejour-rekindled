@@ -539,7 +539,7 @@ namespace Default.Namespace
 
         public void Restart()
         {
-            if (levelIndex == 0 || levelIndex == 66)
+            if (levelIndex is 0 or 66)
             {
                 HardRestart();
                 return;

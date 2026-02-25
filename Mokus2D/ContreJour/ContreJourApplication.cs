@@ -152,7 +152,7 @@ namespace ContreJour
 
         private Node SetCurrentNode<T>(Func<T> nodeFactory) where T : Node
         {
-            if (currentNode != null && currentNode != null)
+            if (currentNode is not null and not null)
             {
                 currentNode.Dispose();
             }
@@ -255,7 +255,7 @@ namespace ContreJour
 
         public bool IsFirstLevel(Node node)
         {
-            return node is ContreJourGame && ((ContreJourGame)node).LevelIndex == 0;
+            return node is ContreJourGame game && game.LevelIndex == 0;
         }
 
         private void OnSplashEnd()
@@ -266,9 +266,9 @@ namespace ContreJour
         {
             base.OnActivated(sender, args);
             UserData.Instance.RefreshSoundManager();
-            if (currentNode is IActivatedDependent)
+            if (currentNode is IActivatedDependent dependent)
             {
-                ((IActivatedDependent)currentNode).OnGameActivated();
+                dependent.OnGameActivated();
             }
         }
 

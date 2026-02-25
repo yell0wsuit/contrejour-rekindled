@@ -469,7 +469,7 @@ namespace Default.Namespace
                 {
                     processed.Add(jointEdge.Other);
                     BodyClip bodyClip = jointEdge.Other.UserData as BodyClip;
-                    if (bodyClip != null && bodyClip is SnotBodyClip)
+                    if (bodyClip is not null and SnotBodyClip)
                     {
                         SnotBodyClip snotBodyClip = (SnotBodyClip)bodyClip;
                         if (snotBodyClip.ConnectedToStatic(ref processed))

@@ -154,7 +154,7 @@ namespace Default.Namespace
                 for (int j = 0; j < list2.Count; j++)
                 {
                     BodyClip bodyClip = list2[j].Body.UserData as BodyClip;
-                    if (bodyClip != null && bodyClip is PlasticinePartBodyClip)
+                    if (bodyClip is not null and PlasticinePartBodyClip)
                     {
                         PlasticinePartBodyClip plasticinePartBodyClip = (PlasticinePartBodyClip)bodyClip;
                         if (plasticinePartBodyClip.Parent == this)

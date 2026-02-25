@@ -186,7 +186,7 @@ namespace Default.Namespace
         public override void OnCollisionStartPoint(Body body2, Contact point)
         {
             BodyClip bodyClip = body2.UserData as BodyClip;
-            if (bodyClip != null && bodyClip is HeroBodyClip)
+            if (bodyClip is not null and HeroBodyClip)
             {
                 Vector2 worldPoint = FarseerUtil.GetWorldPoint(point);
                 if (FarseerUtil.b2Vec2Distance(worldPoint, Body.Position) > 1.1666666f)

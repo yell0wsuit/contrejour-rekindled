@@ -389,7 +389,7 @@ namespace Default.Namespace
         public void PostLevelAchievements()
         {
             int totalStars = TotalStars;
-            if (totalStars >= 90 && totalStars >= 180)
+            if (totalStars is >= 90 and >= 180)
             {
                 XBoxUtil.AwardAchievement("blue_lantern");
                 if (totalStars >= 300)
