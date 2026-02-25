@@ -19,7 +19,7 @@ namespace ContreJour
 {
     public class ContreJourApplication : Mokus2DGame
     {
-        public static Dictionary<int, SpriteFont> Fonts => fonts;
+        public static Dictionary<int, SpriteFont> Fonts { get; } = new();
 
         public ContreJourApplication()
         {
@@ -78,18 +78,18 @@ namespace ContreJour
         {
             base.LoadContent();
             ResetElapsedTime();
-            fonts[14] = Content.Load<SpriteFont>("Font14");
-            fonts[20] = Content.Load<SpriteFont>("Font20");
-            fonts[28] = Content.Load<SpriteFont>("Font28");
-            fonts[40] = Content.Load<SpriteFont>("Font40");
+            Fonts[14] = Content.Load<SpriteFont>("Font14");
+            Fonts[20] = Content.Load<SpriteFont>("Font20");
+            Fonts[28] = Content.Load<SpriteFont>("Font28");
+            Fonts[40] = Content.Load<SpriteFont>("Font40");
         }
 
         private void CreateDebugFields()
         {
             Node node = new();
             Root.AddChild(node);
-            upsField = new IntLabel(fonts[14]);
-            memoryField = new IntLabel(fonts[14]);
+            upsField = new IntLabel(Fonts[14]);
+            memoryField = new IntLabel(Fonts[14]);
             upsField.Color = Color.Aquamarine;
             memoryField.Color = Color.Aquamarine;
             upsField.Position = new Vector2(60f, 40f);
@@ -307,9 +307,6 @@ namespace ContreJour
         private IntLabel upsField;
 
         private IntLabel memoryField;
-
-        private static readonly Dictionary<int, SpriteFont> fonts = new();
-
         private readonly GamerServicesComponent gamerServicesComponent;
     }
 }

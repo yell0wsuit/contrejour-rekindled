@@ -11,16 +11,11 @@ namespace Default.Namespace
 
         public Action Selector => _selector;
 
-        public bool Skip
-        {
-            get => skip; set => skip = value;
-        }
+        public bool Skip { get; set; }
 
         public virtual void Execute()
         {
             _selector.Invoke();
         }
-
-        private bool skip;
     }
 }

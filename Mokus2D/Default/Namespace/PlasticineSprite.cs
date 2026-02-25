@@ -13,7 +13,7 @@ namespace Default.Namespace
             Color = COLOR;
         }
 
-        public VertexPositionColorTexture[] Vertices => vertices;
+        public VertexPositionColorTexture[] Vertices { get; private set; }
 
         public override Color Color
         {
@@ -30,25 +30,23 @@ namespace Default.Namespace
 
         private void RefreshColor()
         {
-            if (vertices != null)
+            if (Vertices != null)
             {
-                GraphUtil.SetColor(vertices, Color);
+                GraphUtil.SetColor(Vertices, Color);
             }
         }
 
         protected override void DrawPrimitives()
         {
-            GraphUtil.FillTrianglesStrip(vertices, null);
+            GraphUtil.FillTrianglesStrip(Vertices, null);
         }
 
         public void InitVertices(int verticesCount)
         {
-            vertices = new VertexPositionColorTexture[verticesCount];
+            Vertices = new VertexPositionColorTexture[verticesCount];
             RefreshColor();
         }
 
         private static readonly Color COLOR = new(0, 0, 0, 255);
-
-        private VertexPositionColorTexture[] vertices;
     }
 }

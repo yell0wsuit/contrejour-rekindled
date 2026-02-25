@@ -70,12 +70,12 @@ namespace Mokus2D.Util
         {
             public Action Action { get; private set; }
 
-            public float TimeLeft => timeLeft;
+            public float TimeLeft { get; private set; }
 
             public void Initialize(Scheduler scheduler, float timeLeft, Action action)
             {
                 this.scheduler = scheduler;
-                this.timeLeft = timeLeft;
+                TimeLeft = timeLeft;
                 Action = action;
             }
 
@@ -87,7 +87,7 @@ namespace Mokus2D.Util
 
             public void Update(float time)
             {
-                timeLeft -= time;
+                TimeLeft -= time;
             }
 
             public void Dispose()
@@ -95,8 +95,6 @@ namespace Mokus2D.Util
                 RemoveReferences();
                 _ = scheduler.tasks.Remove(this);
             }
-
-            private float timeLeft;
 
             private Scheduler scheduler;
         }

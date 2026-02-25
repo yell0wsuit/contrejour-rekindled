@@ -33,13 +33,13 @@ namespace Default.Namespace
 
         public bool SoundEnabled
         {
-            get => soundEnabled;
+            get;
             set
             {
-                soundEnabled = value;
+                field = value;
                 SoundEffect.MasterVolume = value ? 1 : 0;
             }
-        }
+        } = true;
 
         public bool MusicEnabled
         {
@@ -77,7 +77,7 @@ namespace Default.Namespace
 
         private void GetControlAndPlay()
         {
-            hasControl = true;
+            HasControl = true;
             DoPlayCurrentSong();
         }
 
@@ -91,23 +91,23 @@ namespace Default.Namespace
 
         public void OnGameActivated()
         {
-            hasControl = false;
+            HasControl = false;
         }
 
         public bool Loop
         {
-            get => loop;
+            get;
             set
             {
                 if (HasControl)
                 {
                     MediaPlayer.IsRepeating = value;
                 }
-                loop = value;
+                field = value;
             }
-        }
+        } = true;
 
-        public bool HasControl => MediaPlayer.GameHasControl || hasControl;
+        public bool HasControl { get => MediaPlayer.GameHasControl || field; private set; }
 
         public void Update(float time)
         {
@@ -258,13 +258,6 @@ namespace Default.Namespace
         protected bool musicEnabled = true;
 
         protected bool paused;
-
-        private bool soundEnabled = true;
-
-        private bool loop = true;
-
-        private bool hasControl;
-
         private bool pausing;
 
         private bool refreshSong;

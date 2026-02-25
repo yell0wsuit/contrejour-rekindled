@@ -13,31 +13,25 @@ namespace Mokus2D.Controls
         public GesturePager()
         {
             Mokus2DGame.TouchController.AddListener(this, 0);
-            pageWidth = ScreenConstants.OsSizes.W7.X;
+            PageWidth = ScreenConstants.OsSizes.W7.X;
         }
 
         public bool Enabled
         {
-            get => enabled;
+            get;
             set
             {
-                enabled = value;
+                field = value;
                 if (!value)
                 {
                     currentTouch = null;
                 }
             }
-        }
+        } = true;
 
-        public float CurrentPosition
-        {
-            get => currentPosition; set => currentPosition = value;
-        }
+        public float CurrentPosition { get; set; }
 
-        public float PageWidth
-        {
-            get => pageWidth; set => pageWidth = value;
-        }
+        public float PageWidth { get; set; }
 
         public void Dispose()
         {
@@ -51,7 +45,7 @@ namespace Mokus2D.Controls
                 return false;
             }
             currentTouch = touch;
-            touchStartPosition = currentPosition;
+            touchStartPosition = CurrentPosition;
             return true;
         }
 
@@ -61,7 +55,7 @@ namespace Mokus2D.Controls
             {
                 return false;
             }
-            currentPosition = touchStartPosition - touch.TotalOffset.X / pageWidth;
+            CurrentPosition = touchStartPosition - touch.TotalOffset.X / PageWidth;
             if (touch.LastFrameOffset.X != 0f)
             {
                 direction = -touch.LastFrameOffset.X.Sign();
@@ -74,7 +68,7 @@ namespace Mokus2D.Controls
             currentTouch = null;
             if (Math.Abs(touch.TotalOffset.X) < MinMoveOffset)
             {
-                targetPosition = (int)Math.Round(currentPosition);
+                targetPosition = (int)Math.Round(CurrentPosition);
                 return;
             }
             SetTargetPosition();
@@ -82,10 +76,10 @@ namespace Mokus2D.Controls
 
         public void Update(float time)
         {
-            if (currentTouch == null && currentPosition != targetPosition)
+            if (currentTouch == null && CurrentPosition != targetPosition)
             {
-                float num = Math.Max((currentPosition - targetPosition).Abs() / 10f, MinMoveStep) * time * 60f;
-                currentPosition = currentPosition.StepTo(targetPosition, num);
+                float num = Math.Max((CurrentPosition - targetPosition).Abs() / 10f, MinMoveStep) * time * 60f;
+                CurrentPosition = CurrentPosition.StepTo(targetPosition, num);
             }
         }
 
@@ -98,11 +92,11 @@ namespace Mokus2D.Controls
         {
             if (direction < 0f)
             {
-                targetPosition = (int)Math.Floor(currentPosition);
+                targetPosition = (int)Math.Floor(CurrentPosition);
             }
             else
             {
-                targetPosition = (int)Math.Ceiling(currentPosition);
+                targetPosition = (int)Math.Ceiling(CurrentPosition);
             }
             if (MinPosition != null)
             {
@@ -121,17 +115,9 @@ namespace Mokus2D.Controls
         public float MinMoveStep = 0.025f;
 
         public int? MinPosition;
-
-        private float currentPosition;
-
         private Touch currentTouch;
 
         private float direction;
-
-        private bool enabled = true;
-
-        private float pageWidth;
-
         private int targetPosition;
 
         private float touchStartPosition;

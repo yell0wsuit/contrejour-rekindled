@@ -54,11 +54,11 @@ namespace Default.Namespace
         {
             get
             {
-                if (defaultConfigValue == null)
+                if (field == null)
                 {
-                    defaultConfigValue = new Box2DConfig();
+                    field = new Box2DConfig();
                 }
-                return defaultConfigValue;
+                return field;
             }
         }
 
@@ -95,7 +95,5 @@ namespace Default.Namespace
         protected float restitution;
 
         protected float friction;
-
-        private static Box2DConfig defaultConfigValue;
     }
 }

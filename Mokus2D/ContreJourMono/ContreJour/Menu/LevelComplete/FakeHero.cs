@@ -15,40 +15,39 @@ namespace ContreJourMono.ContreJour.Menu.LevelComplete
     {
         public FakeHero()
         {
-            background = ClipFactory.CreateWithAnchor(ProcessName("Menu/FakeHero/McFakeHeroBackground"));
+            Background = ClipFactory.CreateWithAnchor(ProcessName("Menu/FakeHero/McFakeHeroBackground"));
             shadow = ClipFactory.CreateWithAnchor(ProcessName("Menu/FakeHero/McFakeHeroShadow"));
-            hotSpot = ClipFactory.CreateWithAnchor(ProcessName("Menu/FakeHero/McFakeHeroHotspot"));
-            tail = new HeroTail(TailColor);
-            AddChild(tail);
-            tail.LimitAngles = true;
-            tail.Scale = 2f;
-            tail.Speed = 0f;
+            HotSpot = ClipFactory.CreateWithAnchor(ProcessName("Menu/FakeHero/McFakeHeroHotspot"));
+            Tail = new HeroTail(TailColor);
+            AddChild(Tail);
+            Tail.LimitAngles = true;
+            Tail.Scale = 2f;
+            Tail.Speed = 0f;
             AddChild(shadow);
-            AddChild(background);
-            AddChild(hotSpot);
-            eye = CreateEye();
-            AddChild(eye);
+            AddChild(Background);
+            AddChild(HotSpot);
+            Eye = CreateEye();
+            AddChild(Eye);
         }
 
-        public HeroTail Tail => tail;
+        public HeroTail Tail { get; }
 
         protected virtual Color TailColor => Color.Black;
 
-        public Sprite Background => background;
+        public Sprite Background { get; }
 
-        public FakeHeroEye Eye => eye;
+        public FakeHeroEye Eye { get; }
 
         public float Speed
         {
-            get => speed;
-            set
+            get; set
             {
-                speed = value;
-                tail.Speed = value;
+                field = value;
+                Tail.Speed = value;
             }
         }
 
-        public Sprite HotSpot => hotSpot;
+        public Sprite HotSpot { get; }
 
         public new Vector2 Position
         {
@@ -66,8 +65,8 @@ namespace ContreJourMono.ContreJour.Menu.LevelComplete
             {
                 viewTarget = value;
                 Vector2 vector = Parent.LocalToNode(value, this, true);
-                eye.ViewAngle = (float)Math.Atan2(vector.Y, vector.X);
-                eye.ViewDistance = vector.Length() / 200f;
+                Eye.ViewAngle = (float)Math.Atan2(vector.Y, vector.X);
+                Eye.ViewDistance = vector.Length() / 200f;
             }
         }
 
@@ -89,14 +88,14 @@ namespace ContreJourMono.ContreJour.Menu.LevelComplete
 
         public void SetMoveAngle(float angle, float speed)
         {
-            tail.SetMovementDirection(angle);
+            Tail.SetMovementDirection(angle);
             Speed = speed;
         }
 
         public void SetViewAngle(float angle, float ratio)
         {
-            eye.ViewAngle = angle;
-            eye.ViewDistance = ratio;
+            Eye.ViewAngle = angle;
+            Eye.ViewDistance = ratio;
         }
 
         public override void Update(float time)
@@ -106,30 +105,16 @@ namespace ContreJourMono.ContreJour.Menu.LevelComplete
             {
                 breatheChanger.Update(time);
                 ScaleVec = new Vector2(1f + breatheChanger.Value, 1f + breatheChanger.Value / 2f);
-                base.Position = realPosition + new Vector2(0f, breatheChanger.Value / 4f * background.Size.X * background.ScaleX);
+                base.Position = realPosition + new Vector2(0f, breatheChanger.Value / 4f * Background.Size.X * Background.ScaleX);
             }
         }
 
         private const float ViewDistance = 200f;
-
-        private readonly Sprite background;
-
         private readonly CosChanger breatheChanger = new(0f, 0.07f, 0.04f);
-
-        private readonly FakeHeroEye eye;
-
-        private readonly Sprite hotSpot;
-
         private readonly Sprite shadow;
-
-        private readonly HeroTail tail;
-
         private readonly bool breathing;
 
         private Vector2 realPosition;
-
-        private float speed;
-
         private Vector2 viewTarget;
     }
 }

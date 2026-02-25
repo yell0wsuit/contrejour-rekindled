@@ -11,13 +11,13 @@ namespace Default.Namespace
     {
         public bool Used
         {
-            get => used;
+            get;
             set
             {
-                if (used != value)
+                if (field != value)
                 {
-                    used = value;
-                    if (!used)
+                    field = value;
+                    if (!field)
                     {
                         UnuseEvent.SendEvent();
                     }
@@ -55,9 +55,6 @@ namespace Default.Namespace
         }
 
         private static readonly float Radius = 20f;
-
-        private bool used;
-
         public bool Enabled = true;
 
         public readonly EventSender UnuseEvent = new();

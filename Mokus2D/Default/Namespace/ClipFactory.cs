@@ -16,9 +16,9 @@ namespace Default.Namespace
 {
     public class ClipFactory
     {
-        public static ClipFactory Instance => instance;
+        public static ClipFactory Instance { get; } = new();
 
-        public static StringDictionary FullPaths => fullPaths;
+        public static StringDictionary FullPaths { get; } = new();
 
         public static CGSize GetNodeSize(Sprite node)
         {
@@ -138,9 +138,6 @@ namespace Default.Namespace
         }
 
         public static LevelBuilderBase debug_builder;
-
-        private static readonly ClipFactory instance = new();
-
         private static readonly string clip_root = "mc/hd/";
 
         private static readonly XmlSerializer serializer = new();
@@ -148,9 +145,6 @@ namespace Default.Namespace
         public static ReferenceCountingContentManager content;
 
         private static readonly Dictionary<string, ClipData> configsCache = new();
-
-        private static readonly StringDictionary fullPaths = new();
-
         private static readonly Dictionary<object, Dictionary<int, MovieClip>> debugPoints = new();
     }
 }

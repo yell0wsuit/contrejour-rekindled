@@ -8,7 +8,7 @@ namespace Mokus2D.Util.MathUtils
 {
     public class CosChanger
     {
-        public float Value => value;
+        public float Value { get; private set; }
 
         public bool IsMax => Math.Abs(Progress % 6.283185307179586) < Step;
 
@@ -34,7 +34,7 @@ namespace Mokus2D.Util.MathUtils
         public void Update(float time)
         {
             Progress += Step * time * 30f;
-            value = GetValue(MinValue, MaxValue, Progress);
+            Value = GetValue(MinValue, MaxValue, Progress);
         }
 
         public float GetValue(float min, float max, float p)
@@ -54,7 +54,5 @@ namespace Mokus2D.Util.MathUtils
         public float MinValue;
 
         public float MaxValue;
-
-        private float value;
     }
 }

@@ -58,13 +58,13 @@ namespace Default.Namespace
 
         public bool Enabled
         {
-            get => enabled;
+            get;
             set
             {
-                if (enabled != value)
+                if (field != value)
                 {
-                    enabled = value;
-                    if (enabled)
+                    field = value;
+                    if (field)
                     {
                         StopParts();
                         return;
@@ -72,7 +72,7 @@ namespace Default.Namespace
                     ReleaseSnot();
                 }
             }
-        }
+        } = true;
 
         public override Vector2 StartPosition => snotEye.Body.Position;
 
@@ -302,7 +302,7 @@ namespace Default.Namespace
                 blackTail.Update(time);
                 blackTail.Moving = stickyJoint != null;
             }
-            clipContent.OpacityFloat = clipContent.OpacityFloat.StepTo(enabled ? 1f : 0.5f, 0.05f);
+            clipContent.OpacityFloat = clipContent.OpacityFloat.StepTo(Enabled ? 1f : 0.5f, 0.05f);
             baseEndClip.Color = Color.White * clipContent.OpacityFloat;
         }
 
@@ -604,8 +604,6 @@ namespace Default.Namespace
         protected float touchEndTime;
 
         private readonly bool movable;
-
-        private bool enabled = true;
 
         public class BodyAndPoint(Body body, Vector2 point)
         {

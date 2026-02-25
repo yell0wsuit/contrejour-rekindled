@@ -21,10 +21,7 @@ namespace Default.Namespace
             get => angularSpeed; set => angularSpeed = value;
         }
 
-        public Range ParticlesScale
-        {
-            get => particlesScale; set => particlesScale = value;
-        }
+        public Range ParticlesScale { get; set; } = new(1f, 0f);
 
         public Range HorizontalPosition
         {
@@ -89,7 +86,7 @@ namespace Default.Namespace
             gravityParticle.Speed = vector;
             gravityParticle.Opacity = (int)startOpacity.GetValueInRange();
             gravityParticle.AngularSpeed = angularSpeed.GetValueInRange();
-            gravityParticle.Scale = particlesScale.GetValueInRange();
+            gravityParticle.Scale = ParticlesScale.GetValueInRange();
             gravityParticle.Position = new Vector2(horizontalPosition.GetValueInRange(), verticalPosition.GetValueInRange());
         }
 
@@ -143,9 +140,6 @@ namespace Default.Namespace
         protected Range verticalPosition = new();
 
         protected Range angularSpeed = new();
-
-        private Range particlesScale = new(1f, 0f);
-
         protected Range startOpacity = new(255f, 0f);
 
         protected Vector2 bottomLeftBound = new(-100100100f, -100100100f);

@@ -6,14 +6,12 @@ namespace Default.Namespace
 {
     public class AABBQuery
     {
-        public List<Fixture> Fixtures => fixtures;
+        public List<Fixture> Fixtures { get; } = new();
 
         public bool CallbackReportFixture(Fixture fixture)
         {
-            fixtures.Add(fixture);
+            Fixtures.Add(fixture);
             return true;
         }
-
-        private readonly List<Fixture> fixtures = new();
     }
 }

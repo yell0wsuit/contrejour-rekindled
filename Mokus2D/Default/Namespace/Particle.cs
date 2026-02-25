@@ -8,12 +8,7 @@ namespace Default.Namespace
     {
         public Vector2 AnchorInPixels { get; set; }
 
-        public int Frame
-        {
-            get => frame; set => frame = value;
-        }
-
-        private int frame;
+        public int Frame { get; set; }
 
         protected ParticleSystem system = _system;
     }

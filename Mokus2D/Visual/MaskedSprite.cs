@@ -26,17 +26,17 @@ namespace Mokus2D.Visual
 
         public SpriteBatchNode Mask
         {
-            get => mask;
+            get;
             set
             {
-                if (mask != null)
+                if (field != null)
                 {
-                    maskRoot.RemoveChild(mask);
+                    maskRoot.RemoveChild(field);
                 }
-                mask = value;
-                if (mask != null)
+                field = value;
+                if (field != null)
                 {
-                    maskRoot.AddChild(mask);
+                    maskRoot.AddChild(field);
                 }
             }
         }
@@ -56,7 +56,7 @@ namespace Mokus2D.Visual
 
         protected override void DrawContent()
         {
-            if (mask == null)
+            if (Mask == null)
             {
                 return;
             }
@@ -64,17 +64,15 @@ namespace Mokus2D.Visual
             maskRoot.ScaleX = Math.Sign(Root.ScaleX);
             maskRoot.ScaleY = Math.Sign(Root.ScaleY);
             maskRoot.SpritesScaleFactor = Root.SpritesScaleFactor;
-            BlendState blend = mask.Blend;
-            mask.Blend = blendState;
+            BlendState blend = Mask.Blend;
+            Mask.Blend = blendState;
             maskRoot.Position = AnchorInPixels;
             maskRoot.DrawAll();
-            mask.Blend = blend;
+            Mask.Blend = blend;
         }
 
         protected readonly MaskRoot maskRoot;
 
         private readonly BlendState blendState;
-
-        private SpriteBatchNode mask;
     }
 }

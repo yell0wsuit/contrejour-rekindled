@@ -34,12 +34,12 @@ namespace Default.Namespace
 
         public bool Enabled
         {
-            get => enabled;
+            get;
             set
             {
-                if (enabled != value)
+                if (field != value)
                 {
-                    enabled = value;
+                    field = value;
                     RefreshOpacity();
                 }
             }
@@ -48,7 +48,7 @@ namespace Default.Namespace
         private void RefreshOpacity()
         {
             StopAllActions();
-            if (enabled)
+            if (Enabled)
             {
                 Visible = true;
                 Run(new FadeTo(0.5f, enabledOpacity));
@@ -68,9 +68,6 @@ namespace Default.Namespace
         public float Impulse = 1f;
 
         public float Angle;
-
-        private bool enabled;
-
         private readonly float enabledOpacity;
     }
 }

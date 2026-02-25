@@ -28,10 +28,10 @@ namespace Mokus2D.Visual
 
         public float LineSpacing
         {
-            get => lineSpacing;
+            get;
             set
             {
-                lineSpacing = value;
+                field = value;
                 textDirty = true;
             }
         }
@@ -94,7 +94,5 @@ namespace Mokus2D.Visual
         private readonly List<StringBuilder> lines = new(16);
 
         private readonly List<float> sizes = new(16);
-
-        private float lineSpacing;
     }
 }

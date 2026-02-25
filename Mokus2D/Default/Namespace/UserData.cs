@@ -36,31 +36,31 @@ namespace Default.Namespace
 
         public LevelData[] LevelData
         {
-            get => levelData;
+            get;
             set
             {
                 int num = 0;
-                while (num < value.Length && num < levelData.Length)
+                while (num < value.Length && num < field.Length)
                 {
-                    levelData[num] = value[num];
+                    field[num] = value[num];
                     num++;
                 }
             }
-        }
+        } = new LevelData[Constants.ChaptersCount * 20];
 
         public int[] UnlockedLevels
         {
-            get => unlockedLevels;
+            get;
             set
             {
                 int num = 0;
-                while (num < value.Length && num < unlockedLevels.Length)
+                while (num < value.Length && num < field.Length)
                 {
-                    unlockedLevels[num] = value[num];
+                    field[num] = value[num];
                     num++;
                 }
             }
-        }
+        } = new int[Constants.ChaptersCount];
 
         public bool MusicDisabled { get; set; }
 
@@ -225,12 +225,12 @@ namespace Default.Namespace
 
         public void SetUnlockedLevelsChapter(int value, int chapter)
         {
-            unlockedLevels[chapter] = value;
+            UnlockedLevels[chapter] = value;
         }
 
         public int GetUnlockedLevels(int chapter)
         {
-            return unlockedLevels[chapter];
+            return UnlockedLevels[chapter];
         }
 
         public void UnlockChapter(int chapter)
@@ -281,7 +281,7 @@ namespace Default.Namespace
         public int GetStarsEnd(int start, int end)
         {
             int num = 0;
-            for (int i = start; i < Maths.min(levelData.Length, end); i++)
+            for (int i = start; i < Maths.min(LevelData.Length, end); i++)
             {
                 LevelData levelData = GetLevelData(i);
                 if (levelData != null)
@@ -295,7 +295,7 @@ namespace Default.Namespace
         public int GetScoreEnd(int start, int end)
         {
             int num = 0;
-            for (int i = start; i < Maths.min(levelData.Length, end); i++)
+            for (int i = start; i < Maths.min(LevelData.Length, end); i++)
             {
                 LevelData levelData = GetLevelData(i);
                 if (levelData != null)
@@ -324,12 +324,12 @@ namespace Default.Namespace
 
         public void SetLevelData(LevelData data, int index)
         {
-            levelData[index] = data;
+            LevelData[index] = data;
         }
 
         public LevelData GetLevelData(int index)
         {
-            return levelData[index];
+            return LevelData[index];
         }
 
         public void CompleteAll()
@@ -434,11 +434,6 @@ namespace Default.Namespace
         private static bool levelPostponed;
 
         private static LevelPosition postponedLevel;
-
-        private readonly LevelData[] levelData = new LevelData[Constants.ChaptersCount * 20];
-
-        private readonly int[] unlockedLevels = new int[Constants.ChaptersCount];
-
         private int unlockedChapters;
     }
 }

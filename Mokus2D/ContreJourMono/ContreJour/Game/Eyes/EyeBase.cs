@@ -19,12 +19,12 @@ namespace ContreJourMono.ContreJour.Game.Eyes
 
         public float ViewDistance
         {
-            get => viewDistance;
+            get;
             set
             {
-                if (value != viewDistance)
+                if (value != field)
                 {
-                    viewDistance = value.Clamp(0f, 1f);
+                    field = value.Clamp(0f, 1f);
                     dirty = true;
                 }
             }
@@ -32,12 +32,12 @@ namespace ContreJourMono.ContreJour.Game.Eyes
 
         public float ViewAngle
         {
-            get => viewAngle;
+            get;
             set
             {
-                if (value != viewAngle)
+                if (value != field)
                 {
-                    viewAngle = value;
+                    field = value;
                     dirty = true;
                 }
             }
@@ -45,7 +45,7 @@ namespace ContreJourMono.ContreJour.Game.Eyes
 
         protected virtual float ViewRadius => 7f;
 
-        protected ContreJourGame Game => game;
+        protected ContreJourGame Game { get; }
 
         public EyeBase(ContreJourGame game)
             : this(game, false, Vector2.Zero)
@@ -54,7 +54,7 @@ namespace ContreJourMono.ContreJour.Game.Eyes
 
         public EyeBase(ContreJourGame game, bool useMask, Vector2 maskSize)
         {
-            this.game = game;
+            Game = game;
             this.useMask = useMask;
             this.maskSize = maskSize;
             CreateDefaultView();
@@ -218,17 +218,9 @@ namespace ContreJourMono.ContreJour.Game.Eyes
         private readonly bool useMask;
 
         private readonly Vector2 maskSize = new(50f, 50f);
-
-        private float viewDistance;
-
-        private float viewAngle;
-
         private Vector2 targetPosition = Vector2.Zero;
 
         private bool dirty = true;
-
-        private readonly ContreJourGame game;
-
         private readonly AnimatedMaskedSprite mask;
 
         private readonly Node content = new();

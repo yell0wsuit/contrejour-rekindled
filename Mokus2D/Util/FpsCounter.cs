@@ -4,7 +4,7 @@ namespace Mokus2D.Util
 {
     public class FpsCounter(int framesToCalculate) : IUpdatable
     {
-        public float Fps => fps;
+        public float Fps { get; private set; }
 
         public void Update(float time)
         {
@@ -13,7 +13,7 @@ namespace Mokus2D.Util
             if (currentFrame == framesToCalculate)
             {
                 currentFrame = 0;
-                fps = framesToCalculate / seconds;
+                Fps = framesToCalculate / seconds;
                 seconds = 0f;
             }
         }
@@ -21,7 +21,5 @@ namespace Mokus2D.Util
         private int currentFrame;
 
         private float seconds;
-
-        private float fps;
     }
 }

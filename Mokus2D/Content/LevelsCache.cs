@@ -12,7 +12,7 @@ namespace Mokus2D.Content
 {
     public class LevelsCache
     {
-        public Dictionary<string, Level> CachedLevels => cache;
+        public Dictionary<string, Level> CachedLevels { get; } = new();
 
         private string correctName(string name)
         {
@@ -41,16 +41,16 @@ namespace Mokus2D.Content
         {
             name = correctName(name);
             Level level;
-            if (!cache.ContainsKey(name))
+            if (!CachedLevels.ContainsKey(name))
             {
                 string text = Path.ChangeExtension(Path.Combine(content.RootDirectory, clip_root + name), "xml");
                 Stream stream = FileUtil.OpenFile(text);
                 level = (Level)serializer.DeserializeFile(stream);
-                cache[name] = level;
+                CachedLevels[name] = level;
             }
             else
             {
-                level = cache[name];
+                level = CachedLevels[name];
             }
             return level;
         }
@@ -58,9 +58,6 @@ namespace Mokus2D.Content
         private readonly string clip_root = "Levels/";
 
         private readonly XmlSerializer serializer = new();
-
-        private readonly Dictionary<string, Level> cache = new();
-
         private readonly ReferenceCountingContentManager content;
     }
 }

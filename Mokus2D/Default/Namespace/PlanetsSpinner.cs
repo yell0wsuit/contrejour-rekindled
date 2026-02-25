@@ -27,7 +27,7 @@ namespace Default.Namespace
             get => pager.Enabled; set => pager.Enabled = value;
         }
 
-        public bool Exploding => exploding;
+        public bool Exploding { get; private set; }
 
         public PlanetsSpinner(MainMenu menu)
         {
@@ -85,7 +85,7 @@ namespace Default.Namespace
 
         private void CreateExplodingChapter(ChapterItem chapter, MainMenu menu)
         {
-            exploding = true;
+            Exploding = true;
             pager.Enabled = false;
             data.UnlockChapter(chapter.Index);
             explodingChapter = new ChapterLocked(chapter.Index, menu)
@@ -160,7 +160,5 @@ namespace Default.Namespace
         private readonly GesturePager pager = new();
 
         public Vector2 AccelerometerOffset = Vector2.Zero;
-
-        private bool exploding;
     }
 }

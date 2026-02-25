@@ -25,17 +25,17 @@ namespace Default.Namespace.Windows
 
         public bool Open
         {
-            get => open;
+            get;
             set
             {
-                if (open != value)
+                if (field != value)
                 {
-                    open = value;
+                    field = value;
                     if (action != null)
                     {
                         StopAction(action);
                     }
-                    if (open)
+                    if (field)
                     {
                         OnOpen();
                         Visible = true;
@@ -81,9 +81,6 @@ namespace Default.Namespace.Windows
         public readonly EventSender OpenChangeEvent = new();
 
         private readonly FadeEffect howerEffect;
-
-        private bool open;
-
         protected readonly Node container = new();
 
         protected readonly ClickableLayer clickableLayer = new(0);

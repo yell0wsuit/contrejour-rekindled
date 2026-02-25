@@ -13,15 +13,15 @@ namespace Mokus2D.Controls
     {
         public float ReturnCoeff
         {
-            get => returnCoeff;
+            get;
             set
             {
-                if (returnCoeff != value)
+                if (field != value)
                 {
-                    returnCoeff = value;
+                    field = value;
                 }
             }
-        }
+        } = 0.2f;
 
         public bool Scrolling => scrollTouch != null;
 
@@ -120,7 +120,7 @@ namespace Mokus2D.Controls
 
         private float StepToBorder(float current, float max, float time)
         {
-            float num = Math.Max(Math.Abs(current - max) * returnCoeff, 1f);
+            float num = Math.Max(Math.Abs(current - max) * ReturnCoeff, 1f);
             return current.StepTo(max, GetTimeValue(num, time));
         }
 
@@ -168,7 +168,5 @@ namespace Mokus2D.Controls
         private Vector2 previousTouchPosition;
 
         private Vector2 inertia = Vector2.Zero;
-
-        private float returnCoeff = 0.2f;
     }
 }

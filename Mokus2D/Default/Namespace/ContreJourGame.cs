@@ -61,9 +61,9 @@ namespace Default.Namespace
 
         public EventSender NextLevelEvent => nextLevelEvent;
 
-        public HeroBodyClip Hero => hero;
+        public HeroBodyClip Hero { get; private set; }
 
-        public Vector2 HeroPositionVec => hero.Body.Position;
+        public Vector2 HeroPositionVec => Hero.Body.Position;
 
         public float FlyOpacity
         {
@@ -114,7 +114,7 @@ namespace Default.Namespace
 
         public IBonusAcceptable BonusTarget
         {
-            get => bonusTarget ?? hero; set => bonusTarget = value;
+            get => bonusTarget ?? Hero; set => bonusTarget = value;
         }
 
         public bool CanShowIntro { get; set; }
@@ -300,9 +300,9 @@ namespace Default.Namespace
 
         public bool BonusChapter => chapter == 5;
 
-        public int HeroIndex => Builder.Root.Children.IndexOf(hero.Clip);
+        public int HeroIndex => Builder.Root.Children.IndexOf(Hero.Clip);
 
-        public Vector2 HeroPositionPixels => hero.Clip.Position;
+        public Vector2 HeroPositionPixels => Hero.Clip.Position;
 
         public float LightPower
         {
@@ -502,9 +502,9 @@ namespace Default.Namespace
 
         public void HardRestart()
         {
-            if (hero != null)
+            if (Hero != null)
             {
-                hero.Removed = true;
+                Hero.Removed = true;
             }
             restartEvent.SendEvent();
             DisableEvents();
@@ -576,9 +576,9 @@ namespace Default.Namespace
 
         public void Back()
         {
-            if (hero != null)
+            if (Hero != null)
             {
-                hero.Removed = true;
+                Hero.Removed = true;
             }
             backEvent.SendEvent();
             DisableEvents();
@@ -586,9 +586,9 @@ namespace Default.Namespace
 
         public void Skip()
         {
-            if (hero != null)
+            if (Hero != null)
             {
-                hero.Removed = true;
+                Hero.Removed = true;
             }
             LevelPosition levelPosition = LevelsMenu.GetLevelPosition(levelIndex);
             data.SkipLevel(levelPosition);
@@ -906,7 +906,7 @@ namespace Default.Namespace
 
         public void RegisterHero(HeroBodyClip _hero)
         {
-            hero = _hero;
+            Hero = _hero;
             AddPositionProvider(new PositionProviderValue(_hero, 5f));
         }
 
@@ -1181,9 +1181,6 @@ namespace Default.Namespace
         protected ParticleSystem grass;
 
         protected GroundFall groundFall;
-
-        private HeroBodyClip hero;
-
         protected int levelIndex;
 
         protected int levelPosition;

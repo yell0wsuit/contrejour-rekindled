@@ -4,29 +4,24 @@ namespace Default.Namespace
 {
     public class ButtonSprite : TouchEffect
     {
-        public float TargetScale
-        {
-            get => targetScale; set => targetScale = value;
-        }
+        public float TargetScale { get; set; }
 
         public ButtonSprite(TouchSprite _sprite)
             : base(_sprite)
         {
             initialScale = Node.Scale;
-            targetScale = initialScale * 1.1f;
+            TargetScale = initialScale * 1.1f;
         }
 
         public override NodeAction OnAction()
         {
-            return new ScaleTo(effectTime, targetScale);
+            return new ScaleTo(effectTime, TargetScale);
         }
 
         public override NodeAction OffAction()
         {
             return new ScaleTo(effectTime, initialScale);
         }
-
-        private float targetScale;
 
         private readonly float initialScale;
     }

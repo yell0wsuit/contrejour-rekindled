@@ -9,7 +9,7 @@ namespace Mokus2D.Visual
     {
         public override void Draw(VisualState state)
         {
-            using (new PrimitivesDrawing(state, state.PrimitivesMatrix, texture))
+            using (new PrimitivesDrawing(state, state.PrimitivesMatrix, Texture))
             {
                 DrawPrimitives();
             }
@@ -17,23 +17,23 @@ namespace Mokus2D.Visual
 
         public Texture2D Texture
         {
-            get => texture;
+            get;
             set
             {
                 DecreaseTextureReferencesCount();
-                texture = value;
-                if (texture != null)
+                field = value;
+                if (field != null)
                 {
-                    Mokus2DGame.SharedContent.IncreaseReferenceCount(texture.Name);
+                    Mokus2DGame.SharedContent.IncreaseReferenceCount(field.Name);
                 }
             }
         }
 
         private void DecreaseTextureReferencesCount()
         {
-            if (texture != null)
+            if (Texture != null)
             {
-                Mokus2DGame.SharedContent.DecreaseReferenceCount(texture.Name);
+                Mokus2DGame.SharedContent.DecreaseReferenceCount(Texture.Name);
             }
         }
 
@@ -44,7 +44,5 @@ namespace Mokus2D.Visual
         }
 
         protected abstract void DrawPrimitives();
-
-        private Texture2D texture;
     }
 }

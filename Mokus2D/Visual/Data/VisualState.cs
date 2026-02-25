@@ -7,10 +7,7 @@ namespace Mokus2D.Visual.Data
 {
     public class VisualState
     {
-        public bool TransformationDirty
-        {
-            get => transformationDirty; set => transformationDirty = value;
-        }
+        public bool TransformationDirty { get; set; }
 
         public Vector2 SpritesScaleFactor
         {
@@ -19,10 +16,7 @@ namespace Mokus2D.Visual.Data
 
         public Color Color => color;
 
-        public float Opacity
-        {
-            get => opacity; set => opacity = value;
-        }
+        public float Opacity { get; set; }
 
         public Matrix Matrix => matrix;
 
@@ -36,10 +30,10 @@ namespace Mokus2D.Visual.Data
         public VisualState(int width, int height, Vector2 scaleFactor)
         {
             matrix = Matrix.Identity;
-            opacity = 1f;
+            Opacity = 1f;
             spritesScaleFactor = Vector2.One;
             color = Color.White;
-            transformationDirty = false;
+            TransformationDirty = false;
             spritesScaleFactor = scaleFactor;
             primitivesToScreenMatrix = PrimitivesDrawing.CreatePrimitivesMatrix(new Vector2(width, height));
         }
@@ -47,10 +41,10 @@ namespace Mokus2D.Visual.Data
         public VisualState(VisualState parent)
         {
             matrix = Matrix.Identity;
-            opacity = 1f;
+            Opacity = 1f;
             spritesScaleFactor = Vector2.One;
             color = Color.White;
-            transformationDirty = false;
+            TransformationDirty = false;
             spritesScaleFactor = parent.spritesScaleFactor;
             primitivesToScreenMatrix = parent.primitivesToScreenMatrix;
         }
@@ -59,12 +53,12 @@ namespace Mokus2D.Visual.Data
         {
             this.matrix = matrix * parentState.Matrix;
             RefreshValues(parentState, nodeOpacity, nodeColor, ignoreParentOpacity, ignoreParentColor);
-            transformationDirty = true;
+            TransformationDirty = true;
         }
 
         public void RefreshValues(VisualState parentState, float nodeOpacity, Color nodeColor, bool ignoreParentOpacity, bool ignoreParentColor)
         {
-            opacity = ignoreParentOpacity ? nodeOpacity : (nodeOpacity * parentState.opacity);
+            Opacity = ignoreParentOpacity ? nodeOpacity : (nodeOpacity * parentState.Opacity);
             if (!ignoreParentColor)
             {
                 color = nodeColor.Mult(parentState.color);
@@ -76,11 +70,6 @@ namespace Mokus2D.Visual.Data
         private Matrix matrix;
 
         private Matrix primitivesToScreenMatrix;
-
-        private float opacity;
-
-        private bool transformationDirty;
-
         private Vector2 spritesScaleFactor;
 
         private Color color;

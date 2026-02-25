@@ -75,12 +75,12 @@ namespace Default.Namespace
 
         public bool Open
         {
-            get => open;
+            get;
             set
             {
-                if (open != value)
+                if (field != value)
                 {
-                    open = value;
+                    field = value;
                     if (value && !Visible)
                     {
                         AnimationEndEvent.RemoveListenerSelector(new Action(OnCloseEnd));
@@ -155,9 +155,6 @@ namespace Default.Namespace
         protected IVectorPositionProvider randomPositionProvider;
 
         protected bool providerEnabled;
-
-        private bool open;
-
         public static readonly EyeAnimation[] SNOT_ANIMATIONS =
         [
             new EyeAnimation("McEyeBlinkMonster", null, false, false),
