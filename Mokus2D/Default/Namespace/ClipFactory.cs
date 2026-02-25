@@ -5,7 +5,6 @@ using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-using Mokus2D;
 using Mokus2D.Content;
 using Mokus2D.Util;
 using Mokus2D.Util.Xml;

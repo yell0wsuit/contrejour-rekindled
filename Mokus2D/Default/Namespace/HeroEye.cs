@@ -1,10 +1,6 @@
 ﻿using System.Collections.Generic;
 
-using Mokus2D.ContreJourMono.ContreJour.Game.Eyes;
-
 using Microsoft.Xna.Framework;
-
-using Mokus2D;
 
 namespace Mokus2D.Default.Namespace
 {

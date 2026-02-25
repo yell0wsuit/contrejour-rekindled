@@ -6,8 +6,6 @@ using Mokus2D.Default.Namespace.Windows;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-using Mokus2D;
 using Mokus2D.Effects.Actions;
 using Mokus2D.Extensions;
 using Mokus2D.Util;

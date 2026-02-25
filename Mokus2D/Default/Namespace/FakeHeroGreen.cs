@@ -1,5 +1,3 @@
-using Mokus2D.ContreJourMono.ContreJour.Menu.LevelComplete;
-
 using Microsoft.Xna.Framework;
 
 using Mokus2D.Extensions;

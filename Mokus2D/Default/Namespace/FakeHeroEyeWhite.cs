@@ -1,5 +1,3 @@
-using Mokus2D.ContreJourMono.ContreJour.Menu.LevelComplete;
-
 namespace Mokus2D.Default.Namespace
 {
     public class FakeHeroEyeWhite : FakeHeroEyeBlack

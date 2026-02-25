@@ -1,6 +1,5 @@
 ﻿using System;
 
-using Mokus2D;
 using Mokus2D.Effects.Actions;
 using Mokus2D.Input;
 using Mokus2D.Visual;

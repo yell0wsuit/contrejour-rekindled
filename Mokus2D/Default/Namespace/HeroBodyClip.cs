@@ -1,15 +1,11 @@
 using System;
 using System.Collections.Generic;
 
-using Mokus2D.ContreJourMono.ContreJour.Game.Eyes;
-using Mokus2D.ContreJourMono.ContreJour.Game.Hero;
-
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Dynamics.Contacts;
 
 using Microsoft.Xna.Framework;
 
-using Mokus2D;
 using Mokus2D.Effects.Actions;
 using Mokus2D.Util;
 using Mokus2D.Visual;

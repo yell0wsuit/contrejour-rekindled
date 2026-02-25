@@ -2,8 +2,6 @@
 
 using Mokus2D.Sensors;
 using Microsoft.Xna.Framework;
-
-using Mokus2D;
 using Mokus2D.Input;
 using Mokus2D.Visual;
 

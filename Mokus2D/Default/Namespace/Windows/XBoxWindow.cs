@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 
-using Mokus2D.ContreJourMono.ContreJour.Menu.LevelComplete;
-
 using Mokus2D.Default.Namespace.Windows.Items;
 
 using Microsoft.Xna.Framework;

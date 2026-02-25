@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
-using Mokus2D;
 using Mokus2D.Util;
 
 namespace Mokus2D.Default.Namespace

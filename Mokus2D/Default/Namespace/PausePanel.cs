@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
 
-using Mokus2D;
 using Mokus2D.Effects.Actions;
 using Mokus2D.Visual;
 using Mokus2D.Visual.Util;

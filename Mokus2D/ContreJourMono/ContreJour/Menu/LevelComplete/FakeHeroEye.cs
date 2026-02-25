@@ -1,7 +1,5 @@
 ﻿using System.IO;
 
-using Mokus2D.ContreJourMono.ContreJour.Game.Eyes;
-
 using Mokus2D.Default.Namespace;
 
 using Microsoft.Xna.Framework;

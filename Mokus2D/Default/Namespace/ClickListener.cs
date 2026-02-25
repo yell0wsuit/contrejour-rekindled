@@ -2,7 +2,6 @@
 
 using Microsoft.Xna.Framework;
 
-using Mokus2D;
 using Mokus2D.Input;
 
 namespace Mokus2D.Default.Namespace

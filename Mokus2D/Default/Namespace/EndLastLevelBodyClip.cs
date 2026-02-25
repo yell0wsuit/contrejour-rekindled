@@ -1,6 +1,5 @@
 ﻿using System;
 
-using Mokus2D;
 using Mokus2D.Util.MathUtils;
 using Mokus2D.Visual;
 
