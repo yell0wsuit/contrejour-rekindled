@@ -4,49 +4,18 @@ namespace Mokus2D.Input
 {
     public class Touch
     {
-        public Vector2 TotalOffset
-        {
-            get
-            {
-                return position - initialPosition;
-            }
-        }
+        public Vector2 TotalOffset => position - initialPosition;
 
-        public Vector2 LastFrameOffset
-        {
-            get
-            {
-                return position - previousPosition;
-            }
-        }
+        public Vector2 LastFrameOffset => position - previousPosition;
 
         public bool Active
         {
-            get
-            {
-                return active;
-            }
-            internal set
-            {
-                active = value;
-            }
+            get => active; internal set => active = value;
         }
 
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
-        }
+        public int Id => id;
 
-        public Vector2 Position
-        {
-            get
-            {
-                return position;
-            }
-        }
+        public Vector2 Position => position;
 
         public void Initialize(Vector2 position, int id)
         {

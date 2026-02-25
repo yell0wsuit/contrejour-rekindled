@@ -26,29 +26,11 @@ namespace Default.Namespace
             vertices = new VertexPositionColorTexture[border.OutBorder.Length];
         }
 
-        public VertexPositionColorTexture[] Vertices
-        {
-            get
-            {
-                return vertices;
-            }
-        }
+        public VertexPositionColorTexture[] Vertices => vertices;
 
-        public VertexPositionColorTexture[] InBorder
-        {
-            get
-            {
-                return border.InBorder;
-            }
-        }
+        public VertexPositionColorTexture[] InBorder => border.InBorder;
 
-        public Color MainColor
-        {
-            get
-            {
-                return border.Color;
-            }
-        }
+        public Color MainColor => border.Color;
 
         public VertexPositionColorTexture[] OutBorder()
         {

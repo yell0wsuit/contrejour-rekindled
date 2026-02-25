@@ -6,21 +6,9 @@ namespace Default.Namespace
 {
     public class TouchPositionProvider(Touch _touch, LevelBuilderBase _builder) : IVectorPositionProvider
     {
-        public Touch Touch
-        {
-            get
-            {
-                return touch;
-            }
-        }
+        public Touch Touch => touch;
 
-        public Vector2 PositionVec
-        {
-            get
-            {
-                return builder.TouchRootVec(touch);
-            }
-        }
+        public Vector2 PositionVec => builder.TouchRootVec(touch);
 
         protected LevelBuilderBase builder = _builder;
 

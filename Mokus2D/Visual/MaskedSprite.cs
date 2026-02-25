@@ -21,22 +21,12 @@ namespace Mokus2D.Visual
 
         public bool UpdateMask
         {
-            get
-            {
-                return maskRoot.UpdateChildren;
-            }
-            set
-            {
-                maskRoot.UpdateChildren = value;
-            }
+            get => maskRoot.UpdateChildren; set => maskRoot.UpdateChildren = value;
         }
 
         public SpriteBatchNode Mask
         {
-            get
-            {
-                return mask;
-            }
+            get => mask;
             set
             {
                 if (mask != null)

@@ -13,10 +13,7 @@ namespace Mokus2D.Controls
     {
         public float ReturnCoeff
         {
-            get
-            {
-                return returnCoeff;
-            }
+            get => returnCoeff;
             set
             {
                 if (returnCoeff != value)
@@ -26,13 +23,7 @@ namespace Mokus2D.Controls
             }
         }
 
-        public bool Scrolling
-        {
-            get
-            {
-                return scrollTouch != null;
-            }
-        }
+        public bool Scrolling => scrollTouch != null;
 
         public void RefreshBorders()
         {

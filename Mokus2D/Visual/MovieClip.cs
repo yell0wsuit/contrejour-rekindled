@@ -11,42 +11,19 @@ namespace Mokus2D.Visual
     {
         public bool Rewind
         {
-            get
-            {
-                return rewind;
-            }
-            set
-            {
-                rewind = value;
-            }
+            get => rewind; set => rewind = value;
         }
 
         public bool Stoped
         {
-            get
-            {
-                return stoped;
-            }
-            set
-            {
-                stoped = value;
-            }
+            get => stoped; set => stoped = value;
         }
 
-        public uint TotalFrames
-        {
-            get
-            {
-                return (uint)Config.Frames;
-            }
-        }
+        public uint TotalFrames => (uint)Config.Frames;
 
         public float MinFrame
         {
-            get
-            {
-                return minFrame;
-            }
+            get => minFrame;
             set
             {
                 minFrame = value;
@@ -59,10 +36,7 @@ namespace Mokus2D.Visual
 
         public float MaxFrame
         {
-            get
-            {
-                return maxFrame;
-            }
+            get => maxFrame;
             set
             {
                 maxFrame = value - 0.0001f;
@@ -75,10 +49,7 @@ namespace Mokus2D.Visual
 
         public float CurrentFrame
         {
-            get
-            {
-                return currentFrame;
-            }
+            get => currentFrame;
             set
             {
                 if ((value > maxFrame || value < minFrame) && !stoped && !Repeat)

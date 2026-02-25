@@ -22,33 +22,14 @@ namespace Default.Namespace
             return null;
         }
 
-        protected override EyeAnimation[] Animations
-        {
-            get
-            {
-                return
-                [
+        protected override EyeAnimation[] Animations => [
                     new EyeAnimation("McPlanetEyeBlink", null, false, false),
                     new EyeAnimation("McPlanetEyeBlinkOneTime", null, false, false)
                 ];
-            }
-        }
 
-        public override float EyeStep
-        {
-            get
-            {
-                return 0.25f;
-            }
-        }
+        public override float EyeStep => 0.25f;
 
-        protected override float ViewRadius
-        {
-            get
-            {
-                return CocosUtil.iPadValue(25f);
-            }
-        }
+        protected override float ViewRadius => CocosUtil.iPadValue(25f);
 
         public override void Update(float time)
         {
@@ -58,13 +39,7 @@ namespace Default.Namespace
             eyePosition += vector;
         }
 
-        public Vector2 PositionVec
-        {
-            get
-            {
-                return eyePosition;
-            }
-        }
+        public Vector2 PositionVec => eyePosition;
 
         protected override void ScheduleAnimation()
         {

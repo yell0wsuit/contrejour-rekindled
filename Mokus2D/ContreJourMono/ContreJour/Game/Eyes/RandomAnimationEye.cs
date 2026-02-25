@@ -11,48 +11,17 @@ namespace ContreJourMono.ContreJour.Game.Eyes
 {
     public class RandomAnimationEye : EyeBase
     {
-        protected bool HasAnimations
-        {
-            get
-            {
-                return Animations != null && Animations.Length > 0;
-            }
-        }
+        protected bool HasAnimations => Animations != null && Animations.Length > 0;
 
-        protected virtual EyeAnimation[] Animations
-        {
-            get
-            {
-                return ANIMATIONS;
-            }
-        }
+        protected virtual EyeAnimation[] Animations => ANIMATIONS;
 
-        protected bool IsWhite
-        {
-            get
-            {
-                return Game != null && Game.WhiteSide;
-            }
-        }
+        protected bool IsWhite => Game != null && Game.WhiteSide;
 
-        protected bool BlackEye
-        {
-            get
-            {
-                return Game != null && (Game.WhiteSide || Game.BlackSide || Game.BonusChapter);
-            }
-        }
+        protected bool BlackEye => Game != null && (Game.WhiteSide || Game.BlackSide || Game.BonusChapter);
 
         public virtual bool AnimationsAllowed
         {
-            get
-            {
-                return _animationsAllowed;
-            }
-            set
-            {
-                _animationsAllowed = value;
-            }
+            get => _animationsAllowed; set => _animationsAllowed = value;
         }
 
         public RandomAnimationEye(ContreJourGame game, bool useMask, Vector2 maskSize)

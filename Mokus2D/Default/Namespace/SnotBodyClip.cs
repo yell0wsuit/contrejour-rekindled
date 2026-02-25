@@ -58,10 +58,7 @@ namespace Default.Namespace
 
         public bool Enabled
         {
-            get
-            {
-                return enabled;
-            }
+            get => enabled;
             set
             {
                 if (enabled != value)
@@ -77,61 +74,19 @@ namespace Default.Namespace
             }
         }
 
-        public override Vector2 StartPosition
-        {
-            get
-            {
-                return snotEye.Body.Position;
-            }
-        }
+        public override Vector2 StartPosition => snotEye.Body.Position;
 
-        public EventSender LinkEvent
-        {
-            get
-            {
-                return linkEvent;
-            }
-        }
+        public EventSender LinkEvent => linkEvent;
 
-        public EventSender ReleaseEvent
-        {
-            get
-            {
-                return releaseEvent;
-            }
-        }
+        public EventSender ReleaseEvent => releaseEvent;
 
-        public ISnotLinked Linked
-        {
-            get
-            {
-                return linked;
-            }
-        }
+        public ISnotLinked Linked => linked;
 
-        public bool Dragging
-        {
-            get
-            {
-                return touch != null;
-            }
-        }
+        public bool Dragging => touch != null;
 
-        public bool Joined
-        {
-            get
-            {
-                return stickyJoint != null;
-            }
-        }
+        public bool Joined => stickyJoint != null;
 
-        protected virtual float MoveTeleportCoeff
-        {
-            get
-            {
-                return 0.5f;
-            }
-        }
+        protected virtual float MoveTeleportCoeff => 0.5f;
 
         public bool UseForZoom()
         {
@@ -143,13 +98,7 @@ namespace Default.Namespace
             return true;
         }
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool DisableHeroFocus => false;
 
         public int Priority(Vector2 touchPoint)
         {
@@ -200,13 +149,7 @@ namespace Default.Namespace
             touchEndTime = -1f;
         }
 
-        public override Vector2 PositionVec
-        {
-            get
-            {
-                return Physics.EndBody.Position;
-            }
-        }
+        public override Vector2 PositionVec => Physics.EndBody.Position;
 
         private static float closestReq(object item, object param)
         {

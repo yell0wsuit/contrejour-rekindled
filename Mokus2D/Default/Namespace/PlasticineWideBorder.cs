@@ -18,21 +18,9 @@ namespace Default.Namespace
             GraphUtil.SetColor(inBorder, Color);
         }
 
-        public VertexPositionColorTexture[] OutBorder
-        {
-            get
-            {
-                return outBorder;
-            }
-        }
+        public VertexPositionColorTexture[] OutBorder => outBorder;
 
-        public VertexPositionColorTexture[] InBorder
-        {
-            get
-            {
-                return inBorder;
-            }
-        }
+        public VertexPositionColorTexture[] InBorder => inBorder;
 
         protected override void DrawPrimitives()
         {

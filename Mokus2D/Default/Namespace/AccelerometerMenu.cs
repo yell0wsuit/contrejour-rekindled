@@ -11,13 +11,7 @@ namespace Default.Namespace
 {
     public class AccelerometerMenu : Node, IDisposable, ITouchListener
     {
-        protected virtual int Priority
-        {
-            get
-            {
-                return 1;
-            }
-        }
+        protected virtual int Priority => 1;
 
         public AccelerometerMenu()
         {

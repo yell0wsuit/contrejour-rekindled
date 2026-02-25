@@ -34,10 +34,7 @@ namespace Default.Namespace
 
         public bool Enabled
         {
-            get
-            {
-                return enabled;
-            }
+            get => enabled;
             set
             {
                 if (enabled != value)

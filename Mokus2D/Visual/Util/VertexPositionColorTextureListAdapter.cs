@@ -46,21 +46,9 @@ namespace Mokus2D.Visual.Util
             throw new NotImplementedException();
         }
 
-        public int Count
-        {
-            get
-            {
-                return source.Length;
-            }
-        }
+        public int Count => source.Length;
 
-        public bool IsReadOnly
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public bool IsReadOnly => throw new NotImplementedException();
 
         public int IndexOf(Vector2 item)
         {
@@ -79,14 +67,7 @@ namespace Mokus2D.Visual.Util
 
         public Vector2 this[int index]
         {
-            get
-            {
-                return source[index].Position.ToVector2();
-            }
-            set
-            {
-                source[index].Position = value.ToVector3();
-            }
+            get => source[index].Position.ToVector2(); set => source[index].Position = value.ToVector3();
         }
     }
 }

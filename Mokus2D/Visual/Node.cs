@@ -29,36 +29,15 @@ namespace Mokus2D.Visual
             }
         }
 
-        public NodeChildren Children
-        {
-            get
-            {
-                return children;
-            }
-        }
+        public NodeChildren Children => children;
 
-        public int Layer
-        {
-            get
-            {
-                return layer;
-            }
-        }
+        public int Layer => layer;
 
-        public bool OnScreen
-        {
-            get
-            {
-                return Root != null;
-            }
-        }
+        public bool OnScreen => Root != null;
 
         public Node Parent
         {
-            get
-            {
-                return parent;
-            }
+            get => parent;
             protected set
             {
                 parent = value;
@@ -68,10 +47,7 @@ namespace Mokus2D.Visual
 
         public RootNode Root
         {
-            get
-            {
-                return root;
-            }
+            get => root;
             internal set
             {
                 if (root != value)
@@ -92,13 +68,7 @@ namespace Mokus2D.Visual
             }
         }
 
-        public virtual bool IsRoot
-        {
-            get
-            {
-                return Root == this;
-            }
-        }
+        public virtual bool IsRoot => Root == this;
 
         public event Action AddedToStage;
 
@@ -434,26 +404,12 @@ namespace Mokus2D.Visual
 
         public float X
         {
-            get
-            {
-                return Position.X;
-            }
-            set
-            {
-                Position = new Vector2(value, Position.Y);
-            }
+            get => Position.X; set => Position = new Vector2(value, Position.Y);
         }
 
         public float Y
         {
-            get
-            {
-                return Position.Y;
-            }
-            set
-            {
-                Position = new Vector2(Position.X, value);
-            }
+            get => Position.Y; set => Position = new Vector2(Position.X, value);
         }
 
         public override bool Visible
@@ -470,10 +426,7 @@ namespace Mokus2D.Visual
 
         public override Vector2 ScaleVec
         {
-            get
-            {
-                return base.ScaleVec;
-            }
+            get => base.ScaleVec;
             set
             {
                 base.ScaleVec = value;

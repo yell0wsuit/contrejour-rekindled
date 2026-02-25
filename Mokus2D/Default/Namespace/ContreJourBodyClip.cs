@@ -7,13 +7,7 @@ namespace Default.Namespace
 {
     public class ContreJourBodyClip : BodyClip
     {
-        public ContreJourGame Game
-        {
-            get
-            {
-                return game;
-            }
-        }
+        public ContreJourGame Game => game;
 
         public ContreJourBodyClip(LevelBuilderBase _builder, object _body, Node _clip, Hashtable _config)
             : base(_builder, _body, _clip, _config)

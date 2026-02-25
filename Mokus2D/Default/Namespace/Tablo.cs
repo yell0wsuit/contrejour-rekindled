@@ -19,10 +19,7 @@ namespace Default.Namespace
 
         public bool Open
         {
-            get
-            {
-                return open;
-            }
+            get => open;
             set
             {
                 if (value != open)

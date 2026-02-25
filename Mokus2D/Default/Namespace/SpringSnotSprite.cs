@@ -9,14 +9,7 @@ namespace Default.Namespace
     {
         public bool Active
         {
-            get
-            {
-                return active;
-            }
-            set
-            {
-                active = value;
-            }
+            get => active; set => active = value;
         }
 
         public override void Update(float time)

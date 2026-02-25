@@ -10,21 +10,9 @@ namespace ContreJourMono.ContreJour.Menu.LevelComplete
 {
     public class FakeHeroEye : RandomAnimationEye
     {
-        protected override float ViewRadius
-        {
-            get
-            {
-                return 12f;
-            }
-        }
+        protected override float ViewRadius => 12f;
 
-        protected override EyeAnimation[] Animations
-        {
-            get
-            {
-                return [];
-            }
-        }
+        protected override EyeAnimation[] Animations => [];
 
         public FakeHeroEye()
             : base(null, true, new Vector2(80f, 80f))

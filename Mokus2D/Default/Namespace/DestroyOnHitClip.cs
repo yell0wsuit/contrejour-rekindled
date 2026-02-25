@@ -12,14 +12,7 @@ namespace Default.Namespace
     {
         public int SnotJoinedCount
         {
-            get
-            {
-                return snotJoinedCount;
-            }
-            set
-            {
-                snotJoinedCount = value;
-            }
+            get => snotJoinedCount; set => snotJoinedCount = value;
         }
 
         public override void OnCollisionStartPoint(Body body2, Contact point)

@@ -7,13 +7,7 @@ public class Pool<T> where T : class, new()
 
     public Action<T> Deinitialize { get; set; }
 
-    public int ValidCount
-    {
-        get
-        {
-            return items.Count - InvalidCount;
-        }
-    }
+    public int ValidCount => items.Count - InvalidCount;
 
     public int InvalidCount { get; private set; }
 

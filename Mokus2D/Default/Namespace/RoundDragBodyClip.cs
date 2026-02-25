@@ -25,13 +25,7 @@ namespace Default.Namespace
             middleSprite.Opacity = (int)currentAlpha;
         }
 
-        public override Vector2 PositionVec
-        {
-            get
-            {
-                return base.PositionVec + TouchOffset();
-            }
-        }
+        public override Vector2 PositionVec => base.PositionVec + TouchOffset();
 
         protected override Vector2 TouchOffset()
         {
@@ -43,13 +37,7 @@ namespace Default.Namespace
             return FarseerUtil.clampLength(offset, radius) + initialPosition;
         }
 
-        public override Vector2 SnotPosition
-        {
-            get
-            {
-                return Body.Position;
-            }
-        }
+        public override Vector2 SnotPosition => Body.Position;
 
         private const float BOUNDS_SIZE = 200f;
 

@@ -8,13 +8,7 @@ namespace Default.Namespace
 {
     public class SnotBodyClipBase : ContreJourBodyClip
     {
-        public SnotData Physics
-        {
-            get
-            {
-                return physics;
-            }
-        }
+        public SnotData Physics => physics;
 
         public SnotBodyClipBase(LevelBuilderBase _builder, SnotData _body, Node _clip, Hashtable _config)
             : base(_builder, _body.EndBody, null, _config)
@@ -33,13 +27,7 @@ namespace Default.Namespace
             AddClipsToStage();
         }
 
-        public virtual Vector2 StartPosition
-        {
-            get
-            {
-                return physics.GetWorldStartPoint();
-            }
-        }
+        public virtual Vector2 StartPosition => physics.GetWorldStartPoint();
 
         public virtual void InitSizes()
         {
@@ -92,13 +80,7 @@ namespace Default.Namespace
             return physics.EndBody.Position;
         }
 
-        public virtual Body EyeBody
-        {
-            get
-            {
-                return physics.EyeBody;
-            }
-        }
+        public virtual Body EyeBody => physics.EyeBody;
 
         public override void Update(float time)
         {

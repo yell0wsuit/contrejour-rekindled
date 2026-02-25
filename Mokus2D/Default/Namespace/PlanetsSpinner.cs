@@ -13,10 +13,7 @@ namespace Default.Namespace
     {
         public float CurrentIndex
         {
-            get
-            {
-                return currentIndex;
-            }
+            get => currentIndex;
             set
             {
                 currentIndex = value;
@@ -27,23 +24,10 @@ namespace Default.Namespace
 
         public bool Enabled
         {
-            get
-            {
-                return pager.Enabled;
-            }
-            set
-            {
-                pager.Enabled = value;
-            }
+            get => pager.Enabled; set => pager.Enabled = value;
         }
 
-        public bool Exploding
-        {
-            get
-            {
-                return exploding;
-            }
-        }
+        public bool Exploding => exploding;
 
         public PlanetsSpinner(MainMenu menu)
         {

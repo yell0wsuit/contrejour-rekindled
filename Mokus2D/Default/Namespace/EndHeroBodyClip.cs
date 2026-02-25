@@ -28,20 +28,11 @@ namespace Default.Namespace
             Game.BackEvent.AddListenerSelector(new Action(OnBack));
         }
 
-        protected override float FirstRespawnTime
-        {
-            get
-            {
-                return 3f;
-            }
-        }
+        protected override float FirstRespawnTime => 3f;
 
         private new bool EyeAnimationsAllowed
         {
-            set
-            {
-                base.EyeAnimationsAllowed = value && animationsAllowed;
-            }
+            set => base.EyeAnimationsAllowed = value && animationsAllowed;
         }
 
         public void AddStripesView()

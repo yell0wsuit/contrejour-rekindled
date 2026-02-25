@@ -10,10 +10,7 @@ namespace Default.Namespace
     {
         public float Length
         {
-            get
-            {
-                return length;
-            }
+            get => length;
             set
             {
                 if (Maths.FuzzyNotEquals(length, value, 0.0001f))

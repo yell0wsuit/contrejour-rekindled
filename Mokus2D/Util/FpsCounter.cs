@@ -4,13 +4,7 @@ namespace Mokus2D.Util
 {
     public class FpsCounter(int framesToCalculate) : IUpdatable
     {
-        public float Fps
-        {
-            get
-            {
-                return fps;
-            }
-        }
+        public float Fps => fps;
 
         public void Update(float time)
         {

@@ -12,38 +12,17 @@ namespace Default.Namespace
     {
         public IVectorPositionProvider PositionProvider
         {
-            get
-            {
-                return positionProvider;
-            }
-            set
-            {
-                positionProvider = value;
-            }
+            get => positionProvider; set => positionProvider = value;
         }
 
         public IVectorPositionProvider RandomPositionProvider
         {
-            get
-            {
-                return randomPositionProvider;
-            }
-            set
-            {
-                randomPositionProvider = value;
-            }
+            get => randomPositionProvider; set => randomPositionProvider = value;
         }
 
         public bool ProviderEnabled
         {
-            get
-            {
-                return providerEnabled;
-            }
-            set
-            {
-                providerEnabled = value;
-            }
+            get => providerEnabled; set => providerEnabled = value;
         }
 
         public MonsterEye(ContreJourGame _game, bool _visible, Vector2 position)
@@ -90,28 +69,13 @@ namespace Default.Namespace
             eyeBall = ClipFactory.CreateWithAnchor(text2);
         }
 
-        protected override EyeAnimation[] Animations
-        {
-            get
-            {
-                return SNOT_ANIMATIONS;
-            }
-        }
+        protected override EyeAnimation[] Animations => SNOT_ANIMATIONS;
 
-        public bool HasToUpdate
-        {
-            get
-            {
-                return Visible;
-            }
-        }
+        public bool HasToUpdate => Visible;
 
         public bool Open
         {
-            get
-            {
-                return open;
-            }
+            get => open;
             set
             {
                 if (open != value)

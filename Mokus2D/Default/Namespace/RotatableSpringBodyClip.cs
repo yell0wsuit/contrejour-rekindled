@@ -72,21 +72,9 @@ namespace Default.Namespace
             return Math.Min(num, Math.Abs(num - TOUCH_RADIUS));
         }
 
-        protected override Vector2 SmokePoint
-        {
-            get
-            {
-                return new Vector2(0f, 40f);
-            }
-        }
+        protected override Vector2 SmokePoint => new Vector2(0f, 40f);
 
-        protected override bool IsMoving
-        {
-            get
-            {
-                return rotateTouch != null;
-            }
-        }
+        protected override bool IsMoving => rotateTouch != null;
 
         private void UpdateTouchPoint()
         {

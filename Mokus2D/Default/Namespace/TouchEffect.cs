@@ -9,14 +9,7 @@ namespace Default.Namespace
     {
         public float EffectTime
         {
-            get
-            {
-                return effectTime;
-            }
-            set
-            {
-                effectTime = value;
-            }
+            get => effectTime; set => effectTime = value;
         }
 
         public TouchEffect(TouchSprite sprite)
@@ -29,10 +22,7 @@ namespace Default.Namespace
 
         public bool IsOn
         {
-            get
-            {
-                return isOn;
-            }
+            get => isOn;
             set
             {
                 if (value != isOn)

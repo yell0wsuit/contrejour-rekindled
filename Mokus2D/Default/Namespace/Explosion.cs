@@ -17,26 +17,12 @@ namespace Default.Namespace
 
         public float ScaleStep
         {
-            get
-            {
-                return scaleStep;
-            }
-            set
-            {
-                scaleStep = value;
-            }
+            get => scaleStep; set => scaleStep = value;
         }
 
         public float OpacityStep
         {
-            get
-            {
-                return opacityStep;
-            }
-            set
-            {
-                opacityStep = value;
-            }
+            get => opacityStep; set => opacityStep = value;
         }
 
         public override void initParticle(GravityParticle gravityParticle)

@@ -9,12 +9,6 @@ namespace Default.Namespace
             Color = PlasticineConstants.WHITE_GROUND_COLOR;
         }
 
-        public override Color Color
-        {
-            get
-            {
-                return PlasticineConstants.WHITE_GROUND_COLOR;
-            }
-        }
+        public override Color Color => PlasticineConstants.WHITE_GROUND_COLOR;
     }
 }

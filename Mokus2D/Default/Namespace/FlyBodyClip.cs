@@ -36,13 +36,7 @@ namespace Default.Namespace
             Body.GravityScale = 0f;
         }
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public bool DisableHeroFocus => true;
 
         public int Priority(Vector2 touchPoint)
         {

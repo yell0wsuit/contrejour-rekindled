@@ -12,13 +12,7 @@ namespace Mokus2D.Content
 {
     public class LevelsCache
     {
-        public Dictionary<string, Level> CachedLevels
-        {
-            get
-            {
-                return cache;
-            }
-        }
+        public Dictionary<string, Level> CachedLevels => cache;
 
         private string correctName(string name)
         {

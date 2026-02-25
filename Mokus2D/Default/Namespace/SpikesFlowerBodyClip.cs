@@ -13,13 +13,7 @@ namespace Default.Namespace
 {
     public class SpikesFlowerBodyClip : ContreJourBodyClip, IVectorPositionProvider
     {
-        public FlowerEye Eye
-        {
-            get
-            {
-                return eye;
-            }
-        }
+        public FlowerEye Eye => eye;
 
         public SpikesFlowerBodyClip(ContreJourLevelBuilder _builder, object _body, Node _clip, Hashtable _config)
             : base(_builder, _body, _clip, _config)
@@ -57,13 +51,7 @@ namespace Default.Namespace
             eye.Position = CocosUtil.toIPad(EYE_POSITION);
         }
 
-        public override Vector2 PositionVec
-        {
-            get
-            {
-                return Body.Position;
-            }
-        }
+        public override Vector2 PositionVec => Body.Position;
 
         public override void Update(float time)
         {

@@ -10,12 +10,6 @@ namespace Default.Namespace
             eyeBall.Scale = 1.5f;
         }
 
-        protected override float ViewRadius
-        {
-            get
-            {
-                return CocosUtil.iPadValue(4f);
-            }
-        }
+        protected override float ViewRadius => CocosUtil.iPadValue(4f);
     }
 }

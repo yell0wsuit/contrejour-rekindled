@@ -65,34 +65,16 @@ namespace Default.Namespace
             data = UserData.Instance;
         }
 
-        protected virtual Vector2 SmokePoint
-        {
-            get
-            {
-                return SMOKE_POINT;
-            }
-        }
+        protected virtual Vector2 SmokePoint => SMOKE_POINT;
 
-        public Vector2 WorldSuckPoint
-        {
-            get
-            {
-                return FarseerUtil.rotate(suckPoint, BodyAngle) + Body.Position;
-            }
-        }
+        public Vector2 WorldSuckPoint => FarseerUtil.rotate(suckPoint, BodyAngle) + Body.Position;
 
         public bool UseForZoom()
         {
             return false;
         }
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public bool DisableHeroFocus => true;
 
         public virtual int Priority(Vector2 touchPoint)
         {

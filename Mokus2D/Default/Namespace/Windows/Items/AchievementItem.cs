@@ -44,21 +44,9 @@ namespace Default.Namespace.Windows.Items
             return sprite;
         }
 
-        public override Node ViewTarget
-        {
-            get
-            {
-                return goldLabel;
-            }
-        }
+        public override Node ViewTarget => goldLabel;
 
-        public override Vector2 Size
-        {
-            get
-            {
-                return ItemSize;
-            }
-        }
+        public override Vector2 Size => ItemSize;
 
         private static readonly Vector2 ItemSize = new(500f, 84f);
 

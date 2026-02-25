@@ -70,13 +70,7 @@ namespace Mokus2D.Util
         {
             public Action Action { get; private set; }
 
-            public float TimeLeft
-            {
-                get
-                {
-                    return timeLeft;
-                }
-            }
+            public float TimeLeft => timeLeft;
 
             public void Initialize(Scheduler scheduler, float timeLeft, Action action)
             {

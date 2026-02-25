@@ -12,30 +12,14 @@ namespace ContreJourMono.ContreJour.Game.Eyes
     {
         public virtual float EyeStep
         {
-            get
-            {
-                return eyeStep;
-            }
-            set
-            {
-                eyeStep = value;
-            }
+            get => eyeStep; set => eyeStep = value;
         }
 
-        public Sprite CurrentBackground
-        {
-            get
-            {
-                return currentBackground;
-            }
-        }
+        public Sprite CurrentBackground => currentBackground;
 
         public float ViewDistance
         {
-            get
-            {
-                return viewDistance;
-            }
+            get => viewDistance;
             set
             {
                 if (value != viewDistance)
@@ -48,10 +32,7 @@ namespace ContreJourMono.ContreJour.Game.Eyes
 
         public float ViewAngle
         {
-            get
-            {
-                return viewAngle;
-            }
+            get => viewAngle;
             set
             {
                 if (value != viewAngle)
@@ -62,21 +43,9 @@ namespace ContreJourMono.ContreJour.Game.Eyes
             }
         }
 
-        protected virtual float ViewRadius
-        {
-            get
-            {
-                return 7f;
-            }
-        }
+        protected virtual float ViewRadius => 7f;
 
-        protected ContreJourGame Game
-        {
-            get
-            {
-                return game;
-            }
-        }
+        protected ContreJourGame Game => game;
 
         public EyeBase(ContreJourGame game)
             : this(game, false, Vector2.Zero)

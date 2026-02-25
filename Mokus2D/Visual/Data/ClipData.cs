@@ -8,13 +8,7 @@ namespace Mokus2D.Visual.Data
 {
     public class ClipData
     {
-        public CGSize Size
-        {
-            get
-            {
-                return new CGSize(Width, Height);
-            }
-        }
+        public CGSize Size => new CGSize(Width, Height);
 
         public void Initialize()
         {

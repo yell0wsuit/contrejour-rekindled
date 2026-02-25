@@ -9,63 +9,24 @@ namespace Mokus2D.Visual.Data
     {
         public bool TransformationDirty
         {
-            get
-            {
-                return transformationDirty;
-            }
-            set
-            {
-                transformationDirty = value;
-            }
+            get => transformationDirty; set => transformationDirty = value;
         }
 
         public Vector2 SpritesScaleFactor
         {
-            get
-            {
-                return spritesScaleFactor;
-            }
-            set
-            {
-                spritesScaleFactor = value;
-            }
+            get => spritesScaleFactor; set => spritesScaleFactor = value;
         }
 
-        public Color Color
-        {
-            get
-            {
-                return color;
-            }
-        }
+        public Color Color => color;
 
         public float Opacity
         {
-            get
-            {
-                return opacity;
-            }
-            set
-            {
-                opacity = value;
-            }
+            get => opacity; set => opacity = value;
         }
 
-        public Matrix Matrix
-        {
-            get
-            {
-                return matrix;
-            }
-        }
+        public Matrix Matrix => matrix;
 
-        public Matrix PrimitivesMatrix
-        {
-            get
-            {
-                return Matrix * primitivesToScreenMatrix;
-            }
-        }
+        public Matrix PrimitivesMatrix => Matrix * primitivesToScreenMatrix;
 
         public VisualState(int width, int height)
             : this(width, height, Vector2.One)

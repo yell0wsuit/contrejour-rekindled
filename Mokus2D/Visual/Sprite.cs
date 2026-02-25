@@ -14,21 +14,9 @@ namespace Mokus2D.Visual
             return default(Rectangle?);
         }
 
-        public Texture2D Texture
-        {
-            get
-            {
-                return texture;
-            }
-        }
+        public Texture2D Texture => texture;
 
-        public ClipData Config
-        {
-            get
-            {
-                return config;
-            }
-        }
+        public ClipData Config => config;
 
         public Sprite(TextureData data)
             : this(data.Texture)

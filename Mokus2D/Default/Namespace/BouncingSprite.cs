@@ -23,14 +23,7 @@ namespace Default.Namespace
 
         public float Step
         {
-            get
-            {
-                return changer.Step;
-            }
-            set
-            {
-                changer.Step = value;
-            }
+            get => changer.Step; set => changer.Step = value;
         }
 
         public override Vector2 ScaleVec

@@ -10,13 +10,7 @@ namespace Default.Namespace
 {
     public class CocosUtil
     {
-        public static int CornerOffset
-        {
-            get
-            {
-                return iPad(36, 50);
-            }
-        }
+        public static int CornerOffset => iPad(36, 50);
 
         public static float RetinaWp7(float value)
         {

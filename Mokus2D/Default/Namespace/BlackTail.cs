@@ -17,50 +17,22 @@ namespace Default.Namespace
     {
         public float Width
         {
-            get
-            {
-                return width;
-            }
-            set
-            {
-                width = value;
-            }
+            get => width; set => width = value;
         }
 
         public int Frames
         {
-            get
-            {
-                return frames;
-            }
-            set
-            {
-                frames = value;
-            }
+            get => frames; set => frames = value;
         }
 
         public Body Body
         {
-            get
-            {
-                return body;
-            }
-            set
-            {
-                body = value;
-            }
+            get => body; set => body = value;
         }
 
         public Vector2 Target
         {
-            get
-            {
-                return target;
-            }
-            set
-            {
-                target = value;
-            }
+            get => target; set => target = value;
         }
 
         public override float OpacityFloat
@@ -104,10 +76,7 @@ namespace Default.Namespace
 
         public bool Moving
         {
-            get
-            {
-                return moving;
-            }
+            get => moving;
             set
             {
                 if (moving != value)
@@ -117,13 +86,7 @@ namespace Default.Namespace
             }
         }
 
-        public int Length
-        {
-            get
-            {
-                return bezierPoints.Count;
-            }
-        }
+        public int Length => bezierPoints.Count;
 
         public override void Update(float time)
         {

@@ -10,13 +10,7 @@ namespace Default.Namespace
 {
     public class StrongSnotBodyClip : SnotBodyClip
     {
-        public float NormalDistance
-        {
-            get
-            {
-                return normalDistance;
-            }
-        }
+        public float NormalDistance => normalDistance;
 
         public StrongSnotBodyClip(LevelBuilderBase _builder, SnotData _body, Node _clip, Hashtable _config)
             : base(_builder, _body, _clip, _config)
@@ -32,13 +26,7 @@ namespace Default.Namespace
             }
         }
 
-        public new Vector2 Position
-        {
-            get
-            {
-                return Physics.FirstBody.Position;
-            }
-        }
+        public new Vector2 Position => Physics.FirstBody.Position;
 
         public override string[] OnSound()
         {

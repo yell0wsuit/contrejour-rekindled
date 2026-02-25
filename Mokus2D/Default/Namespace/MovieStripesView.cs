@@ -7,21 +7,9 @@ namespace Default.Namespace
 {
     public class MovieStripesView : Node
     {
-        public EventSender RestartEvent
-        {
-            get
-            {
-                return restartEvent;
-            }
-        }
+        public EventSender RestartEvent => restartEvent;
 
-        public EventSender MenuEvent
-        {
-            get
-            {
-                return menuEvent;
-            }
-        }
+        public EventSender MenuEvent => menuEvent;
 
         public MovieStripesView(bool blackSide, bool fade)
         {

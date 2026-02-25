@@ -12,28 +12,13 @@ namespace Default.Namespace
 {
     public class ScreenControl : IRemovable, IUpdatable
     {
-        public bool Dragging
-        {
-            get
-            {
-                return touch != null;
-            }
-        }
+        public bool Dragging => touch != null;
 
-        public Touch Touch
-        {
-            get
-            {
-                return touch;
-            }
-        }
+        public Touch Touch => touch;
 
         public bool ZoomOut
         {
-            get
-            {
-                return zoomOut;
-            }
+            get => zoomOut;
             set
             {
                 if (zoomOut != value)
@@ -50,22 +35,12 @@ namespace Default.Namespace
 
         public bool TouchEnabled
         {
-            get
-            {
-                return touchEnabled;
-            }
-            set
-            {
-                touchEnabled = value;
-            }
+            get => touchEnabled; set => touchEnabled = value;
         }
 
         public bool Touched
         {
-            get
-            {
-                return touched;
-            }
+            get => touched;
             set
             {
                 touched = value;

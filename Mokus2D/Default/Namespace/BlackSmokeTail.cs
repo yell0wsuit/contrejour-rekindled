@@ -12,26 +12,12 @@ namespace Default.Namespace
     {
         public float StartScale
         {
-            get
-            {
-                return startScale;
-            }
-            set
-            {
-                startScale = value;
-            }
+            get => startScale; set => startScale = value;
         }
 
         public string ClipName
         {
-            get
-            {
-                return clipName;
-            }
-            set
-            {
-                clipName = value;
-            }
+            get => clipName; set => clipName = value;
         }
 
         public void Update(float time)

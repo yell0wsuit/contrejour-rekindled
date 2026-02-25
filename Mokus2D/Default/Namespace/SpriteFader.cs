@@ -7,34 +7,17 @@ namespace Default.Namespace
     {
         public ushort EnabledOpacity
         {
-            get
-            {
-                return enabledOpacity;
-            }
-            set
-            {
-                enabledOpacity = value;
-            }
+            get => enabledOpacity; set => enabledOpacity = value;
         }
 
         public ushort DisabledOpacity
         {
-            get
-            {
-                return disabledOpacity;
-            }
-            set
-            {
-                disabledOpacity = value;
-            }
+            get => disabledOpacity; set => disabledOpacity = value;
         }
 
         public bool Enabled
         {
-            get
-            {
-                return enabled;
-            }
+            get => enabled;
             set
             {
                 if (enabled != value)
@@ -48,14 +31,7 @@ namespace Default.Namespace
 
         public float Duration
         {
-            get
-            {
-                return duration;
-            }
-            set
-            {
-                duration = value;
-            }
+            get => duration; set => duration = value;
         }
 
         protected Node target = _target;

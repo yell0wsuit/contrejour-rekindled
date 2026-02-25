@@ -12,21 +12,9 @@ namespace Default.Namespace
             eyeStep = CocosUtil.iPadValue(3f);
         }
 
-        protected override EyeAnimation[] Animations
-        {
-            get
-            {
-                return BACK_SNOT_ANIMATIONS;
-            }
-        }
+        protected override EyeAnimation[] Animations => BACK_SNOT_ANIMATIONS;
 
-        protected override float ViewRadius
-        {
-            get
-            {
-                return CocosUtil.iPadValue(30f);
-            }
-        }
+        protected override float ViewRadius => CocosUtil.iPadValue(30f);
 
         public override void Update(float time)
         {

@@ -18,13 +18,7 @@ namespace Default.Namespace
             }
         }
 
-        public static int LevelsToPlay
-        {
-            get
-            {
-                return !isTrial ? 20 : 10;
-            }
-        }
+        public static int LevelsToPlay => !isTrial ? 20 : 10;
 
         public const string CONFIG = "config";
 

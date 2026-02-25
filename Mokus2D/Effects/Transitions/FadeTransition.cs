@@ -14,13 +14,7 @@ namespace Mokus2D.Effects.Transitions
     {
         public event Action MiddleEvent;
 
-        public LayerColor Layer
-        {
-            get
-            {
-                return layer;
-            }
-        }
+        public LayerColor Layer => layer;
 
         public FadeTransition(float seconds, Node toRemove, Func<Node> nodeFactory, int framesToWait = 0)
             : this(seconds / 2f, seconds / 2f, toRemove, nodeFactory, framesToWait)

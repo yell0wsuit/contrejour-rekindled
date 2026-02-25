@@ -10,14 +10,7 @@ namespace Default.Namespace
 
         public int Frame
         {
-            get
-            {
-                return frame;
-            }
-            set
-            {
-                frame = value;
-            }
+            get => frame; set => frame = value;
         }
 
         private int frame;

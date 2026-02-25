@@ -39,24 +39,11 @@ namespace Default.Namespace
             draggingItems = new Dictionary<Touch, DraggingItem>();
         }
 
-        public PlasticineItem FirstItem
-        {
-            get
-            {
-                return firstItem;
-            }
-        }
+        public PlasticineItem FirstItem => firstItem;
 
         public bool Changed
         {
-            get
-            {
-                return changed;
-            }
-            set
-            {
-                changed = value;
-            }
+            get => changed; set => changed = value;
         }
 
         public void Restart()

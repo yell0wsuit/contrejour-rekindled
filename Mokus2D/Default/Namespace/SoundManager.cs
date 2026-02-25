@@ -33,10 +33,7 @@ namespace Default.Namespace
 
         public bool SoundEnabled
         {
-            get
-            {
-                return soundEnabled;
-            }
+            get => soundEnabled;
             set
             {
                 soundEnabled = value;
@@ -46,10 +43,7 @@ namespace Default.Namespace
 
         public bool MusicEnabled
         {
-            get
-            {
-                return musicEnabled;
-            }
+            get => musicEnabled;
             set
             {
                 musicEnabled = value;
@@ -102,10 +96,7 @@ namespace Default.Namespace
 
         public bool Loop
         {
-            get
-            {
-                return loop;
-            }
+            get => loop;
             set
             {
                 if (HasControl)
@@ -116,13 +107,7 @@ namespace Default.Namespace
             }
         }
 
-        public bool HasControl
-        {
-            get
-            {
-                return MediaPlayer.GameHasControl || hasControl;
-            }
-        }
+        public bool HasControl => MediaPlayer.GameHasControl || hasControl;
 
         public void Update(float time)
         {

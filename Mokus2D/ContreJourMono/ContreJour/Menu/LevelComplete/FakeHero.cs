@@ -30,44 +30,17 @@ namespace ContreJourMono.ContreJour.Menu.LevelComplete
             AddChild(eye);
         }
 
-        public HeroTail Tail
-        {
-            get
-            {
-                return tail;
-            }
-        }
+        public HeroTail Tail => tail;
 
-        protected virtual Color TailColor
-        {
-            get
-            {
-                return Color.Black;
-            }
-        }
+        protected virtual Color TailColor => Color.Black;
 
-        public Sprite Background
-        {
-            get
-            {
-                return background;
-            }
-        }
+        public Sprite Background => background;
 
-        public FakeHeroEye Eye
-        {
-            get
-            {
-                return eye;
-            }
-        }
+        public FakeHeroEye Eye => eye;
 
         public float Speed
         {
-            get
-            {
-                return speed;
-            }
+            get => speed;
             set
             {
                 speed = value;
@@ -75,20 +48,11 @@ namespace ContreJourMono.ContreJour.Menu.LevelComplete
             }
         }
 
-        public Sprite HotSpot
-        {
-            get
-            {
-                return hotSpot;
-            }
-        }
+        public Sprite HotSpot => hotSpot;
 
         public new Vector2 Position
         {
-            get
-            {
-                return base.Position;
-            }
+            get => base.Position;
             set
             {
                 base.Position = value;

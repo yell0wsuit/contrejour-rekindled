@@ -25,13 +25,7 @@ namespace Default.Namespace
 
         public ChapterItem TargetChapter { get; set; }
 
-        public EventSender ExplodeEvent
-        {
-            get
-            {
-                return explodeEvent;
-            }
-        }
+        public EventSender ExplodeEvent => explodeEvent;
 
         protected override void CreateClickListener()
         {

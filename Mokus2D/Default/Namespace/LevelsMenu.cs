@@ -85,13 +85,7 @@ namespace Default.Namespace
             return sprite;
         }
 
-        private static int LockedRows
-        {
-            get
-            {
-                return Constants.NormalChaptersCount - UserData.Instance.UnlockedChapters;
-            }
-        }
+        private static int LockedRows => Constants.NormalChaptersCount - UserData.Instance.UnlockedChapters;
 
         private Sprite CreateGetMoreButton(int chapter)
         {

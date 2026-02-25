@@ -18,13 +18,7 @@ namespace Default.Namespace
 {
     public class MainMenu : AccelerometerMenu, IActivatedDependent
     {
-        public bool PlanetsLoaded
-        {
-            get
-            {
-                return planetsLoaded;
-            }
-        }
+        public bool PlanetsLoaded => planetsLoaded;
 
         public MainMenu()
         {

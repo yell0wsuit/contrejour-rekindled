@@ -8,21 +8,9 @@ namespace ContreJourMono.ContreJour.Game.Hero
 {
     public class PointAndAngle(float length, float angleStep, float angleOffset)
     {
-        public float AngleStep
-        {
-            get
-            {
-                return angleStep;
-            }
-        }
+        public float AngleStep => angleStep;
 
-        public Vector2 Position
-        {
-            get
-            {
-                return Default.Namespace.Maths.RotateAngle(position, Angle);
-            }
-        }
+        public Vector2 Position => Default.Namespace.Maths.RotateAngle(position, Angle);
 
         public void Update(float speed, bool onGround, float timeCoeff)
         {

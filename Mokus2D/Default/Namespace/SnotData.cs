@@ -11,71 +11,26 @@ namespace Default.Namespace
     {
         public Body EyeBody
         {
-            get
-            {
-                return eyeBody;
-            }
-            set
-            {
-                eyeBody = value;
-            }
+            get => eyeBody; set => eyeBody = value;
         }
 
         public RevoluteJoint EyeJoint
         {
-            get
-            {
-                return eyeJoint;
-            }
-            set
-            {
-                eyeJoint = value;
-            }
+            get => eyeJoint; set => eyeJoint = value;
         }
 
-        public Body JoinedBody
-        {
-            get
-            {
-                return joinedBody;
-            }
-        }
+        public Body JoinedBody => joinedBody;
 
-        public float InitialLength
-        {
-            get
-            {
-                return initialLength;
-            }
-        }
+        public float InitialLength => initialLength;
 
-        public Vector2 LocalStartAnchor
-        {
-            get
-            {
-                return localStartAnchor;
-            }
-        }
+        public Vector2 LocalStartAnchor => localStartAnchor;
 
         public SnotBodyClipBase Snot
         {
-            get
-            {
-                return snot;
-            }
-            set
-            {
-                snot = value;
-            }
+            get => snot; set => snot = value;
         }
 
-        public RopeMetrics Metrics
-        {
-            get
-            {
-                return metrics;
-            }
-        }
+        public RopeMetrics Metrics => metrics;
 
         public SnotData(Body _eyeBody, RevoluteJoint _eyeJoint, Body _joinedBody, Vector2 _localStartAnchor, List<Body> _bodies, List<Joint> _joints, RopeMetrics _metrics)
         {
@@ -104,29 +59,11 @@ namespace Default.Namespace
             return bodies.Count;
         }
 
-        public int JoitsSize
-        {
-            get
-            {
-                return joints.Count;
-            }
-        }
+        public int JoitsSize => joints.Count;
 
-        public Body FirstBody
-        {
-            get
-            {
-                return bodies[0];
-            }
-        }
+        public Body FirstBody => bodies[0];
 
-        public Body EndBody
-        {
-            get
-            {
-                return bodies[bodies.Count - 1];
-            }
-        }
+        public Body EndBody => bodies[bodies.Count - 1];
 
         public Vector2 GetWorldStartPoint()
         {

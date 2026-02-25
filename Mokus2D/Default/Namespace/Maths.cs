@@ -7,13 +7,7 @@ namespace Default.Namespace
 {
     public static class Maths
     {
-        public static Random RandomGenerator
-        {
-            get
-            {
-                return randomGenerator;
-            }
-        }
+        public static Random RandomGenerator => randomGenerator;
 
         public static void Randomize(int seed)
         {

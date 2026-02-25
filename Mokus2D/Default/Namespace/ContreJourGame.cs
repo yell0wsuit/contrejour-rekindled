@@ -42,102 +42,32 @@ namespace Default.Namespace
 
         public int Frame
         {
-            get
-            {
-                return frame;
-            }
-            set
-            {
-                frame = value;
-            }
+            get => frame; set => frame = value;
         }
 
-        public WindManager WindManager
-        {
-            get
-            {
-                return windManager;
-            }
-        }
+        public WindManager WindManager => windManager;
 
-        public Node AlphaBackground
-        {
-            get
-            {
-                return alphaBackground;
-            }
-        }
+        public Node AlphaBackground => alphaBackground;
 
-        public bool BlackSide
-        {
-            get
-            {
-                return blackSide;
-            }
-        }
+        public bool BlackSide => blackSide;
 
-        public bool WhiteSide
-        {
-            get
-            {
-                return whiteSide;
-            }
-        }
+        public bool WhiteSide => whiteSide;
 
-        public int Chapter
-        {
-            get
-            {
-                return chapter;
-            }
-        }
+        public int Chapter => chapter;
 
-        public EventSender BackEvent
-        {
-            get
-            {
-                return backEvent;
-            }
-        }
+        public EventSender BackEvent => backEvent;
 
-        public EventSender RestartEvent
-        {
-            get
-            {
-                return restartEvent;
-            }
-        }
+        public EventSender RestartEvent => restartEvent;
 
-        public EventSender NextLevelEvent
-        {
-            get
-            {
-                return nextLevelEvent;
-            }
-        }
+        public EventSender NextLevelEvent => nextLevelEvent;
 
-        public HeroBodyClip Hero
-        {
-            get
-            {
-                return hero;
-            }
-        }
+        public HeroBodyClip Hero => hero;
 
-        public Vector2 HeroPositionVec
-        {
-            get
-            {
-                return hero.Body.Position;
-            }
-        }
+        public Vector2 HeroPositionVec => hero.Body.Position;
 
         public float FlyOpacity
         {
-            get
-            {
-                return flyOpacity;
-            }
+            get => flyOpacity;
             set
             {
                 if (Maths.FuzzyNotEquals(flyOpacity, value, 0.0001f))
@@ -147,194 +77,67 @@ namespace Default.Namespace
             }
         }
 
-        public List<PlasticineBodyClip> Plasticine
-        {
-            get
-            {
-                return plasticine;
-            }
-        }
+        public List<PlasticineBodyClip> Plasticine => plasticine;
 
         public Vector2 LightPoint
         {
-            get
-            {
-                return lightPoint;
-            }
-            set
-            {
-                lightPoint = value;
-            }
+            get => lightPoint; set => lightPoint = value;
         }
 
-        public bool LightPowerChanged
-        {
-            get
-            {
-                return lightPowerChanged;
-            }
-        }
+        public bool LightPowerChanged => lightPowerChanged;
 
-        public LightColor LightColor
-        {
-            get
-            {
-                return lightColor;
-            }
-        }
+        public LightColor LightColor => lightColor;
 
-        public ParticleSystem Flyes
-        {
-            get
-            {
-                return flyes;
-            }
-        }
+        public ParticleSystem Flyes => flyes;
 
-        public ParticleSystem Dust
-        {
-            get
-            {
-                return dust;
-            }
-        }
+        public ParticleSystem Dust => dust;
 
-        public ParticleSystem Grass
-        {
-            get
-            {
-                return grass;
-            }
-        }
+        public ParticleSystem Grass => grass;
 
-        public ParticleSystem Energy
-        {
-            get
-            {
-                return energy;
-            }
-        }
+        public ParticleSystem Energy => energy;
 
-        public GroundFall GroundFall
-        {
-            get
-            {
-                return groundFall;
-            }
-        }
+        public GroundFall GroundFall => groundFall;
 
         public EndLevelBodyClip EndLevel
         {
-            get
-            {
-                return endLevel;
-            }
-            set
-            {
-                endLevel = value;
-            }
+            get => endLevel; set => endLevel = value;
         }
 
         public bool TouchEnabled
         {
-            get
-            {
-                return touchEnabled;
-            }
-            set
-            {
-                touchEnabled = value;
-            }
+            get => touchEnabled; set => touchEnabled = value;
         }
 
-        public int LevelIndex
-        {
-            get
-            {
-                return levelIndex;
-            }
-        }
+        public int LevelIndex => levelIndex;
 
-        public int LevelPosition
-        {
-            get
-            {
-                return levelPosition;
-            }
-        }
+        public int LevelPosition => levelPosition;
 
         public IBonusAcceptable BonusTarget
         {
-            get
-            {
-                return bonusTarget ?? hero;
-            }
-            set
-            {
-                bonusTarget = value;
-            }
+            get => bonusTarget ?? hero; set => bonusTarget = value;
         }
 
         public bool CanShowIntro { get; set; }
 
-        public int StarsCollected
-        {
-            get
-            {
-                return starsCollected;
-            }
-        }
+        public int StarsCollected => starsCollected;
 
         public bool SnotSend
         {
-            get
-            {
-                return snotSend;
-            }
-            set
-            {
-                snotSend = value;
-            }
+            get => snotSend; set => snotSend = value;
         }
 
-        public ClickableLayer ClickableLayer
-        {
-            get
-            {
-                return clickableLayer;
-            }
-        }
+        public ClickableLayer ClickableLayer => clickableLayer;
 
-        public Color ButtonsColor
-        {
-            get
-            {
-                return buttonsColor;
-            }
-        }
+        public Color ButtonsColor => buttonsColor;
 
         public bool RestartEnabled
         {
-            get
-            {
-                return restartEnabled;
-            }
-            set
-            {
-                restartEnabled = value;
-            }
+            get => restartEnabled; set => restartEnabled = value;
         }
 
         public bool Finished
         {
-            get
-            {
-                return finished;
-            }
-            set
-            {
-                finished = value;
-            }
+            get => finished; set => finished = value;
         }
 
         public ContreJourGame(int _chapter)
@@ -386,13 +189,7 @@ namespace Default.Namespace
             Mokus2DGame.KeysController.AddBackKeyListener(new Action(OnBackPress), 0);
         }
 
-        public new ContreJourLevelBuilder Builder
-        {
-            get
-            {
-                return (ContreJourLevelBuilder)base.Builder;
-            }
-        }
+        public new ContreJourLevelBuilder Builder => (ContreJourLevelBuilder)base.Builder;
 
         public override ClipFactory CreateClipFactory()
         {
@@ -497,44 +294,17 @@ namespace Default.Namespace
             bool is_IPAD = Constants.IS_IPAD;
         }
 
-        public bool RoseChapter
-        {
-            get
-            {
-                return chapter == 4;
-            }
-        }
+        public bool RoseChapter => chapter == 4;
 
-        public bool BonusChapter
-        {
-            get
-            {
-                return chapter == 5;
-            }
-        }
+        public bool BonusChapter => chapter == 5;
 
-        public int HeroIndex
-        {
-            get
-            {
-                return Builder.Root.Children.IndexOf(hero.Clip);
-            }
-        }
+        public int HeroIndex => Builder.Root.Children.IndexOf(hero.Clip);
 
-        public Vector2 HeroPositionPixels
-        {
-            get
-            {
-                return hero.Clip.Position;
-            }
-        }
+        public Vector2 HeroPositionPixels => hero.Clip.Position;
 
         public float LightPower
         {
-            get
-            {
-                return lightPower;
-            }
+            get => lightPower;
             set
             {
                 if (Maths.FuzzyNotEquals(lightPower, value, 0.0001f))

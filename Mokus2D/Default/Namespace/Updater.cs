@@ -6,14 +6,7 @@ namespace Default.Namespace
     {
         public bool Paused
         {
-            get
-            {
-                return paused;
-            }
-            set
-            {
-                paused = value;
-            }
+            get => paused; set => paused = value;
         }
 
         public Updater()

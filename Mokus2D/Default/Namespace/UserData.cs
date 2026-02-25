@@ -36,10 +36,7 @@ namespace Default.Namespace
 
         public LevelData[] LevelData
         {
-            get
-            {
-                return levelData;
-            }
+            get => levelData;
             set
             {
                 int num = 0;
@@ -53,10 +50,7 @@ namespace Default.Namespace
 
         public int[] UnlockedLevels
         {
-            get
-            {
-                return unlockedLevels;
-            }
+            get => unlockedLevels;
             set
             {
                 int num = 0;
@@ -100,13 +94,7 @@ namespace Default.Namespace
             }
         }
 
-        public bool LastLevelOpen
-        {
-            get
-            {
-                return GetLevelDataByPosition(new LevelPosition(4, 19)) != null;
-            }
-        }
+        public bool LastLevelOpen => GetLevelDataByPosition(new LevelPosition(4, 19)) != null;
 
         public int OutOfScreen { get; set; }
 
@@ -126,39 +114,14 @@ namespace Default.Namespace
 
         public int UnlockedChapters
         {
-            get
-            {
-                return Math.Max(unlockedChapters, 2);
-            }
-            set
-            {
-                unlockedChapters = Math.Max(2, value);
-            }
+            get => Math.Max(unlockedChapters, 2); set => unlockedChapters = Math.Max(2, value);
         }
 
-        public int TotalStars
-        {
-            get
-            {
-                return GetStarsEnd(0, ContreJourConstants.LEVEL_COUNT);
-            }
-        }
+        public int TotalStars => GetStarsEnd(0, ContreJourConstants.LEVEL_COUNT);
 
-        public int TotalScore
-        {
-            get
-            {
-                return GetScoreEnd(0, ContreJourConstants.LEVEL_COUNT);
-            }
-        }
+        public int TotalScore => GetScoreEnd(0, ContreJourConstants.LEVEL_COUNT);
 
-        public bool RoseSaved
-        {
-            get
-            {
-                return TotalStars >= 240;
-            }
-        }
+        public bool RoseSaved => TotalStars >= 240;
 
         public static void SaveUserData()
         {

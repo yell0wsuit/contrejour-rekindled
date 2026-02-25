@@ -34,14 +34,7 @@ namespace ContreJourMono.ContreJour.Game.Hero
 
         public float BorderWidth
         {
-            get
-            {
-                return borderWidth;
-            }
-            set
-            {
-                borderWidth = value;
-            }
+            get => borderWidth; set => borderWidth = value;
         }
 
         public void SetMovementDirection(float value)

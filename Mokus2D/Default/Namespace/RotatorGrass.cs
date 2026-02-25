@@ -8,10 +8,7 @@ namespace Default.Namespace
     {
         public float InitialAngle
         {
-            get
-            {
-                return initialAngle;
-            }
+            get => initialAngle;
             set
             {
                 initialAngle = value;
@@ -22,26 +19,12 @@ namespace Default.Namespace
 
         public float ContactAngle
         {
-            get
-            {
-                return contactAngle;
-            }
-            set
-            {
-                contactAngle = value;
-            }
+            get => contactAngle; set => contactAngle = value;
         }
 
         public Particle Particle
         {
-            get
-            {
-                return particle;
-            }
-            set
-            {
-                particle = value;
-            }
+            get => particle; set => particle = value;
         }
 
         public RotatorGrass(Particle _particle)

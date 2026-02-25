@@ -12,13 +12,7 @@ namespace Default.Namespace
             changer.Progress = Maths.randRange(0f, 6.2831855f);
         }
 
-        public virtual float Value
-        {
-            get
-            {
-                return changer.Value;
-            }
-        }
+        public virtual float Value => changer.Value;
 
         public void Update(float time)
         {

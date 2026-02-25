@@ -8,122 +8,52 @@ namespace Default.Namespace
     {
         public Range Speed
         {
-            get
-            {
-                return speed;
-            }
-            set
-            {
-                speed = value;
-            }
+            get => speed; set => speed = value;
         }
 
         public Range Angle
         {
-            get
-            {
-                return angle;
-            }
-            set
-            {
-                angle = value;
-            }
+            get => angle; set => angle = value;
         }
 
         public Range AngularSpeed
         {
-            get
-            {
-                return angularSpeed;
-            }
-            set
-            {
-                angularSpeed = value;
-            }
+            get => angularSpeed; set => angularSpeed = value;
         }
 
         public Range ParticlesScale
         {
-            get
-            {
-                return particlesScale;
-            }
-            set
-            {
-                particlesScale = value;
-            }
+            get => particlesScale; set => particlesScale = value;
         }
 
         public Range HorizontalPosition
         {
-            get
-            {
-                return horizontalPosition;
-            }
-            set
-            {
-                horizontalPosition = value;
-            }
+            get => horizontalPosition; set => horizontalPosition = value;
         }
 
         public Range VerticalPosition
         {
-            get
-            {
-                return verticalPosition;
-            }
-            set
-            {
-                verticalPosition = value;
-            }
+            get => verticalPosition; set => verticalPosition = value;
         }
 
         public Vector2 TopRightBound
         {
-            get
-            {
-                return topRightBound;
-            }
-            set
-            {
-                topRightBound = value;
-            }
+            get => topRightBound; set => topRightBound = value;
         }
 
         public Vector2 BottomLeftBound
         {
-            get
-            {
-                return bottomLeftBound;
-            }
-            set
-            {
-                bottomLeftBound = value;
-            }
+            get => bottomLeftBound; set => bottomLeftBound = value;
         }
 
         public Range StartOpacity
         {
-            get
-            {
-                return startOpacity;
-            }
-            set
-            {
-                startOpacity = value;
-            }
+            get => startOpacity; set => startOpacity = value;
         }
 
         public Vector2 Gravity
         {
-            get
-            {
-                return gravity;
-            }
-            set
-            {
-                gravity = value;
-            }
+            get => gravity; set => gravity = value;
         }
 
         public GravityParticleSystem(string textureName)

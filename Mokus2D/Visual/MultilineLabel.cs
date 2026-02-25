@@ -24,20 +24,11 @@ namespace Mokus2D.Visual
         {
         }
 
-        public override Vector2 Size
-        {
-            get
-            {
-                return new Vector2(base.Size.X, base.Size.Y + LineSpacing * lines.Count);
-            }
-        }
+        public override Vector2 Size => new Vector2(base.Size.X, base.Size.Y + LineSpacing * lines.Count);
 
         public float LineSpacing
         {
-            get
-            {
-                return lineSpacing;
-            }
+            get => lineSpacing;
             set
             {
                 lineSpacing = value;

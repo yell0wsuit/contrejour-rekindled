@@ -14,10 +14,7 @@ namespace Default.Namespace
     {
         public Color NeckColor
         {
-            get
-            {
-                return neckColor;
-            }
+            get => neckColor;
             set
             {
                 neckColor = value;

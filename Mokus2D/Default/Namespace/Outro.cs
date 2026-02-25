@@ -58,10 +58,7 @@ namespace Default.Namespace
 
         public bool TextVisible
         {
-            get
-            {
-                return textVisible;
-            }
+            get => textVisible;
             set
             {
                 if (textVisible != value)

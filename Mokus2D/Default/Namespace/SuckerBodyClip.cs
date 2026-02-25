@@ -60,29 +60,11 @@ namespace Default.Namespace
             pimpa.AddChild(node2);
         }
 
-        protected virtual float BounceVolume
-        {
-            get
-            {
-                return 0.3f;
-            }
-        }
+        protected virtual float BounceVolume => 0.3f;
 
-        protected virtual string BounceSound
-        {
-            get
-            {
-                return "landing1";
-            }
-        }
+        protected virtual string BounceSound => "landing1";
 
-        public bool Dragging
-        {
-            get
-            {
-                return touch != null;
-            }
-        }
+        public bool Dragging => touch != null;
 
         public Vector2 TargetPosition
         {
@@ -100,13 +82,7 @@ namespace Default.Namespace
                 : touchPosition.DistanceTo(Body.Position);
         }
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public bool DisableHeroFocus => true;
 
         public int Priority(Vector2 touchPoint)
         {

@@ -8,14 +8,7 @@ namespace Default.Namespace
     {
         public int Value
         {
-            get
-            {
-                return value;
-            }
-            set
-            {
-                this.value = value;
-            }
+            get => value; set => this.value = value;
         }
 
         public override void Update(float time)
@@ -29,13 +22,7 @@ namespace Default.Namespace
             }
         }
 
-        public int CurrentValue
-        {
-            get
-            {
-                return (int)(value * (float)currentStep / steps);
-            }
-        }
+        public int CurrentValue => (int)(value * (float)currentStep / steps);
 
         protected string format = _format;
 

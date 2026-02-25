@@ -9,10 +9,7 @@ namespace Default.Namespace
     {
         public float TargetScale
         {
-            get
-            {
-                return targetScale;
-            }
+            get => targetScale;
             set
             {
                 if (targetScale != value)
@@ -45,10 +42,7 @@ namespace Default.Namespace
 
         public float ItemsScale
         {
-            get
-            {
-                return itemsScale;
-            }
+            get => itemsScale;
             set
             {
                 if (Maths.FuzzyNotEquals(itemsScale, value, 0.0001f))
@@ -61,14 +55,7 @@ namespace Default.Namespace
 
         public float ScaleStep
         {
-            get
-            {
-                return scaleStep;
-            }
-            set
-            {
-                scaleStep = value;
-            }
+            get => scaleStep; set => scaleStep = value;
         }
 
         public Portal(ContreJourGame game, Vector2 position)

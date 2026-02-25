@@ -22,22 +22,12 @@ namespace Default.Namespace
 
         public float TargetOpacity
         {
-            get
-            {
-                return targetOpacity;
-            }
-            set
-            {
-                targetOpacity = value;
-            }
+            get => targetOpacity; set => targetOpacity = value;
         }
 
         public Color TextureColor
         {
-            get
-            {
-                return textureColor;
-            }
+            get => textureColor;
             set
             {
                 if (textureColor != value)

@@ -39,13 +39,7 @@ namespace Default.Namespace
             RefreshPositions();
         }
 
-        private bool TransformChanged
-        {
-            get
-            {
-                return !FarseerUtil.b2Vec2Equal(oldPosition, Body.Position) || oldAngle != Body.Rotation;
-            }
-        }
+        private bool TransformChanged => !FarseerUtil.b2Vec2Equal(oldPosition, Body.Position) || oldAngle != Body.Rotation;
 
         protected override void SetSticked(ILaunchable value)
         {

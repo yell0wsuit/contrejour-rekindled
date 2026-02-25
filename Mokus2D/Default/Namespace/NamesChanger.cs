@@ -56,10 +56,7 @@ namespace Default.Namespace
 
         public float CurrentIndex
         {
-            get
-            {
-                return currentIndex;
-            }
+            get => currentIndex;
             set
             {
                 if (currentIndex != value)

@@ -66,21 +66,9 @@ namespace Default.Namespace
             node.Position = CocosUtil.ccpIPad(-11f, 0f);
         }
 
-        public int Level
-        {
-            get
-            {
-                return level;
-            }
-        }
+        public int Level => level;
 
-        public int Index
-        {
-            get
-            {
-                return index;
-            }
-        }
+        public int Index => index;
 
         public Node CreateDigitChapter(int character, int chapter)
         {
@@ -102,13 +90,7 @@ namespace Default.Namespace
             }
         }
 
-        public Rectangle Bounds
-        {
-            get
-            {
-                return new Rectangle(-50, -40, 100, 80);
-            }
-        }
+        public Rectangle Bounds => new Rectangle(-50, -40, 100, 80);
 
         public const float EFFECT_TIME = 0.1f;
 

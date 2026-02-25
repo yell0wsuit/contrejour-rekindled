@@ -19,13 +19,7 @@ namespace ContreJour
 {
     public class ContreJourApplication : Mokus2DGame
     {
-        public static Dictionary<int, SpriteFont> Fonts
-        {
-            get
-            {
-                return fonts;
-            }
-        }
+        public static Dictionary<int, SpriteFont> Fonts => fonts;
 
         public ContreJourApplication()
         {

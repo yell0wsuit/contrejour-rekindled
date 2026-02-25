@@ -12,10 +12,7 @@ namespace Default.Namespace
     {
         public bool MoveAllowed
         {
-            get
-            {
-                return moveAllowed;
-            }
+            get => moveAllowed;
             set
             {
                 moveAllowed = value;
@@ -99,13 +96,7 @@ namespace Default.Namespace
             return false;
         }
 
-        protected override float ViewRadius
-        {
-            get
-            {
-                return base.ViewRadius * 2f;
-            }
-        }
+        protected override float ViewRadius => base.ViewRadius * 2f;
 
         public void ApplyBonus()
         {

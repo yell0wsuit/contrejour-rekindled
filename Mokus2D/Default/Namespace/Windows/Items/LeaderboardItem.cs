@@ -30,21 +30,9 @@ namespace Default.Namespace.Windows.Items
             }
         }
 
-        public override Node ViewTarget
-        {
-            get
-            {
-                return scoreLabel;
-            }
-        }
+        public override Node ViewTarget => scoreLabel;
 
-        public override Vector2 Size
-        {
-            get
-            {
-                return new Vector2(400f, 100f);
-            }
-        }
+        public override Vector2 Size => new Vector2(400f, 100f);
 
         private void OnGetProfile(GamerProfile result)
         {

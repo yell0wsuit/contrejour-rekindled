@@ -19,54 +19,24 @@ namespace Default.Namespace
     {
         public PlasticineItem Item
         {
-            get
-            {
-                return item;
-            }
-            set
-            {
-                item = value;
-            }
+            get => item; set => item = value;
         }
 
         public bool UpdateParent
         {
-            get
-            {
-                return updateParent;
-            }
-            set
-            {
-                updateParent = value;
-            }
+            get => updateParent; set => updateParent = value;
         }
 
-        public PlasticineBodyClip Parent
-        {
-            get
-            {
-                return parent;
-            }
-        }
+        public PlasticineBodyClip Parent => parent;
 
         public PlasticinePartHighlite Highlite
         {
-            get
-            {
-                return highlite;
-            }
-            set
-            {
-                highlite = value;
-            }
+            get => highlite; set => highlite = value;
         }
 
         public bool Dragging
         {
-            get
-            {
-                return dragging;
-            }
+            get => dragging;
             set
             {
                 if (value != dragging)
@@ -81,65 +51,22 @@ namespace Default.Namespace
             }
         }
 
-        public Vector2 Normal
-        {
-            get
-            {
-                return normal;
-            }
-        }
+        public Vector2 Normal => normal;
 
-        public Vector2 Parallel
-        {
-            get
-            {
-                return parallel;
-            }
-        }
+        public Vector2 Parallel => parallel;
 
         public bool IsRotationDirty
         {
-            get
-            {
-                return isRotationDirty;
-            }
-            set
-            {
-                isRotationDirty = value;
-            }
+            get => isRotationDirty; set => isRotationDirty = value;
         }
 
-        public float InitialAngle
-        {
-            get
-            {
-                return initialAngle;
-            }
-        }
+        public float InitialAngle => initialAngle;
 
-        public int Index
-        {
-            get
-            {
-                return index;
-            }
-        }
+        public int Index => index;
 
-        public IGrassController GrassController
-        {
-            get
-            {
-                return grassController;
-            }
-        }
+        public IGrassController GrassController => grassController;
 
-        public float Width
-        {
-            get
-            {
-                return width;
-            }
-        }
+        public float Width => width;
 
         public PlasticinePartBodyClip(LevelBuilderBase _builder, object _body, PlasticineBodyClip _parent, float _width, bool hasGrass)
             : base(_builder, _body, null, null)
@@ -235,13 +162,7 @@ namespace Default.Namespace
             }
         }
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public bool DisableHeroFocus => true;
 
         public int Priority(Vector2 touchPoint)
         {

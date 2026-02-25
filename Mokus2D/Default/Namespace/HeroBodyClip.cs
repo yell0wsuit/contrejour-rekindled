@@ -19,32 +19,16 @@ namespace Default.Namespace
 {
     public class HeroBodyClip : ContreJourBodyClip, IVectorPositionProvider, IBonusAcceptable, ISnotLinked, IEatable, ISpikesDestroyable, ILaunchable, IRadius, IBodyClip, ITeleportable, IRestartable
     {
-        public EventSender TeleportEvent
-        {
-            get
-            {
-                return teleportEvent;
-            }
-        }
+        public EventSender TeleportEvent => teleportEvent;
 
         public bool Removed
         {
-            get
-            {
-                return removed;
-            }
-            set
-            {
-                removed = value;
-            }
+            get => removed; set => removed = value;
         }
 
         public int SnotJoinedCount
         {
-            get
-            {
-                return snotJoinedCount;
-            }
+            get => snotJoinedCount;
             set
             {
                 if (value != snotJoinedCount)
@@ -60,46 +44,19 @@ namespace Default.Namespace
 
         public bool HitEnabled
         {
-            get
-            {
-                return hitEnabled;
-            }
-            set
-            {
-                hitEnabled = value;
-            }
+            get => hitEnabled; set => hitEnabled = value;
         }
 
         public bool SnotEnabled
         {
-            get
-            {
-                return snotEnabled;
-            }
-            set
-            {
-                snotEnabled = value;
-            }
+            get => snotEnabled; set => snotEnabled = value;
         }
 
-        public HeroEye Eye
-        {
-            get
-            {
-                return eye;
-            }
-        }
+        public HeroEye Eye => eye;
 
         public bool SpeedLocked
         {
-            get
-            {
-                return speedLocked;
-            }
-            set
-            {
-                speedLocked = value;
-            }
+            get => speedLocked; set => speedLocked = value;
         }
 
         public HeroBodyClip(LevelBuilderBase _builder, object _body, Node _clip, Hashtable _config)
@@ -186,13 +143,7 @@ namespace Default.Namespace
             Game.AddShadowSource(this);
         }
 
-        protected virtual float FirstRespawnTime
-        {
-            get
-            {
-                return 0.5f;
-            }
-        }
+        protected virtual float FirstRespawnTime => 0.5f;
 
         public bool CanTeleport()
         {
@@ -266,13 +217,7 @@ namespace Default.Namespace
             return false;
         }
 
-        public EventSender DestroyEvent
-        {
-            get
-            {
-                return teleportEvent;
-            }
-        }
+        public EventSender DestroyEvent => teleportEvent;
 
         public Vector2 BonusTarget()
         {
@@ -287,26 +232,12 @@ namespace Default.Namespace
 
         public virtual bool EyeAnimationsAllowed
         {
-            get
-            {
-                return eye.AnimationsAllowed;
-            }
-            set
-            {
-                eye.AnimationsAllowed = value;
-            }
+            get => eye.AnimationsAllowed; set => eye.AnimationsAllowed = value;
         }
 
         public bool EyeMoveAllowed
         {
-            get
-            {
-                return eye.MoveAllowed;
-            }
-            set
-            {
-                eye.MoveAllowed = value;
-            }
+            get => eye.MoveAllowed; set => eye.MoveAllowed = value;
         }
 
         public void SetPosition(Vector2 position)
@@ -355,13 +286,7 @@ namespace Default.Namespace
             NewBlackTail();
         }
 
-        public new Vector2 PositionVec
-        {
-            get
-            {
-                return Body.Position;
-            }
-        }
+        public new Vector2 PositionVec => Body.Position;
 
         private void ShowClip()
         {

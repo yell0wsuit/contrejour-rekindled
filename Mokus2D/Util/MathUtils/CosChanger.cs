@@ -8,21 +8,9 @@ namespace Mokus2D.Util.MathUtils
 {
     public class CosChanger
     {
-        public float Value
-        {
-            get
-            {
-                return value;
-            }
-        }
+        public float Value => value;
 
-        public bool IsMax
-        {
-            get
-            {
-                return Math.Abs(Progress % 6.283185307179586) < Step;
-            }
-        }
+        public bool IsMax => Math.Abs(Progress % 6.283185307179586) < Step;
 
         public CosChanger(float minValue, float maxValue, float step)
         {

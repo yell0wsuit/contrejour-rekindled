@@ -2,13 +2,7 @@
 {
     public class BackMovieStripes : MovieStripesView
     {
-        public EventSender BackEvent
-        {
-            get
-            {
-                return backEvent;
-            }
-        }
+        public EventSender BackEvent => backEvent;
 
         public BackMovieStripes()
             : base(false, false)

@@ -6,14 +6,7 @@ namespace Default.Namespace
     {
         public float TargetScale
         {
-            get
-            {
-                return targetScale;
-            }
-            set
-            {
-                targetScale = value;
-            }
+            get => targetScale; set => targetScale = value;
         }
 
         public ButtonSprite(TouchSprite _sprite)

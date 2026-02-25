@@ -12,10 +12,7 @@ namespace Mokus2D.Visual
     {
         public string TextString
         {
-            get
-            {
-                return text.ToString();
-            }
+            get => text.ToString();
             set
             {
                 text.Clear();
@@ -273,38 +270,17 @@ namespace Mokus2D.Visual
 
         public int Length
         {
-            get
-            {
-                return text.Length;
-            }
-            set
-            {
-                text.Length = value;
-            }
+            get => text.Length; set => text.Length = value;
         }
 
         public int Capacity
         {
-            get
-            {
-                return text.Capacity;
-            }
-            set
-            {
-                text.Capacity = value;
-            }
+            get => text.Capacity; set => text.Capacity = value;
         }
 
         public char this[int index]
         {
-            get
-            {
-                return text[index];
-            }
-            set
-            {
-                text[index] = value;
-            }
+            get => text[index]; set => text[index] = value;
         }
 
         public int EnsureCapacity(int capacity)

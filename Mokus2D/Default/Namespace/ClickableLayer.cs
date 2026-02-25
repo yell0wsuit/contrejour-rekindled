@@ -13,13 +13,7 @@ namespace Default.Namespace
     {
         public bool Enabled { get; set; } = true;
 
-        private bool CanProcessTouch
-        {
-            get
-            {
-                return Enabled && NodeUtil.IsBranchVisible(this);
-            }
-        }
+        private bool CanProcessTouch => Enabled && NodeUtil.IsBranchVisible(this);
 
         public bool TouchMove(Touch touch)
         {

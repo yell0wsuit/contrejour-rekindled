@@ -17,10 +17,7 @@ namespace Mokus2D.Visual
 
         public Texture2D Texture
         {
-            get
-            {
-                return texture;
-            }
+            get => texture;
             set
             {
                 DecreaseTextureReferencesCount();

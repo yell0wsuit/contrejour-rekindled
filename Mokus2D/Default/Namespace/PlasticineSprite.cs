@@ -13,20 +13,11 @@ namespace Default.Namespace
             Color = COLOR;
         }
 
-        public VertexPositionColorTexture[] Vertices
-        {
-            get
-            {
-                return vertices;
-            }
-        }
+        public VertexPositionColorTexture[] Vertices => vertices;
 
         public override Color Color
         {
-            get
-            {
-                return base.Color;
-            }
+            get => base.Color;
             set
             {
                 if (Color != value)

@@ -18,10 +18,7 @@ namespace Mokus2D.Controls
 
         public bool Enabled
         {
-            get
-            {
-                return enabled;
-            }
+            get => enabled;
             set
             {
                 enabled = value;
@@ -34,26 +31,12 @@ namespace Mokus2D.Controls
 
         public float CurrentPosition
         {
-            get
-            {
-                return currentPosition;
-            }
-            set
-            {
-                currentPosition = value;
-            }
+            get => currentPosition; set => currentPosition = value;
         }
 
         public float PageWidth
         {
-            get
-            {
-                return pageWidth;
-            }
-            set
-            {
-                pageWidth = value;
-            }
+            get => pageWidth; set => pageWidth = value;
         }
 
         public void Dispose()

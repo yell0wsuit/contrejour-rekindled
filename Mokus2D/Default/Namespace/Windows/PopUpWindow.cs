@@ -25,10 +25,7 @@ namespace Default.Namespace.Windows
 
         public bool Open
         {
-            get
-            {
-                return open;
-            }
+            get => open;
             set
             {
                 if (open != value)

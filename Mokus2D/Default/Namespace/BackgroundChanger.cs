@@ -13,36 +13,15 @@ namespace Default.Namespace
             RefreshOpacity();
         }
 
-        public int FirstIndex
-        {
-            get
-            {
-                return firstIndex;
-            }
-        }
+        public int FirstIndex => firstIndex;
 
-        public int NextIndex
-        {
-            get
-            {
-                return nextIndex;
-            }
-        }
+        public int NextIndex => nextIndex;
 
-        public float Offset
-        {
-            get
-            {
-                return offset;
-            }
-        }
+        public float Offset => offset;
 
         public float CurrentIndex
         {
-            get
-            {
-                return currentIndex;
-            }
+            get => currentIndex;
             set
             {
                 if (currentIndex != value)

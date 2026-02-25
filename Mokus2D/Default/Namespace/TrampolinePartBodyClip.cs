@@ -13,14 +13,7 @@ namespace Default.Namespace
 
         public TrampolineBodyClip Parent
         {
-            get
-            {
-                return parent;
-            }
-            set
-            {
-                parent = value;
-            }
+            get => parent; set => parent = value;
         }
 
         public bool UseForZoom()
@@ -28,13 +21,7 @@ namespace Default.Namespace
             return false;
         }
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool DisableHeroFocus => false;
 
         public int Priority(Vector2 touchPoint)
         {

@@ -16,26 +16,12 @@ namespace Default.Namespace
 
         public int Score
         {
-            get
-            {
-                return score;
-            }
-            set
-            {
-                score = value;
-            }
+            get => score; set => score = value;
         }
 
         public int StarsCount
         {
-            get
-            {
-                return starsCount;
-            }
-            set
-            {
-                starsCount = value;
-            }
+            get => starsCount; set => starsCount = value;
         }
 
         public override string ToString()

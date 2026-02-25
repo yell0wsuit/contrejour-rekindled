@@ -16,43 +16,17 @@ namespace Default.Namespace
     {
         public Hashtable Config
         {
-            get
-            {
-                return config;
-            }
-            set
-            {
-                config = value;
-            }
+            get => config; set => config = value;
         }
 
-        public Node Clip
-        {
-            get
-            {
-                return clip;
-            }
-        }
+        public Node Clip => clip;
 
         public float RotationOffset
         {
-            get
-            {
-                return rotationOffset;
-            }
-            set
-            {
-                rotationOffset = value;
-            }
+            get => rotationOffset; set => rotationOffset = value;
         }
 
-        public LevelBuilderBase Builder
-        {
-            get
-            {
-                return builder;
-            }
-        }
+        public LevelBuilderBase Builder => builder;
 
         public BodyClip(LevelBuilderBase builder, object body, Node clip, Hashtable config)
         {
@@ -68,21 +42,9 @@ namespace Default.Namespace
             this.builder = builder;
         }
 
-        protected float InitialBodyAngle
-        {
-            get
-            {
-                return MathHelper.ToRadians(-rotationOffset);
-            }
-        }
+        protected float InitialBodyAngle => MathHelper.ToRadians(-rotationOffset);
 
-        public float BodyAngle
-        {
-            get
-            {
-                return InitialBodyAngle + body.Rotation;
-            }
-        }
+        public float BodyAngle => InitialBodyAngle + body.Rotation;
 
         public DelayedAction Schedule(Action action, float delay)
         {
@@ -99,21 +61,9 @@ namespace Default.Namespace
             return new List<string>();
         }
 
-        public virtual Vector2 PositionVec
-        {
-            get
-            {
-                return body.Position;
-            }
-        }
+        public virtual Vector2 PositionVec => body.Position;
 
-        public Vector2 Position
-        {
-            get
-            {
-                return CocosUtil.toIPad(builder.ToPoint(body.Position));
-            }
-        }
+        public Vector2 Position => CocosUtil.toIPad(builder.ToPoint(body.Position));
 
         private Vector2 Scale()
         {
@@ -122,10 +72,7 @@ namespace Default.Namespace
 
         public virtual Body Body
         {
-            get
-            {
-                return body;
-            }
+            get => body;
             protected set
             {
                 if (body != null)

@@ -11,38 +11,17 @@ namespace Default.Namespace
     {
         public float LightLength
         {
-            get
-            {
-                return lightLength;
-            }
-            set
-            {
-                lightLength = value;
-            }
+            get => lightLength; set => lightLength = value;
         }
 
         public Vector2 LightBottom
         {
-            get
-            {
-                return lightBottom;
-            }
-            set
-            {
-                lightBottom = value;
-            }
+            get => lightBottom; set => lightBottom = value;
         }
 
         public bool HasLight
         {
-            get
-            {
-                return hasLight;
-            }
-            set
-            {
-                hasLight = value;
-            }
+            get => hasLight; set => hasLight = value;
         }
 
         public PlasticinePartHighlite(PlasticinePartBodyClip _plasticine, PlasticineHighliteBorder _parent, int _index)
@@ -89,13 +68,7 @@ namespace Default.Namespace
             lightBottom = CocosUtil.ccp2Point(builder.ToPoint(worldPoint));
         }
 
-        private bool MirrorLight
-        {
-            get
-            {
-                return game.WhiteSide || game.BlackSide || game.BonusChapter;
-            }
-        }
+        private bool MirrorLight => game.WhiteSide || game.BlackSide || game.BonusChapter;
 
         public void Update(float time)
         {

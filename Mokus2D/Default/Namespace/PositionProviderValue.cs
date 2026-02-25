@@ -2,21 +2,9 @@
 {
     public class PositionProviderValue(IVectorPositionProvider _provider, float _value)
     {
-        public float Value
-        {
-            get
-            {
-                return value;
-            }
-        }
+        public float Value => value;
 
-        public IVectorPositionProvider Provider
-        {
-            get
-            {
-                return provider;
-            }
-        }
+        public IVectorPositionProvider Provider => provider;
 
         protected IVectorPositionProvider provider = _provider;
 

@@ -21,10 +21,7 @@ namespace Mokus2D.Visual
 
         public override Color Color
         {
-            get
-            {
-                return base.Color;
-            }
+            get => base.Color;
             set
             {
                 if (base.Color != value)

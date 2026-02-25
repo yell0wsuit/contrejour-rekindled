@@ -30,20 +30,11 @@ namespace Default.Namespace
             enabled = true;
         }
 
-        public float Offset
-        {
-            get
-            {
-                return offset;
-            }
-        }
+        public float Offset => offset;
 
         public virtual float Depth
         {
-            get
-            {
-                return depth;
-            }
+            get => depth;
             set
             {
                 if (depth != value)
@@ -56,35 +47,15 @@ namespace Default.Namespace
 
         public Color LightColor
         {
-            get
-            {
-                return lightColor;
-            }
-            set
-            {
-                lightColor = value;
-            }
+            get => lightColor; set => lightColor = value;
         }
 
         public bool Enabled
         {
-            get
-            {
-                return enabled;
-            }
-            set
-            {
-                enabled = value;
-            }
+            get => enabled; set => enabled = value;
         }
 
-        public int Index
-        {
-            get
-            {
-                return index;
-            }
-        }
+        public int Index => index;
 
         public override float OpacityFloat
         {

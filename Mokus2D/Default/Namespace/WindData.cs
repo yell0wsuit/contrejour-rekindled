@@ -2,41 +2,16 @@
 {
     public class WindData
     {
-        public float MinAngle
-        {
-            get
-            {
-                return minAngle;
-            }
-        }
+        public float MinAngle => minAngle;
 
-        public float MaxAngle
-        {
-            get
-            {
-                return maxAngle;
-            }
-        }
+        public float MaxAngle => maxAngle;
 
         public float WindOffset
         {
-            get
-            {
-                return windOffset;
-            }
-            set
-            {
-                windOffset = value;
-            }
+            get => windOffset; set => windOffset = value;
         }
 
-        public float Diff
-        {
-            get
-            {
-                return diff;
-            }
-        }
+        public float Diff => diff;
 
         public WindData(float angle)
         {

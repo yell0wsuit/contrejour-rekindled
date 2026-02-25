@@ -15,23 +15,10 @@ namespace Default.Namespace
     {
         public TeleportBodyClip Sibling
         {
-            get
-            {
-                return sibling;
-            }
-            set
-            {
-                sibling = value;
-            }
+            get => sibling; set => sibling = value;
         }
 
-        public EventSender UseEvent
-        {
-            get
-            {
-                return useEvent;
-            }
-        }
+        public EventSender UseEvent => useEvent;
 
         public TeleportBodyClip(LevelBuilderBase _builder, object _body, Node _clip, Hashtable _config)
             : base(_builder, _body, null, _config)

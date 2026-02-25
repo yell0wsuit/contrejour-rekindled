@@ -21,23 +21,10 @@ namespace Default.Namespace
 
         public bool Dragging
         {
-            get
-            {
-                return dragging;
-            }
-            set
-            {
-                dragging = value;
-            }
+            get => dragging; set => dragging = value;
         }
 
-        public bool HasRemove
-        {
-            get
-            {
-                return hasRemove;
-            }
-        }
+        public bool HasRemove => hasRemove;
 
         public void Update(float time)
         {

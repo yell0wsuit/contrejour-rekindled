@@ -11,24 +11,11 @@ namespace Default.Namespace
 {
     public class ParticleSystem(TextureData config) : Sprite(config)
     {
-        public List<Particle> Particles
-        {
-            get
-            {
-                return particles;
-            }
-        }
+        public List<Particle> Particles => particles;
 
         public bool Paused
         {
-            get
-            {
-                return paused;
-            }
-            set
-            {
-                paused = value;
-            }
+            get => paused; set => paused = value;
         }
 
         public ParticleSystem(string textureName)

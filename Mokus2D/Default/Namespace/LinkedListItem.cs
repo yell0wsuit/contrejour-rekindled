@@ -4,38 +4,17 @@
     {
         public LinkedListItem Previous
         {
-            get
-            {
-                return previous;
-            }
-            set
-            {
-                previous = value;
-            }
+            get => previous; set => previous = value;
         }
 
         public LinkedListItem Next
         {
-            get
-            {
-                return next;
-            }
-            set
-            {
-                next = value;
-            }
+            get => next; set => next = value;
         }
 
         public object Item
         {
-            get
-            {
-                return item;
-            }
-            set
-            {
-                item = value;
-            }
+            get => item; set => item = value;
         }
 
         public void Remove()

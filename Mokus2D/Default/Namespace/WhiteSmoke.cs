@@ -19,46 +19,22 @@ namespace Default.Namespace
 
         public float OpacityStep
         {
-            get
-            {
-                return opacityStep;
-            }
-            set
-            {
-                opacityStep = value;
-            }
+            get => opacityStep; set => opacityStep = value;
         }
 
         public float ScaleStep
         {
-            get
-            {
-                return scaleStep;
-            }
-            set
-            {
-                scaleStep = value;
-            }
+            get => scaleStep; set => scaleStep = value;
         }
 
         public float MaxOpacity
         {
-            get
-            {
-                return maxOpacity;
-            }
-            set
-            {
-                maxOpacity = value;
-            }
+            get => maxOpacity; set => maxOpacity = value;
         }
 
         public virtual Vector2 SmokePosition
         {
-            get
-            {
-                return new Vector2(horizontalPosition.Value, verticalPosition.Value);
-            }
+            get => new Vector2(horizontalPosition.Value, verticalPosition.Value);
             set
             {
                 horizontalPosition.Value = value.X;

@@ -11,10 +11,7 @@ namespace Default.Namespace
     {
         public bool Used
         {
-            get
-            {
-                return used;
-            }
+            get => used;
             set
             {
                 if (used != value)

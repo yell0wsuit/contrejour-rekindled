@@ -31,21 +31,9 @@ namespace Default.Namespace
             targetAngle = Maths.round(targetAngle, 6.2831855f);
         }
 
-        public bool Rotating
-        {
-            get
-            {
-                return Body.AngularVelocity != 0f;
-            }
-        }
+        public bool Rotating => Body.AngularVelocity != 0f;
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool DisableHeroFocus => false;
 
         public int Priority(Vector2 touchPoint)
         {
@@ -195,13 +183,7 @@ namespace Default.Namespace
             touch = null;
         }
 
-        public Vector2 SnotPosition
-        {
-            get
-            {
-                return Body.Position;
-            }
-        }
+        public Vector2 SnotPosition => Body.Position;
 
         protected float targetAngle;
 

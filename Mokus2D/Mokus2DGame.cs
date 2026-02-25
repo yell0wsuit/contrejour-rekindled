@@ -22,61 +22,19 @@ namespace Mokus2D
             instance = this;
         }
 
-        public static GraphicsDevice Device
-        {
-            get
-            {
-                return Instance.GraphicsDevice;
-            }
-        }
+        public static GraphicsDevice Device => Instance.GraphicsDevice;
 
-        public static TouchController TouchController
-        {
-            get
-            {
-                return Instance.touchController;
-            }
-        }
+        public static TouchController TouchController => Instance.touchController;
 
-        public static KeysController KeysController
-        {
-            get
-            {
-                return Instance.keysController;
-            }
-        }
+        public static KeysController KeysController => Instance.keysController;
 
-        public static SoundManager SoundManager
-        {
-            get
-            {
-                return Instance.soundManager;
-            }
-        }
+        public static SoundManager SoundManager => Instance.soundManager;
 
-        public static Scheduler Scheduler
-        {
-            get
-            {
-                return Instance.scheduler;
-            }
-        }
+        public static Scheduler Scheduler => Instance.scheduler;
 
-        public static Vector2 ScreenSize
-        {
-            get
-            {
-                return new Vector2(Device.PresentationParameters.BackBufferWidth, Device.PresentationParameters.BackBufferHeight);
-            }
-        }
+        public static Vector2 ScreenSize => new Vector2(Device.PresentationParameters.BackBufferWidth, Device.PresentationParameters.BackBufferHeight);
 
-        public static ContentManager ContentManager
-        {
-            get
-            {
-                return Instance.Content;
-            }
-        }
+        public static ContentManager ContentManager => Instance.Content;
 
         public static ReferenceCountingContentManager SharedContent
         {
@@ -90,13 +48,7 @@ namespace Mokus2D
             }
         }
 
-        public static Mokus2DGame Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
+        public static Mokus2DGame Instance => instance;
 
         public RootNode Root
         {

@@ -50,14 +50,7 @@ namespace Default.Namespace
 
         public bool Dragging
         {
-            get
-            {
-                return dragging;
-            }
-            set
-            {
-                dragging = value;
-            }
+            get => dragging; set => dragging = value;
         }
 
         public override Body Body

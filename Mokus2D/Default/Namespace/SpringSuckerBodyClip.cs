@@ -16,21 +16,9 @@ namespace Default.Namespace
             AutoCreate();
         }
 
-        protected override float BounceVolume
-        {
-            get
-            {
-                return 0.4f;
-            }
-        }
+        protected override float BounceVolume => 0.4f;
 
-        protected override string BounceSound
-        {
-            get
-            {
-                return "spring";
-            }
-        }
+        protected override string BounceSound => "spring";
 
         private void AutoCreate()
         {

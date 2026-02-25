@@ -36,14 +36,7 @@ namespace Mokus2D.Visual.Data
 
         public T this[int index]
         {
-            get
-            {
-                return items[index];
-            }
-            set
-            {
-                throw new NotSupportedException();
-            }
+            get => items[index]; set => throw new NotSupportedException();
         }
 
         public void Add(T item)
@@ -177,36 +170,17 @@ namespace Mokus2D.Visual.Data
 
         public int Capacity
         {
-            get
-            {
-                return items.Capacity;
-            }
-            set
-            {
-                items.Capacity = value;
-            }
+            get => items.Capacity; set => items.Capacity = value;
         }
 
-        public int Count
-        {
-            get
-            {
-                return items.Count;
-            }
-        }
+        public int Count => items.Count;
 
         public IEnumerator<T> GetEnumerator()
         {
             return items.GetEnumerator();
         }
 
-        public bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReadOnly => false;
 
         IEnumerator IEnumerable.GetEnumerator()
         {

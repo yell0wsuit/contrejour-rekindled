@@ -6,13 +6,7 @@ namespace Default.Namespace
 {
     public class SuckerEndBodyClip(SuckerBodyClip _sucker, object _body) : ContreJourBodyClip(_sucker.Builder, _body, null, null), IClickable
     {
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public bool DisableHeroFocus => true;
 
         public int Priority(Vector2 touchPoint)
         {

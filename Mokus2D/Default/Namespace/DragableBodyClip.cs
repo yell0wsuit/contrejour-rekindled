@@ -11,24 +11,11 @@ namespace Default.Namespace
 {
     public class DragableBodyClip : ContreJourBodyClip, IClickable, IRestartable, ISnotHolder
     {
-        public EventSender DragStartEvent
-        {
-            get
-            {
-                return dragStartEvent;
-            }
-        }
+        public EventSender DragStartEvent => dragStartEvent;
 
         public StrongSnotBodyClip Snot
         {
-            get
-            {
-                return snot;
-            }
-            set
-            {
-                snot = value;
-            }
+            get => snot; set => snot = value;
         }
 
         public DragableBodyClip(ContreJourLevelBuilder _builder, object _body, Node _clip, Hashtable _config)
@@ -114,13 +101,7 @@ namespace Default.Namespace
             return true;
         }
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool DisableHeroFocus => false;
 
         public int Priority(Vector2 touchPoint)
         {

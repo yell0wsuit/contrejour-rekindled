@@ -18,88 +18,39 @@ namespace Mokus2D.Visual
 
         public virtual bool Visible
         {
-            get
-            {
-                return visible;
-            }
-            set
-            {
-                visible = value;
-            }
+            get => visible; set => visible = value;
         }
 
         public virtual Vector2 Position { get; set; }
 
         public virtual Color Color
         {
-            get
-            {
-                return color;
-            }
-            set
-            {
-                color = value;
-            }
+            get => color; set => color = value;
         }
 
         public int Opacity
         {
-            get
-            {
-                return (int)(OpacityFloat * 255f);
-            }
-            set
-            {
-                OpacityFloat = value / 255f;
-            }
+            get => (int)(OpacityFloat * 255f); set => OpacityFloat = value / 255f;
         }
 
         public virtual float OpacityFloat
         {
-            get
-            {
-                return opacity;
-            }
-            set
-            {
-                opacity = value.Clamp(0f, 1f);
-            }
+            get => opacity; set => opacity = value.Clamp(0f, 1f);
         }
 
         public float Scale
         {
-            get
-            {
-                return ScaleVec.X == ScaleVec.Y ? ScaleVec.X : throw new InvalidOperationException("ScaleVec.X differs from ScaleVec.Y");
-            }
-            set
-            {
-                ScaleVec = new Vector2(value, value);
-            }
+            get => ScaleVec.X == ScaleVec.Y ? ScaleVec.X : throw new InvalidOperationException("ScaleVec.X differs from ScaleVec.Y"); set => ScaleVec = new Vector2(value, value);
         }
 
         public float ScaleX
         {
-            get
-            {
-                return ScaleVec.X;
-            }
-            set
-            {
-                ScaleVec = new Vector2(value, ScaleVec.Y);
-            }
+            get => ScaleVec.X; set => ScaleVec = new Vector2(value, ScaleVec.Y);
         }
 
         public float ScaleY
         {
-            get
-            {
-                return ScaleVec.Y;
-            }
-            set
-            {
-                ScaleVec = new Vector2(ScaleVec.X, value);
-            }
+            get => ScaleVec.Y; set => ScaleVec = new Vector2(ScaleVec.X, value);
         }
 
         public virtual Vector2 ScaleVec { get; set; }
@@ -108,14 +59,7 @@ namespace Mokus2D.Visual
 
         public float Rotation
         {
-            get
-            {
-                return Maths.ToDegrees(RotationRadians);
-            }
-            set
-            {
-                RotationRadians = Maths.ToRadians(value);
-            }
+            get => Maths.ToDegrees(RotationRadians); set => RotationRadians = Maths.ToRadians(value);
         }
 
         public virtual void Update(float time)

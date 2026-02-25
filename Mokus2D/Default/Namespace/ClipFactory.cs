@@ -16,21 +16,9 @@ namespace Default.Namespace
 {
     public class ClipFactory
     {
-        public static ClipFactory Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
+        public static ClipFactory Instance => instance;
 
-        public static StringDictionary FullPaths
-        {
-            get
-            {
-                return fullPaths;
-            }
-        }
+        public static StringDictionary FullPaths => fullPaths;
 
         public static CGSize GetNodeSize(Sprite node)
         {

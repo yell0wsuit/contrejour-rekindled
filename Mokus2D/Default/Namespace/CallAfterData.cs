@@ -6,34 +6,14 @@ namespace Default.Namespace
     {
         public float TimeLeft
         {
-            get
-            {
-                return _time;
-            }
-            set
-            {
-                _time = value;
-            }
+            get => _time; set => _time = value;
         }
 
-        public Action Selector
-        {
-            get
-            {
-                return _selector;
-            }
-        }
+        public Action Selector => _selector;
 
         public bool Skip
         {
-            get
-            {
-                return skip;
-            }
-            set
-            {
-                skip = value;
-            }
+            get => skip; set => skip = value;
         }
 
         public virtual void Execute()

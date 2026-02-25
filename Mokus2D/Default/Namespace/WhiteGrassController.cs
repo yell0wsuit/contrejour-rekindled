@@ -4,66 +4,24 @@ namespace Default.Namespace
 {
     public class WhiteGrassController(PlasticinePartBodyClip _plasticine) : GrassController(_plasticine)
     {
-        public override float SmallGrassScale
-        {
-            get
-            {
-                return 0.7f;
-            }
-        }
+        public override float SmallGrassScale => 0.7f;
 
-        public override int GrassFrame
-        {
-            get
-            {
-                return Maths.Random(3);
-            }
-        }
+        public override int GrassFrame => Maths.Random(3);
 
-        public override int SmallGrassFrame
-        {
-            get
-            {
-                return GrassFrame;
-            }
-        }
+        public override int SmallGrassFrame => GrassFrame;
 
         public float SmallGrassOffset(int index)
         {
             return (index * 2 - 1) * plasticine.Width / 3f;
         }
 
-        public override float WindAngle
-        {
-            get
-            {
-                return 0.3926991f;
-            }
-        }
+        public override float WindAngle => 0.3926991f;
 
-        public override float TrampleAngle
-        {
-            get
-            {
-                return 0.2617994f;
-            }
-        }
+        public override float TrampleAngle => 0.2617994f;
 
-        public override float SmallGrassStep
-        {
-            get
-            {
-                return base.SmallGrassStep / 2f;
-            }
-        }
+        public override float SmallGrassStep => base.SmallGrassStep / 2f;
 
-        public override float GrassStep
-        {
-            get
-            {
-                return base.GrassStep / 2f;
-            }
-        }
+        public override float GrassStep => base.GrassStep / 2f;
 
         public override void Update(float time)
         {

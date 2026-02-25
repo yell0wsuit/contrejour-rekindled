@@ -28,21 +28,9 @@ namespace Default.Namespace
             baseEndClip.Scale = eye.Scale;
         }
 
-        public override Body EyeBody
-        {
-            get
-            {
-                return Physics.EndBody;
-            }
-        }
+        public override Body EyeBody => Physics.EndBody;
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public bool DisableHeroFocus => true;
 
         public int Priority(Vector2 touchPoint)
         {
