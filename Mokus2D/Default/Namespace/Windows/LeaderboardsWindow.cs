@@ -1,8 +1,4 @@
-﻿using System;
-
 using Default.Namespace.Windows.Items;
-
-using Microsoft.Xna.Framework.GamerServices;
 
 using Mokus2D.Visual;
 
@@ -20,40 +16,19 @@ namespace Default.Namespace.Windows
 
         protected override void GetData()
         {
-            base.GetData();
-            if (gamer != null)
-            {
-                LeaderboardIdentity leaderboardIdentity = LeaderboardIdentity.Create(LeaderboardKey.BestScoreLifeTime);
-                _ = LeaderboardReader.BeginRead(leaderboardIdentity, gamer, 50, new AsyncCallback(OnLeaderboardRead), null);
-            }
-        }
-
-        private void OnLeaderboardRead(IAsyncResult result)
-        {
             HideLoading();
-            if (result.IsCompleted)
+            UserData userData = UserData.Instance;
+            int rank = 0;
+            for (int i = 0; i < Constants.NormalChaptersCount; i++)
             {
-                try
+                int score = userData.GetChapterScore(i);
+                if (score <= 0)
                 {
-                    LeaderboardReader leaderboardReader = LeaderboardReader.EndRead(result);
-                    int num = 0;
-                    foreach (LeaderboardEntry leaderboardEntry in leaderboardReader.Entries)
-                    {
-                        AddItem(new LeaderboardItem(gamer, leaderboardEntry, num++));
-                    }
-                    return;
+                    continue;
                 }
-                catch (GameUpdateRequiredException)
-                {
-                    throw;
-                }
-                catch
-                {
-                    OnInternetError();
-                    return;
-                }
+                string name = ("CHAPTER" + (i + 1)).Localize().Replace("\n", " ");
+                AddItem(new LeaderboardItem(name, score, rank++));
             }
-            OnInternetError();
         }
     }
 }

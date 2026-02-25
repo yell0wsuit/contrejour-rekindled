@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using ContreJourMono.ContreJour.Menu.LevelComplete;
@@ -6,13 +6,9 @@ using ContreJourMono.ContreJour.Menu.LevelComplete;
 using Default.Namespace.Windows.Items;
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.GamerServices;
-using Microsoft.Xna.Framework.Graphics;
 
-using Mokus2D;
 using Mokus2D.Controls;
 using Mokus2D.Effects.Actions;
-using Mokus2D.Util;
 using Mokus2D.Visual;
 
 namespace Default.Namespace.Windows
@@ -94,14 +90,7 @@ namespace Default.Namespace.Windows
         {
             if (!TryLookAtList())
             {
-                if (Maths.Rand() < 0.5f && picture != null)
-                {
-                    hero.LookAt(picture);
-                }
-                else
-                {
-                    hero.LookAt(hero);
-                }
+                hero.LookAt(hero);
                 targetItem = null;
             }
         }
@@ -147,21 +136,6 @@ namespace Default.Namespace.Windows
             }
         }
 
-        private void Close()
-        {
-            Open = false;
-        }
-
-        protected void Close(IAsyncResult result)
-        {
-            Close();
-        }
-
-        protected void SetNotLoaded()
-        {
-            loading = false;
-        }
-
         protected void HideLoading()
         {
             loadingIcon.Run(new Sequence(
@@ -173,66 +147,6 @@ namespace Default.Namespace.Windows
 
         protected virtual void GetData()
         {
-            if (gamer == null)
-            {
-                if (Gamer.SignedInGamers.Count > 0)
-                {
-                    gamer = Gamer.SignedInGamers[PlayerIndex.One];
-                    Label label = ContreJourLabel.CreateLabel(16f, gamer.DisplayName, true);
-                    container.AddChild(label);
-                    label.Position = new Vector2(pictureBackground.X, 285f);
-                    label.Color = Color.Black;
-                    GetGamerProfile(gamer);
-                    return;
-                }
-                OnNotSignedError();
-            }
-        }
-
-        private void GetGamerProfile(Gamer gamer)
-        {
-            gamer.GetProfile(new Action<GamerProfile>(OnGetGamerProfile), new Action(OnGetGamerProfileError));
-        }
-
-        private void OnGetGamerProfileError()
-        {
-            OnError(new Action<AsyncCallback>(MessageBoxes.ShowInternetError));
-        }
-
-        private void OnGetGamerProfile(GamerProfile result)
-        {
-            gamerProfile = result;
-            Texture2D texture2D = Texture2D.FromStream(Mokus2DGame.Device, gamerProfile.GetGamerPicture());
-            picture = new Sprite(texture2D)
-            {
-                Scale = 1.4f
-            };
-            pictureBackground.AddChild(picture);
-            ShowItem(picture);
-            ProcessGamerProfile();
-        }
-
-        protected void OnNotSignedError()
-        {
-            OnError(new Action<AsyncCallback>(MessageBoxes.ShowNotSignedToXBoxError));
-        }
-
-        private void OnError(Action<AsyncCallback> showMessageAction)
-        {
-            if (Open)
-            {
-                showMessageAction.Invoke(new AsyncCallback(Close));
-            }
-            SetNotLoaded();
-        }
-
-        protected void OnInternetError()
-        {
-            OnError(new Action<AsyncCallback>(MessageBoxes.ShowInternetError));
-        }
-
-        protected virtual void ProcessGamerProfile()
-        {
         }
 
         protected const float PictureOffset = 50f;
@@ -241,15 +155,11 @@ namespace Default.Namespace.Windows
 
         private const float ScrollOffset = 20f;
 
-        private static Vector2 StartScrollPosition = new(231f, 402f);
+        private static readonly Vector2 StartScrollPosition = new(231f, 402f);
 
         private readonly ScrollLayer scrollLayer = new();
 
-        protected SignedInGamer gamer;
-
         private bool loading;
-
-        protected GamerProfile gamerProfile;
 
         private float currentItemPosition;
 
@@ -260,8 +170,6 @@ namespace Default.Namespace.Windows
         private readonly List<XBoxItem> items = new(64);
 
         private XBoxItem targetItem;
-
-        private Sprite picture;
 
         private readonly Sprite pictureBackground;
 

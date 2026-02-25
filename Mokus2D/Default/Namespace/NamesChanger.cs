@@ -16,24 +16,6 @@ namespace Default.Namespace
                 Node node = CreateChapterName(i);
                 names.Add(node);
             }
-            if (Constants.IsTrial)
-            {
-                Node node2;
-                if (ContreJourLabel.IsEnglish)
-                {
-                    node2 = ClipFactory.CreateWithAnchor("McChapterMoreName");
-                }
-                else
-                {
-                    node2 = CreateLabelColor("GET_MORE_LEVELS", new Color(133, 213, 255));
-                    node2.Scale = 0.8f;
-                    foreach (Node node3 in node2.Children)
-                    {
-                        node3.X += 20f;
-                    }
-                }
-                names.Add(node2);
-            }
             foreach (Node node4 in names)
             {
                 AddChild(node4);
@@ -45,10 +27,6 @@ namespace Default.Namespace
                 node4.Visible = false;
             }
             names[1].Color = ContreJourConstants.WHITE_COLOR * 0.8f;
-            if (Constants.IsTrial)
-            {
-                names[2].Color = names[1].Color;
-            }
             currentIndex = -1f;
             CurrentIndex = 0f;
             screenSize = Mokus2DGame.ScreenSize;

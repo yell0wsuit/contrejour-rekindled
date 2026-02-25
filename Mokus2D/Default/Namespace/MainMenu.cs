@@ -56,13 +56,6 @@ namespace Default.Namespace
             CreateButtons();
             CreateLiteButtons();
             Mokus2DGame.KeysController.AddBackKeyListener(new Action(OnBackClick), 0);
-            if (Constants.IsTrial)
-            {
-                buyFullVersion = new BuyFullVersion();
-                AddChild(buyFullVersion, 100);
-                buyFullVersion.Visible = false;
-                buyFullVersion.OpenChangeEvent.AddListenerSelector(new Action(OnWindowOpenChange));
-            }
             achievementsWindow = new AchievementsWindow
             {
                 Visible = false
@@ -110,18 +103,6 @@ namespace Default.Namespace
             leaderboardsButton = new Button("McXBoxButton", null, null);
             ProcessXBoxButton(leaderboardsButton, "LEADERBOARDS", 12f, 18f, 1f);
             leaderboardsButton.Position = new Vector2(achievementsButton.Position.X - ((achievementsButton.Size.X + 10f) * achievementsButton.RealScale), 0f);
-            if (!Constants.IsTrial)
-            {
-                achievementsButton.ClickEvent.AddListenerSelector(new Action(OnAchievementsClick));
-                leaderboardsButton.ClickEvent.AddListenerSelector(new Action(OnLeaderboardsClick));
-                return;
-            }
-            buyFullVersionMenuButton = new Button("McBuyFullVersionMenuButton", null, null);
-            ProcessXBoxButton(buyFullVersionMenuButton, "BUY_FULL_VERSION", 14f, 22f, 0.92f);
-            buyFullVersionMenuButton.Position = new Vector2((buyFullVersionMenuButton.Size.X * buyFullVersionMenuButton.RealScale / 2f) + 28f, 0f);
-            achievementsButton.ClickEvent.AddListenerSelector(new Action(OnGetFullVersion));
-            leaderboardsButton.ClickEvent.AddListenerSelector(new Action(OnGetFullVersion));
-            buyFullVersionMenuButton.ClickEvent.AddListenerSelector(new Action(OnGetFullVersion));
         }
 
         private void ProcessXBoxButton(Button button, string text, float textSize = 12f, float labelOffset = 18f, float scaleMult = 1f)
@@ -267,12 +248,7 @@ namespace Default.Namespace
             AddChild(ground, 3);
             Sprite sprite2 = backgroundImages[1];
             sprite2.Color = BLUE_COLOR;
-            if (Constants.IsTrial)
-            {
-                sprite2 = backgroundImages[2];
-                sprite2.Color = BLUE_COLOR;
-            }
-            else if (!HardwareCapabilities.IsLowMemoryDevice)
+            if (!HardwareCapabilities.IsLowMemoryDevice)
             {
                 backgroundImages[5].Position = new Vector2(0f, winSize.Height - 100f);
             }
@@ -289,25 +265,18 @@ namespace Default.Namespace
             starsField.Anchor = new Vector2(0f, 0.5f);
             AddChild(starsField, 4);
             starsField.Position = CocosUtil.iPad(new Vector2(52f, 20f), new Vector2(48f, 14f));
-            starsField.Visible = !Constants.IsTrial;
-            starsIcon.Visible = starsField.Visible;
+            starsField.Visible = true;
+            starsIcon.Visible = true;
             RefreshScore();
         }
 
         public List<string> Backgrounds()
         {
-            return Constants.IsTrial
-                ? new List<string>(["McBackground4Content", "McBackgroundContent1_5", "McBackgroundContent1_5"])
-                : new List<string>(["McBackground4Content", "McBackgroundContent1_5", "McMenuBackground3", "McChapter4MenuBackground", "McChapter5MenuBackground", "McBackgroundContent6_1"]);
+            return ["McBackground4Content", "McBackgroundContent1_5", "McMenuBackground3", "McChapter4MenuBackground", "McChapter5MenuBackground", "McBackgroundContent6_1"];
         }
 
         private void OnChapterSelect(int chapter)
         {
-            if (Constants.IsTrial && chapter == Constants.ChaptersCount)
-            {
-                OnGetFullVersion();
-                return;
-            }
             if (!inChapter && spinner.Scale == 1f)
             {
                 Mokus2DGame.SoundManager.PlaySound("click", 0.8f, 0f, 0f);
@@ -378,7 +347,6 @@ namespace Default.Namespace
         public void CreateLevelsMenu()
         {
             levelsMenu = new LevelsMenu(currentChapter, ScreenConstants.W7FromIPhoneScreenCenter);
-            levelsMenu.GetMoreEvent.AddListenerSelector(new Action(OnGetFullVersion));
             levelsMenu.SelectLevelEvent += new Action<int>(OnLevelSelect);
             AddChild(levelsMenu);
         }
@@ -482,10 +450,6 @@ namespace Default.Namespace
             musicButton.Color = color2;
             achievementsButton.Color = color2;
             leaderboardsButton.Color = color2;
-            if (Constants.IsTrial)
-            {
-                buyFullVersionMenuButton.Color = color2;
-            }
         }
 
         private void OnWindowOpenChange()
@@ -500,12 +464,6 @@ namespace Default.Namespace
                 spinner.Enabled = !inChapter;
                 currentWindow = null;
             }
-        }
-
-        public void OnGetFullVersion()
-        {
-            Mokus2DGame.SoundManager.PlaySound("click", 0.8f, 0f, 0f);
-            SetCurrentWindow(buyFullVersion);
         }
 
         private void SetCurrentWindow(PopUpWindow window)
@@ -544,10 +502,6 @@ namespace Default.Namespace
         {
             base.Dispose(disposing);
             Mokus2DGame.KeysController.RemoveBackKeyListener(new Action(OnBackClick));
-            if (buyFullVersion != null)
-            {
-                buyFullVersion.Dispose();
-            }
             spinner.Dispose();
             Mokus2DGame.SoundManager.MusicDisableEvent.RemoveListenerSelector(new Action(OnMusicDisable));
         }
@@ -614,8 +568,6 @@ namespace Default.Namespace
 
         private Button leaderboardsButton;
 
-        private Button buyFullVersionMenuButton;
-
         protected ClickableLayer clickableLayer;
 
         protected NamesChanger names;
@@ -625,8 +577,6 @@ namespace Default.Namespace
         private PlanetsSpinner spinner;
 
         private BackgroundChanger backgroundChanger;
-
-        protected BuyFullVersion buyFullVersion;
 
         private readonly LeaderboardsWindow leaderboardsWindow;
 
@@ -662,12 +612,7 @@ namespace Default.Namespace
             GreenColor
         ];
 
-        private static readonly Color[] BackColors = Constants.IsTrial ? new Color[]
-        {
-            GREY_COLOR,
-            BLUE_COLOR,
-            BLUE_COLOR
-        } :
+        private static readonly Color[] BackColors =
         [
             GREY_COLOR,
             BLUE_COLOR,

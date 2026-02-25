@@ -5,7 +5,6 @@ using Default.Namespace;
 using Default.Namespace.Interfaces;
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
 
@@ -23,8 +22,6 @@ namespace ContreJour
 
         public ContreJourApplication()
         {
-            gamerServicesComponent = new GamerServicesComponent(this);
-            Components.Add(gamerServicesComponent);
             IsFixedTimeStep = false;
             graphics = new GraphicsDeviceManager(this)
             {
@@ -55,18 +52,7 @@ namespace ContreJour
 
         protected override void Update(GameTime gameTime)
         {
-            try
-            {
-                base.Update(gameTime);
-            }
-            catch (GameUpdateRequiredException)
-            {
-                XBoxUtil.ShowUpdateRequired();
-                gamerServicesComponent.Enabled = false;
-            }
-            catch
-            {
-            }
+            base.Update(gameTime);
         }
 
         private void OnPreparingDeviceSettings(object sender, PreparingDeviceSettingsEventArgs e)
@@ -307,6 +293,5 @@ namespace ContreJour
         private IntLabel upsField;
 
         private IntLabel memoryField;
-        private readonly GamerServicesComponent gamerServicesComponent;
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
-
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.GamerServices;
 
 using Mokus2D;
 using Mokus2D.Util;
@@ -111,6 +109,8 @@ namespace Default.Namespace
         public int BlocksDestroyed { get; set; }
 
         public bool RefreshHighscores { get; set; }
+
+        public List<string> EarnedAchievements { get; set; } = [];
 
         public int UnlockedChapters
         {
@@ -359,31 +359,11 @@ namespace Default.Namespace
             {
                 levelData = new LevelData(Maths.max(num, levelData.Score), Maths.max(stars, levelData.StarsCount));
                 SetLevelData(levelData, position.GlobalPosition());
-                if (flag)
-                {
-                    SaveHighscore();
-                }
             }
             levelPostponed = true;
             postponedLevel = position;
             PostLevelAchievements();
             return num;
-        }
-
-        private void SaveHighscore()
-        {
-            if (Gamer.SignedInGamers.Count <= 0)
-            {
-                return;
-            }
-            Gamer gamer = Gamer.SignedInGamers[PlayerIndex.One];
-            if (gamer != null && !Constants.IsTrial)
-            {
-                LeaderboardWriter leaderboardWriter = gamer.LeaderboardWriter;
-                LeaderboardIdentity leaderboardIdentity = LeaderboardIdentity.Create(LeaderboardKey.BestScoreLifeTime);
-                LeaderboardEntry leaderboard = leaderboardWriter.GetLeaderboard(leaderboardIdentity);
-                leaderboard.Rating = TotalScore;
-            }
         }
 
         public void PostLevelAchievements()

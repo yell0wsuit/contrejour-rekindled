@@ -22,7 +22,7 @@ namespace Default.Namespace
             Vector2 vector2 = new Vector2(vector.X, cgsize.Height - vector.Y) - ScreenConstants.W7FromIPhoneScreenCenter;
             Vector2 vector3 = new((cgsize.Width - (vector.X * 2f)) / (COLUMNS - 1), (cgsize.Height - (vector.Y * 2f)) / (ROWS - 1));
             UserData instance = UserData.Instance;
-            if (!Constants.IsTrial && instance.LastLevelOpen && chapter == 4)
+            if (instance.LastLevelOpen && chapter == 4)
             {
                 vector2 = CreateRoseButton(vector2, cgsize, vector);
             }
@@ -32,7 +32,7 @@ namespace Default.Namespace
                 int num = list[i];
                 LevelPosition levelPosition = GetLevelPosition(num);
                 bool flag2 = instance.GetUnlockedLevels(levelPosition.Chapter) >= levelPosition.Index;
-                bool flag3 = Constants.IsTrial && i >= 10;
+                bool flag3 = false;
                 if (flag)
                 {
                     flag3 = i >= (ROWS - LockedRows) * COLUMNS;
@@ -48,11 +48,6 @@ namespace Default.Namespace
                 {
                     levelItem.Color = ContreJourConstants.GreenLightColor.LerpToWhite(0.5f);
                 }
-            }
-            if (Constants.IsTrial)
-            {
-                adsButton = CreateGetMoreButton(chapter);
-                return;
             }
             if (flag && LockedRows > 0)
             {

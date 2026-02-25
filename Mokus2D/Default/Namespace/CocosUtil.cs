@@ -44,7 +44,7 @@ namespace Default.Namespace
 
         public static T lite<T>(T liteValue, T value)
         {
-            return !Constants.IsTrial ? value : liteValue;
+            return value;
         }
 
         public static T iPad<T>(T ipadValue, T iPhoneValue)
