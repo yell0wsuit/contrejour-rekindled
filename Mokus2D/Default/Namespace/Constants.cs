@@ -1,24 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
-using Mokus2D.GamerServices;
 
 namespace Default.Namespace
 {
     public static class Constants
     {
-        public static bool IsTrial
-        {
-            get
-            {
-                if (!isTrialGet)
-                {
-                    isTrialGet = true;
-                    isTrial = Guide.IsTrialMode;
-                }
-                return isTrial;
-            }
-        }
-
-        public static int LevelsToPlay => !isTrial ? 20 : 10;
+        public static int LevelsToPlay => 20;
 
         public const string CONFIG = "config";
 
@@ -38,25 +24,19 @@ namespace Default.Namespace
 
         public const int LEVELS_IN_CHAPTER = 20;
 
-        public const int TrialLevelsInChapter = 10;
-
         public const int K_GAME_AUTOROTATION_NONE = 0;
 
         public const int K_GAME_AUTOROTATION_CC_DIRECTOR = 1;
 
         public const int K_GAME_AUTOROTATION_UI_VIEW_CONTROLLER = 2;
 
-        private static bool isTrial;
+        public static readonly bool IS_IPAD = false;
 
-        private static bool isTrialGet;
+        public static readonly bool IS_RETINA = true;
 
-        public static bool IS_IPAD = false;
+        public const int ChaptersCount = 6;
 
-        public static bool IS_RETINA = true;
-
-        public static readonly int ChaptersCount = IsTrial ? 2 : 6;
-
-        public static readonly int NormalChaptersCount = IsTrial ? 2 : 5;
+        public const int NormalChaptersCount = 5;
 
         public static class config
         {

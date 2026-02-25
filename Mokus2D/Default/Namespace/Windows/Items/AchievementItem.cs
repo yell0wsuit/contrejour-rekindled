@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Mokus2D.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 
 using Mokus2D;

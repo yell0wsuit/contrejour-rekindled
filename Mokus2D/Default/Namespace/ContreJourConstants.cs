@@ -206,7 +206,7 @@ namespace Default.Namespace
 
         public const int END_LEVEL = 169;
 
-        public static readonly int PlanetsCount = Constants.IsTrial ? (Constants.ChaptersCount + 1) : Constants.ChaptersCount;
+        public static readonly int PlanetsCount = Constants.ChaptersCount;
 
         public static string[] CRYSTAL_KEYS = ["ln4gjvlcteqceld7djbntu67c0saqg", "5ij7a8rvvgla4ti7j5fa64dlheqerp"];
 

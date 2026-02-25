@@ -48,19 +48,12 @@ namespace Default.Namespace
             List<Type> list = new(
             [
                 typeof(Chapter1),
-                typeof(Chapter2)
+                typeof(Chapter2),
+                typeof(Chapter3),
+                typeof(Chapter4),
+                typeof(Chapter5),
+                typeof(Chapter6)
             ]);
-            if (Constants.IsTrial)
-            {
-                list.Add(typeof(ChapterZip));
-            }
-            else
-            {
-                list.Add(typeof(Chapter3));
-                list.Add(typeof(Chapter4));
-                list.Add(typeof(Chapter5));
-                list.Add(typeof(Chapter6));
-            }
             int totalStars = data.TotalStars;
             for (int i = 0; i < list.Count; i++)
             {

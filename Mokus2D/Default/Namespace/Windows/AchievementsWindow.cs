@@ -2,8 +2,6 @@ using Default.Namespace.Windows.Items;
 
 using Microsoft.Xna.Framework;
 
-using Mokus2D.GamerServices;
-
 using Mokus2D.Visual;
 
 namespace Default.Namespace.Windows
@@ -13,10 +11,6 @@ namespace Default.Namespace.Windows
         public AchievementsWindow()
         {
             CreateTitle("ACHIEVEMENTS");
-        }
-
-        protected override void ProcessGamerProfile()
-        {
         }
 
         protected override void GetData()
