@@ -24,7 +24,7 @@ namespace Mokus2D.Visual
         {
         }
 
-        public override Vector2 Size => new Vector2(base.Size.X, base.Size.Y + LineSpacing * lines.Count);
+        public override Vector2 Size => new Vector2(base.Size.X, base.Size.Y + (LineSpacing * lines.Count));
 
         public float LineSpacing
         {
@@ -79,7 +79,7 @@ namespace Mokus2D.Visual
         protected override void DrawText(VisualState state, Color color)
         {
             Vector2 zero = Vector2.Zero;
-            float num = (base.Size.Y / lines.Count + LineSpacing) * state.SpritesScaleFactor.Y;
+            float num = ((base.Size.Y / lines.Count) + LineSpacing) * state.SpritesScaleFactor.Y;
             for (int i = 0; i < lines.Count; i++)
             {
                 StringBuilder stringBuilder = lines[i];

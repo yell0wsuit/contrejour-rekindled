@@ -130,7 +130,7 @@ namespace Default.Namespace
                     chapterItem.Depth = num2;
                     chapterItem.Scale = num2 * 1.5f;
                     float num3 = chapterItem.Scale * chapterItem.Scale;
-                    chapterItem.X = num * 550f + AccelerometerOffset.X * 200f * num3;
+                    chapterItem.X = (num * 550f) + (AccelerometerOffset.X * 200f * num3);
                     chapterItem.Y = AccelerometerOffset.Y * num3 / 4f;
                 }
             }

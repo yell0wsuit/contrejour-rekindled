@@ -237,7 +237,7 @@ namespace Default.Namespace
                 Hashtable levelProperties = level.levelProperties;
                 levelSize = new Vector2(levelProperties.GetFloat("Width"), levelProperties.GetFloat("Height"));
                 alphaBackground.Scale = levelSize.X / ScreenConstants.OsSizes.IPhoneRetina.X;
-                alphaBackground.Y = -(ScreenConstants.OsSizes.IPhoneRetina.Y * alphaBackground.Scale - levelSize.Y) / 2f;
+                alphaBackground.Y = -((ScreenConstants.OsSizes.IPhoneRetina.Y * alphaBackground.Scale) - levelSize.Y) / 2f;
                 screenControl = new ScreenControl(this);
                 AddUpdatable(screenControl);
                 RefreshScreenControlEnabled();
@@ -873,7 +873,7 @@ namespace Default.Namespace
             }
             CGSize cgsize = ScreenConstants.W7FromIPhoneSize;
             Vector2 vector = new(0f, 30f);
-            Vector2 vector2 = new(cgsize.Width * -0.20000005f, cgsize.Height * -0.20000005f - 30f);
+            Vector2 vector2 = new(cgsize.Width * -0.20000005f, (cgsize.Height * -0.20000005f) - 30f);
             ZoomToScaleRightTopLeftBottomTime(zoomPoint * gameRoot.Scale, 1.2f, vector, vector2, 2.4f);
         }
 
@@ -891,7 +891,7 @@ namespace Default.Namespace
         public void ZoomToScaleRightTopLeftBottomTime(Vector2 zoomPoint, float scale, Vector2 rightTop, Vector2 leftBottom, float time)
         {
             CGSize cgsize = ScreenConstants.W7FromIPhoneSize;
-            Vector2 vector = new(cgsize.Width / 2f - zoomPoint.X * scale, cgsize.Height / 2f - zoomPoint.Y * scale);
+            Vector2 vector = new((cgsize.Width / 2f) - (zoomPoint.X * scale), (cgsize.Height / 2f) - (zoomPoint.Y * scale));
             Vector2 vector2 = vector;
             vector2.X = vector2.X.Clamp(leftBottom.X, rightTop.X);
             vector2.Y = vector2.Y.Clamp(leftBottom.Y, rightTop.Y);

@@ -18,8 +18,8 @@ namespace Default.Namespace
         {
             base.Update(time);
             currentStep += 0.02f;
-            node.ScaleX = initialScale.X + Maths.Cos(currentStep) * 0.05f + 0.05f;
-            node.ScaleY = initialScale.Y + Maths.Cos(currentStep) * 0.05f + 0.05f;
+            node.ScaleX = initialScale.X + (Maths.Cos(currentStep) * 0.05f) + 0.05f;
+            node.ScaleY = initialScale.Y + (Maths.Cos(currentStep) * 0.05f) + 0.05f;
         }
 
         private const float STEP = 0.02f;

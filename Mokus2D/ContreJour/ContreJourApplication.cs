@@ -106,7 +106,7 @@ namespace ContreJour
             {
                 Scale = ScreenConstants.Scales.fromIPhone2ByHeight
             };
-            gameContainer.Position = (ScreenConstants.OsSizes.W7 - ScreenConstants.W7FromIPhoneSize * gameContainer.Scale) / 2f;
+            gameContainer.Position = (ScreenConstants.OsSizes.W7 - (ScreenConstants.W7FromIPhoneSize * gameContainer.Scale)) / 2f;
             Root.AddChild(gameContainer);
             Root.Position = new Vector2(0f, ScreenSize.Y);
             Root.ScaleY = -1f;

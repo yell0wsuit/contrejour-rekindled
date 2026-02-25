@@ -45,7 +45,7 @@ namespace Default.Namespace
         public Vector2 BonusTarget()
         {
             Vector2 vector = clip.Position + CocosUtil.ccpIPad(28f, 78f);
-            return vector + CocosUtil.ccpIPad(-20f, 20f) * movie.CurrentFrame / movie.MaxFrame;
+            return vector + (CocosUtil.ccpIPad(-20f, 20f) * movie.CurrentFrame / movie.MaxFrame);
         }
 
         private void AddLight(float direction)

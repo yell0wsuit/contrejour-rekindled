@@ -24,11 +24,11 @@
 
         public static LevelPosition EndGame => new LevelPosition(0, -1);
 
-        public bool SkipAvailable => Chapter != 5 || Index < (UserData.Instance.UnlockedChapters - 1) * LevelsMenu.COLUMNS - 1;
+        public bool SkipAvailable => Chapter != 5 || Index < ((UserData.Instance.UnlockedChapters - 1) * LevelsMenu.COLUMNS) - 1;
 
         public int GlobalPosition()
         {
-            return Chapter * 20 + Index;
+            return (Chapter * 20) + Index;
         }
     }
 }

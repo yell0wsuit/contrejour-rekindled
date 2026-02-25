@@ -50,10 +50,10 @@ namespace Default.Namespace
                     {
                         Sprite sprite2 = ClipFactory.CreateWithAnchor(clipName);
                         sprite2.Position = Maths.StepToPointTargetMaxStep(previousPosition, vector, num3 * i);
-                        float num4 = 1f - i / (float)num2;
+                        float num4 = 1f - (i / (float)num2);
                         sprite2.Scale *= startScale;
                         sprite2.Scale -= 0.05f * num4 * startScale;
-                        sprite2.Opacity = (int)(150f - 8f * num4);
+                        sprite2.Opacity = (int)(150f - (8f * num4));
                         builder.Add(sprite2, 3);
                         items.Add(sprite2);
                     }

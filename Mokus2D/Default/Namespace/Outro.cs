@@ -160,7 +160,7 @@ namespace Default.Namespace
                 {
                     textPosition += new Vector2(0f, CocosUtil.iPadValue(SPEED) * time);
                 }
-                textPosition.Y = textPosition.Y + touchSpeed * time * 30f;
+                textPosition.Y = textPosition.Y + (touchSpeed * time * 30f);
                 touchSpeed = Maths.stepTo(touchSpeed, 0f, Math.Max(1f, Math.Abs(touchSpeed / 20f)));
                 float num = 0f;
                 if (textPosition.Y < minY)

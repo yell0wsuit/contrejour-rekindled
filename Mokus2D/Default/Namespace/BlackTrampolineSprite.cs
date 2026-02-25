@@ -18,7 +18,7 @@ namespace Default.Namespace
 
         public override Color GetIntermidiateColorLineSize(int index, int lineSize)
         {
-            return CocosUtil.ccc4Mix(StartColor(), MiddleColor(), Math.Abs(index - lineSize / 2f) / (lineSize / 2f));
+            return CocosUtil.ccc4Mix(StartColor(), MiddleColor(), Math.Abs(index - (lineSize / 2f)) / (lineSize / 2f));
         }
 
         public override void SetBorderColors()

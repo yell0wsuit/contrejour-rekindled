@@ -97,7 +97,7 @@ namespace Default.Namespace
             foregroundContainer.Visible = foreground.Opacity > 0;
             if (foregroundContainer.Visible)
             {
-                foregroundContainer.Scale = 10f - (depth - 0.8f) * 5f * 9f;
+                foregroundContainer.Scale = 10f - ((depth - 0.8f) * 5f * 9f);
             }
         }
 

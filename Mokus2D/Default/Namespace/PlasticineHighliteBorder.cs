@@ -15,7 +15,7 @@ namespace Default.Namespace
             int num = 0;
             do
             {
-                PlasticinePartHighlite plasticinePartHighlite = new(plasticineItem.BodyClip, this, num * 2 * 2 + 2);
+                PlasticinePartHighlite plasticinePartHighlite = new(plasticineItem.BodyClip, this, (num * 2 * 2) + 2);
                 parts.Add(plasticinePartHighlite);
                 plasticinePartHighlite.SetDirty();
                 plasticineItem = plasticineItem.NextItem;

@@ -29,8 +29,8 @@ namespace Default.Namespace
             config["noShadow"] = "true";
             float @float = config.GetFloat("Width");
             maxDistance = @float / 2f * builder.SizeMult;
-            maxLength = @float / 2f + 13f;
-            ghostSprite = new RenderSprite(new Vector2(@float / 2f + 14f, 28f))
+            maxLength = (@float / 2f) + 13f;
+            ghostSprite = new RenderSprite(new Vector2((@float / 2f) + 14f, 28f))
             {
                 Anchor = new Vector2(0f, 0.5f),
                 OpacityFloat = 0.5f

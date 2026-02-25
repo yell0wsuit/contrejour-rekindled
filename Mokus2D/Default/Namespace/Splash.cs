@@ -314,15 +314,15 @@ namespace Default.Namespace
 
         private static readonly Vector2 JUMP_OFFSET = new(0f, 100f);
 
-        private static readonly Vector2 BLACK_HERO_POSITION_IPHONE = CocosUtil.Vector2Retina(360f + W7IPhoneWidthDiff / 4f, 153f);
+        private static readonly Vector2 BLACK_HERO_POSITION_IPHONE = CocosUtil.Vector2Retina(360f + (W7IPhoneWidthDiff / 4f), 153f);
 
         private static readonly Vector2 BLACK_HERO_POSITION = new(730f, 370f);
 
-        private static readonly Vector2 HERO_POSITION_IPHONE = CocosUtil.Vector2Retina(113f + W7IPhoneWidthDiff / 4f, 159f);
+        private static readonly Vector2 HERO_POSITION_IPHONE = CocosUtil.Vector2Retina(113f + (W7IPhoneWidthDiff / 4f), 159f);
 
         private static readonly Vector2 HERO_POSITION = new(241.3f, 382.9f);
 
-        private static readonly Vector2 LOGO_POSITION_IPHONE = CocosUtil.Vector2Retina(112.6f + W7IPhoneWidthDiff / 4f, 154.1f);
+        private static readonly Vector2 LOGO_POSITION_IPHONE = CocosUtil.Vector2Retina(112.6f + (W7IPhoneWidthDiff / 4f), 154.1f);
 
         private static readonly Vector2 LOGO_POSITION = new(241.55f, 372.25f);
     }

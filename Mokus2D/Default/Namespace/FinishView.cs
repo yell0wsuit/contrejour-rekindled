@@ -135,7 +135,7 @@ namespace Default.Namespace
                     _ = Schedule(delegate
                     {
                         BlinkItemWithButton(energy);
-                    }, 1f + j * 0.5f);
+                    }, 1f + (j * 0.5f));
                 }
             }
             string text2 = Messages.CompleteText(stars);

@@ -14,7 +14,7 @@ namespace Default.Namespace
             int num = 0;
             foreach (Particle particle in Particles)
             {
-                particle.OpacityFloat = 1f - Maths.Abs(num - 3) / 4f;
+                particle.OpacityFloat = 1f - (Maths.Abs(num - 3) / 4f);
                 num++;
             }
         }
@@ -27,7 +27,7 @@ namespace Default.Namespace
             int num3 = 0;
             foreach (Particle particle in Particles)
             {
-                particle.Position = new Vector2(num * (Impulse * num3 * 30f), num2 * (Impulse * num3 * 30f) - 2.2f * num3 * num3);
+                particle.Position = new Vector2(num * (Impulse * num3 * 30f), (num2 * (Impulse * num3 * 30f)) - (2.2f * num3 * num3));
                 num3++;
             }
         }

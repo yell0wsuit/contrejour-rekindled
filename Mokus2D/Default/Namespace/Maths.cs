@@ -26,7 +26,7 @@ namespace Default.Namespace
 
         public static float stepTo(float value, float target, float maxStep)
         {
-            return Math.Abs(target - value) <= maxStep ? target : value + getSign(target - value) * maxStep;
+            return Math.Abs(target - value) <= maxStep ? target : value + (getSign(target - value) * maxStep);
         }
 
         private static bool isnan(float value)
@@ -104,8 +104,8 @@ namespace Default.Namespace
             Vector2 vector = point;
             float num = Cos(radians);
             float num2 = Sin(radians);
-            vector.X = point.X * num - point.Y * num2;
-            vector.Y = point.X * num2 + point.Y * num;
+            vector.X = (point.X * num) - (point.Y * num2);
+            vector.Y = (point.X * num2) + (point.Y * num);
             return vector;
         }
 
@@ -202,9 +202,9 @@ namespace Default.Namespace
 
         public static bool testSegmentsIntersects(CGPointSegment s1, CGPointSegment s2)
         {
-            float num = (s2.B.Y - s2.A.Y) * (s1.B.X - s1.A.X) - (s2.B.X - s2.A.X) * (s1.B.Y - s1.A.Y);
-            float num2 = (s2.B.X - s2.A.X) * (s1.A.Y - s2.A.Y) - (s2.B.Y - s2.A.Y) * (s1.A.X - s2.A.X);
-            float num3 = (s1.B.X - s1.A.X) * (s1.A.Y - s2.A.Y) - (s1.B.Y - s1.A.Y) * (s1.A.X - s2.A.X);
+            float num = ((s2.B.Y - s2.A.Y) * (s1.B.X - s1.A.X)) - ((s2.B.X - s2.A.X) * (s1.B.Y - s1.A.Y));
+            float num2 = ((s2.B.X - s2.A.X) * (s1.A.Y - s2.A.Y)) - ((s2.B.Y - s2.A.Y) * (s1.A.X - s2.A.X));
+            float num3 = ((s1.B.X - s1.A.X) * (s1.A.Y - s2.A.Y)) - ((s1.B.Y - s1.A.Y) * (s1.A.X - s2.A.X));
             return num != 0f && num2 / num <= 1f && num2 / num >= 0f && num3 / num <= 1f && num3 / num >= 0f;
         }
 
@@ -231,7 +231,7 @@ namespace Default.Namespace
 
         public static float RandRangeMinMax(float min, float max)
         {
-            return min + Rand() * (max - min);
+            return min + (Rand() * (max - min));
         }
 
         public static float Random(float max)
@@ -294,12 +294,12 @@ namespace Default.Namespace
 
         public static float StepToTargetMaxStep(float value, float target, float maxStep)
         {
-            return Abs(target - value) <= maxStep ? target : value + GetSign(target - value) * maxStep;
+            return Abs(target - value) <= maxStep ? target : value + (GetSign(target - value) * maxStep);
         }
 
         public static int StepToTargetMaxStep(int value, int target, int maxStep)
         {
-            return Abs(target - value) <= maxStep ? target : value + GetSign(target - value) * maxStep;
+            return Abs(target - value) <= maxStep ? target : value + (GetSign(target - value) * maxStep);
         }
 
         public static int GetSign(float value)
@@ -309,7 +309,7 @@ namespace Default.Namespace
 
         public static float Length(Vector2 point)
         {
-            return Sqrt(point.X * point.X + point.Y * point.Y);
+            return Sqrt((point.X * point.X) + (point.Y * point.Y));
         }
 
         public static void NormalizeLength(ref Vector2 point, float length)
@@ -323,7 +323,7 @@ namespace Default.Namespace
         {
             float num = Cos(angle);
             float num2 = Sin(angle);
-            return new Vector2(point.X * num - point.Y * num2, point.Y * num + point.X * num2);
+            return new Vector2((point.X * num) - (point.Y * num2), (point.Y * num) + (point.X * num2));
         }
 
         public static void RotateMinus90(ref Vector2 point)
@@ -405,8 +405,8 @@ namespace Default.Namespace
             float num = 0f;
             for (int i = 0; i < segments; i++)
             {
-                float num2 = (float)Math.Pow((double)(1f - num), 2.0) * origin.X + 2f * (1f - num) * num * control.X + num * num * destination.X;
-                float num3 = (float)Math.Pow((double)(1f - num), 2.0) * origin.Y + 2f * (1f - num) * num * control.Y + num * num * destination.Y;
+                float num2 = ((float)Math.Pow((double)(1f - num), 2.0) * origin.X) + (2f * (1f - num) * num * control.X) + (num * num * destination.X);
+                float num3 = ((float)Math.Pow((double)(1f - num), 2.0) * origin.Y) + (2f * (1f - num) * num * control.Y) + (num * num * destination.Y);
                 result.Add(new Vector2(num2, num3));
                 num += 1f / segments;
             }

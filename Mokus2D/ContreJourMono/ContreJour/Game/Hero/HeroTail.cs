@@ -100,7 +100,7 @@ namespace ContreJourMono.ContreJour.Game.Hero
             GraphUtil.CreateGradientBorder(surface, BorderWidth, border);
             for (int i = 0; i < surface.Count; i++)
             {
-                int num = (i % 2 == 0) ? (i / 2) : (surface.Count - 1 - i / 2);
+                int num = (i % 2 == 0) ? (i / 2) : (surface.Count - 1 - (i / 2));
                 vertices[i] = new VertexPositionColor(surface[num].ToVector3(), Color);
             }
         }

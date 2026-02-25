@@ -95,9 +95,9 @@ namespace Default.Namespace
         {
             for (int i = 0; i < 3; i++)
             {
-                int num = (int)((angle - i * grassStep) / grassStep);
+                int num = (int)((angle - (i * grassStep)) / grassStep);
                 AddContactAngleIndex(angle, num);
-                int num2 = (int)((angle + (i + 1) * grassStep) / grassStep);
+                int num2 = (int)((angle + ((i + 1) * grassStep)) / grassStep);
                 AddContactAngleIndex(angle, num2);
             }
         }

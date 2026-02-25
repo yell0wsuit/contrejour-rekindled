@@ -334,7 +334,7 @@ namespace Default.Namespace
 
         public void CompleteAll()
         {
-            for (int i = 0; i < Constants.ChaptersCount * 20 - 1; i++)
+            for (int i = 0; i < (Constants.ChaptersCount * 20) - 1; i++)
             {
                 _ = CompleteLevel(new LevelPosition(i / 20, i % 20), 3, 100f);
             }
@@ -352,7 +352,7 @@ namespace Default.Namespace
         {
             SkipLevel(position);
             LevelData levelData = GetLevelDataByPosition(position) ?? new LevelData();
-            int num = GetTimeBonus(time) + stars * 1000;
+            int num = GetTimeBonus(time) + (stars * 1000);
             RefreshHighscores = true;
             bool flag = num > levelData.Score;
             if (flag || stars > levelData.StarsCount)

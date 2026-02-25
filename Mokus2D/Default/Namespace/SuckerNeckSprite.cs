@@ -62,7 +62,7 @@ namespace Default.Namespace
         public void RefreshMiddle()
         {
             float num = (frame % 4 > 1) ? 1 : (-1);
-            middle = new Pair<Vector2>(new Vector2(length / 2f, -1f + bouncer.CurrentAmplitude * num), new Vector2(length / 2f, 1f + bouncer.CurrentAmplitude * num));
+            middle = new Pair<Vector2>(new Vector2(length / 2f, -1f + (bouncer.CurrentAmplitude * num)), new Vector2(length / 2f, 1f + (bouncer.CurrentAmplitude * num)));
         }
 
         public override void GetPairs(List<Pair<Vector2>> result)

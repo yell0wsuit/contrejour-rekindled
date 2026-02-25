@@ -11,7 +11,7 @@ namespace Default.Namespace
         public void SetSizeBorderColorBorderOutColor(int value, Color _borderColor, Color borderOutColor)
         {
             Color = _borderColor;
-            int num = value * 2 * 2 + 2;
+            int num = (value * 2 * 2) + 2;
             outBorder = new VertexPositionColorTexture[num];
             inBorder = new VertexPositionColorTexture[num];
             GraphUtil.SetGradientColorsStrip(Color, borderOutColor, outBorder);

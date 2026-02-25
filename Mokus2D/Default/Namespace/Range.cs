@@ -16,7 +16,7 @@
 
         public float GetValueInRange()
         {
-            return Value + Maths.randRange(-1f, 1f) * RandomRange;
+            return Value + (Maths.randRange(-1f, 1f) * RandomRange);
         }
 
         public float Value;

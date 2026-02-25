@@ -16,7 +16,7 @@ namespace Default.Namespace
             : base(_builder, _body, _clip, _config)
         {
             normalDistance = CurrentDistance();
-            maxSnotDistance = Maths.max(normalDistance * 1.25f, normalDistance + 30f * builder.EngineConfig.SizeMultiplier);
+            maxSnotDistance = Maths.max(normalDistance * 1.25f, normalDistance + (30f * builder.EngineConfig.SizeMultiplier));
             extremeSnotDistance = normalDistance * 2f;
             targetColor = 255f;
             DragableBodyClip dragableBodyClip = Physics.JoinedBody.UserData as DragableBodyClip;

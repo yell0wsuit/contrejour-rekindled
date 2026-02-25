@@ -31,7 +31,7 @@ namespace Default.Namespace
                 Vector2 vector = data.PositionAt(i);
                 Vector2 vector2 = data.PositionAt(i + 1);
                 Vector2 vector3 = data.PositionAt(i + 2);
-                float num = FarseerUtil.b2Vec2Distance(vector, vector2) / 2f + FarseerUtil.b2Vec2Distance(vector2, vector3) / 2f;
+                float num = (FarseerUtil.b2Vec2Distance(vector, vector2) / 2f) + (FarseerUtil.b2Vec2Distance(vector2, vector3) / 2f);
                 int num2 = (int)Math.Ceiling((double)(num / MAX_PART_LENGHT));
                 num2 += num2 % 2;
                 partsLength.Add(num2);

@@ -104,7 +104,7 @@ namespace ContreJourMono.ContreJour.Menu.LevelComplete
             if (breathing)
             {
                 breatheChanger.Update(time);
-                ScaleVec = new Vector2(1f + breatheChanger.Value, 1f + breatheChanger.Value / 2f);
+                ScaleVec = new Vector2(1f + breatheChanger.Value, 1f + (breatheChanger.Value / 2f));
                 base.Position = realPosition + new Vector2(0f, breatheChanger.Value / 4f * Background.Size.X * Background.ScaleX);
             }
         }

@@ -125,7 +125,7 @@ namespace Default.Namespace
         public void SetWideBorder(PlasticineWideBorder _border, int _index)
         {
             index = _index;
-            verticesOffset = index * 2 * 2 + 2;
+            verticesOffset = (index * 2 * 2) + 2;
             border = _border;
         }
 
@@ -295,7 +295,7 @@ namespace Default.Namespace
             circleSize = ClipFactory.GetNodeSize(circle).Width;
             circleScale = Maths.randRange(0.8f, 1.3f);
             circle.Scale = circleScale;
-            float num2 = (-circleSize * circle.Scale - Maths.randRange(-10f, 0f)) * builder.EngineConfig.SizeMultiplier;
+            float num2 = ((-circleSize * circle.Scale) - Maths.randRange(-10f, 0f)) * builder.EngineConfig.SizeMultiplier;
             circlePosition = new Vector2(0f, num2);
             Vector2 worldPoint = Body.GetWorldPoint(circlePosition);
             circle.Position = builder.ToPoint(worldPoint);

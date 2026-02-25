@@ -60,7 +60,7 @@ namespace Mokus2D.Util.MathUtils
 
         public static float StepTo(this float value, float target, float step)
         {
-            return Math.Abs(target - value) <= step ? target : value + Math.Sign(target - value) * step;
+            return Math.Abs(target - value) <= step ? target : value + (Math.Sign(target - value) * step);
         }
 
         public static T RandomItem<T>(this T[] array)

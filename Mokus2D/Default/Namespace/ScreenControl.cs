@@ -119,7 +119,7 @@ namespace Default.Namespace
         {
             gameScale = value;
             game.GameRoot.Scale = value;
-            minValue = ScreenConstants.W7FromIPhoneSize - CocosUtil.toIPad(levelSize) * gameScale;
+            minValue = ScreenConstants.W7FromIPhoneSize - (CocosUtil.toIPad(levelSize) * gameScale);
         }
 
         public void SetGameScaleTargetCenter(float value, Vector2 targetCenter)

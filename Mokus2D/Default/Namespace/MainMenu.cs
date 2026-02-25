@@ -106,10 +106,10 @@ namespace Default.Namespace
             RefreshSoundButtons();
             achievementsButton = new Button("McXBoxButton", null, null);
             ProcessXBoxButton(achievementsButton, "ACHIEVEMENTS", 12f, 18f, 1f);
-            achievementsButton.Position = new Vector2(soundButton.Position.X - (soundButton.Size.X + 68f) * soundButton.RealScale, 0f);
+            achievementsButton.Position = new Vector2(soundButton.Position.X - ((soundButton.Size.X + 68f) * soundButton.RealScale), 0f);
             leaderboardsButton = new Button("McXBoxButton", null, null);
             ProcessXBoxButton(leaderboardsButton, "LEADERBOARDS", 12f, 18f, 1f);
-            leaderboardsButton.Position = new Vector2(achievementsButton.Position.X - (achievementsButton.Size.X + 10f) * achievementsButton.RealScale, 0f);
+            leaderboardsButton.Position = new Vector2(achievementsButton.Position.X - ((achievementsButton.Size.X + 10f) * achievementsButton.RealScale), 0f);
             if (!Constants.IsTrial)
             {
                 achievementsButton.ClickEvent.AddListenerSelector(new Action(OnAchievementsClick));
@@ -118,7 +118,7 @@ namespace Default.Namespace
             }
             buyFullVersionMenuButton = new Button("McBuyFullVersionMenuButton", null, null);
             ProcessXBoxButton(buyFullVersionMenuButton, "BUY_FULL_VERSION", 14f, 22f, 0.92f);
-            buyFullVersionMenuButton.Position = new Vector2(buyFullVersionMenuButton.Size.X * buyFullVersionMenuButton.RealScale / 2f + 28f, 0f);
+            buyFullVersionMenuButton.Position = new Vector2((buyFullVersionMenuButton.Size.X * buyFullVersionMenuButton.RealScale / 2f) + 28f, 0f);
             achievementsButton.ClickEvent.AddListenerSelector(new Action(OnGetFullVersion));
             leaderboardsButton.ClickEvent.AddListenerSelector(new Action(OnGetFullVersion));
             buyFullVersionMenuButton.ClickEvent.AddListenerSelector(new Action(OnGetFullVersion));

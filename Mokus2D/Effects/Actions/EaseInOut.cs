@@ -18,7 +18,7 @@ namespace Mokus2D.Effects.Actions
                 base.UpdateNode((float)(0.5 * Math.Pow((double)ratio, rate)));
                 return;
             }
-            base.UpdateNode((float)((double)(num * 0.5f) * (Math.Pow((double)(ratio - 2f), rate) + num * 2)));
+            base.UpdateNode((float)((double)(num * 0.5f) * (Math.Pow((double)(ratio - 2f), rate) + (num * 2))));
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Default.Namespace
         public override void initParticle(GravityParticle gravityParticle)
         {
             base.initParticle(gravityParticle);
-            float num = SpeedMult * (gravityParticle.Scale - (ParticlesScale.Value - ParticlesScale.RandomRange)) + 1f;
+            float num = (SpeedMult * (gravityParticle.Scale - (ParticlesScale.Value - ParticlesScale.RandomRange))) + 1f;
             gravityParticle.Speed *= num;
         }
 

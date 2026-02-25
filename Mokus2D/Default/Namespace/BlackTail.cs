@@ -169,7 +169,7 @@ namespace Default.Namespace
             {
                 Vector2 vector = (i == bezierPoints.Count - 1) ? bezierPoints[bezierPoints.Count - 1] : bezierPoints[i + 1];
                 Vector2 vector2 = (i == 0) ? currentPosition : bezierPoints[i - 1];
-                float num2 = width * (1f - (i + 1) / (float)num);
+                float num2 = width * (1f - ((i + 1) / (float)num));
                 if (num2 > 1f)
                 {
                     Pair<Vector2> pointsPair = ContreDrawUtil.GetPointsPair(bezierPoints[i], vector, vector2, num2);

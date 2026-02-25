@@ -48,7 +48,7 @@ namespace Default.Namespace
             foreach (Particle particle in explosion.Particles)
             {
                 GravityParticle gravityParticle = (GravityParticle)particle;
-                Vector2 vector = new(0f, num * size.Y / 25f - size.Y / 2f);
+                Vector2 vector = new(0f, (num * size.Y / 25f) - (size.Y / 2f));
                 vector = builder.ToRootChild(vector, clip);
                 vector -= clip.Position;
                 gravityParticle.Position = vector;

@@ -542,7 +542,7 @@ namespace Default.Namespace
                 float num = Maths.Cos(breatheScaleStep);
                 breatheScale = num * 0.04f;
                 targetScale.X = 1f + breatheScale;
-                targetScale.Y = 1f + breatheScale / 2f;
+                targetScale.Y = 1f + (breatheScale / 2f);
                 timeToSleep -= time;
                 EyeAnimationsAllowed = false;
                 if (sleep && eyeClosed)
@@ -576,7 +576,7 @@ namespace Default.Namespace
             clip.ScaleX = Maths.StepToTargetMaxStep(clip.ScaleX, targetScale.X, 0.002f);
             clip.ScaleY = Maths.StepToTargetMaxStep(clip.ScaleY, targetScale.Y, 0.002f);
             eye.Scale = 1f / clip.ScaleX * eyeScale;
-            float num3 = clip.Position.Y - bodyBackground.Size.Y * (1f - clip.ScaleY) / 2f - 2f;
+            float num3 = clip.Position.Y - (bodyBackground.Size.Y * (1f - clip.ScaleY) / 2f) - 2f;
             clip.Position = new Vector2(clip.Position.X, num3);
         }
 

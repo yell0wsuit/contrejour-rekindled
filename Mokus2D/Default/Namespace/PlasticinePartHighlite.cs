@@ -55,7 +55,7 @@ namespace Default.Namespace
             lightLength = 0f;
             if (hasLight)
             {
-                float num3 = Maths.max(1f - num2 / 1.3463969f, 0f);
+                float num3 = Maths.max(1f - (num2 / 1.3463969f), 0f);
                 lightLength = 1.2f * num3;
             }
             if (MirrorLight)
@@ -159,7 +159,7 @@ namespace Default.Namespace
         {
             for (int i = 0; i < 4; i++)
             {
-                int num = index + i * 2;
+                int num = index + (i * 2);
                 target[num] = first;
                 target[num + 1] = second;
             }

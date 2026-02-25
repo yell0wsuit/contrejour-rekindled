@@ -170,7 +170,7 @@ namespace Default.Namespace
                 if (snot != null && snot.Joined && Maths.Between(vector2.Y, -1.3333334f, 0f))
                 {
                     HeroBodyClip heroBodyClip = (HeroBodyClip)snot.Linked;
-                    if (Maths.Abs(heroBodyClip.Body.LinearVelocity.X) < 0.16666667f && heroBodyClip.Body.Position.Y < snot.Position.Y - snot.NormalDistance * 0.8f && heroBodyClip.Body.LinearVelocity.Y > vector2.Y)
+                    if (Maths.Abs(heroBodyClip.Body.LinearVelocity.X) < 0.16666667f && heroBodyClip.Body.Position.Y < snot.Position.Y - (snot.NormalDistance * 0.8f) && heroBodyClip.Body.LinearVelocity.Y > vector2.Y)
                     {
                         heroBodyClip.Body.LinearVelocity = new Vector2(heroBodyClip.Body.LinearVelocity.X, vector2.Y * 2f);
                     }

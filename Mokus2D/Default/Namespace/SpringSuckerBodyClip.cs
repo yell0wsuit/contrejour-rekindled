@@ -69,7 +69,7 @@ namespace Default.Namespace
                 heroBodyClip.Body.LinearVelocity = vector;
                 float num2 = Maths.atan2Vec(Body.Position, body2.Position) - bounceAngle;
                 num2 = Maths.SimplifyAngleRadiansStartValue(num2, -3.1415927f);
-                float num3 = JUMP_IMPULSE + heroBodyClip.SnotJoinedCount * SNOT_JUMP_IMPULSE;
+                float num3 = JUMP_IMPULSE + (heroBodyClip.SnotJoinedCount * SNOT_JUMP_IMPULSE);
                 if (num2 < 0f)
                 {
                     num3 *= -1f;

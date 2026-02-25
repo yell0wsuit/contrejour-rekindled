@@ -12,7 +12,7 @@ namespace Default.Namespace
 
         public float SmallGrassOffset(int index)
         {
-            return (index * 2 - 1) * plasticine.Width / 3f;
+            return ((index * 2) - 1) * plasticine.Width / 3f;
         }
 
         public override float WindAngle => 0.3926991f;

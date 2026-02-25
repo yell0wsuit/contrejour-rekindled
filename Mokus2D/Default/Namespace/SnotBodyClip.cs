@@ -289,7 +289,7 @@ namespace Default.Namespace
             if (highlite != null)
             {
                 highlite.Position = baseEndClip.Position;
-                highlite.Opacity = (int)(100f + highliteChanger.Value * 155f);
+                highlite.Opacity = (int)(100f + (highliteChanger.Value * 155f));
                 highliteChanger.Update(time);
             }
             if (movable)

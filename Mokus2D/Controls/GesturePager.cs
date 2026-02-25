@@ -55,7 +55,7 @@ namespace Mokus2D.Controls
             {
                 return false;
             }
-            CurrentPosition = touchStartPosition - touch.TotalOffset.X / PageWidth;
+            CurrentPosition = touchStartPosition - (touch.TotalOffset.X / PageWidth);
             if (touch.LastFrameOffset.X != 0f)
             {
                 direction = -touch.LastFrameOffset.X.Sign();

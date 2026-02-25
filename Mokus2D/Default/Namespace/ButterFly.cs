@@ -13,7 +13,7 @@ namespace Default.Namespace
 
         private Vector2 ChooseTarget()
         {
-            return new Vector2(initialPosition.X + 5f * (Maths.Sin(horizontalStep) + 1f), initialPosition.Y + 3.5f * Maths.Sin(verticalStep));
+            return new Vector2(initialPosition.X + (5f * (Maths.Sin(horizontalStep) + 1f)), initialPosition.Y + (3.5f * Maths.Sin(verticalStep)));
         }
 
         private float horizontalStep;

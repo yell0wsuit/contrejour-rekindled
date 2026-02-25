@@ -54,7 +54,7 @@ namespace Default.Namespace
 
         public static float b2Vec2ScalarMult(Vector2 a, Vector2 b)
         {
-            return a.X * b.X + a.Y * b.Y;
+            return (a.X * b.X) + (a.Y * b.Y);
         }
 
         public static bool FuzzyEquals(Vector2 vec, Vector2 vec2, float delta = 0.01f)
@@ -71,7 +71,7 @@ namespace Default.Namespace
         {
             float num = Maths.Cos(angle);
             float num2 = Maths.Sin(angle);
-            return new Vector2(vec.X * num - vec.Y * num2, vec.Y * num + vec.X * num2);
+            return new Vector2((vec.X * num) - (vec.Y * num2), (vec.Y * num) + (vec.X * num2));
         }
 
         public static Vector2 rotateAround(Vector2 source, Vector2 rotationCenter, float angle)
@@ -91,7 +91,7 @@ namespace Default.Namespace
             Vector2 vector = vec;
             Vector2 vector2 = end - start;
             Vector2 vector3 = vector - start;
-            return vector2.X * vector3.Y - vector3.X * vector2.Y;
+            return (vector2.X * vector3.Y) - (vector3.X * vector2.Y);
         }
 
         private static bool protocolReq(object clip, object interfaceType)
@@ -224,7 +224,7 @@ namespace Default.Namespace
 
         public static float ScalarMultiplyTo(Vector2 a, Vector2 b)
         {
-            return a.X * b.X + a.Y * b.Y;
+            return (a.X * b.X) + (a.Y * b.Y);
         }
 
         public static Vector2 GetVectorProjectionTarget(Vector2 source, Vector2 target)
@@ -380,7 +380,7 @@ namespace Default.Namespace
             vector *= teleportCoeff;
             body.LinearVelocity = vector2;
             body.AngularVelocity = num2 * num / time;
-            body.SetTransform(body.Position + vector, body.Rotation + num2 * teleportCoeff);
+            body.SetTransform(body.Position + vector, body.Rotation + (num2 * teleportCoeff));
         }
 
         public static BodyClip Query(World world, Vector2 center, float radius, Type type)
@@ -535,9 +535,9 @@ namespace Default.Namespace
 
         public static Vector2 GetCrossPointStart1End1Start2End2(Vector2 start1, Vector2 end1, Vector2 start2, Vector2 end2)
         {
-            float num = (end1.Y - start1.Y) * (start2.X - end2.X) - (start2.Y - end2.Y) * (end1.X - start1.X);
-            float num2 = (end1.Y - start1.Y) * (start2.X - start1.X) - (start2.Y - start1.Y) * (end1.X - start1.X);
-            float num3 = (start2.Y - start1.Y) * (start2.X - end2.X) - (start2.Y - end2.Y) * (start2.X - start1.X);
+            float num = ((end1.Y - start1.Y) * (start2.X - end2.X)) - ((start2.Y - end2.Y) * (end1.X - start1.X));
+            float num2 = ((end1.Y - start1.Y) * (start2.X - start1.X)) - ((start2.Y - start1.Y) * (end1.X - start1.X));
+            float num3 = ((start2.Y - start1.Y) * (start2.X - end2.X)) - ((start2.Y - end2.Y) * (start2.X - start1.X));
             if (Maths.FuzzyEquals(num, 0f, 0.0001f) && Maths.FuzzyEquals(num2, 0f, 0.0001f) && Maths.FuzzyEquals(num3, 0f, 0.0001f))
             {
                 return start1;
@@ -547,7 +547,7 @@ namespace Default.Namespace
                 return new Vector2(100100100f, 100100100f);
             }
             float num4 = num3 / num;
-            Vector2 vector = new(start1.X + (end1.X - start1.X) * num4, start1.Y + (end1.Y - start1.Y) * num4);
+            Vector2 vector = new(start1.X + ((end1.X - start1.X) * num4), start1.Y + ((end1.Y - start1.Y) * num4));
             return vector;
         }
 

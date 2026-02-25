@@ -35,14 +35,14 @@ namespace Default.Namespace
             BodyClip.OnTouchWith(offset, objectP);
             PlasticineItem plasticineItem = PreviousItem;
             float num;
-            for (num = width / 2f + offset + plasticineItem.Width / 2f; num < maxDistance; num += plasticineItem.Width / 2f)
+            for (num = (width / 2f) + offset + (plasticineItem.Width / 2f); num < maxDistance; num += plasticineItem.Width / 2f)
             {
                 plasticineItem.BodyClip.OnTouchWith(num, objectP);
                 num += plasticineItem.Width / 2f;
                 plasticineItem = plasticineItem.PreviousItem;
             }
             plasticineItem = NextItem;
-            num = offset - width / 2f - plasticineItem.Width / 2f;
+            num = offset - (width / 2f) - (plasticineItem.Width / 2f);
             while (Maths.Abs(num) < maxDistance)
             {
                 plasticineItem.BodyClip.OnTouchWith(num, objectP);

@@ -23,7 +23,7 @@
 
         public float GetAngle(float wind)
         {
-            return minAngle + diff * wind;
+            return minAngle + (diff * wind);
         }
 
         protected float minAngle;
