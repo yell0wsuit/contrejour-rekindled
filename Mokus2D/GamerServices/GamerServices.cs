@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 
-namespace Microsoft.Xna.Framework.GamerServices
+using Microsoft.Xna.Framework;
+
+namespace Mokus2D.GamerServices
 {
     public sealed class GamerServicesComponent(Game game) : GameComponent(game)
     {

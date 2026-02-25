@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Default.Namespace;
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.GamerServices;
+using Mokus2D.GamerServices;
 
 namespace Mokus2D.Util
 {

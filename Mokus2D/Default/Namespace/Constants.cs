@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.GamerServices;
+using Mokus2D.GamerServices;
 
 namespace Default.Namespace
 {

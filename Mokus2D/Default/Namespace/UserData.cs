@@ -3,7 +3,7 @@ using System.IO;
 using System.Xml.Serialization;
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.GamerServices;
+using Mokus2D.GamerServices;
 
 using Mokus2D;
 using Mokus2D.Util;

@@ -5,7 +5,7 @@ using Default.Namespace;
 using Default.Namespace.Interfaces;
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.GamerServices;
+using Mokus2D.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
 

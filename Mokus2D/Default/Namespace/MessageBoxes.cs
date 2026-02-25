@@ -1,6 +1,6 @@
 ﻿using System;
 
-using Microsoft.Xna.Framework.GamerServices;
+using Mokus2D.GamerServices;
 
 namespace Default.Namespace
 {

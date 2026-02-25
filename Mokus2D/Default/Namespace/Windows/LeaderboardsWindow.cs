@@ -2,7 +2,7 @@
 
 using Default.Namespace.Windows.Items;
 
-using Microsoft.Xna.Framework.GamerServices;
+using Mokus2D.GamerServices;
 
 using Mokus2D.Visual;
 

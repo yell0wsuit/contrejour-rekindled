@@ -1,7 +1,7 @@
 ﻿using System;
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.GamerServices;
+using Mokus2D.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 
 using Mokus2D;

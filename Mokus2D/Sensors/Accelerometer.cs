@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 
-namespace Microsoft.Devices.Sensors
+namespace Mokus2D.Sensors
 {
     public sealed class Accelerometer
     {
