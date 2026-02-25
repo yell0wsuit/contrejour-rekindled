@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
-using Mokus2D;
 using Mokus2D.Util;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class UserData
     {

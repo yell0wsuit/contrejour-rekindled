@@ -1,12 +1,10 @@
 ﻿using System;
 
-using ContreJourMono.ContreJour.Game.Eyes;
-
 using Microsoft.Xna.Framework;
 
 using Mokus2D.Visual.Util;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class MonsterEye : RandomAnimationEye, IPositionDepedent
     {

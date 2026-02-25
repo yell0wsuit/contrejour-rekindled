@@ -2,7 +2,7 @@
 
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class LightPowerBackground(Node _node, Hashtable _config, ContreJourGame _game) : BackgroundBase(_node, _config, _game)
     {

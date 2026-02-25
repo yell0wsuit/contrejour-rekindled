@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using Default.Namespace;
-using Default.Namespace.Interfaces;
+using Mokus2D.Default.Namespace;
+
+using Mokus2D.Default.Namespace.Interfaces;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

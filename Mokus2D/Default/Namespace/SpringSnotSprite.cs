@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Mokus2D.Visual.Util;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class SpringSnotSprite(ContreJourGame _game, SnotBodyClipBase _snot, float _startWidth, float _centerWidth, float _endWidth) : SnotSprite(_snot, _startWidth, _centerWidth, _endWidth)
     {

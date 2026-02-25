@@ -1,6 +1,6 @@
 ﻿using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class CosOpacityChanger(NodeBase target, float minValue, float maxValue, float step) : CosPropertyChanger(target, minValue, maxValue, step)
     {

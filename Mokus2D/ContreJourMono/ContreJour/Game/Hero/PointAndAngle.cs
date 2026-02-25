@@ -2,15 +2,16 @@
 
 using Microsoft.Xna.Framework;
 
+using Mokus2D.Default.Namespace;
 using Mokus2D.Util.MathUtils;
 
-namespace ContreJourMono.ContreJour.Game.Hero
+namespace Mokus2D.ContreJourMono.ContreJour.Game.Hero
 {
     public class PointAndAngle(float length, float angleStep, float angleOffset)
     {
         public float AngleStep => angleStep;
 
-        public Vector2 Position => Default.Namespace.Maths.RotateAngle(position, Angle);
+        public Vector2 Position => Maths.RotateAngle(position, Angle);
 
         public void Update(float speed, bool onGround, float timeCoeff)
         {

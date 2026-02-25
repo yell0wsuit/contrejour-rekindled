@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ContreJourMono.ContreJour.Menu.LevelComplete;
-
 using Microsoft.Xna.Framework;
 
-using Mokus2D;
 using Mokus2D.Effects.Actions;
 using Mokus2D.Util;
 using Mokus2D.Visual;
 using Mokus2D.Visual.Util;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class FinishView : MovieStripesView, IDisposable
     {

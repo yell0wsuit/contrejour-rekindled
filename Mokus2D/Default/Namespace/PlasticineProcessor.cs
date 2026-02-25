@@ -1,4 +1,4 @@
-﻿namespace Default.Namespace
+﻿namespace Mokus2D.Default.Namespace
 {
     public class PlasticineProcessor(LevelBuilderBase _builder) : TypeProcessorBase("plasticine", _builder)
     {

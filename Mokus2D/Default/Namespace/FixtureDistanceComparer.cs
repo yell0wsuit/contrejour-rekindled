@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 using Mokus2D.Extensions;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     internal struct FixtureDistanceComparer(Vector2 center) : IComparer<Fixture>
     {

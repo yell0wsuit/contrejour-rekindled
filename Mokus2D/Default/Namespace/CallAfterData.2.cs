@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class CallAfterData<T>(Action<T> _selector, float _time, T parameter) : CallAfterData(null, _time)
     {

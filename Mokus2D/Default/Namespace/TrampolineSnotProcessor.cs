@@ -6,7 +6,7 @@ using FarseerPhysics.Factories;
 
 using Microsoft.Xna.Framework;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class TrampolineSnotProcessor(LevelBuilderBase _builder) : BridgeSnotProcessor(_builder, "trampoline", 0.6666667f)
     {

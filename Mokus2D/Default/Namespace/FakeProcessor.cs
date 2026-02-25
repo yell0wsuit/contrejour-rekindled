@@ -1,4 +1,4 @@
-﻿namespace Default.Namespace
+﻿namespace Mokus2D.Default.Namespace
 {
     public class FakeProcessor(string _type, LevelBuilderBase _builder) : TypeProcessorBase(_type, _builder)
     {

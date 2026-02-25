@@ -1,15 +1,13 @@
 ﻿using System;
 
-using ContreJourMono.ContreJour.Game.Hero;
-
-using Default.Namespace;
+using Mokus2D.Default.Namespace;
 
 using Microsoft.Xna.Framework;
 
 using Mokus2D.Util.MathUtils;
 using Mokus2D.Visual;
 
-namespace ContreJourMono.ContreJour.Menu.LevelComplete
+namespace Mokus2D.ContreJourMono.ContreJour.Menu.LevelComplete
 {
     public class FakeHero : Node
     {

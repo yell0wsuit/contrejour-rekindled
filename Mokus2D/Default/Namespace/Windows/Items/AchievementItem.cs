@@ -1,10 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-using Mokus2D;
 using Mokus2D.Visual;
 
-namespace Default.Namespace.Windows.Items
+namespace Mokus2D.Default.Namespace.Windows.Items
 {
     public class AchievementItem : XBoxItem
     {

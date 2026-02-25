@@ -3,7 +3,7 @@
 using Mokus2D.Effects.Actions;
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class Chapter3(int _index, MainMenu _menu) : ChapterItem(_index, _menu)
     {

@@ -2,7 +2,7 @@
 
 using Microsoft.Xna.Framework;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class Bezier(Vector2 _start, Vector2 _control, Vector2 _end)
     {

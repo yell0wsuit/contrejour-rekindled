@@ -2,7 +2,7 @@
 
 using Microsoft.Xna.Framework;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class LianaProcessor(LevelBuilderBase _builder) : JointProcessorBase("liana", _builder)
     {

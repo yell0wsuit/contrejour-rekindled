@@ -4,7 +4,7 @@ using FarseerPhysics.Collision;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Dynamics.Contacts;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class ContactListener
     {

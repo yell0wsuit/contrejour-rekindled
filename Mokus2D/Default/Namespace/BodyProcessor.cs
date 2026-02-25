@@ -1,7 +1,7 @@
 ﻿using FarseerPhysics.Collision.Shapes;
 using FarseerPhysics.Dynamics;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class BodyProcessor : ShapeProcessor
     {

@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 
 using Mokus2D.Extensions;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class EnergyPart(ContreJourGame _game, BodyClip parent, Particle particle, float _direction, Vector2 position) : Satellite(_game, particle, parent, _direction, position)
     {

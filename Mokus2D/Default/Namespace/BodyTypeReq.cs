@@ -1,6 +1,6 @@
 ﻿using FarseerPhysics.Dynamics;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class BodyTypeReq(BodyType type) : IReq
     {

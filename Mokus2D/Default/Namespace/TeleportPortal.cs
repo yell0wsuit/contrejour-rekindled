@@ -1,4 +1,4 @@
-﻿namespace Default.Namespace
+﻿namespace Mokus2D.Default.Namespace
 {
     public class TeleportPortal(Portal _portal) : ParticleSystem(ClipFactory.GetAnchorConfig("McTeleportPartBlack.png"), 5)
     {

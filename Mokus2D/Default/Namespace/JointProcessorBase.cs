@@ -5,7 +5,7 @@ using FarseerPhysics.Dynamics.Joints;
 
 using Microsoft.Xna.Framework;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class JointProcessorBase(string _type, LevelBuilderBase _builder) : TypeProcessorBase(_type, _builder)
     {

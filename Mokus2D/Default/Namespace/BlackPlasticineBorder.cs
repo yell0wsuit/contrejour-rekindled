@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 
 using Mokus2D.Extensions;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class BlackPlasticineBorder(List<Vector2> initialPolygon) : PlasticineBorder(initialPolygon)
     {

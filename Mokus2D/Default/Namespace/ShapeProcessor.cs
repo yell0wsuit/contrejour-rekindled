@@ -2,7 +2,7 @@
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class ShapeProcessor(string _type, LevelBuilderBase _builder) : TypeProcessorBase(_type, _builder)
     {

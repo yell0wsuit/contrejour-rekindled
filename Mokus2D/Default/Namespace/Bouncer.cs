@@ -1,6 +1,6 @@
 ﻿using Mokus2D.Util.MathUtils;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class Bouncer(float _amplitude, float _amplitudeStep, float step) : IUpdatable
     {

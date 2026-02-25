@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public abstract class FurBodyClip : ContreJourBodyClip
     {

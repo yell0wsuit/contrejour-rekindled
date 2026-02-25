@@ -1,12 +1,8 @@
 ﻿using System.Collections.Generic;
 
-using ContreJourMono.ContreJour.Game.Eyes;
-
 using Microsoft.Xna.Framework;
 
-using Mokus2D;
-
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class HeroEye : RandomAnimationEye
     {

@@ -1,4 +1,4 @@
-﻿using Default.Namespace;
+﻿using Mokus2D.Default.Namespace;
 
 namespace Mokus2D.Util
 {

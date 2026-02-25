@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class FlyController(ContreJourGame _game, PlasticinePartBodyClip _ground, Particle _particle) : FlyBase(_particle, Maths.RandRangeMinMax(0.8f, 1.2f))
     {

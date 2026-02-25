@@ -1,4 +1,4 @@
-﻿namespace ContreJourMono.ContreJour.Menu.LevelComplete
+﻿namespace Mokus2D.ContreJourMono.ContreJour.Menu.LevelComplete
 {
     public class FakeHeroEyeBlack : FakeHeroEye
     {

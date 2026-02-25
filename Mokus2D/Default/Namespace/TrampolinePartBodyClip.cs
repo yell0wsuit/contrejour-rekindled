@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 using Mokus2D.Input;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class TrampolinePartBodyClip(LevelBuilderBase _builder, object _body) : ContreJourBodyClip(_builder, _body, null, null), IClickable
     {

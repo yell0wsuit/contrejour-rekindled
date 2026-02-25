@@ -6,12 +6,11 @@ using FarseerPhysics.Dynamics.Contacts;
 
 using Microsoft.Xna.Framework;
 
-using Mokus2D;
 using Mokus2D.Extensions;
 using Mokus2D.Input;
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class SuckerBodyClip : ContreJourBodyClip, IClickable, IVectorPositionProvider, IRestartable
     {

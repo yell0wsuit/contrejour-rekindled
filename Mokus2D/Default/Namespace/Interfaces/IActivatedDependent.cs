@@ -1,4 +1,4 @@
-﻿namespace Default.Namespace.Interfaces
+﻿namespace Mokus2D.Default.Namespace.Interfaces
 {
     public interface IActivatedDependent
     {

@@ -3,10 +3,9 @@ using FarseerPhysics.Dynamics.Contacts;
 
 using Microsoft.Xna.Framework;
 
-using Mokus2D;
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class DestroyOnHitClip(LevelBuilderBase _builder, object _body, Node _clip, Hashtable _config) : BodyClip(_builder, _body, _clip, _config)
     {

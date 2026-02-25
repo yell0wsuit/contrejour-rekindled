@@ -1,12 +1,10 @@
 ﻿using System.IO;
 
-using ContreJourMono.ContreJour.Game.Eyes;
-
-using Default.Namespace;
+using Mokus2D.Default.Namespace;
 
 using Microsoft.Xna.Framework;
 
-namespace ContreJourMono.ContreJour.Menu.LevelComplete
+namespace Mokus2D.ContreJourMono.ContreJour.Menu.LevelComplete
 {
     public class FakeHeroEye : RandomAnimationEye
     {

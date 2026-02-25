@@ -2,7 +2,7 @@
 
 using Mokus2D.Localization;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public static class Messages
     {

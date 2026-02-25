@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-using ContreJourMono.ContreJour.Menu.LevelComplete;
-
-using Default.Namespace.Windows.Items;
+using Mokus2D.Default.Namespace.Windows.Items;
 
 using Microsoft.Xna.Framework;
 
@@ -11,7 +9,7 @@ using Mokus2D.Controls;
 using Mokus2D.Effects.Actions;
 using Mokus2D.Visual;
 
-namespace Default.Namespace.Windows
+namespace Mokus2D.Default.Namespace.Windows
 {
     public class XBoxWindow : PopUpWindow
     {

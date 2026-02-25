@@ -1,10 +1,9 @@
 ﻿using FarseerPhysics.Dynamics;
 using FarseerPhysics.Dynamics.Contacts;
 
-using Mokus2D;
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class EnergyBodyClip : BodyClip, IRestartable
     {

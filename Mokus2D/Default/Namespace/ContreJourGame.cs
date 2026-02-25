@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using Default.Namespace.Interfaces;
+using Mokus2D.Default.Namespace.Interfaces;
 
 using FarseerPhysics.Collision;
 using FarseerPhysics.Dynamics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-using Mokus2D;
 using Mokus2D.Effects.Actions;
 using Mokus2D.Extensions;
 using Mokus2D.Input;
@@ -18,7 +16,7 @@ using Mokus2D.Util.MathUtils;
 using Mokus2D.Visual;
 using Mokus2D.Visual.Util;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class ContreJourGame : GameBase, IDisposable, ITouchListener, IActivatedDependent
     {
@@ -200,7 +198,7 @@ namespace Default.Namespace
         {
             return new ContreJourLevelBuilder(this)
             {
-                NamespacePrefix = "Default.Namespace."
+                NamespacePrefix = RuntimeTypeNamespacePrefix
             };
         }
 
@@ -711,7 +709,7 @@ namespace Default.Namespace
             }
             if (hashtable.Exists("type"))
             {
-                string text = "Default.Namespace." + hashtable.GetString("type");
+                string text = RuntimeTypeNamespacePrefix + hashtable.GetString("type");
                 BackgroundBase backgroundBase = (BackgroundBase)ReflectUtil.CreateInstance(text, [sprite, hashtable, this]);
                 backgrounds.Add(backgroundBase);
             }
@@ -1234,6 +1232,8 @@ namespace Default.Namespace
         protected int zoomOutCount;
 
         protected float zoomOutTime;
+
+        private static readonly string RuntimeTypeNamespacePrefix = $"{typeof(BodyClip).Namespace}.";
 
         public static readonly int[] MIN_ZOOM_LEVELS =
         [

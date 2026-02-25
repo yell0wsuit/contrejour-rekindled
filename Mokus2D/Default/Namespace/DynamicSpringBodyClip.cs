@@ -2,7 +2,7 @@
 
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class DynamicSpringBodyClip(LevelBuilderBase _builder, object _body, Node _clip, Hashtable _config) : SpringBodyClip(_builder, _body, _clip, _config)
     {

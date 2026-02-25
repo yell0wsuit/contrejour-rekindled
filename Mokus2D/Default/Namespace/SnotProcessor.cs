@@ -6,7 +6,7 @@ using FarseerPhysics.Factories;
 
 using Microsoft.Xna.Framework;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class SnotProcessor(LevelBuilderBase _builder, string _type, float _partSize) : JointProcessorBase(_type, _builder)
     {

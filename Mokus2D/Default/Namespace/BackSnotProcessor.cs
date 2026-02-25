@@ -1,4 +1,4 @@
-﻿namespace Default.Namespace
+﻿namespace Mokus2D.Default.Namespace
 {
     public class BackSnotProcessor(LevelBuilderBase _builder) : SnotProcessor(_builder, "backSnot", 100f * _builder.EngineConfig.SizeMultiplier)
     {

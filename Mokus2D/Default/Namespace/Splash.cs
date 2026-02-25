@@ -1,15 +1,12 @@
 ﻿using System;
 
-using ContreJourMono.ContreJour.Menu.LevelComplete;
-
 using Microsoft.Xna.Framework;
 
-using Mokus2D;
 using Mokus2D.Effects.Actions;
 using Mokus2D.Input;
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class Splash : Node, ITouchListener, IDisposable
     {

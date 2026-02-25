@@ -2,7 +2,7 @@
 
 using Microsoft.Xna.Framework;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class BlackTrampolineSprite(ContreJourGame _game, SnotBodyClipBase _snot, float _startWidth, float _centerWidth, float _endWidth) : BlackSnotSprite(_game, _snot, _startWidth, _centerWidth, _endWidth)
     {
