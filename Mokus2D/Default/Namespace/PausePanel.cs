@@ -112,9 +112,13 @@ namespace Default.Namespace
             musicButton.Toggle = true;
         }
 
-        public new void Dispose()
+        protected override void Dispose(bool disposing)
         {
-            Mokus2DGame.SoundManager.MusicDisableEvent.RemoveListenerSelector(new Action(OnMusicDisable));
+            if (disposing)
+            {
+                Mokus2DGame.SoundManager.MusicDisableEvent.RemoveListenerSelector(new Action(OnMusicDisable));
+            }
+            base.Dispose(disposing);
         }
 
         public void SetLevelIndex(int levelIndex)
