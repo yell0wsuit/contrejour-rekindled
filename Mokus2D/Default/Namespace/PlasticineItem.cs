@@ -8,21 +8,9 @@ namespace Default.Namespace
 {
     public class PlasticineItem : LinkedListItem
     {
-        public float InitialAngle
-        {
-            get
-            {
-                return initialAngle;
-            }
-        }
+        public float InitialAngle => initialAngle;
 
-        public Vector2 InitialPosition
-        {
-            get
-            {
-                return initialPosition;
-            }
-        }
+        public Vector2 InitialPosition => initialPosition;
 
         public PlasticineItem(PlasticinePartBodyClip _bodyClip, float _width)
             : base(_bodyClip)
@@ -40,27 +28,21 @@ namespace Default.Namespace
             ortogonalVec = normalVec.Rotate90();
         }
 
-        private float Width
-        {
-            get
-            {
-                return width;
-            }
-        }
+        private float Width => width;
 
         public void UpdateTouchesBodyClipDistance(float offset, BodyClip objectP, float maxDistance)
         {
             BodyClip.OnTouchWith(offset, objectP);
             PlasticineItem plasticineItem = PreviousItem;
             float num;
-            for (num = width / 2f + offset + plasticineItem.Width / 2f; num < maxDistance; num += plasticineItem.Width / 2f)
+            for (num = (width / 2f) + offset + (plasticineItem.Width / 2f); num < maxDistance; num += plasticineItem.Width / 2f)
             {
                 plasticineItem.BodyClip.OnTouchWith(num, objectP);
                 num += plasticineItem.Width / 2f;
                 plasticineItem = plasticineItem.PreviousItem;
             }
             plasticineItem = NextItem;
-            num = offset - width / 2f - plasticineItem.Width / 2f;
+            num = offset - (width / 2f) - (plasticineItem.Width / 2f);
             while (Maths.Abs(num) < maxDistance)
             {
                 plasticineItem.BodyClip.OnTouchWith(num, objectP);
@@ -104,21 +86,9 @@ namespace Default.Namespace
             return vector + initialPosition;
         }
 
-        public PlasticineItem NextItem
-        {
-            get
-            {
-                return (PlasticineItem)Next;
-            }
-        }
+        public PlasticineItem NextItem => (PlasticineItem)Next;
 
-        public PlasticineItem PreviousItem
-        {
-            get
-            {
-                return (PlasticineItem)Previous;
-            }
-        }
+        public PlasticineItem PreviousItem => (PlasticineItem)Previous;
 
         public Vector2 GetSurfaceCenterVec()
         {
@@ -202,21 +172,9 @@ namespace Default.Namespace
             return new Vector2(-width / 2f, 0.5833333f);
         }
 
-        public Body Body
-        {
-            get
-            {
-                return BodyClip.Body;
-            }
-        }
+        public Body Body => BodyClip.Body;
 
-        public PlasticinePartBodyClip BodyClip
-        {
-            get
-            {
-                return (PlasticinePartBodyClip)item;
-            }
-        }
+        public PlasticinePartBodyClip BodyClip => (PlasticinePartBodyClip)item;
 
         protected float width;
 

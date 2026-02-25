@@ -21,10 +21,10 @@ namespace Default.Namespace
             Type type = contreJourGame.ChooseSide(typeof(BlackPlasticineSprite), typeof(WhitePlasticineSprite), typeof(PlasticineSprite));
             clipContent = (PlasticineSprite)ReflectUtil.CreateInstance(type, []);
             Create(points);
-            builder.AddChild(clipContent);
+            _ = builder.AddChild(clipContent);
             firstItem.BodyClip.UpdateParent = true;
             wideBorder = new PlasticineWideBorder();
-            builder.AddChild(wideBorder);
+            _ = builder.AddChild(wideBorder);
             InitBorder(contreJourGame);
             InitFillSprite();
             if (CocosUtil.isArmV7() && !contreJourGame.RoseChapter)
@@ -33,30 +33,17 @@ namespace Default.Namespace
             }
             if (highlite != null)
             {
-                builder.AddChild(highlite);
+                _ = builder.AddChild(highlite);
             }
             changed = false;
             draggingItems = new Dictionary<Touch, DraggingItem>();
         }
 
-        public PlasticineItem FirstItem
-        {
-            get
-            {
-                return firstItem;
-            }
-        }
+        public PlasticineItem FirstItem => firstItem;
 
         public bool Changed
         {
-            get
-            {
-                return changed;
-            }
-            set
-            {
-                changed = value;
-            }
+            get => changed; set => changed = value;
         }
 
         public void Restart()
@@ -167,7 +154,7 @@ namespace Default.Namespace
                 for (int j = 0; j < list2.Count; j++)
                 {
                     BodyClip bodyClip = list2[j].Body.UserData as BodyClip;
-                    if (bodyClip != null && bodyClip is PlasticinePartBodyClip)
+                    if (bodyClip is not null and PlasticinePartBodyClip)
                     {
                         PlasticinePartBodyClip plasticinePartBodyClip = (PlasticinePartBodyClip)bodyClip;
                         if (plasticinePartBodyClip.Parent == this)
@@ -233,7 +220,7 @@ namespace Default.Namespace
         public void StopDragTouch(PlasticineItem item, Touch touch)
         {
             DraggingItem draggingItem = draggingItems[touch];
-            draggingItems.Remove(touch);
+            _ = draggingItems.Remove(touch);
             draggingItem.Finish();
         }
 

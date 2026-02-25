@@ -17,50 +17,22 @@ namespace Default.Namespace
     {
         public float Width
         {
-            get
-            {
-                return width;
-            }
-            set
-            {
-                width = value;
-            }
+            get => width; set => width = value;
         }
 
         public int Frames
         {
-            get
-            {
-                return frames;
-            }
-            set
-            {
-                frames = value;
-            }
+            get => frames; set => frames = value;
         }
 
         public Body Body
         {
-            get
-            {
-                return body;
-            }
-            set
-            {
-                body = value;
-            }
+            get => body; set => body = value;
         }
 
         public Vector2 Target
         {
-            get
-            {
-                return target;
-            }
-            set
-            {
-                target = value;
-            }
+            get => target; set => target = value;
         }
 
         public override float OpacityFloat
@@ -104,10 +76,7 @@ namespace Default.Namespace
 
         public bool Moving
         {
-            get
-            {
-                return moving;
-            }
+            get => moving;
             set
             {
                 if (moving != value)
@@ -117,13 +86,7 @@ namespace Default.Namespace
             }
         }
 
-        public int Length
-        {
-            get
-            {
-                return bezierPoints.Count;
-            }
-        }
+        public int Length => bezierPoints.Count;
 
         public override void Update(float time)
         {
@@ -204,9 +167,9 @@ namespace Default.Namespace
             int num = bezierPoints.Count + 1;
             for (int i = bezierPoints.Count - 1; i >= 0; i--)
             {
-                Vector2 vector = ((i == bezierPoints.Count - 1) ? bezierPoints[bezierPoints.Count - 1] : bezierPoints[i + 1]);
-                Vector2 vector2 = ((i == 0) ? currentPosition : bezierPoints[i - 1]);
-                float num2 = width * (1f - (i + 1) / (float)num);
+                Vector2 vector = (i == bezierPoints.Count - 1) ? bezierPoints[bezierPoints.Count - 1] : bezierPoints[i + 1];
+                Vector2 vector2 = (i == 0) ? currentPosition : bezierPoints[i - 1];
+                float num2 = width * (1f - ((i + 1) / (float)num));
                 if (num2 > 1f)
                 {
                     Pair<Vector2> pointsPair = ContreDrawUtil.GetPointsPair(bezierPoints[i], vector, vector2, num2);
@@ -271,7 +234,7 @@ namespace Default.Namespace
 
         protected bool moving;
 
-        private float LOW_FPS_TIME = 0.04f;
+        private readonly float LOW_FPS_TIME = 0.04f;
 
         private bool opacityDirty;
     }

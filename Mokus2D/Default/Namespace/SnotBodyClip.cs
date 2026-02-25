@@ -50,24 +50,21 @@ namespace Default.Namespace
             dynamicDrag = config.GetBool("dynamicDrag");
             if (game.LevelIndex == 169)
             {
-                game.Updater.CallAfterSelectorDelay(new Action(Blink), Maths.randRange(5f, 8f));
+                _ = game.Updater.CallAfterSelectorDelay(new Action(Blink), Maths.randRange(5f, 8f));
                 return;
             }
-            game.Updater.CallAfterSelectorDelay(new Action(Blink), Maths.randRange(1f, 2f));
+            _ = game.Updater.CallAfterSelectorDelay(new Action(Blink), Maths.randRange(1f, 2f));
         }
 
         public bool Enabled
         {
-            get
-            {
-                return enabled;
-            }
+            get;
             set
             {
-                if (enabled != value)
+                if (field != value)
                 {
-                    enabled = value;
-                    if (enabled)
+                    field = value;
+                    if (field)
                     {
                         StopParts();
                         return;
@@ -75,63 +72,21 @@ namespace Default.Namespace
                     ReleaseSnot();
                 }
             }
-        }
+        } = true;
 
-        public override Vector2 StartPosition
-        {
-            get
-            {
-                return snotEye.Body.Position;
-            }
-        }
+        public override Vector2 StartPosition => snotEye.Body.Position;
 
-        public EventSender LinkEvent
-        {
-            get
-            {
-                return linkEvent;
-            }
-        }
+        public EventSender LinkEvent => linkEvent;
 
-        public EventSender ReleaseEvent
-        {
-            get
-            {
-                return releaseEvent;
-            }
-        }
+        public EventSender ReleaseEvent => releaseEvent;
 
-        public ISnotLinked Linked
-        {
-            get
-            {
-                return linked;
-            }
-        }
+        public ISnotLinked Linked => linked;
 
-        public bool Dragging
-        {
-            get
-            {
-                return touch != null;
-            }
-        }
+        public bool Dragging => touch != null;
 
-        public bool Joined
-        {
-            get
-            {
-                return stickyJoint != null;
-            }
-        }
+        public bool Joined => stickyJoint != null;
 
-        protected virtual float MoveTeleportCoeff
-        {
-            get
-            {
-                return 0.5f;
-            }
-        }
+        protected virtual float MoveTeleportCoeff => 0.5f;
 
         public bool UseForZoom()
         {
@@ -143,13 +98,7 @@ namespace Default.Namespace
             return true;
         }
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool DisableHeroFocus => false;
 
         public int Priority(Vector2 touchPoint)
         {
@@ -200,13 +149,7 @@ namespace Default.Namespace
             touchEndTime = -1f;
         }
 
-        public override Vector2 PositionVec
-        {
-            get
-            {
-                return Physics.EndBody.Position;
-            }
-        }
+        public override Vector2 PositionVec => Physics.EndBody.Position;
 
         private static float closestReq(object item, object param)
         {
@@ -258,12 +201,12 @@ namespace Default.Namespace
 
         public void Blink()
         {
-            game.Updater.CallAfterSelectorDelay(new Action(Blink), Maths.randRange(10f, 25f));
+            _ = game.Updater.CallAfterSelectorDelay(new Action(Blink), Maths.randRange(10f, 25f));
             if (stickyJoint == null)
             {
                 blinking = true;
                 eye.Open = true;
-                game.Updater.CallAfterSelectorDelay(new Action(EndBlink), Maths.randRange(2f, 5f));
+                _ = game.Updater.CallAfterSelectorDelay(new Action(EndBlink), Maths.randRange(2f, 5f));
             }
         }
 
@@ -278,7 +221,7 @@ namespace Default.Namespace
 
         public virtual void CreateTail()
         {
-            string text = (game.BlackSide ? "snotTailTextureBlack.png" : "McTailTextureGreen.png");
+            string text = game.BlackSide ? "snotTailTextureBlack.png" : "McTailTextureGreen.png";
             blackTail = new BlackTail(Physics.EndBody, builder, text);
             builder.Add(blackTail, 3);
             blackTail.Width = CocosUtil.r(20f);
@@ -346,7 +289,7 @@ namespace Default.Namespace
             if (highlite != null)
             {
                 highlite.Position = baseEndClip.Position;
-                highlite.Opacity = (int)(100f + highliteChanger.Value * 155f);
+                highlite.Opacity = (int)(100f + (highliteChanger.Value * 155f));
                 highliteChanger.Update(time);
             }
             if (movable)
@@ -359,7 +302,7 @@ namespace Default.Namespace
                 blackTail.Update(time);
                 blackTail.Moving = stickyJoint != null;
             }
-            clipContent.OpacityFloat = clipContent.OpacityFloat.StepTo(enabled ? 1f : 0.5f, 0.05f);
+            clipContent.OpacityFloat = clipContent.OpacityFloat.StepTo(Enabled ? 1f : 0.5f, 0.05f);
             baseEndClip.Color = Color.White * clipContent.OpacityFloat;
         }
 
@@ -526,7 +469,7 @@ namespace Default.Namespace
                 {
                     processed.Add(jointEdge.Other);
                     BodyClip bodyClip = jointEdge.Other.UserData as BodyClip;
-                    if (bodyClip != null && bodyClip is SnotBodyClip)
+                    if (bodyClip is not null and SnotBodyClip)
                     {
                         SnotBodyClip snotBodyClip = (SnotBodyClip)bodyClip;
                         if (snotBodyClip.ConnectedToStatic(ref processed))
@@ -660,9 +603,7 @@ namespace Default.Namespace
 
         protected float touchEndTime;
 
-        private bool movable;
-
-        private bool enabled = true;
+        private readonly bool movable;
 
         public class BodyAndPoint(Body body, Vector2 point)
         {

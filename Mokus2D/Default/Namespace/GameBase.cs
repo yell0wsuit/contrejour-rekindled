@@ -11,89 +11,28 @@ namespace Default.Namespace
 {
     public class GameBase : Node, IUpdatable
     {
-        public LevelBuilderBase Builder
-        {
-            get
-            {
-                return builder;
-            }
-        }
+        public LevelBuilderBase Builder => builder;
 
-        public Node GameRoot
-        {
-            get
-            {
-                return gameRoot;
-            }
-        }
+        public Node GameRoot => gameRoot;
 
-        public bool Debug
-        {
-            get
-            {
-                return debug;
-            }
-        }
+        public bool Debug => debug;
 
-        public EventSender LevelLoadedEvent
-        {
-            get
-            {
-                return levelLoadedEvent;
-            }
-        }
+        public EventSender LevelLoadedEvent => levelLoadedEvent;
 
-        public Updater Updater
-        {
-            get
-            {
-                return updater;
-            }
-        }
+        public Updater Updater => updater;
 
         public virtual bool Paused
         {
-            get
-            {
-                return paused;
-            }
-            set
-            {
-                paused = value;
-            }
+            get => paused; set => paused = value;
         }
 
-        public float TotalTime
-        {
-            get
-            {
-                return totalTime;
-            }
-        }
+        public float TotalTime => totalTime;
 
-        public Dictionary<string, Level> CachedLevels
-        {
-            get
-            {
-                return _levelsCache.CachedLevels;
-            }
-        }
+        public Dictionary<string, Level> CachedLevels => _levelsCache.CachedLevels;
 
-        public virtual Vector2 LevelSize
-        {
-            get
-            {
-                return Builder.LevelSize;
-            }
-        }
+        public virtual Vector2 LevelSize => Builder.LevelSize;
 
-        public virtual Vector2 PhysicsLevelSize
-        {
-            get
-            {
-                return Builder.PhysicsLevelSize;
-            }
-        }
+        public virtual Vector2 PhysicsLevelSize => Builder.PhysicsLevelSize;
 
         public GameBase()
         {
@@ -186,7 +125,7 @@ namespace Default.Namespace
             }
             foreach (object obj in arrayList)
             {
-                updatables.Remove((IRemovable)obj);
+                _ = updatables.Remove((IRemovable)obj);
             }
         }
 

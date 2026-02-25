@@ -11,23 +11,10 @@ namespace Default.Namespace
     {
         public bool Stoped
         {
-            get
-            {
-                return stoped;
-            }
-            set
-            {
-                stoped = value;
-            }
+            get => stoped; set => stoped = value;
         }
 
-        public LianaSprite Sprite
-        {
-            get
-            {
-                return sprite;
-            }
-        }
+        public LianaSprite Sprite => sprite;
 
         public PlanetLiana(Vector2 start, Vector2 _middle, Vector2 end)
         {

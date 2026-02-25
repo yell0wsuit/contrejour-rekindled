@@ -19,32 +19,16 @@ namespace Default.Namespace
 {
     public class HeroBodyClip : ContreJourBodyClip, IVectorPositionProvider, IBonusAcceptable, ISnotLinked, IEatable, ISpikesDestroyable, ILaunchable, IRadius, IBodyClip, ITeleportable, IRestartable
     {
-        public EventSender TeleportEvent
-        {
-            get
-            {
-                return teleportEvent;
-            }
-        }
+        public EventSender TeleportEvent => teleportEvent;
 
         public bool Removed
         {
-            get
-            {
-                return removed;
-            }
-            set
-            {
-                removed = value;
-            }
+            get => removed; set => removed = value;
         }
 
         public int SnotJoinedCount
         {
-            get
-            {
-                return snotJoinedCount;
-            }
+            get => snotJoinedCount;
             set
             {
                 if (value != snotJoinedCount)
@@ -60,46 +44,19 @@ namespace Default.Namespace
 
         public bool HitEnabled
         {
-            get
-            {
-                return hitEnabled;
-            }
-            set
-            {
-                hitEnabled = value;
-            }
+            get => hitEnabled; set => hitEnabled = value;
         }
 
         public bool SnotEnabled
         {
-            get
-            {
-                return snotEnabled;
-            }
-            set
-            {
-                snotEnabled = value;
-            }
+            get => snotEnabled; set => snotEnabled = value;
         }
 
-        public HeroEye Eye
-        {
-            get
-            {
-                return eye;
-            }
-        }
+        public HeroEye Eye => eye;
 
         public bool SpeedLocked
         {
-            get
-            {
-                return speedLocked;
-            }
-            set
-            {
-                speedLocked = value;
-            }
+            get => speedLocked; set => speedLocked = value;
         }
 
         public HeroBodyClip(LevelBuilderBase _builder, object _body, Node _clip, Hashtable _config)
@@ -140,10 +97,10 @@ namespace Default.Namespace
             if (Game.LevelIndex != 0 || !Game.CanShowIntro)
             {
                 initializeBody();
-                Schedule(new Action(FirstRespawn), FirstRespawnTime);
+                _ = Schedule(new Action(FirstRespawn), FirstRespawnTime);
                 if (Game.EndLevel != null)
                 {
-                    Schedule(new Action(Game.EndLevel.ShowPortal), 1.6f);
+                    _ = Schedule(new Action(Game.EndLevel.ShowPortal), 1.6f);
                 }
                 portal = new Portal(Game, _clip.Position);
                 builder.AddChildBefore(portal, clip);
@@ -169,7 +126,7 @@ namespace Default.Namespace
             }
             else
             {
-                Color color = (Game.WhiteSide ? ContreJourConstants.WHITE_TAIL_COLOR : ContreJourConstants.BLACK_COLOR);
+                Color color = Game.WhiteSide ? ContreJourConstants.WHITE_TAIL_COLOR : ContreJourConstants.BLACK_COLOR;
                 tail = new HeroTail(color);
                 _clip.AddChild(tail, -1);
             }
@@ -186,13 +143,7 @@ namespace Default.Namespace
             Game.AddShadowSource(this);
         }
 
-        protected virtual float FirstRespawnTime
-        {
-            get
-            {
-                return 0.5f;
-            }
-        }
+        protected virtual float FirstRespawnTime => 0.5f;
 
         public bool CanTeleport()
         {
@@ -229,7 +180,7 @@ namespace Default.Namespace
                     new Hide()
                 ]));
             }
-            CallAfter(new Action(HideBody), 0.1f);
+            _ = CallAfter(new Action(HideBody), 0.1f);
         }
 
         private void HideBody()
@@ -266,13 +217,7 @@ namespace Default.Namespace
             return false;
         }
 
-        public EventSender DestroyEvent
-        {
-            get
-            {
-                return teleportEvent;
-            }
-        }
+        public EventSender DestroyEvent => teleportEvent;
 
         public Vector2 BonusTarget()
         {
@@ -287,26 +232,12 @@ namespace Default.Namespace
 
         public virtual bool EyeAnimationsAllowed
         {
-            get
-            {
-                return eye.AnimationsAllowed;
-            }
-            set
-            {
-                eye.AnimationsAllowed = value;
-            }
+            get => eye.AnimationsAllowed; set => eye.AnimationsAllowed = value;
         }
 
         public bool EyeMoveAllowed
         {
-            get
-            {
-                return eye.MoveAllowed;
-            }
-            set
-            {
-                eye.MoveAllowed = value;
-            }
+            get => eye.MoveAllowed; set => eye.MoveAllowed = value;
         }
 
         public void SetPosition(Vector2 position)
@@ -350,18 +281,12 @@ namespace Default.Namespace
             Body.SetTransform(initialPosition, Body.Rotation);
             ForceClipPosition();
             portal.TargetScale = 1f;
-            Schedule(new Action(ShowClip), 0.7f);
+            _ = Schedule(new Action(ShowClip), 0.7f);
             Mokus2DGame.SoundManager.PlaySound("begin5", 0.5f, 0f, 0f);
             NewBlackTail();
         }
 
-        public new Vector2 PositionVec
-        {
-            get
-            {
-                return Body.Position;
-            }
-        }
+        public new Vector2 PositionVec => Body.Position;
 
         private void ShowClip()
         {
@@ -370,13 +295,13 @@ namespace Default.Namespace
             clip.Visible = true;
             clip.Scale = 0f;
             clip.Run(new ScaleTo(0.2f, 1f));
-            CallAfter(new Action(StartPlay), 0.2f);
+            _ = CallAfter(new Action(StartPlay), 0.2f);
         }
 
         private void StartPlay()
         {
             Body.BodyType = BodyType.Dynamic;
-            CallAfter(new Action(RemovePortal), 0.2f);
+            _ = CallAfter(new Action(RemovePortal), 0.2f);
         }
 
         private void RemovePortal()
@@ -418,7 +343,7 @@ namespace Default.Namespace
                 }
                 foreach (object obj in arrayList)
                 {
-                    blackTails.Remove((BlackTail)obj);
+                    _ = blackTails.Remove((BlackTail)obj);
                 }
             }
             if (finishSet)
@@ -438,7 +363,7 @@ namespace Default.Namespace
             {
                 lastOnGroundTime = Game.TotalTime;
             }
-            Body.AngularDamping = ((Game.TotalTime - lastOnGroundTime > 0.3f) ? 0.5f : 0f);
+            Body.AngularDamping = (Game.TotalTime - lastOnGroundTime > 0.3f) ? 0.5f : 0f;
             if (Body != null && Body.BodyType == BodyType.Static && !onGround && snotJoinedCount == 0)
             {
                 airTime += time;
@@ -461,7 +386,7 @@ namespace Default.Namespace
                 UpdateShadow(time);
             }
             float num2 = Maths.atan2Vec(Body.LinearVelocity);
-            float num3 = (speedLocked ? 0f : Body.LinearVelocity.Length());
+            float num3 = speedLocked ? 0f : Body.LinearVelocity.Length();
             if (!speedyPosted && onGroundTime > 0.2f && num3 >= 11.666667f && hitEnabled)
             {
                 XBoxUtil.AwardAchievement("speedy");
@@ -472,7 +397,7 @@ namespace Default.Namespace
                 XBoxUtil.AwardAchievement("mighty_bird");
                 migthyPosted = true;
             }
-            float num4 = ((snotJoinedCount > 0) ? 33.333332f : 66.666664f);
+            float num4 = (snotJoinedCount > 0) ? 33.333332f : 66.666664f;
             if (num3 > num4)
             {
                 num3 = num4;
@@ -485,7 +410,7 @@ namespace Default.Namespace
                 tail.LimitAngles = onGround;
                 tail.SetMovementDirection(num2);
                 tail.Speed = num3;
-                tail.UpdateSpeed = (sleep ? 0.2f : 1f);
+                tail.UpdateSpeed = sleep ? 0.2f : 1f;
             }
             previousSpeed = Body.LinearVelocity;
             velocity = num3;
@@ -617,7 +542,7 @@ namespace Default.Namespace
                 float num = Maths.Cos(breatheScaleStep);
                 breatheScale = num * 0.04f;
                 targetScale.X = 1f + breatheScale;
-                targetScale.Y = 1f + breatheScale / 2f;
+                targetScale.Y = 1f + (breatheScale / 2f);
                 timeToSleep -= time;
                 EyeAnimationsAllowed = false;
                 if (sleep && eyeClosed)
@@ -645,13 +570,13 @@ namespace Default.Namespace
             else
             {
                 EyeAnimationsAllowed = true;
-                targetScale.X = (targetScale.Y = 1f);
+                targetScale.X = targetScale.Y = 1f;
                 timeToSleep = 7f;
             }
             clip.ScaleX = Maths.StepToTargetMaxStep(clip.ScaleX, targetScale.X, 0.002f);
             clip.ScaleY = Maths.StepToTargetMaxStep(clip.ScaleY, targetScale.Y, 0.002f);
             eye.Scale = 1f / clip.ScaleX * eyeScale;
-            float num3 = clip.Position.Y - bodyBackground.Size.Y * (1f - clip.ScaleY) / 2f - 2f;
+            float num3 = clip.Position.Y - (bodyBackground.Size.Y * (1f - clip.ScaleY) / 2f) - 2f;
             clip.Position = new Vector2(clip.Position.X, num3);
         }
 
@@ -754,7 +679,7 @@ namespace Default.Namespace
                 {
                     Game.Finished = true;
                 }
-                Schedule(new Action(OnFinish), 0.5f);
+                _ = Schedule(new Action(OnFinish), 0.5f);
             }
             FinishEvent.SendEvent();
             teleportEvent.SendEvent();
@@ -783,7 +708,7 @@ namespace Default.Namespace
                 Game.Finish(builder.ToPoint(finishPosition));
                 return;
             }
-            Schedule(new Action(CallFail), finishPause);
+            _ = Schedule(new Action(CallFail), finishPause);
         }
 
         protected virtual void FinishLevelSpeed(Vector2 targetPosition, float _finishSpeed)
@@ -837,7 +762,7 @@ namespace Default.Namespace
                 bodyBackground.Run(new FadeOut(num));
                 HideEye();
                 hotspot.Run(new FadeOut(num));
-                Schedule(new Action(Hide), num);
+                _ = Schedule(new Action(Hide), num);
                 if (tail != null)
                 {
                     tail.Visible = false;
@@ -1054,6 +979,6 @@ namespace Default.Namespace
 
         protected bool speedLocked;
 
-        private float eyeScale;
+        private readonly float eyeScale;
     }
 }

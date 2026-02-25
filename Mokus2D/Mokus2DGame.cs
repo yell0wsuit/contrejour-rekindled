@@ -19,94 +19,46 @@ namespace Mokus2D
     {
         public Mokus2DGame()
         {
-            instance = this;
+            Instance = this;
         }
 
-        public static GraphicsDevice Device
-        {
-            get
-            {
-                return Instance.GraphicsDevice;
-            }
-        }
+        public static GraphicsDevice Device => Instance.GraphicsDevice;
 
-        public static TouchController TouchController
-        {
-            get
-            {
-                return Instance.touchController;
-            }
-        }
+        public static TouchController TouchController => Instance.touchController;
 
-        public static KeysController KeysController
-        {
-            get
-            {
-                return Instance.keysController;
-            }
-        }
+        public static KeysController KeysController => Instance.keysController;
 
-        public static SoundManager SoundManager
-        {
-            get
-            {
-                return Instance.soundManager;
-            }
-        }
+        public static SoundManager SoundManager => Instance.soundManager;
 
-        public static Scheduler Scheduler
-        {
-            get
-            {
-                return Instance.scheduler;
-            }
-        }
+        public static Scheduler Scheduler => Instance.scheduler;
 
-        public static Vector2 ScreenSize
-        {
-            get
-            {
-                return new Vector2(Device.PresentationParameters.BackBufferWidth, Device.PresentationParameters.BackBufferHeight);
-            }
-        }
+        public static Vector2 ScreenSize => new Vector2(Device.PresentationParameters.BackBufferWidth, Device.PresentationParameters.BackBufferHeight);
 
-        public static ContentManager ContentManager
-        {
-            get
-            {
-                return Instance.Content;
-            }
-        }
+        public static ContentManager ContentManager => Instance.Content;
 
         public static ReferenceCountingContentManager SharedContent
         {
             get
             {
-                if (sharedContentManager == null)
+                if (field == null)
                 {
-                    sharedContentManager = new ReferenceCountingContentManager(Instance.Services);
+                    field = new ReferenceCountingContentManager(Instance.Services);
                 }
-                return sharedContentManager;
+                return field;
             }
         }
 
-        public static Mokus2DGame Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
+        public static Mokus2DGame Instance { get; private set; }
 
         public RootNode Root
         {
             get
             {
-                if (_root == null)
+                if (field == null)
                 {
-                    _root = CreateRootNode();
+                    field = CreateRootNode();
                 }
-                return _root;
+                return field;
             }
         }
 
@@ -167,10 +119,6 @@ namespace Mokus2D
             gameDrawGarbageTracer.End();
         }
 
-        private static Mokus2DGame instance;
-
-        private static ReferenceCountingContentManager sharedContentManager;
-
         private readonly KeysController keysController = new();
 
         private readonly Scheduler scheduler = new();
@@ -182,9 +130,6 @@ namespace Mokus2D
         public Color BackgroundColor = Color.Black;
 
         public float MaxUpdateTime = 0.04f;
-
-        private RootNode _root;
-
         private GarbageTracer gameDrawGarbageTracer = new("Game.Draw", false);
 
         private GarbageTracer gameUpdateGarbageTracer = new("Game.Update", false);

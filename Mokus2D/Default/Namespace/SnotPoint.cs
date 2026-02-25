@@ -11,16 +11,13 @@ namespace Default.Namespace
     {
         public bool Used
         {
-            get
-            {
-                return used;
-            }
+            get;
             set
             {
-                if (used != value)
+                if (field != value)
                 {
-                    used = value;
-                    if (!used)
+                    field = value;
+                    if (!field)
                     {
                         UnuseEvent.SendEvent();
                     }
@@ -54,13 +51,10 @@ namespace Default.Namespace
             FarseerUtil.SetSensor(Body, true);
             Game.SnotPoints.Add(this);
             clip = new Sprite("McSnotPoint");
-            builder.AddChild(clip, 3);
+            _ = builder.AddChild(clip, 3);
         }
 
-        private static float Radius = 20f;
-
-        private bool used;
-
+        private static readonly float Radius = 20f;
         public bool Enabled = true;
 
         public readonly EventSender UnuseEvent = new();

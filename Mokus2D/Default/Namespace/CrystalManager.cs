@@ -4,10 +4,7 @@
     {
         public bool Visible
         {
-            get
-            {
-                return false;
-            }
+            get => false;
             set
             {
                 if (value != Visible)
@@ -21,13 +18,7 @@
             }
         }
 
-        public EventSender HideEvent
-        {
-            get
-            {
-                return hideEvent;
-            }
-        }
+        public EventSender HideEvent => hideEvent;
 
         public static CrystalManager Instance()
         {

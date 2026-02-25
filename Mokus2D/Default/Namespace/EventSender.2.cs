@@ -46,7 +46,7 @@ namespace Default.Namespace
 
         public void RemoveListenerSelector(Action<T> action)
         {
-            parameterListeners.Remove(action);
+            _ = parameterListeners.Remove(action);
         }
 
         public override void RemoveListeners()
@@ -57,6 +57,6 @@ namespace Default.Namespace
 
         protected List<Action<T>> parameterListeners = new(64);
 
-        private List<Action<T>> parameterListenersCopy = new(64);
+        private readonly List<Action<T>> parameterListenersCopy = new(64);
     }
 }

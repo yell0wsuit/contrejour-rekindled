@@ -29,56 +29,30 @@ namespace Mokus2D.Visual
             }
         }
 
-        public NodeChildren Children
-        {
-            get
-            {
-                return children;
-            }
-        }
+        public NodeChildren Children { get; } = new();
 
-        public int Layer
-        {
-            get
-            {
-                return layer;
-            }
-        }
+        public int Layer { get; private set; }
 
-        public bool OnScreen
-        {
-            get
-            {
-                return Root != null;
-            }
-        }
+        public bool OnScreen => Root != null;
 
         public Node Parent
         {
-            get
+            get; protected set
             {
-                return parent;
-            }
-            protected set
-            {
-                parent = value;
+                field = value;
                 transformationDirty = true;
             }
         }
 
         public RootNode Root
         {
-            get
+            get; internal set
             {
-                return root;
-            }
-            internal set
-            {
-                if (root != value)
+                if (field != value)
                 {
-                    bool flag = root == null && value != null;
-                    bool flag2 = root != null && value == null;
-                    root = value;
+                    bool flag = field == null && value != null;
+                    bool flag2 = field != null && value == null;
+                    field = value;
                     if (flag)
                     {
                         OnAddedToStage();
@@ -92,13 +66,7 @@ namespace Mokus2D.Visual
             }
         }
 
-        public virtual bool IsRoot
-        {
-            get
-            {
-                return Root == this;
-            }
-        }
+        public virtual bool IsRoot => Root == this;
 
         public event Action AddedToStage;
 
@@ -147,7 +115,7 @@ namespace Mokus2D.Visual
 
         public int GetChildIndex(Node child)
         {
-            return children.IndexOf(child);
+            return Children.IndexOf(child);
         }
 
         public void Run(NodeAction action)
@@ -168,7 +136,7 @@ namespace Mokus2D.Visual
                 cachedActionsToRemove.Add(action);
                 return;
             }
-            actions.Remove(action);
+            _ = actions.Remove(action);
         }
 
         public void StopAllActions()
@@ -183,11 +151,11 @@ namespace Mokus2D.Visual
 
         public virtual void ChangeChildLayer(Node node, int nodeLayer)
         {
-            if (nodeLayer != node.layer)
+            if (nodeLayer != node.Layer)
             {
-                node.layer = nodeLayer;
-                children.Remove(node);
-                children.Add(node);
+                node.Layer = nodeLayer;
+                _ = Children.Remove(node);
+                Children.Add(node);
             }
         }
 
@@ -202,10 +170,10 @@ namespace Mokus2D.Visual
             {
                 throw new InvalidOperationException("node already added to display list");
             }
-            node.layer = nodeLayer;
+            node.Layer = nodeLayer;
             node.Parent = this;
-            node.SetRoot(root);
-            children.Add(node);
+            node.SetRoot(Root);
+            Children.Add(node);
         }
 
         public Vector2 ZeroToNode(Node node, bool refreshTransformations = true)
@@ -277,7 +245,7 @@ namespace Mokus2D.Visual
         {
             node.Parent = null;
             node.SetRoot(null);
-            if (!children.Remove(node))
+            if (!Children.Remove(node))
             {
                 throw new InvalidOperationException("There is no such children in collection");
             }
@@ -331,7 +299,7 @@ namespace Mokus2D.Visual
             {
                 foreach (NodeAction nodeAction2 in cachedActionsToRemove)
                 {
-                    actions.Remove(nodeAction2);
+                    _ = actions.Remove(nodeAction2);
                 }
             }
             actions.AddRange(actionsToAdd);
@@ -360,7 +328,7 @@ namespace Mokus2D.Visual
             drawTracer.Start();
             Draw(compositeState);
             drawTracer.End();
-            DrawChildrenPart(num, true);
+            _ = DrawChildrenPart(num, true);
             compositeState.TransformationDirty = false;
         }
 
@@ -369,7 +337,7 @@ namespace Mokus2D.Visual
             bool flag;
             do
             {
-                flag = index < children.Count;
+                flag = index < Children.Count;
                 if (flag)
                 {
                     Node node = Children[index];
@@ -434,26 +402,12 @@ namespace Mokus2D.Visual
 
         public float X
         {
-            get
-            {
-                return Position.X;
-            }
-            set
-            {
-                Position = new Vector2(value, Position.Y);
-            }
+            get => Position.X; set => Position = new Vector2(value, Position.Y);
         }
 
         public float Y
         {
-            get
-            {
-                return Position.Y;
-            }
-            set
-            {
-                Position = new Vector2(Position.X, value);
-            }
+            get => Position.Y; set => Position = new Vector2(Position.X, value);
         }
 
         public override bool Visible
@@ -470,10 +424,7 @@ namespace Mokus2D.Visual
 
         public override Vector2 ScaleVec
         {
-            get
-            {
-                return base.ScaleVec;
-            }
+            get => base.ScaleVec;
             set
             {
                 base.ScaleVec = value;
@@ -496,9 +447,6 @@ namespace Mokus2D.Visual
         private readonly List<Node> cachedChildrenCopy = new(64);
 
         private readonly Stack<Node> cachedVisualStack = new(64);
-
-        private readonly NodeChildren children = new();
-
         private readonly SetRootCommand setRootCommand = new();
 
         private readonly TryUpdateCommand tryUpdateCommand = new();
@@ -512,17 +460,9 @@ namespace Mokus2D.Visual
         private bool hasToClearActions;
 
         private bool inActions;
-
-        private int layer;
-
         private bool matrixChanged;
 
         private Matrix nodeMatrix = Matrix.Identity;
-
-        private Node parent;
-
-        private RootNode root;
-
         private bool transformationDirty = true;
     }
 }

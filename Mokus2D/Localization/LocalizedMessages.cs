@@ -4,7 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Text.Json;
 
-namespace ContreJourLocalization.LocalizedMessages
+namespace Mokus2D.Localization
 {
     public static class LocalizedMessages
     {

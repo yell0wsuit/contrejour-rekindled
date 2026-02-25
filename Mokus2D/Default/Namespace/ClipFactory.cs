@@ -16,21 +16,9 @@ namespace Default.Namespace
 {
     public class ClipFactory
     {
-        public static ClipFactory Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
+        public static ClipFactory Instance { get; } = new();
 
-        public static StringDictionary FullPaths
-        {
-            get
-            {
-                return fullPaths;
-            }
-        }
+        public static StringDictionary FullPaths { get; } = new();
 
         public static CGSize GetNodeSize(Sprite node)
         {
@@ -68,7 +56,7 @@ namespace Default.Namespace
 
         public static void Cache(string name)
         {
-            GetAnchorConfig(name);
+            _ = GetAnchorConfig(name);
         }
 
         public static Sprite CreateWithAnchor(string name)
@@ -150,19 +138,13 @@ namespace Default.Namespace
         }
 
         public static LevelBuilderBase debug_builder;
+        private static readonly string clip_root = "mc/hd/";
 
-        private static ClipFactory instance = new();
-
-        private static string clip_root = "mc/hd/";
-
-        private static XmlSerializer serializer = new();
+        private static readonly XmlSerializer serializer = new();
 
         public static ReferenceCountingContentManager content;
 
-        private static Dictionary<string, ClipData> configsCache = new();
-
-        private static StringDictionary fullPaths = new();
-
-        private static Dictionary<object, Dictionary<int, MovieClip>> debugPoints = new();
+        private static readonly Dictionary<string, ClipData> configsCache = new();
+        private static readonly Dictionary<object, Dictionary<int, MovieClip>> debugPoints = new();
     }
 }

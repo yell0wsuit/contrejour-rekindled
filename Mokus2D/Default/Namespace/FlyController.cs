@@ -24,7 +24,7 @@ namespace Default.Namespace
                 targetPosition = ChooseTarget();
                 if (scared != 0)
                 {
-                    targetPosition.X = targetPosition.X + scared * scareOffset.X;
+                    targetPosition.X = targetPosition.X + (scared * scareOffset.X);
                     targetPosition.Y = targetPosition.Y + scareOffset.Y;
                     stepY = Maths.Abs(particle.Position.Y - targetPosition.Y) / scareOffset.Y;
                     scareTime -= time;
@@ -39,7 +39,7 @@ namespace Default.Namespace
 
         private Vector2 ChooseTarget()
         {
-            return new Vector2(initialPosition.X + horizontalOffset * game.WindManager.GetWind(windOffset), initialPosition.Y + verticalOffset * Maths.Sin(verticalStep) + (ground.GrassController.Y - initialGroundY));
+            return new Vector2(initialPosition.X + (horizontalOffset * game.WindManager.GetWind(windOffset)), initialPosition.Y + (verticalOffset * Maths.Sin(verticalStep)) + (ground.GrassController.Y - initialGroundY));
         }
 
         public void Unscare()

@@ -13,7 +13,7 @@ namespace Default.Namespace
         {
             if (_config.Exists("moveOffset"))
             {
-                moveOffset = (_config.Exists("moveOffset") ? GraphUtil.StringToVector(_config.GetString("moveOffset")) : Vector2.Zero);
+                moveOffset = _config.Exists("moveOffset") ? GraphUtil.StringToVector(_config.GetString("moveOffset")) : Vector2.Zero;
                 moveOffset = CocosUtil.toIPad(moveOffset);
                 MoveTo moveTo = new(60f, _node.Position + moveOffset);
                 _node.Run(moveTo);

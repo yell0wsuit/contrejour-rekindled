@@ -4,13 +4,7 @@ namespace Mokus2D.Effects.Actions
 {
     public abstract class IntervalActionBase(TimeSpan interval) : NodeAction
     {
-        public TimeSpan Interval
-        {
-            get
-            {
-                return interval;
-            }
-        }
+        public TimeSpan Interval => interval;
 
         internal override void Start(float time)
         {

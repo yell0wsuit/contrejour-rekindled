@@ -32,7 +32,7 @@ namespace Default.Namespace
         public override void Update(float time)
         {
             base.Update(time);
-            base.Position = initialPosition + currentEyeBall.Position * 2f;
+            base.Position = initialPosition + (currentEyeBall.Position * 2f);
         }
 
         private const string DefaultBaseClip = "McFlowerHead";

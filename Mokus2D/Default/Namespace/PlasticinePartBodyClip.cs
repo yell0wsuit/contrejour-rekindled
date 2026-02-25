@@ -19,54 +19,24 @@ namespace Default.Namespace
     {
         public PlasticineItem Item
         {
-            get
-            {
-                return item;
-            }
-            set
-            {
-                item = value;
-            }
+            get => item; set => item = value;
         }
 
         public bool UpdateParent
         {
-            get
-            {
-                return updateParent;
-            }
-            set
-            {
-                updateParent = value;
-            }
+            get => updateParent; set => updateParent = value;
         }
 
-        public PlasticineBodyClip Parent
-        {
-            get
-            {
-                return parent;
-            }
-        }
+        public PlasticineBodyClip Parent => parent;
 
         public PlasticinePartHighlite Highlite
         {
-            get
-            {
-                return highlite;
-            }
-            set
-            {
-                highlite = value;
-            }
+            get => highlite; set => highlite = value;
         }
 
         public bool Dragging
         {
-            get
-            {
-                return dragging;
-            }
+            get => dragging;
             set
             {
                 if (value != dragging)
@@ -81,65 +51,22 @@ namespace Default.Namespace
             }
         }
 
-        public Vector2 Normal
-        {
-            get
-            {
-                return normal;
-            }
-        }
+        public Vector2 Normal => normal;
 
-        public Vector2 Parallel
-        {
-            get
-            {
-                return parallel;
-            }
-        }
+        public Vector2 Parallel => parallel;
 
         public bool IsRotationDirty
         {
-            get
-            {
-                return isRotationDirty;
-            }
-            set
-            {
-                isRotationDirty = value;
-            }
+            get => isRotationDirty; set => isRotationDirty = value;
         }
 
-        public float InitialAngle
-        {
-            get
-            {
-                return initialAngle;
-            }
-        }
+        public float InitialAngle => initialAngle;
 
-        public int Index
-        {
-            get
-            {
-                return index;
-            }
-        }
+        public int Index => index;
 
-        public IGrassController GrassController
-        {
-            get
-            {
-                return grassController;
-            }
-        }
+        public IGrassController GrassController => grassController;
 
-        public float Width
-        {
-            get
-            {
-                return width;
-            }
-        }
+        public float Width => width;
 
         public PlasticinePartBodyClip(LevelBuilderBase _builder, object _body, PlasticineBodyClip _parent, float _width, bool hasGrass)
             : base(_builder, _body, null, null)
@@ -154,7 +81,7 @@ namespace Default.Namespace
             targetPosition = initialPosition;
             targetAngle = Body.Rotation;
             initialAngle = Body.Rotation;
-            float num2 = (game.WhiteSide ? 1.0471976f : 0.62831855f);
+            float num2 = game.WhiteSide ? 1.0471976f : 0.62831855f;
             if (Maths.Between(num, -num2, num2))
             {
                 isFloor = true;
@@ -198,7 +125,7 @@ namespace Default.Namespace
         public void SetWideBorder(PlasticineWideBorder _border, int _index)
         {
             index = _index;
-            verticesOffset = index * 2 * 2 + 2;
+            verticesOffset = (index * 2 * 2) + 2;
             border = _border;
         }
 
@@ -235,13 +162,7 @@ namespace Default.Namespace
             }
         }
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public bool DisableHeroFocus => true;
 
         public int Priority(Vector2 touchPoint)
         {
@@ -357,7 +278,7 @@ namespace Default.Namespace
                 }
                 foreach (object obj in arrayList)
                 {
-                    dust.Remove((DustData)obj);
+                    _ = dust.Remove((DustData)obj);
                 }
             }
             if (dragging && circle != null)
@@ -374,7 +295,7 @@ namespace Default.Namespace
             circleSize = ClipFactory.GetNodeSize(circle).Width;
             circleScale = Maths.randRange(0.8f, 1.3f);
             circle.Scale = circleScale;
-            float num2 = (-circleSize * circle.Scale - Maths.randRange(-10f, 0f)) * builder.EngineConfig.SizeMultiplier;
+            float num2 = ((-circleSize * circle.Scale) - Maths.randRange(-10f, 0f)) * builder.EngineConfig.SizeMultiplier;
             circlePosition = new Vector2(0f, num2);
             Vector2 worldPoint = Body.GetWorldPoint(circlePosition);
             circle.Position = builder.ToPoint(worldPoint);
@@ -464,7 +385,7 @@ namespace Default.Namespace
         public void UpdateCircle()
         {
             float num = FarseerUtil.GetProjectionTarget(Body.Position - initialPosition, normal) / builder.EngineConfig.SizeMultiplier;
-            float num2 = ((num > 0f) ? (num / circleSize / 2f) : 0f);
+            float num2 = (num > 0f) ? (num / circleSize / 2f) : 0f;
             circle.Scale = circleScale + num2;
         }
 

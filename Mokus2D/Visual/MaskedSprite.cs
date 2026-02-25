@@ -21,32 +21,22 @@ namespace Mokus2D.Visual
 
         public bool UpdateMask
         {
-            get
-            {
-                return maskRoot.UpdateChildren;
-            }
-            set
-            {
-                maskRoot.UpdateChildren = value;
-            }
+            get => maskRoot.UpdateChildren; set => maskRoot.UpdateChildren = value;
         }
 
         public SpriteBatchNode Mask
         {
-            get
-            {
-                return mask;
-            }
+            get;
             set
             {
-                if (mask != null)
+                if (field != null)
                 {
-                    maskRoot.RemoveChild(mask);
+                    maskRoot.RemoveChild(field);
                 }
-                mask = value;
-                if (mask != null)
+                field = value;
+                if (field != null)
                 {
-                    maskRoot.AddChild(mask);
+                    maskRoot.AddChild(field);
                 }
             }
         }
@@ -54,17 +44,19 @@ namespace Mokus2D.Visual
         public MaskedSprite(Vector2 size)
             : base(size)
         {
-            blendState = new BlendState();
-            blendState.ColorDestinationBlend = Microsoft.Xna.Framework.Graphics.Blend.SourceAlpha;
-            blendState.AlphaDestinationBlend = Microsoft.Xna.Framework.Graphics.Blend.SourceAlpha;
-            blendState.ColorSourceBlend = Microsoft.Xna.Framework.Graphics.Blend.Zero;
-            blendState.AlphaSourceBlend = Microsoft.Xna.Framework.Graphics.Blend.Zero;
+            blendState = new BlendState
+            {
+                ColorDestinationBlend = Microsoft.Xna.Framework.Graphics.Blend.SourceAlpha,
+                AlphaDestinationBlend = Microsoft.Xna.Framework.Graphics.Blend.SourceAlpha,
+                ColorSourceBlend = Microsoft.Xna.Framework.Graphics.Blend.Zero,
+                AlphaSourceBlend = Microsoft.Xna.Framework.Graphics.Blend.Zero
+            };
             maskRoot = new MaskRoot((int)size.X, (int)size.Y);
         }
 
         protected override void DrawContent()
         {
-            if (mask == null)
+            if (Mask == null)
             {
                 return;
             }
@@ -72,17 +64,15 @@ namespace Mokus2D.Visual
             maskRoot.ScaleX = Math.Sign(Root.ScaleX);
             maskRoot.ScaleY = Math.Sign(Root.ScaleY);
             maskRoot.SpritesScaleFactor = Root.SpritesScaleFactor;
-            BlendState blend = mask.Blend;
-            mask.Blend = blendState;
+            BlendState blend = Mask.Blend;
+            Mask.Blend = blendState;
             maskRoot.Position = AnchorInPixels;
             maskRoot.DrawAll();
-            mask.Blend = blend;
+            Mask.Blend = blend;
         }
 
         protected readonly MaskRoot maskRoot;
 
         private readonly BlendState blendState;
-
-        private SpriteBatchNode mask;
     }
 }

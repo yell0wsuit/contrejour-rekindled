@@ -6,14 +6,7 @@ namespace Default.Namespace
     {
         public bool Paused
         {
-            get
-            {
-                return paused;
-            }
-            set
-            {
-                paused = value;
-            }
+            get => paused; set => paused = value;
         }
 
         public Updater()
@@ -73,7 +66,7 @@ namespace Default.Namespace
             }
             foreach (object obj2 in arrayList)
             {
-                callAfters.Remove(obj2);
+                _ = callAfters.Remove(obj2);
             }
             callAfters.AddRange(pendingCallAfters);
             pendingCallAfters.Clear();

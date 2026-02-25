@@ -4,13 +4,7 @@ namespace Default.Namespace
 {
     public class RopeMetricsWithCoords : RopeMetrics
     {
-        public Vector2 PartOffset
-        {
-            get
-            {
-                return partOffset;
-            }
-        }
+        public Vector2 PartOffset => partOffset;
 
         public RopeMetricsWithCoords(int _parts, float _partSize, Vector2 _start, Vector2 _end)
             : base(_parts, _partSize)

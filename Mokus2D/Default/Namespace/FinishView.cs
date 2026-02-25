@@ -19,7 +19,7 @@ namespace Default.Namespace
             : base(_game.BlackSide, true)
         {
             game = _game;
-            game.Schedule(new Action(CacheTextures), 0.1f);
+            _ = game.Schedule(new Action(CacheTextures), 0.1f);
             Scale = 1.1f;
             Position = -ScreenConstants.W7FromIPhoneScreenCenter * 0.05f;
             CreateHero();
@@ -62,9 +62,9 @@ namespace Default.Namespace
         private void OnShow()
         {
             bool flag = levelPosition.Chapter == 1;
-            this.color = (flag ? BLUE_LIGHT_COLOR : GREY_COLOR);
-            Color color = (flag ? CocosUtil.ccc4Mix(BLUE_LIGHT_COLOR, ContreJourConstants.WHITE_COLOR_3, 0.9f) : GREY_COLOR);
-            Color color2 = (flag ? BLUE_LIGHT_COLOR : ColorUtil.Mult(GREY_COLOR, 0.7f));
+            this.color = flag ? BLUE_LIGHT_COLOR : GREY_COLOR;
+            Color color = flag ? CocosUtil.ccc4Mix(BLUE_LIGHT_COLOR, ContreJourConstants.WHITE_COLOR_3, 0.9f) : GREY_COLOR;
+            Color color2 = flag ? BLUE_LIGHT_COLOR : ColorUtil.Mult(GREY_COLOR, 0.7f);
             if (game.BonusChapter)
             {
                 this.color = ContreJourConstants.GreenLightColor;
@@ -79,8 +79,10 @@ namespace Default.Namespace
             sprite.Run(new FadeIn(0.1f));
             sprite.Color = color2;
             sprite.Scale = 1.2f;
-            clickableLayer = new ClickableLayer(0);
-            clickableLayer.Position = sprite.Position;
+            clickableLayer = new ClickableLayer(0)
+            {
+                Position = sprite.Position
+            };
             AddChild(clickableLayer);
             Button button3 = Button.ButtonBigWithIcon("McRestartIcon");
             button3.ClickEvent.AddListenerSelector(new Action(restartEvent.SendEvent));
@@ -104,7 +106,7 @@ namespace Default.Namespace
                 clickableLayer.AddChild(button);
                 button.Color = color;
                 button.Visible = false;
-                Schedule(delegate
+                _ = Schedule(delegate
                 {
                     ShowItemWithButton(button);
                 }, (i + 2) * 0.1f);
@@ -116,24 +118,24 @@ namespace Default.Namespace
             energies = new List<Sprite>();
             for (int j = 0; j < 3; j++)
             {
-                string text = ((j < stars) ? "McEnergyBig" : "McEnergyBigInactive");
+                string text = (j < stars) ? "McEnergyBig" : "McEnergyBigInactive";
                 Sprite energy = ClipFactory.CreateWithAnchor(text);
-                energy.Opacity = ((j < stars) ? 255 : 70);
+                energy.Opacity = (j < stars) ? 255 : 70;
                 energy.Scale = 1.7f;
                 energy.Visible = false;
                 clickableLayer.AddChild(energy);
                 energy.Position = CocosUtil.toIPad(STARS_OFFSET + new Vector2(100 * (j - 1), 0f));
                 energies.Add(energy);
-                Schedule(delegate
+                _ = Schedule(delegate
                 {
                     ShowItemWithButton(energy);
                 }, j * 0.1f);
                 if (j < stars)
                 {
-                    Schedule(delegate
+                    _ = Schedule(delegate
                     {
                         BlinkItemWithButton(energy);
-                    }, 1f + j * 0.5f);
+                    }, 1f + (j * 0.5f));
                 }
             }
             string text2 = Messages.CompleteText(stars);
@@ -149,7 +151,7 @@ namespace Default.Namespace
             levelField.Anchor = new Vector2(0f, 0.5f);
             levelField.Position = CocosUtil.ccpIPad(-30f, 46f);
             levelField.Opacity = 0;
-            Schedule(new Action(ShowLevel), 0.5f);
+            _ = Schedule(new Action(ShowLevel), 0.5f);
             highlite = ClipFactory.CreateWithAnchor("McHeroHighliteMenu");
             highlite.Scale = 10f;
             highlite.Opacity = 80;
@@ -172,7 +174,7 @@ namespace Default.Namespace
             portal.ItemsScale = 0f;
             portal.Scale = 2f;
             portal.ScaleStep = 0.2f;
-            Schedule(new Action(ShowPortal), 0.5f);
+            _ = Schedule(new Action(ShowPortal), 0.5f);
             if (levelPosition.Chapter == 1)
             {
                 hero.HotSpot.Color = ColorUtil.Mult(BLUE_LIGHT_COLOR, 1.5f);
@@ -196,7 +198,7 @@ namespace Default.Namespace
         private void ShowLevel()
         {
             levelField.Run(new FadeIn(0.5f));
-            Schedule(new Action(ShowStarsBonus), 0.4f);
+            _ = Schedule(new Action(ShowStarsBonus), 0.4f);
         }
 
         private void PlayBell()
@@ -213,7 +215,7 @@ namespace Default.Namespace
         {
             portal.Visible = true;
             portal.TargetScale = 1f;
-            Schedule(new Action(ShowHero), 0.3f);
+            _ = Schedule(new Action(ShowHero), 0.3f);
         }
 
         private void ShowHero()
@@ -227,13 +229,13 @@ namespace Default.Namespace
             highlite.Visible = true;
             highlite.Opacity = 0;
             highlite.Run(new FadeTo(0.2f, opacityFloat));
-            Schedule(new Action(LookAtStar), 0.5f);
+            _ = Schedule(new Action(LookAtStar), 0.5f);
         }
 
         private void LookAtStar()
         {
             hero.ViewTarget = energies[1].LocalToNode(Vector2.Zero, this, true);
-            Schedule(new Action(LookAtScore), 0.7f);
+            _ = Schedule(new Action(LookAtScore), 0.7f);
         }
 
         private void LookAtScore()
@@ -242,16 +244,16 @@ namespace Default.Namespace
             if (newHighScore)
             {
                 UserData.Instance.Improved = true;
-                Schedule(new Action(LookAtImproved), 0.7f);
+                _ = Schedule(new Action(LookAtImproved), 0.7f);
                 return;
             }
-            Schedule(new Action(LookAtPlayer), 0.5f);
+            _ = Schedule(new Action(LookAtPlayer), 0.5f);
         }
 
         private void LookAtImproved()
         {
             hero.ViewTarget = stamp.LocalToNode(Vector2.Zero, this, true);
-            Schedule(new Action(LookAtPlayer), 0.5f);
+            _ = Schedule(new Action(LookAtPlayer), 0.5f);
         }
 
         private void LookAtPlayer()
@@ -259,23 +261,23 @@ namespace Default.Namespace
             hero.ViewTarget = hero.Position;
             if (newHighScore || stars == 3)
             {
-                Schedule(new Action(Smile), 0.5f);
+                _ = Schedule(new Action(Smile), 0.5f);
                 return;
             }
-            Schedule(new Action(Blink), 0.5f);
+            _ = Schedule(new Action(Blink), 0.5f);
         }
 
         private void Blink()
         {
             hero.Eye.Blink();
-            Schedule(new Action(Blink), Maths.randRange(3f, 7f));
+            _ = Schedule(new Action(Blink), Maths.randRange(3f, 7f));
         }
 
         private void Smile()
         {
             Mokus2DGame.SoundManager.PlaySound("laugh0", 0.8f, 0f, 0f);
             hero.Eye.Smile();
-            Schedule(new Action(Blink), Maths.randRange(3f, 7f));
+            _ = Schedule(new Action(Blink), Maths.randRange(3f, 7f));
         }
 
         private void ShowStarsBonus()
@@ -286,7 +288,7 @@ namespace Default.Namespace
             starsBonusField.Run(new FadeIn(0.2f));
             starsBonusField.Color = color;
             starsBonusField.Anchor = new Vector2(0f, 0.5f);
-            Schedule(new Action(ShowTimeBonus), 0.4f);
+            _ = Schedule(new Action(ShowTimeBonus), 0.4f);
         }
 
         private void ShowTimeBonus()
@@ -297,8 +299,8 @@ namespace Default.Namespace
             progressLabel.Run(new FadeIn(0.2f));
             progressLabel.Color = color;
             progressLabel.Anchor = new Vector2(0f, 0.5f);
-            Schedule(new Action(ShowLine), 0.4f);
-            Schedule(new Action(ShowTotal), 0.6f);
+            _ = Schedule(new Action(ShowLine), 0.4f);
+            _ = Schedule(new Action(ShowTotal), 0.6f);
         }
 
         private void ShowLine()
@@ -321,7 +323,7 @@ namespace Default.Namespace
             totalField.Color = color;
             if (newHighScore)
             {
-                Schedule(new Action(ShowNewHighScore), 0.7f);
+                _ = Schedule(new Action(ShowNewHighScore), 0.7f);
             }
         }
 

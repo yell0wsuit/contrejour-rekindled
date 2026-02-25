@@ -29,10 +29,12 @@ namespace Default.Namespace
             config["noShadow"] = "true";
             float @float = config.GetFloat("Width");
             maxDistance = @float / 2f * builder.SizeMult;
-            maxLength = @float / 2f + 13f;
-            ghostSprite = new RenderSprite(new Vector2(@float / 2f + 14f, 28f));
-            ghostSprite.Anchor = new Vector2(0f, 0.5f);
-            ghostSprite.OpacityFloat = 0.5f;
+            maxLength = (@float / 2f) + 13f;
+            ghostSprite = new RenderSprite(new Vector2((@float / 2f) + 14f, 28f))
+            {
+                Anchor = new Vector2(0f, 0.5f),
+                OpacityFloat = 0.5f
+            };
             clip.AddChild(ghostSprite);
             ghostNeck = CreateNeck();
             ghostNeck.NeckColor = new Color(50, 50, 50, 255);
@@ -60,29 +62,11 @@ namespace Default.Namespace
             pimpa.AddChild(node2);
         }
 
-        protected virtual float BounceVolume
-        {
-            get
-            {
-                return 0.3f;
-            }
-        }
+        protected virtual float BounceVolume => 0.3f;
 
-        protected virtual string BounceSound
-        {
-            get
-            {
-                return "landing1";
-            }
-        }
+        protected virtual string BounceSound => "landing1";
 
-        public bool Dragging
-        {
-            get
-            {
-                return touch != null;
-            }
-        }
+        public bool Dragging => touch != null;
 
         public Vector2 TargetPosition
         {
@@ -100,13 +84,7 @@ namespace Default.Namespace
                 : touchPosition.DistanceTo(Body.Position);
         }
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public bool DisableHeroFocus => true;
 
         public int Priority(Vector2 touchPoint)
         {
@@ -210,7 +188,7 @@ namespace Default.Namespace
         public override void OnCollisionStartPoint(Body body2, Contact point)
         {
             BodyClip bodyClip = body2.UserData as BodyClip;
-            if (bodyClip != null && bodyClip is HeroBodyClip)
+            if (bodyClip is not null and HeroBodyClip)
             {
                 Vector2 worldPoint = FarseerUtil.GetWorldPoint(point);
                 if (FarseerUtil.b2Vec2Distance(worldPoint, Body.Position) > 1.1666666f)
@@ -236,7 +214,7 @@ namespace Default.Namespace
             ghostSprite.StopAllActions();
             ghostSprite.Visible = true;
             touch = _touch;
-            startDragPosition = ((end != null) ? endBody.Position : builder.TouchRootVec(touch));
+            startDragPosition = (end != null) ? endBody.Position : builder.TouchRootVec(touch);
         }
 
         public void DestroyBodies()
@@ -275,7 +253,7 @@ namespace Default.Namespace
             neck.LightBounce();
             eye.Visible = true;
             eye.PositionProvider = this;
-            Schedule(new Action(RefreshPositionProvider), Maths.randRange(1.5f, 2.5f));
+            _ = Schedule(new Action(RefreshPositionProvider), Maths.randRange(1.5f, 2.5f));
             FinishDragEvent.SendEvent();
         }
 
@@ -307,7 +285,7 @@ namespace Default.Namespace
                 if (flag)
                 {
                     creating = true;
-                    Schedule(new Action(CreateBodies), 0.2f);
+                    _ = Schedule(new Action(CreateBodies), 0.2f);
                 }
                 else
                 {

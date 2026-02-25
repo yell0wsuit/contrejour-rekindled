@@ -13,7 +13,7 @@ namespace Default.Namespace
 
         public void JoinBodyTo(Body body1, Body body2)
         {
-            FarseerUtil.CreateDistanceJointBody2CollideConnectedFreqDamping(builder.World, body1, body2, false, 4f, 0.2f);
+            _ = FarseerUtil.CreateDistanceJointBody2CollideConnectedFreqDamping(builder.World, body1, body2, false, 4f, 0.2f);
         }
 
         public Body CreateBodyDynamic(Vector2 position, bool dynamic)

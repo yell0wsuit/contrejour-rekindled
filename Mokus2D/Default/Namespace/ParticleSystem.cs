@@ -11,24 +11,11 @@ namespace Default.Namespace
 {
     public class ParticleSystem(TextureData config) : Sprite(config)
     {
-        public List<Particle> Particles
-        {
-            get
-            {
-                return particles;
-            }
-        }
+        public List<Particle> Particles => particles;
 
         public bool Paused
         {
-            get
-            {
-                return paused;
-            }
-            set
-            {
-                paused = value;
-            }
+            get => paused; set => paused = value;
         }
 
         public ParticleSystem(string textureName)
@@ -51,7 +38,7 @@ namespace Default.Namespace
         {
             for (int i = 0; i < count; i++)
             {
-                AddParticle(new Vector2(0f, 0f));
+                _ = AddParticle(new Vector2(0f, 0f));
             }
         }
 
@@ -163,7 +150,7 @@ namespace Default.Namespace
             invisibleParticles.AddRange(cachedInvisible);
             for (int i = 0; i < cachedInvisible.Count; i++)
             {
-                particles.Remove(cachedInvisible[i]);
+                _ = particles.Remove(cachedInvisible[i]);
             }
         }
 
@@ -192,7 +179,7 @@ namespace Default.Namespace
 
         protected List<Particle> invisibleParticles = new();
 
-        private List<Particle> cachedInvisible = new();
+        private readonly List<Particle> cachedInvisible = new();
 
         protected bool paused;
     }

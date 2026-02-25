@@ -43,7 +43,7 @@ namespace Default.Namespace
             for (int i = 0; i < count; i++)
             {
                 bool flag = i == count - 1;
-                Vector2 vector = (flag ? Vector2.Zero : new Vector2(Maths.randRange(-offset, offset), Maths.randRange(-offset, offset)));
+                Vector2 vector = flag ? Vector2.Zero : new Vector2(Maths.randRange(-offset, offset), Maths.randRange(-offset, offset));
                 MoveTo moveTo = new(time / count, position + vector);
                 NodeAction nodeAction2 = moveTo;
                 if (scaleDiff != 0f)
@@ -52,7 +52,7 @@ namespace Default.Namespace
                     if (!flag)
                     {
                         num += i / (float)count * scaleDiff;
-                        num += ((i % 2 != 0) ? 0.05f : (-0.05f));
+                        num += (i % 2 != 0) ? 0.05f : (-0.05f);
                     }
                     ScaleTo scaleTo = new(time / count, num);
                     nodeAction2 = new Spawn([moveTo, scaleTo]);

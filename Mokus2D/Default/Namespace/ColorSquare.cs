@@ -13,10 +13,7 @@ namespace Default.Namespace
     {
         public CGSize Size
         {
-            get
-            {
-                return size;
-            }
+            get => size;
             set
             {
                 if (size != value)

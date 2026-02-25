@@ -7,13 +7,7 @@ public class Pool<T> where T : class, new()
 
     public Action<T> Deinitialize { get; set; }
 
-    public int ValidCount
-    {
-        get
-        {
-            return items.Count - InvalidCount;
-        }
-    }
+    public int ValidCount => items.Count - InvalidCount;
 
     public int InvalidCount { get; private set; }
 
@@ -41,7 +35,7 @@ public class Pool<T> where T : class, new()
         }
         this.resizable = resizable;
         items = new List<T>(initialSize);
-        items.EnsureCapacity(initialSize);
+        _ = items.EnsureCapacity(initialSize);
         validate = validateFunc;
         Func<T> func = allocateFunc;
         if (allocateFunc == null)
@@ -111,7 +105,7 @@ public class Pool<T> where T : class, new()
             InvalidCount++;
             if (InvalidCount >= items.Capacity)
             {
-                items.EnsureCapacity(items.Capacity * 2);
+                _ = items.EnsureCapacity(items.Capacity * 2);
             }
             items[items.Count] = items[0];
             items[0] = default(T);
@@ -139,7 +133,7 @@ public class Pool<T> where T : class, new()
         return allocate != null ? allocate.Invoke() : default(T);
     }
 
-    private List<T> items;
+    private readonly List<T> items;
 
     private readonly Predicate<T> validate;
 

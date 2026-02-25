@@ -4,36 +4,16 @@ namespace Default.Namespace
 {
     public class Satellite : IRemovable, IUpdatable
     {
-        public Particle Clip
-        {
-            get
-            {
-                return clip;
-            }
-        }
+        public Particle Clip => clip;
 
         public float SpeedValue
         {
-            get
-            {
-                return speedValue;
-            }
-            set
-            {
-                speedValue = value;
-            }
+            get => speedValue; set => speedValue = value;
         }
 
         public float AngleStep
         {
-            get
-            {
-                return angleStep;
-            }
-            set
-            {
-                angleStep = value;
-            }
+            get => angleStep; set => angleStep = value;
         }
 
         public Satellite(ContreJourGame _game, Particle _clip, BodyClip parent, float _direction, Vector2 position)
@@ -53,13 +33,7 @@ namespace Default.Namespace
             hasRemove = false;
         }
 
-        protected virtual Vector2 TargetPosition
-        {
-            get
-            {
-                return target == null ? initialPosition : game.Builder.ToIPadPoint(target.Body.Position);
-            }
-        }
+        protected virtual Vector2 TargetPosition => target == null ? initialPosition : game.Builder.ToIPadPoint(target.Body.Position);
 
         public virtual void Update(float time)
         {

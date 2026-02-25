@@ -16,12 +16,6 @@ namespace ContreJourMono.ContreJour.Menu.LevelComplete
             return base.ProcessName(name).Replace("/FakeHero", "/FakeHero/Black") + "Black";
         }
 
-        protected override Color TailColor
-        {
-            get
-            {
-                return ColorUtil.CreateColor(26, 164, 222, 255);
-            }
-        }
+        protected override Color TailColor => ColorUtil.CreateColor(26, 164, 222, 255);
     }
 }

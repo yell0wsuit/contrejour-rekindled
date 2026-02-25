@@ -9,12 +9,12 @@ namespace Default.Namespace
         public Trajectory(ContreJourGame _game)
             : base(_game.BlackSide ? "McTrampolinePathBlack.png" : "McTrampolinePath.png", 7)
         {
-            enabledOpacity = ((_game.Chapter == 4) ? 0.7f : 0.5f);
+            enabledOpacity = (_game.Chapter == 4) ? 0.7f : 0.5f;
             Visible = false;
             int num = 0;
             foreach (Particle particle in Particles)
             {
-                particle.OpacityFloat = 1f - Maths.Abs(num - 3) / 4f;
+                particle.OpacityFloat = 1f - (Maths.Abs(num - 3) / 4f);
                 num++;
             }
         }
@@ -27,22 +27,19 @@ namespace Default.Namespace
             int num3 = 0;
             foreach (Particle particle in Particles)
             {
-                particle.Position = new Vector2(num * (Impulse * num3 * 30f), num2 * (Impulse * num3 * 30f) - 2.2f * num3 * num3);
+                particle.Position = new Vector2(num * (Impulse * num3 * 30f), (num2 * (Impulse * num3 * 30f)) - (2.2f * num3 * num3));
                 num3++;
             }
         }
 
         public bool Enabled
         {
-            get
-            {
-                return enabled;
-            }
+            get;
             set
             {
-                if (enabled != value)
+                if (field != value)
                 {
-                    enabled = value;
+                    field = value;
                     RefreshOpacity();
                 }
             }
@@ -51,7 +48,7 @@ namespace Default.Namespace
         private void RefreshOpacity()
         {
             StopAllActions();
-            if (enabled)
+            if (Enabled)
             {
                 Visible = true;
                 Run(new FadeTo(0.5f, enabledOpacity));
@@ -71,9 +68,6 @@ namespace Default.Namespace
         public float Impulse = 1f;
 
         public float Angle;
-
-        private bool enabled;
-
-        private float enabledOpacity;
+        private readonly float enabledOpacity;
     }
 }

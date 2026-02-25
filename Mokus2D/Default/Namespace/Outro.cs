@@ -17,8 +17,10 @@ namespace Default.Namespace
             minY = CocosUtil.iPad(190, -100);
             margins = CocosUtil.iPad(15f, 20f);
             maxY = CocosUtil.iPad(820, 760);
-            background = new LayerColor(ContreJourConstants.BLACK_COLOR);
-            background.Opacity = 0;
+            background = new LayerColor(ContreJourConstants.BLACK_COLOR)
+            {
+                Opacity = 0
+            };
             background.Run(new FadeTo(2f, 0.5882353f));
             AddChild(background);
             this.text = new Node();
@@ -26,7 +28,7 @@ namespace Default.Namespace
             textPosition.Y = minY;
             this.text.Position = textPosition;
             AddChild(this.text);
-            string text = (success ? "YOU_DID_IT" : "YOU_TRIED_HARD");
+            string text = success ? "YOU_DID_IT" : "YOU_TRIED_HARD";
             Label label = ContreJourLabel.CreateMultilineLabel(CocosUtil.iPad(28, 22), text);
             label.Position = new Vector2(0f, CocosUtil.iPad(-120, 160));
             label.Color = ContreJourConstants.WHITE_COLOR_3;
@@ -58,17 +60,14 @@ namespace Default.Namespace
 
         public bool TextVisible
         {
-            get
-            {
-                return textVisible;
-            }
+            get => textVisible;
             set
             {
                 if (textVisible != value)
                 {
                     textVisible = value;
                     text.StopAllActions();
-                    float num = (value ? 1f : 0f);
+                    float num = value ? 1f : 0f;
                     text.Run(new FadeTo(2f, num));
                 }
             }
@@ -161,7 +160,7 @@ namespace Default.Namespace
                 {
                     textPosition += new Vector2(0f, CocosUtil.iPadValue(SPEED) * time);
                 }
-                textPosition.Y = textPosition.Y + touchSpeed * time * 30f;
+                textPosition.Y = textPosition.Y + (touchSpeed * time * 30f);
                 touchSpeed = Maths.stepTo(touchSpeed, 0f, Math.Max(1f, Math.Abs(touchSpeed / 20f)));
                 float num = 0f;
                 if (textPosition.Y < minY)

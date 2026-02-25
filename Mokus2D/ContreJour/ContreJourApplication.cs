@@ -19,22 +19,18 @@ namespace ContreJour
 {
     public class ContreJourApplication : Mokus2DGame
     {
-        public static Dictionary<int, SpriteFont> Fonts
-        {
-            get
-            {
-                return fonts;
-            }
-        }
+        public static Dictionary<int, SpriteFont> Fonts { get; } = new();
 
         public ContreJourApplication()
         {
             gamerServicesComponent = new GamerServicesComponent(this);
             Components.Add(gamerServicesComponent);
             IsFixedTimeStep = false;
-            graphics = new GraphicsDeviceManager(this);
-            graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
-            graphics.PreferredBackBufferFormat = (HardwareCapabilities.IsLowMemoryDevice ? SurfaceFormat.Dxt5 : SurfaceFormat.Color);
+            graphics = new GraphicsDeviceManager(this)
+            {
+                SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight,
+                PreferredBackBufferFormat = HardwareCapabilities.IsLowMemoryDevice ? SurfaceFormat.Dxt5 : SurfaceFormat.Color
+            };
             ContentRootDirectory = "content";
             TargetElapsedTime = TimeSpan.FromTicks(166667L);
             graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(OnPreparingDeviceSettings);
@@ -82,18 +78,18 @@ namespace ContreJour
         {
             base.LoadContent();
             ResetElapsedTime();
-            fonts[14] = Content.Load<SpriteFont>("Font14");
-            fonts[20] = Content.Load<SpriteFont>("Font20");
-            fonts[28] = Content.Load<SpriteFont>("Font28");
-            fonts[40] = Content.Load<SpriteFont>("Font40");
+            Fonts[14] = Content.Load<SpriteFont>("Font14");
+            Fonts[20] = Content.Load<SpriteFont>("Font20");
+            Fonts[28] = Content.Load<SpriteFont>("Font28");
+            Fonts[40] = Content.Load<SpriteFont>("Font40");
         }
 
         private void CreateDebugFields()
         {
             Node node = new();
             Root.AddChild(node);
-            upsField = new IntLabel(fonts[14]);
-            memoryField = new IntLabel(fonts[14]);
+            upsField = new IntLabel(Fonts[14]);
+            memoryField = new IntLabel(Fonts[14]);
             upsField.Color = Color.Aquamarine;
             memoryField.Color = Color.Aquamarine;
             upsField.Position = new Vector2(60f, 40f);
@@ -106,9 +102,11 @@ namespace ContreJour
             GraphicsDevice.PresentationParameters.DisplayOrientation = DisplayOrientation.LandscapeRight;
             PrimitivesDrawing.RefreshGraphicsDevice(Device);
             XNAUtil.RefreshViewport(GraphicsDevice);
-            gameContainer = new Node();
-            gameContainer.Scale = ScreenConstants.Scales.fromIPhone2ByHeight;
-            gameContainer.Position = (ScreenConstants.OsSizes.W7 - ScreenConstants.W7FromIPhoneSize * gameContainer.Scale) / 2f;
+            gameContainer = new Node
+            {
+                Scale = ScreenConstants.Scales.fromIPhone2ByHeight
+            };
+            gameContainer.Position = (ScreenConstants.OsSizes.W7 - (ScreenConstants.W7FromIPhoneSize * gameContainer.Scale)) / 2f;
             Root.AddChild(gameContainer);
             Root.Position = new Vector2(0f, ScreenSize.Y);
             Root.ScaleY = -1f;
@@ -138,7 +136,7 @@ namespace ContreJour
                 LoadLevel(0);
                 return;
             }
-            ChangeScene(new Func<MainMenu>(CreateMainMenu));
+            _ = ChangeScene(new Func<MainMenu>(CreateMainMenu));
         }
 
         private FadeTransition ChangeScene<T>(Func<T> sceneFactory) where T : Node
@@ -158,7 +156,7 @@ namespace ContreJour
 
         private Node SetCurrentNode<T>(Func<T> nodeFactory) where T : Node
         {
-            if (currentNode != null && currentNode != null)
+            if (currentNode is not null and not null)
             {
                 currentNode.Dispose();
             }
@@ -192,7 +190,7 @@ namespace ContreJour
                 func = CleanLoad(func);
             }
             lastLevel = _level;
-            ChangeScene(func);
+            _ = ChangeScene(func);
         }
 
         private Func<T> CleanLoad<T>(Func<T> action) where T : Node
@@ -204,8 +202,10 @@ namespace ContreJour
         private ContreJourGame ProcessLoadLevel()
         {
             int chapter = LevelsMenu.GetLevelPosition(lastLevel).Chapter;
-            ContreJourGame contreJourGame = new(chapter);
-            contreJourGame.CanShowIntro = canShowIntro;
+            ContreJourGame contreJourGame = new(chapter)
+            {
+                CanShowIntro = canShowIntro
+            };
             contreJourGame.BackEvent.AddListenerSelector(new Action(OnLevelBack));
             contreJourGame.RestartEvent.AddListenerSelector(new Action(RestartLevel));
             contreJourGame.NextLevelEvent.AddListenerSelector(new Action(NextLevel));
@@ -222,13 +222,13 @@ namespace ContreJour
             {
                 func = CleanLoad(new Func<MainMenu>(CreateMainMenu));
             }
-            ChangeScene(func);
+            _ = ChangeScene(func);
         }
 
         private void RestartLevel()
         {
             canShowIntro = false;
-            ChangeScene(new Func<ContreJourGame>(ProcessLoadLevel));
+            _ = ChangeScene(new Func<ContreJourGame>(ProcessLoadLevel));
         }
 
         public void NextLevel()
@@ -243,13 +243,13 @@ namespace ContreJour
             }
             if (levelPosition.Chapter == 5)
             {
-                ChangeScene(() => CreateMainMenu(5));
+                _ = ChangeScene(() => CreateMainMenu(5));
                 return;
             }
             if (CocosUtil.lite(true, levelPosition.Chapter + 1 < Constants.NormalChaptersCount))
             {
                 int chapter = levelPosition.Chapter + 1;
-                ChangeScene(() => CreateMainMenu(chapter));
+                _ = ChangeScene(() => CreateMainMenu(chapter));
                 return;
             }
             LoadLevel(169);
@@ -261,7 +261,7 @@ namespace ContreJour
 
         public bool IsFirstLevel(Node node)
         {
-            return node is ContreJourGame && ((ContreJourGame)node).LevelIndex == 0;
+            return node is ContreJourGame game && game.LevelIndex == 0;
         }
 
         private void OnSplashEnd()
@@ -272,9 +272,9 @@ namespace ContreJour
         {
             base.OnActivated(sender, args);
             UserData.Instance.RefreshSoundManager();
-            if (currentNode is IActivatedDependent)
+            if (currentNode is IActivatedDependent dependent)
             {
-                ((IActivatedDependent)currentNode).OnGameActivated();
+                dependent.OnGameActivated();
             }
         }
 
@@ -307,9 +307,6 @@ namespace ContreJour
         private IntLabel upsField;
 
         private IntLabel memoryField;
-
-        private static readonly Dictionary<int, SpriteFont> fonts = new();
-
-        private GamerServicesComponent gamerServicesComponent;
+        private readonly GamerServicesComponent gamerServicesComponent;
     }
 }

@@ -9,36 +9,16 @@ namespace Default.Namespace
 {
     public class ClickListener : ITouchListener
     {
-        public EventSender ClickEvent
-        {
-            get
-            {
-                return clickEvent;
-            }
-        }
+        public EventSender ClickEvent => clickEvent;
 
         public float Radius
         {
-            get
-            {
-                return radius;
-            }
-            set
-            {
-                radius = value;
-            }
+            get => radius; set => radius = value;
         }
 
         public virtual bool Enabled
         {
-            get
-            {
-                return enabled;
-            }
-            set
-            {
-                enabled = value;
-            }
+            get => enabled; set => enabled = value;
         }
 
         public ClickListener(int priority = 0)
@@ -59,7 +39,7 @@ namespace Default.Namespace
         {
             if (IsOutStartPosition(touch, startPositions[touch]))
             {
-                startPositions.Remove(touch);
+                _ = startPositions.Remove(touch);
                 return false;
             }
             return true;
@@ -73,7 +53,7 @@ namespace Default.Namespace
                 {
                     clickEvent.SendEvent(touch);
                 }
-                startPositions.Remove(touch);
+                _ = startPositions.Remove(touch);
             }
         }
 

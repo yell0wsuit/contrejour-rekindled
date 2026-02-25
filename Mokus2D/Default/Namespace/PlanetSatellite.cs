@@ -10,9 +10,11 @@ namespace Default.Namespace
         public PlanetSatellite()
         {
             satellite = ClipFactory.CreateWithAnchor("McSatellite");
-            changer = new CosChanger(0.03f, 0.035f);
-            changer.MinValue = CocosUtil.iPadValue(-150f);
-            changer.MaxValue = CocosUtil.iPadValue(150f);
+            changer = new CosChanger(0.03f, 0.035f)
+            {
+                MinValue = CocosUtil.iPadValue(-150f),
+                MaxValue = CocosUtil.iPadValue(150f)
+            };
             AddChild(satellite);
         }
 
@@ -23,7 +25,7 @@ namespace Default.Namespace
             satellite.Scale = changer.GetValue(0.5f, 1f, changer.Progress - 1.5707964f);
             satellite.OpacityFloat = satellite.Scale;
             Rotation += 20f * time;
-            int num = ((satellite.Scale < 0.75f) ? (-1) : 1);
+            int num = (satellite.Scale < 0.75f) ? (-1) : 1;
             Parent.ChangeChildLayer(this, num);
         }
 

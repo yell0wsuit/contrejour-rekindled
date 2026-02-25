@@ -24,23 +24,14 @@ namespace Mokus2D.Visual
         {
         }
 
-        public override Vector2 Size
-        {
-            get
-            {
-                return new Vector2(base.Size.X, base.Size.Y + LineSpacing * lines.Count);
-            }
-        }
+        public override Vector2 Size => new Vector2(base.Size.X, base.Size.Y + (LineSpacing * lines.Count));
 
         public float LineSpacing
         {
-            get
-            {
-                return lineSpacing;
-            }
+            get;
             set
             {
-                lineSpacing = value;
+                field = value;
                 textDirty = true;
             }
         }
@@ -57,7 +48,7 @@ namespace Mokus2D.Visual
             lines.Clear();
             Split(text, '\n', lines);
             sizes.Clear();
-            sizes.EnsureCapacity(lines.Count);
+            _ = sizes.EnsureCapacity(lines.Count);
             foreach (StringBuilder stringBuilder in lines)
             {
                 sizes.Add(MeasureString(stringBuilder).X);
@@ -76,7 +67,7 @@ namespace Mokus2D.Visual
                 }
                 else
                 {
-                    stringBuilder.Append(input[i]);
+                    _ = stringBuilder.Append(input[i]);
                 }
             }
             if (stringBuilder.Length > 0)
@@ -88,7 +79,7 @@ namespace Mokus2D.Visual
         protected override void DrawText(VisualState state, Color color)
         {
             Vector2 zero = Vector2.Zero;
-            float num = (base.Size.Y / lines.Count + LineSpacing) * state.SpritesScaleFactor.Y;
+            float num = ((base.Size.Y / lines.Count) + LineSpacing) * state.SpritesScaleFactor.Y;
             for (int i = 0; i < lines.Count; i++)
             {
                 StringBuilder stringBuilder = lines[i];
@@ -100,10 +91,8 @@ namespace Mokus2D.Visual
 
         private const char SEPARATOR = '\n';
 
-        private List<StringBuilder> lines = new(16);
+        private readonly List<StringBuilder> lines = new(16);
 
-        private List<float> sizes = new(16);
-
-        private float lineSpacing;
+        private readonly List<float> sizes = new(16);
     }
 }

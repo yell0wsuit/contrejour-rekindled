@@ -37,86 +37,32 @@ namespace Default.Namespace
 
         public Box2DConfig EngineConfig
         {
-            get
-            {
-                return engineConfig;
-            }
-            set
-            {
-                engineConfig = value;
-            }
+            get => engineConfig; set => engineConfig = value;
         }
 
-        public World World
-        {
-            get
-            {
-                return world;
-            }
-        }
+        public World World => world;
 
-        public Body GroundBody
-        {
-            get
-            {
-                return groundBody;
-            }
-        }
+        public Body GroundBody => groundBody;
 
-        public GameBase Game
-        {
-            get
-            {
-                return game;
-            }
-        }
+        public GameBase Game => game;
 
-        public Dictionary<string, object> CreatedObjects
-        {
-            get
-            {
-                return createdObjects;
-            }
-        }
+        public Dictionary<string, object> CreatedObjects => createdObjects;
 
         public float PhysicsSpeed
         {
-            get
-            {
-                return physicsSpeed;
-            }
-            set
-            {
-                physicsSpeed = value;
-            }
+            get => physicsSpeed; set => physicsSpeed = value;
         }
 
         public int DefaultZ
         {
-            get
-            {
-                return defaultZ;
-            }
-            set
-            {
-                defaultZ = value;
-            }
+            get => defaultZ; set => defaultZ = value;
         }
 
-        public float SizeMult
-        {
-            get
-            {
-                return engineConfig.SizeMultiplier;
-            }
-        }
+        public float SizeMult => engineConfig.SizeMultiplier;
 
         public Vector2 LevelSize
         {
-            get
-            {
-                return levelSize;
-            }
+            get => levelSize;
             set
             {
                 levelSize = value;
@@ -124,21 +70,9 @@ namespace Default.Namespace
             }
         }
 
-        public Vector2 PhysicsLevelSize
-        {
-            get
-            {
-                return physicsLevelSize;
-            }
-        }
+        public Vector2 PhysicsLevelSize => physicsLevelSize;
 
-        public Node Root
-        {
-            get
-            {
-                return game.GameRoot;
-            }
-        }
+        public Node Root => game.GameRoot;
 
         public void Dispose()
         {
@@ -410,7 +344,7 @@ namespace Default.Namespace
                     {
                         node.ScaleY *= -1f;
                     }
-                    int num = (hashtable.Exists("z") ? hashtable.GetInt("z") : DefaultZ);
+                    int num = hashtable.Exists("z") ? hashtable.GetInt("z") : DefaultZ;
                     Add(node, num);
                     Vector2 vector2 = item.GetVector("position");
                     node.Position = ToIPadPoint(vector2);
@@ -419,7 +353,7 @@ namespace Default.Namespace
                 if (!hashtable.Exists("skipClip"))
                 {
                     string clipType = GetClipType(hashtable);
-                    Type type = ((clipType != null) ? Type.GetType(NamespacePrefix + clipType) : typeof(BodyClip));
+                    Type type = (clipType != null) ? Type.GetType(NamespacePrefix + clipType) : typeof(BodyClip);
                     if (type == null)
                     {
                         DebugLog.errorFmt("type not found {0}", null, [clipType]);

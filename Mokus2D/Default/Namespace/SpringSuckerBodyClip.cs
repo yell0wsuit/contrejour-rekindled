@@ -16,21 +16,9 @@ namespace Default.Namespace
             AutoCreate();
         }
 
-        protected override float BounceVolume
-        {
-            get
-            {
-                return 0.4f;
-            }
-        }
+        protected override float BounceVolume => 0.4f;
 
-        protected override string BounceSound
-        {
-            get
-            {
-                return "spring";
-            }
-        }
+        protected override string BounceSound => "spring";
 
         private void AutoCreate()
         {
@@ -81,7 +69,7 @@ namespace Default.Namespace
                 heroBodyClip.Body.LinearVelocity = vector;
                 float num2 = Maths.atan2Vec(Body.Position, body2.Position) - bounceAngle;
                 num2 = Maths.SimplifyAngleRadiansStartValue(num2, -3.1415927f);
-                float num3 = JUMP_IMPULSE + heroBodyClip.SnotJoinedCount * SNOT_JUMP_IMPULSE;
+                float num3 = JUMP_IMPULSE + (heroBodyClip.SnotJoinedCount * SNOT_JUMP_IMPULSE);
                 if (num2 < 0f)
                 {
                     num3 *= -1f;
@@ -100,10 +88,10 @@ namespace Default.Namespace
 
         protected Vector2 normal;
 
-        private float JUMP_IMPULSE = 1f;
+        private readonly float JUMP_IMPULSE = 1f;
 
-        private float SNOT_JUMP_IMPULSE = 0.2f;
+        private readonly float SNOT_JUMP_IMPULSE = 0.2f;
 
-        private float SPEED_MULT = 0.75f;
+        private readonly float SPEED_MULT = 0.75f;
     }
 }

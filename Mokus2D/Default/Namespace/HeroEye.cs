@@ -12,10 +12,7 @@ namespace Default.Namespace
     {
         public bool MoveAllowed
         {
-            get
-            {
-                return moveAllowed;
-            }
+            get => moveAllowed;
             set
             {
                 moveAllowed = value;
@@ -83,7 +80,7 @@ namespace Default.Namespace
         {
             if (!TryPlaySound(animation.Background))
             {
-                TryPlaySound(animation.EyeBall);
+                _ = TryPlaySound(animation.EyeBall);
             }
         }
 
@@ -92,20 +89,14 @@ namespace Default.Namespace
             if (key != null && sounds.ContainsKey(key))
             {
                 List<string> list = sounds[key];
-                float num = (key.StartsWith("McEyeBlink") ? 0.3f : 0.75f);
+                float num = key.StartsWith("McEyeBlink") ? 0.3f : 0.75f;
                 Mokus2DGame.SoundManager.PlayRandomSound(list, num);
                 return true;
             }
             return false;
         }
 
-        protected override float ViewRadius
-        {
-            get
-            {
-                return base.ViewRadius * 2f;
-            }
-        }
+        protected override float ViewRadius => base.ViewRadius * 2f;
 
         public void ApplyBonus()
         {

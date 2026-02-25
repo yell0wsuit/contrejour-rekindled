@@ -16,9 +16,11 @@ namespace Default.Namespace
         {
             if (_clip == null)
             {
-                _clip = new Node();
-                _clip.Scale = _config.GetVector("scale").X;
-                _builder.AddChild(_clip);
+                _clip = new Node
+                {
+                    Scale = _config.GetVector("scale").X
+                };
+                _ = _builder.AddChild(_clip);
                 clip = _clip;
             }
             grassStep = 6.2831855f / GrassCount();
@@ -93,9 +95,9 @@ namespace Default.Namespace
         {
             for (int i = 0; i < 3; i++)
             {
-                int num = (int)((angle - i * grassStep) / grassStep);
+                int num = (int)((angle - (i * grassStep)) / grassStep);
                 AddContactAngleIndex(angle, num);
-                int num2 = (int)((angle + (i + 1) * grassStep) / grassStep);
+                int num2 = (int)((angle + ((i + 1) * grassStep)) / grassStep);
                 AddContactAngleIndex(angle, num2);
             }
         }
@@ -105,8 +107,10 @@ namespace Default.Namespace
             for (int i = 0; i < GrassCount(); i++)
             {
                 Particle particle = grassSystem.Particles[i];
-                RotatorGrass rotatorGrass = new(particle);
-                rotatorGrass.InitialAngle = grassSystem.GetItemAngle(i);
+                RotatorGrass rotatorGrass = new(particle)
+                {
+                    InitialAngle = grassSystem.GetItemAngle(i)
+                };
                 grass.Add(rotatorGrass);
             }
         }

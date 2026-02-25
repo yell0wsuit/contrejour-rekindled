@@ -18,13 +18,7 @@ namespace Default.Namespace
             }
         }
 
-        public static int LevelsToPlay
-        {
-            get
-            {
-                return !isTrial ? 20 : 10;
-            }
-        }
+        public static int LevelsToPlay => !isTrial ? 20 : 10;
 
         public const string CONFIG = "config";
 
@@ -60,9 +54,9 @@ namespace Default.Namespace
 
         public static bool IS_RETINA = true;
 
-        public static readonly int ChaptersCount = (IsTrial ? 2 : 6);
+        public static readonly int ChaptersCount = IsTrial ? 2 : 6;
 
-        public static readonly int NormalChaptersCount = (IsTrial ? 2 : 5);
+        public static readonly int NormalChaptersCount = IsTrial ? 2 : 5;
 
         public static class config
         {

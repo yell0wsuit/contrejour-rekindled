@@ -56,10 +56,7 @@ namespace Default.Namespace
 
         public float CurrentIndex
         {
-            get
-            {
-                return currentIndex;
-            }
+            get => currentIndex;
             set
             {
                 if (currentIndex != value)
@@ -99,7 +96,7 @@ namespace Default.Namespace
             {
                 return ClipFactory.CreateWithAnchor(string.Format("McChapter{0}Name", index + 1));
             }
-            Color color = ((index == 5) ? ContreJourConstants.GreenLightColor : ((index == 1) ? (ContreJourConstants.BLUE_LIGHT_COLOR * 1.8f) : ((index == 3) ? (ContreJourConstants.WHITE_LIGHT_COLOR * 1.8f) : Color.Black)));
+            Color color = (index == 5) ? ContreJourConstants.GreenLightColor : ((index == 1) ? (ContreJourConstants.BLUE_LIGHT_COLOR * 1.8f) : ((index == 3) ? (ContreJourConstants.WHITE_LIGHT_COLOR * 1.8f) : Color.Black));
             return CreateLabelColor(string.Format("CHAPTER{0}", index + 1), color);
         }
 
@@ -112,7 +109,7 @@ namespace Default.Namespace
             label2.Color = Color.Black;
             label2.Opacity = 80;
             label2.Position = new Vector2(3f, -3f);
-            label.AnchorY = (label2.AnchorY = 0.5f);
+            label.AnchorY = label2.AnchorY = 0.5f;
             node.AddChild(label2);
             node.AddChild(label);
             return node;

@@ -129,7 +129,7 @@ namespace Mokus2D.Visual.Util
 
         public static short[] CreateTriangleFanIndices(short count)
         {
-            short[] array = new short[((count - 3) * 3 + 3)];
+            short[] array = new short[(((count - 3) * 3) + 3)];
             for (short num = 0; num < count - 2; num += 1)
             {
                 short num2 = (short)(num * 3);
@@ -163,7 +163,7 @@ namespace Mokus2D.Visual.Util
         {
             for (int i = 0; i < polygon.Count - 1; i += 2)
             {
-                int num = ((i == polygon.Count - 2) ? 0 : (i + 2));
+                int num = (i == polygon.Count - 2) ? 0 : (i + 2);
                 GetBezierPoints(polygon[i], polygon[i + 1], polygon[num], segments, false, i, result);
             }
         }
@@ -173,8 +173,8 @@ namespace Mokus2D.Visual.Util
             float num = 0f;
             for (int i = 0; i < segments; i++)
             {
-                float num2 = (float)Math.Pow((double)(1f - num), 2.0) * origin.X + 2f * (1f - num) * num * control.X + num * num * destination.X;
-                float num3 = (float)Math.Pow((double)(1f - num), 2.0) * origin.Y + 2f * (1f - num) * num * control.Y + num * num * destination.Y;
+                float num2 = ((float)Math.Pow((double)(1f - num), 2.0) * origin.X) + (2f * (1f - num) * num * control.X) + (num * num * destination.X);
+                float num3 = ((float)Math.Pow((double)(1f - num), 2.0) * origin.Y) + (2f * (1f - num) * num * control.Y) + (num * num * destination.Y);
                 result[index + i] = new Vector2(num2, num3);
                 num += 1f / segments;
             }
@@ -225,7 +225,7 @@ namespace Mokus2D.Visual.Util
         {
             for (int i = 0; i < colors.Count; i++)
             {
-                colors[i] = ((i % 2 != 0) ? endColor : startColor);
+                colors[i] = (i % 2 != 0) ? endColor : startColor;
             }
         }
 
@@ -338,7 +338,7 @@ namespace Mokus2D.Visual.Util
             float num2 = 0f;
             for (int i = 0; i < segments; i++)
             {
-                result[i].Position = new Vector3(radius * Maths.Cos(num2) + center.X, radius * Maths.Sin(num2) + center.Y, 0f);
+                result[i].Position = new Vector3((radius * Maths.Cos(num2)) + center.X, (radius * Maths.Sin(num2)) + center.Y, 0f);
                 num2 += num;
             }
         }
@@ -402,7 +402,7 @@ namespace Mokus2D.Visual.Util
                 array[i].Color = color;
                 array[i].TextureCoordinate = textureCoords[i];
             }
-            int num = ((loopType == PrimitiveType.TriangleList) ? (vertices.Count / 3) : (vertices.Count - 2));
+            int num = (loopType == PrimitiveType.TriangleList) ? (vertices.Count / 3) : (vertices.Count - 2);
             Mokus2DGame.Device.DrawUserPrimitives(loopType, array, 0, num, VertexPositionColorTexture.VertexDeclaration);
         }
 
@@ -481,7 +481,7 @@ namespace Mokus2D.Visual.Util
             {
                 Vector2 vector = surface[i];
                 Vector2 vector2 = surface[(i + 1) % surface.Count];
-                float num2 = (vector2 - vector).Length() / textureWidth + num;
+                float num2 = ((vector2 - vector).Length() / textureWidth) + num;
                 int num3 = i * 6;
                 vertices[num3] = new Vector2(0f, 0f);
                 vertices[num3 + 1] = new Vector2(1f, 0f);
@@ -594,7 +594,7 @@ namespace Mokus2D.Visual.Util
         {
             for (int i = 0; i < polygon.Count - 1; i += 2)
             {
-                int num = ((i == polygon.Count - 2) ? 0 : (i + 2));
+                int num = (i == polygon.Count - 2) ? 0 : (i + 2);
                 Maths.GetBezierPointsControlDestinationSegmentsInsertLastResult(polygon[i], polygon[i + 1], polygon[num], segments, false, surface);
             }
         }

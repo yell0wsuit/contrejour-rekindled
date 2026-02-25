@@ -19,12 +19,14 @@ namespace Default.Namespace
             bodySprite = ClipFactory.CreateWithAnchor("McFlyBody");
             _clip = bodySprite;
             clip = _clip;
-            _builder.AddChild(_clip);
-            eye = new FlyEye(Game, true, Body.Position);
-            eye.Scale = 0.65f;
+            _ = _builder.AddChild(_clip);
+            eye = new FlyEye(Game, true, Body.Position)
+            {
+                Scale = 0.65f
+            };
             clip.AddChild(eye);
             scaredTime = 0f;
-            Schedule(new Action(StartFly), Maths.randRange(7f, 11f));
+            _ = Schedule(new Action(StartFly), Maths.randRange(7f, 11f));
             initialPosition = Body.Position;
             leftWings = new FlyWings();
             rightWings = new FlyWings();
@@ -36,13 +38,7 @@ namespace Default.Namespace
             Body.GravityScale = 0f;
         }
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public bool DisableHeroFocus => true;
 
         public int Priority(Vector2 touchPoint)
         {
@@ -95,7 +91,7 @@ namespace Default.Namespace
 
         public void SetFlying(bool value)
         {
-            float num = (value ? 0f : Maths.ToRadians(30f));
+            float num = value ? 0f : Maths.ToRadians(30f);
             leftWings.Run(new RotateTo(0.5f, num));
             rightWings.Run(new RotateTo(0.5f, -num));
             leftWings.SetFlying(value);
@@ -113,7 +109,7 @@ namespace Default.Namespace
                 Mokus2DGame.SoundManager.PlaySound("fly", 0.3f, 0f, 0f);
                 Body.LinearDamping = 0.7f;
                 backTime = Game.TotalTime + Maths.randRange(30f, 45f);
-                Schedule(new Action(ToBackground), 0.3f);
+                _ = Schedule(new Action(ToBackground), 0.3f);
             }
             Fly();
         }
@@ -136,13 +132,13 @@ namespace Default.Namespace
             DoFlyImpulse(num, num2);
             freeFlight = false;
             clip.Run(new ScaleTo(1.2f, 1f));
-            Schedule(new Action(StartFly), Maths.randRange(10f, 20f));
-            Schedule(new Action(ToForeground), 0.3f);
+            _ = Schedule(new Action(StartFly), Maths.randRange(10f, 20f));
+            _ = Schedule(new Action(ToForeground), 0.3f);
         }
 
         public void ScheduleFly()
         {
-            Schedule(new Action(Fly), Maths.randRange(7f, 11f));
+            _ = Schedule(new Action(Fly), Maths.randRange(7f, 11f));
         }
 
         public void Fly()

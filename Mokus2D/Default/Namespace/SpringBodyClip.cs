@@ -38,9 +38,11 @@ namespace Default.Namespace
             suckPoint = builder.ToVec(SUCK_POINT * clip.ScaleX);
             suckDistance = 150f * clip.ScaleX * builder.SizeMult;
             bodyCenterVec = FarseerUtil.rotate(builder.ToVec(BODY_CENTER * clip.ScaleX), InitialBodyAngle);
-            breatheChanger = new CosChanger(0.06f, 0.07f);
-            breatheChanger.MinValue = 0.95f;
-            breatheChanger.MaxValue = 1.04f;
+            breatheChanger = new CosChanger(0.06f, 0.07f)
+            {
+                MinValue = 0.95f,
+                MaxValue = 1.04f
+            };
             foreach (Fixture fixture in Body.FixtureList)
             {
                 fixture.Friction = 1f;
@@ -65,34 +67,16 @@ namespace Default.Namespace
             data = UserData.Instance;
         }
 
-        protected virtual Vector2 SmokePoint
-        {
-            get
-            {
-                return SMOKE_POINT;
-            }
-        }
+        protected virtual Vector2 SmokePoint => SMOKE_POINT;
 
-        public Vector2 WorldSuckPoint
-        {
-            get
-            {
-                return FarseerUtil.rotate(suckPoint, BodyAngle) + Body.Position;
-            }
-        }
+        public Vector2 WorldSuckPoint => FarseerUtil.rotate(suckPoint, BodyAngle) + Body.Position;
 
         public bool UseForZoom()
         {
             return false;
         }
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public bool DisableHeroFocus => true;
 
         public virtual int Priority(Vector2 touchPoint)
         {
@@ -443,8 +427,8 @@ namespace Default.Namespace
 
         public void UpdateSuckingClip()
         {
-            float num = ((sticked.Body.BodyType == BodyType.Dynamic) ? Maths.min(1f, relativeStickedPosition.Y / suckDistance) : 0f);
-            movie.CurrentFrame = 7f + Maths.max(5f * (1f - num) - 1f, 0f);
+            float num = (sticked.Body.BodyType == BodyType.Dynamic) ? Maths.min(1f, relativeStickedPosition.Y / suckDistance) : 0f;
+            movie.CurrentFrame = 7f + Maths.max((5f * (1f - num)) - 1f, 0f);
             if (Maths.FuzzyEquals(num, 0f, 0.0001f))
             {
                 movie.Stoped = true;

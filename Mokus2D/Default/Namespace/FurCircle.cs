@@ -6,10 +6,7 @@ namespace Default.Namespace
     {
         public float Radius
         {
-            get
-            {
-                return radius;
-            }
+            get => radius;
             set
             {
                 if (Maths.FuzzyNotEquals(radius, value, 0.0001f))
@@ -26,13 +23,7 @@ namespace Default.Namespace
             }
         }
 
-        public float AngleStep
-        {
-            get
-            {
-                return angleStep;
-            }
-        }
+        public float AngleStep => angleStep;
 
         public FurCircle(string textureName, int maxParticles, float _radius)
             : base(textureName, maxParticles)

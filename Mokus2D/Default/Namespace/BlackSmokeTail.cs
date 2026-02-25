@@ -12,26 +12,12 @@ namespace Default.Namespace
     {
         public float StartScale
         {
-            get
-            {
-                return startScale;
-            }
-            set
-            {
-                startScale = value;
-            }
+            get => startScale; set => startScale = value;
         }
 
         public string ClipName
         {
-            get
-            {
-                return clipName;
-            }
-            set
-            {
-                clipName = value;
-            }
+            get => clipName; set => clipName = value;
         }
 
         public void Update(float time)
@@ -50,7 +36,7 @@ namespace Default.Namespace
             }
             foreach (object obj2 in arrayList)
             {
-                items.Remove(obj2);
+                _ = items.Remove(obj2);
             }
             if (body.BodyType == BodyType.Static || body.LinearVelocity.Length() > 0.1f)
             {
@@ -64,10 +50,10 @@ namespace Default.Namespace
                     {
                         Sprite sprite2 = ClipFactory.CreateWithAnchor(clipName);
                         sprite2.Position = Maths.StepToPointTargetMaxStep(previousPosition, vector, num3 * i);
-                        float num4 = 1f - i / (float)num2;
+                        float num4 = 1f - (i / (float)num2);
                         sprite2.Scale *= startScale;
                         sprite2.Scale -= 0.05f * num4 * startScale;
-                        sprite2.Opacity = (int)(150f - 8f * num4);
+                        sprite2.Opacity = (int)(150f - (8f * num4));
                         builder.Add(sprite2, 3);
                         items.Add(sprite2);
                     }

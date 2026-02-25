@@ -10,13 +10,7 @@ namespace Default.Namespace
 {
     public class CocosUtil
     {
-        public static int CornerOffset
-        {
-            get
-            {
-                return iPad(36, 50);
-            }
-        }
+        public static int CornerOffset => iPad(36, 50);
 
         public static float RetinaWp7(float value)
         {
@@ -235,8 +229,8 @@ namespace Default.Namespace
 
         private const int RETINA_COORDS_MULTIPLIER = 2;
 
-        private static bool armChecked;
+        private static readonly bool armChecked;
 
-        private static bool _isArmV7;
+        private static readonly bool _isArmV7;
     }
 }

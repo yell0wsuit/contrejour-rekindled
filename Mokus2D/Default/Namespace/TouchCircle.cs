@@ -11,41 +11,16 @@ namespace Default.Namespace
 {
     public class TouchCircle(Touch _touch, LevelBuilderBase _builder) : BodyClip(_builder, CreateBody(_builder, _touch), null, null)
     {
-        public Touch Touch
-        {
-            get
-            {
-                return touch;
-            }
-        }
+        public Touch Touch => touch;
 
         public bool Enabled
         {
-            get
-            {
-                return enabled;
-            }
-            set
-            {
-                enabled = value;
-            }
+            get => enabled; set => enabled = value;
         }
 
-        public bool Free
-        {
-            get
-            {
-                return free;
-            }
-        }
+        public bool Free => free;
 
-        public new Vector2 Position
-        {
-            get
-            {
-                return builder.TouchRootPoint(touch);
-            }
-        }
+        public new Vector2 Position => builder.TouchRootPoint(touch);
 
         public static Body CreateBody(LevelBuilderBase _builder, Touch _touch)
         {

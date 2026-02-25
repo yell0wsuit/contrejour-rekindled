@@ -36,8 +36,10 @@ namespace Default.Namespace
             touchPointSpeed = Maths.randRange(0.02f, 0.03f) / 1.5f;
             touchPointNeededSpeed = touchPointSpeed;
             startSpringWidth = _config.GetFloat("Width");
-            trajectory = new Trajectory(game);
-            trajectory.Impulse = startSpringWidth / 32f;
+            trajectory = new Trajectory(game)
+            {
+                Impulse = startSpringWidth / 32f
+            };
             builder.AddChildAfter(trajectory, circle);
             foreach (Fixture fixture in Body.FixtureList)
             {
@@ -72,21 +74,9 @@ namespace Default.Namespace
             return Math.Min(num, Math.Abs(num - TOUCH_RADIUS));
         }
 
-        protected override Vector2 SmokePoint
-        {
-            get
-            {
-                return new Vector2(0f, 40f);
-            }
-        }
+        protected override Vector2 SmokePoint => new Vector2(0f, 40f);
 
-        protected override bool IsMoving
-        {
-            get
-            {
-                return rotateTouch != null;
-            }
-        }
+        protected override bool IsMoving => rotateTouch != null;
 
         private void UpdateTouchPoint()
         {
@@ -218,7 +208,7 @@ namespace Default.Namespace
 
         private float touchPointSpeed;
 
-        private float touchPointNeededSpeed;
+        private readonly float touchPointNeededSpeed;
 
         private float lastDirection = 1f;
 
@@ -234,12 +224,12 @@ namespace Default.Namespace
 
         private float touchAngle;
 
-        private float minOpacity = 0.5f;
+        private readonly float minOpacity = 0.5f;
 
-        private float startSpringWidth;
+        private readonly float startSpringWidth;
 
-        private Trajectory trajectory;
+        private readonly Trajectory trajectory;
 
-        private ContreJourGame game;
+        private readonly ContreJourGame game;
     }
 }

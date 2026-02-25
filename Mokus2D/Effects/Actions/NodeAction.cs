@@ -4,13 +4,7 @@ namespace Mokus2D.Effects.Actions
 {
     public abstract class NodeAction
     {
-        public bool Finished
-        {
-            get
-            {
-                return finished;
-            }
-        }
+        public bool Finished => finished;
 
         internal virtual void Reset()
         {

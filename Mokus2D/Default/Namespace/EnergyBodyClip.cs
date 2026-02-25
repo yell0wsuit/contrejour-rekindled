@@ -8,13 +8,7 @@ namespace Default.Namespace
 {
     public class EnergyBodyClip : BodyClip, IRestartable
     {
-        public EventSender CollectEvent
-        {
-            get
-            {
-                return collectEvent;
-            }
-        }
+        public EventSender CollectEvent => collectEvent;
 
         public EnergyBodyClip(LevelBuilderBase _builder, object _body, Node _clip, Hashtable _config)
             : base(_builder, _body, _clip, _config)

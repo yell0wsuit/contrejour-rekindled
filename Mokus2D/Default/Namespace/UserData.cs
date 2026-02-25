@@ -36,37 +36,31 @@ namespace Default.Namespace
 
         public LevelData[] LevelData
         {
-            get
-            {
-                return levelData;
-            }
+            get;
             set
             {
                 int num = 0;
-                while (num < value.Length && num < levelData.Length)
+                while (num < value.Length && num < field.Length)
                 {
-                    levelData[num] = value[num];
+                    field[num] = value[num];
                     num++;
                 }
             }
-        }
+        } = new LevelData[Constants.ChaptersCount * 20];
 
         public int[] UnlockedLevels
         {
-            get
-            {
-                return unlockedLevels;
-            }
+            get;
             set
             {
                 int num = 0;
-                while (num < value.Length && num < unlockedLevels.Length)
+                while (num < value.Length && num < field.Length)
                 {
-                    unlockedLevels[num] = value[num];
+                    field[num] = value[num];
                     num++;
                 }
             }
-        }
+        } = new int[Constants.ChaptersCount];
 
         public bool MusicDisabled { get; set; }
 
@@ -100,13 +94,7 @@ namespace Default.Namespace
             }
         }
 
-        public bool LastLevelOpen
-        {
-            get
-            {
-                return GetLevelDataByPosition(new LevelPosition(4, 19)) != null;
-            }
-        }
+        public bool LastLevelOpen => GetLevelDataByPosition(new LevelPosition(4, 19)) != null;
 
         public int OutOfScreen { get; set; }
 
@@ -126,39 +114,14 @@ namespace Default.Namespace
 
         public int UnlockedChapters
         {
-            get
-            {
-                return Math.Max(unlockedChapters, 2);
-            }
-            set
-            {
-                unlockedChapters = Math.Max(2, value);
-            }
+            get => Math.Max(unlockedChapters, 2); set => unlockedChapters = Math.Max(2, value);
         }
 
-        public int TotalStars
-        {
-            get
-            {
-                return GetStarsEnd(0, ContreJourConstants.LEVEL_COUNT);
-            }
-        }
+        public int TotalStars => GetStarsEnd(0, ContreJourConstants.LEVEL_COUNT);
 
-        public int TotalScore
-        {
-            get
-            {
-                return GetScoreEnd(0, ContreJourConstants.LEVEL_COUNT);
-            }
-        }
+        public int TotalScore => GetScoreEnd(0, ContreJourConstants.LEVEL_COUNT);
 
-        public bool RoseSaved
-        {
-            get
-            {
-                return TotalStars >= 240;
-            }
-        }
+        public bool RoseSaved => TotalStars >= 240;
 
         public static void SaveUserData()
         {
@@ -168,7 +131,7 @@ namespace Default.Namespace
             }
             try
             {
-                Directory.CreateDirectory(GetSaveDirectoryPath());
+                _ = Directory.CreateDirectory(GetSaveDirectoryPath());
                 using StreamWriter writer = new(GetSaveFilePath());
                 serializer.Serialize(writer, instance);
             }
@@ -237,7 +200,7 @@ namespace Default.Namespace
             {
                 if (!Directory.Exists(path))
                 {
-                    Directory.CreateDirectory(path);
+                    _ = Directory.CreateDirectory(path);
                 }
                 string testFile = Path.Combine(path, ".write_test");
                 File.WriteAllText(testFile, "test");
@@ -262,12 +225,12 @@ namespace Default.Namespace
 
         public void SetUnlockedLevelsChapter(int value, int chapter)
         {
-            unlockedLevels[chapter] = value;
+            UnlockedLevels[chapter] = value;
         }
 
         public int GetUnlockedLevels(int chapter)
         {
-            return unlockedLevels[chapter];
+            return UnlockedLevels[chapter];
         }
 
         public void UnlockChapter(int chapter)
@@ -318,7 +281,7 @@ namespace Default.Namespace
         public int GetStarsEnd(int start, int end)
         {
             int num = 0;
-            for (int i = start; i < Maths.min(levelData.Length, end); i++)
+            for (int i = start; i < Maths.min(LevelData.Length, end); i++)
             {
                 LevelData levelData = GetLevelData(i);
                 if (levelData != null)
@@ -332,7 +295,7 @@ namespace Default.Namespace
         public int GetScoreEnd(int start, int end)
         {
             int num = 0;
-            for (int i = start; i < Maths.min(levelData.Length, end); i++)
+            for (int i = start; i < Maths.min(LevelData.Length, end); i++)
             {
                 LevelData levelData = GetLevelData(i);
                 if (levelData != null)
@@ -361,19 +324,19 @@ namespace Default.Namespace
 
         public void SetLevelData(LevelData data, int index)
         {
-            levelData[index] = data;
+            LevelData[index] = data;
         }
 
         public LevelData GetLevelData(int index)
         {
-            return levelData[index];
+            return LevelData[index];
         }
 
         public void CompleteAll()
         {
-            for (int i = 0; i < Constants.ChaptersCount * 20 - 1; i++)
+            for (int i = 0; i < (Constants.ChaptersCount * 20) - 1; i++)
             {
-                CompleteLevel(new LevelPosition(i / 20, i % 20), 3, 100f);
+                _ = CompleteLevel(new LevelPosition(i / 20, i % 20), 3, 100f);
             }
         }
 
@@ -389,7 +352,7 @@ namespace Default.Namespace
         {
             SkipLevel(position);
             LevelData levelData = GetLevelDataByPosition(position) ?? new LevelData();
-            int num = GetTimeBonus(time) + stars * 1000;
+            int num = GetTimeBonus(time) + (stars * 1000);
             RefreshHighscores = true;
             bool flag = num > levelData.Score;
             if (flag || stars > levelData.StarsCount)
@@ -426,7 +389,7 @@ namespace Default.Namespace
         public void PostLevelAchievements()
         {
             int totalStars = TotalStars;
-            if (totalStars >= 90 && totalStars >= 180)
+            if (totalStars is >= 90 and >= 180)
             {
                 XBoxUtil.AwardAchievement("blue_lantern");
                 if (totalStars >= 300)
@@ -471,11 +434,6 @@ namespace Default.Namespace
         private static bool levelPostponed;
 
         private static LevelPosition postponedLevel;
-
-        private LevelData[] levelData = new LevelData[Constants.ChaptersCount * 20];
-
-        private int[] unlockedLevels = new int[Constants.ChaptersCount];
-
         private int unlockedChapters;
     }
 }

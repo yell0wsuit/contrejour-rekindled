@@ -16,6 +16,6 @@
             return STATIC_RESULT;
         }
 
-        private static int STATIC_RESULT = 1;
+        private static readonly int STATIC_RESULT = 1;
     }
 }

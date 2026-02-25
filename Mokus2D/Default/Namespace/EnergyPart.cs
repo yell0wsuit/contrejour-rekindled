@@ -30,13 +30,7 @@ namespace Default.Namespace
             finished = true;
         }
 
-        protected override Vector2 TargetPosition
-        {
-            get
-            {
-                return !collected ? base.TargetPosition : game.BonusTarget.BonusTarget();
-            }
-        }
+        protected override Vector2 TargetPosition => !collected ? base.TargetPosition : game.BonusTarget.BonusTarget();
 
         public override void Update(float time)
         {

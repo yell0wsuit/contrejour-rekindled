@@ -39,7 +39,7 @@ namespace Default.Namespace.Windows
             hero.Tail.UpdateSpeed = 0.7f;
             hero.Tail.Rotation = -10f;
             ScheduleBlink();
-            Schedule(new Action(ScheduleChangeView), 1f);
+            _ = Schedule(new Action(ScheduleChangeView), 1f);
             scrollLayer.TouchBeginEvent.AddListenerSelector(new Action(OnScrollBegin));
         }
 
@@ -47,7 +47,7 @@ namespace Default.Namespace.Windows
         {
             if (Maths.Rand() < 0.5f && items.Count > 0)
             {
-                TryLookAtList();
+                _ = TryLookAtList();
             }
         }
 
@@ -61,7 +61,7 @@ namespace Default.Namespace.Windows
 
         private void ScheduleBlink()
         {
-            Schedule(new Action(Blink), Maths.randRange(3f, 8f));
+            _ = Schedule(new Action(Blink), Maths.randRange(3f, 8f));
         }
 
         private void Blink()
@@ -76,7 +76,7 @@ namespace Default.Namespace.Windows
 
         private void ScheduleChangeView()
         {
-            Schedule(new Action(ScheduleChangeView), Maths.randRange(10f, 16f));
+            _ = Schedule(new Action(ScheduleChangeView), Maths.randRange(10f, 16f));
             ChangeView();
         }
 
@@ -203,8 +203,10 @@ namespace Default.Namespace.Windows
         {
             gamerProfile = result;
             Texture2D texture2D = Texture2D.FromStream(Mokus2DGame.Device, gamerProfile.GetGamerPicture());
-            picture = new Sprite(texture2D);
-            picture.Scale = 1.4f;
+            picture = new Sprite(texture2D)
+            {
+                Scale = 1.4f
+            };
             pictureBackground.AddChild(picture);
             ShowItem(picture);
             ProcessGamerProfile();
@@ -253,15 +255,15 @@ namespace Default.Namespace.Windows
 
         protected Label titleLabel;
 
-        private FakeHero hero = new();
+        private readonly FakeHero hero = new();
 
-        private List<XBoxItem> items = new(64);
+        private readonly List<XBoxItem> items = new(64);
 
         private XBoxItem targetItem;
 
         private Sprite picture;
 
-        private Sprite pictureBackground;
+        private readonly Sprite pictureBackground;
 
         private Sprite loadingIcon;
     }

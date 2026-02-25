@@ -14,10 +14,7 @@ namespace Default.Namespace
     {
         public Color NeckColor
         {
-            get
-            {
-                return neckColor;
-            }
+            get => neckColor;
             set
             {
                 neckColor = value;
@@ -167,16 +164,16 @@ namespace Default.Namespace
 
         protected int allPointsSize;
 
-        private List<Vector2> first = new(64);
+        private readonly List<Vector2> first = new(64);
 
-        private List<Vector2> second = new(64);
+        private readonly List<Vector2> second = new(64);
 
         private List<Vector2> firstBezier = new(64);
 
         private List<Vector2> secondBezier = new(64);
 
-        private List<Vector2> allPoints = new();
+        private readonly List<Vector2> allPoints = new();
 
-        private List<Pair<Vector2>> cachedPairs = new(64);
+        private readonly List<Pair<Vector2>> cachedPairs = new(64);
     }
 }

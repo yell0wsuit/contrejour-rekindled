@@ -32,17 +32,7 @@ namespace ContreJourMono.ContreJour.Game.Hero
         {
         }
 
-        public float BorderWidth
-        {
-            get
-            {
-                return borderWidth;
-            }
-            set
-            {
-                borderWidth = value;
-            }
-        }
+        public float BorderWidth { get; set; } = 2f;
 
         public void SetMovementDirection(float value)
         {
@@ -83,7 +73,7 @@ namespace ContreJourMono.ContreJour.Game.Hero
 
         private void Triangulate()
         {
-            Pair<Vector2> pointsPair = ContreDrawUtil.GetPointsPair(Vector2.Zero, middle.Position, Vector2.Zero, (25f - borderWidth) * 2f);
+            Pair<Vector2> pointsPair = ContreDrawUtil.GetPointsPair(Vector2.Zero, middle.Position, Vector2.Zero, (25f - BorderWidth) * 2f);
             Vector2 vector = VectorUtil.Center(middle.Position, middle2.Position);
             Pair<Vector2> pointsPair2 = ContreDrawUtil.GetPointsPair(middle.Position, middle2.Position, vector, 12.5f);
             Pair<Vector2> pointsPair3 = ContreDrawUtil.GetPointsPair(vector, middle2.Position, vector, 12.5f);
@@ -107,10 +97,10 @@ namespace ContreJourMono.ContreJour.Game.Hero
                 border = new VertexPositionColor[surface.Count * 6];
                 GraphUtil.CreateGradientBorderColors(border, Color);
             }
-            GraphUtil.CreateGradientBorder(surface, borderWidth, border);
+            GraphUtil.CreateGradientBorder(surface, BorderWidth, border);
             for (int i = 0; i < surface.Count; i++)
             {
-                int num = ((i % 2 == 0) ? (i / 2) : (surface.Count - 1 - i / 2));
+                int num = (i % 2 == 0) ? (i / 2) : (surface.Count - 1 - (i / 2));
                 vertices[i] = new VertexPositionColor(surface[num].ToVector3(), Color);
             }
         }
@@ -147,24 +137,21 @@ namespace ContreJourMono.ContreJour.Game.Hero
 
         private float currentAngle;
 
-        private List<PointAndAngle> points;
+        private readonly List<PointAndAngle> points;
 
-        private PointAndAngle middle = new(30f, 0.02f, 0f);
+        private readonly PointAndAngle middle = new(30f, 0.02f, 0f);
 
-        private PointAndAngle middle2 = new(50f, 0.019f, 1.5707964f);
+        private readonly PointAndAngle middle2 = new(50f, 0.019f, 1.5707964f);
 
-        private PointAndAngle end = new(70f, 0.018f, 3.1415927f);
+        private readonly PointAndAngle end = new(70f, 0.018f, 3.1415927f);
 
         private VertexPositionColor[] vertices;
 
-        private List<Vector2> surface = new(10);
+        private readonly List<Vector2> surface = new(10);
 
-        private List<Vector2> cachedPolygon = new(64);
+        private readonly List<Vector2> cachedPolygon = new(64);
 
         private VertexPositionColor[] border;
-
-        private float borderWidth = 2f;
-
         public float UpdateSpeed = 1f;
     }
 }

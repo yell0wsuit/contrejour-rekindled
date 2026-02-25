@@ -11,28 +11,16 @@ namespace Default.Namespace
         public void SetSizeBorderColorBorderOutColor(int value, Color _borderColor, Color borderOutColor)
         {
             Color = _borderColor;
-            int num = value * 2 * 2 + 2;
+            int num = (value * 2 * 2) + 2;
             outBorder = new VertexPositionColorTexture[num];
             inBorder = new VertexPositionColorTexture[num];
             GraphUtil.SetGradientColorsStrip(Color, borderOutColor, outBorder);
             GraphUtil.SetColor(inBorder, Color);
         }
 
-        public VertexPositionColorTexture[] OutBorder
-        {
-            get
-            {
-                return outBorder;
-            }
-        }
+        public VertexPositionColorTexture[] OutBorder => outBorder;
 
-        public VertexPositionColorTexture[] InBorder
-        {
-            get
-            {
-                return inBorder;
-            }
-        }
+        public VertexPositionColorTexture[] InBorder => inBorder;
 
         protected override void DrawPrimitives()
         {

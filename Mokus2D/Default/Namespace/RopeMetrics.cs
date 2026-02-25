@@ -4,26 +4,12 @@
     {
         public int Parts
         {
-            get
-            {
-                return parts;
-            }
-            set
-            {
-                parts = value;
-            }
+            get => parts; set => parts = value;
         }
 
         public float PartSize
         {
-            get
-            {
-                return partSize;
-            }
-            set
-            {
-                partSize = value;
-            }
+            get => partSize; set => partSize = value;
         }
 
         protected int parts = _parts;

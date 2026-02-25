@@ -6,13 +6,7 @@ namespace Default.Namespace
 {
     public class ToggleButton : Button
     {
-        public Sprite ToggleIcon
-        {
-            get
-            {
-                return toggleIcon;
-            }
-        }
+        public Sprite ToggleIcon => toggleIcon;
 
         public ToggleButton(string _iconName, string _toggleName)
             : base(_iconName)
@@ -34,10 +28,7 @@ namespace Default.Namespace
 
         public bool Toggle
         {
-            get
-            {
-                return toggle;
-            }
+            get => toggle;
             set
             {
                 if (toggle != value)

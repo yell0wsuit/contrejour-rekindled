@@ -13,18 +13,22 @@ namespace Default.Namespace
     {
         public BuyFullVersion()
         {
-            Sprite sprite = new("McBuyFullVersionBackground");
-            sprite.Position = new Vector2(0f, ScreenConstants.W7FromIPhoneSize.Y);
-            sprite.Scale = 1f / ScreenConstants.Scales.fromIPhone2ByHeight;
+            Sprite sprite = new("McBuyFullVersionBackground")
+            {
+                Position = new Vector2(0f, ScreenConstants.W7FromIPhoneSize.Y),
+                Scale = 1f / ScreenConstants.Scales.fromIPhone2ByHeight
+            };
             container.AddChild(sprite);
             buyButton = new TouchSprite("McBuyFullVersionButton");
-            new ButtonSound(buyButton);
+            _ = new ButtonSound(buyButton);
             clickableLayer.AddChild(buyButton);
             buyButton.Position = new Vector2(592f, 263f) / ScreenConstants.Scales.fromIPhone2ByHeight;
             buyButton.Scale = sprite.Scale;
-            buyButtonEffect = new ButtonSprite(buyButton);
-            buyButtonEffect.TargetScale = 1.04f * buyButton.Scale;
-            buyButtonEffect.EffectTime = 0.05f;
+            buyButtonEffect = new ButtonSprite(buyButton)
+            {
+                TargetScale = 1.04f * buyButton.Scale,
+                EffectTime = 0.05f
+            };
             buyButton.ClickEvent.AddListenerSelector(new Action(OnBuyClick));
             buyButton.TouchBeganEvent.AddListenerSelector(new Action(OnBuyTouchBegan));
             buyButton.TouchEndEvent.AddListenerSelector(new Action(OnBuyTouchEnd));
@@ -49,8 +53,10 @@ namespace Default.Namespace
             multilineLabel.LineSpacing += 1f;
             multilineLabel.Position = new Vector2(5f, 5f);
             multilineLabel.Color = ContreJourConstants.GREY_COLOR;
-            LastParticles lastParticles = new();
-            lastParticles.ParticlesScale = new Range(1.9f, 1f);
+            LastParticles lastParticles = new()
+            {
+                ParticlesScale = new Range(1.9f, 1f)
+            };
             container.AddChild(lastParticles, 11);
             lastParticles.CreateBetweenBounds(20);
             lastParticles.Angle = new Range(-80f, 30f);
@@ -83,10 +89,10 @@ namespace Default.Namespace
 
         private static readonly Vector2 IPHONE_POSITION = CocosUtil.ccpIPad(310f, VERTICAL_POSITION);
 
-        private ButtonSprite buyButtonEffect;
+        private readonly ButtonSprite buyButtonEffect;
 
-        private TouchSprite buyButton;
+        private readonly TouchSprite buyButton;
 
-        private Node textSprite;
+        private readonly Node textSprite;
     }
 }

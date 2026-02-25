@@ -13,13 +13,7 @@ namespace Default.Namespace
 {
     public class SpikesFlowerBodyClip : ContreJourBodyClip, IVectorPositionProvider
     {
-        public FlowerEye Eye
-        {
-            get
-            {
-                return eye;
-            }
-        }
+        public FlowerEye Eye => eye;
 
         public SpikesFlowerBodyClip(ContreJourLevelBuilder _builder, object _body, Node _clip, Hashtable _config)
             : base(_builder, _body, _clip, _config)
@@ -50,20 +44,16 @@ namespace Default.Namespace
         private void CreateEye()
         {
             Vector2 vector = container.LocalToNode(EYE_POSITION, Game.Root, true);
-            eye = new FlowerEye(Game, true, builder.ToVec(vector));
-            eye.Scale = movie.ScaleY * 0.7f;
+            eye = new FlowerEye(Game, true, builder.ToVec(vector))
+            {
+                Scale = movie.ScaleY * 0.7f
+            };
             container.AddChild(eye);
             eye.RefreshRootAngle();
             eye.Position = CocosUtil.toIPad(EYE_POSITION);
         }
 
-        public override Vector2 PositionVec
-        {
-            get
-            {
-                return Body.Position;
-            }
-        }
+        public override Vector2 PositionVec => Body.Position;
 
         public override void Update(float time)
         {
@@ -102,7 +92,7 @@ namespace Default.Namespace
         {
             movie.EndEvent -= new Action(OnCloseEnd);
             movie.GotoAndStop(movie.TotalFrames - 1U);
-            Schedule(new Action(Open), 1f);
+            _ = Schedule(new Action(Open), 1f);
         }
 
         private void Open()
@@ -133,7 +123,7 @@ namespace Default.Namespace
                 new FadeOut(2f)
             ]);
             node.Run(sequence);
-            Schedule(new Action(bodyClip.Destroy), 2.3f);
+            _ = Schedule(new Action(bodyClip.Destroy), 2.3f);
             Vector2 vector = FarseerUtil.rotate(new Vector2(Maths.randRange01(), 3f), BodyAngle);
             vector *= (float)Math.Pow((double)hero.DeadEyeScale(), 2.0);
             body.ApplyLinearImpulse(vector, body.WorldCenter);

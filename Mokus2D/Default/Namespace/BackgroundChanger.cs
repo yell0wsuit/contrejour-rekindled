@@ -13,41 +13,19 @@ namespace Default.Namespace
             RefreshOpacity();
         }
 
-        public int FirstIndex
-        {
-            get
-            {
-                return firstIndex;
-            }
-        }
+        public int FirstIndex { get; private set; }
 
-        public int NextIndex
-        {
-            get
-            {
-                return nextIndex;
-            }
-        }
+        public int NextIndex { get; private set; }
 
-        public float Offset
-        {
-            get
-            {
-                return offset;
-            }
-        }
+        public float Offset { get; private set; }
 
         public float CurrentIndex
         {
-            get
+            get; set
             {
-                return currentIndex;
-            }
-            set
-            {
-                if (currentIndex != value)
+                if (field != value)
                 {
-                    currentIndex = value;
+                    field = value;
                     RefreshOpacity();
                 }
             }
@@ -55,14 +33,14 @@ namespace Default.Namespace
 
         private void RefreshOpacity()
         {
-            firstIndex = (int)Maths.fmodP(currentIndex, ContreJourConstants.PlanetsCount);
-            offset = Maths.PeriodicOffset(currentIndex - firstIndex, ContreJourConstants.PlanetsCount);
-            nextIndex = (firstIndex + 1) % ContreJourConstants.PlanetsCount;
-            SetBackgroundOpacity(firstIndex, offset);
-            SetBackgroundOpacity(nextIndex, 1f - offset);
+            FirstIndex = (int)Maths.fmodP(CurrentIndex, ContreJourConstants.PlanetsCount);
+            Offset = Maths.PeriodicOffset(CurrentIndex - FirstIndex, ContreJourConstants.PlanetsCount);
+            NextIndex = (FirstIndex + 1) % ContreJourConstants.PlanetsCount;
+            SetBackgroundOpacity(FirstIndex, Offset);
+            SetBackgroundOpacity(NextIndex, 1f - Offset);
             for (int i = 0; i < backgrounds.Count; i++)
             {
-                backgrounds[i].Visible = Math.Abs(Maths.PeriodicOffset(i - currentIndex, ContreJourConstants.PlanetsCount)) < 1f;
+                backgrounds[i].Visible = Math.Abs(Maths.PeriodicOffset(i - CurrentIndex, ContreJourConstants.PlanetsCount)) < 1f;
             }
         }
 
@@ -74,13 +52,5 @@ namespace Default.Namespace
         }
 
         private readonly List<Sprite> backgrounds;
-
-        private float currentIndex;
-
-        private int firstIndex;
-
-        private int nextIndex;
-
-        private float offset;
     }
 }

@@ -4,13 +4,7 @@ namespace Default.Namespace
 {
     public class FakeHeroEyeWhite : FakeHeroEyeBlack
     {
-        protected virtual string EyeBall
-        {
-            get
-            {
-                return "McFakeHeroEyeBallWhite";
-            }
-        }
+        protected virtual string EyeBall => "McFakeHeroEyeBallWhite";
 
         protected override string ProcessName(string name)
         {

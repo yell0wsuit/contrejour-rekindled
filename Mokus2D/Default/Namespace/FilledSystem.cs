@@ -21,7 +21,7 @@ namespace Default.Namespace
             {
                 for (int j = 0; j < num2; j++)
                 {
-                    AddParticle(new Vector2(i * Config.Size.Width / 1f, j * Config.Size.Height / 1f));
+                    _ = AddParticle(new Vector2(i * Config.Size.Width / 1f, j * Config.Size.Height / 1f));
                 }
             }
         }

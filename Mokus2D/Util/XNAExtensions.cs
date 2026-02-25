@@ -6,7 +6,7 @@ namespace Mokus2D.Util
     {
         public static bool IsLandscape(this DisplayOrientation orientation)
         {
-            return orientation == DisplayOrientation.LandscapeLeft || orientation == DisplayOrientation.LandscapeRight;
+            return orientation is DisplayOrientation.LandscapeLeft or DisplayOrientation.LandscapeRight;
         }
     }
 }

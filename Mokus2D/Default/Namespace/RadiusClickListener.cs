@@ -9,23 +9,10 @@ namespace Default.Namespace
     {
         public bool DisableDrag
         {
-            get
-            {
-                return disableDrag;
-            }
-            set
-            {
-                disableDrag = value;
-            }
+            get => disableDrag; set => disableDrag = value;
         }
 
-        public override bool Enabled
-        {
-            get
-            {
-                return base.Enabled && target.Visible;
-            }
-        }
+        public override bool Enabled => base.Enabled && target.Visible;
 
         private bool SpriteContainsPoint(Touch touch)
         {
@@ -36,7 +23,7 @@ namespace Default.Namespace
         {
             if (SpriteContainsPoint(touch))
             {
-                base.TouchBegin(touch);
+                _ = base.TouchBegin(touch);
                 return true;
             }
             return false;

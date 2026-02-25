@@ -8,38 +8,26 @@ namespace Default.Namespace
 {
     public class SnotBodyClipBase : ContreJourBodyClip
     {
-        public SnotData Physics
-        {
-            get
-            {
-                return physics;
-            }
-        }
+        public SnotData Physics { get; }
 
         public SnotBodyClipBase(LevelBuilderBase _builder, SnotData _body, Node _clip, Hashtable _config)
             : base(_builder, _body.EndBody, null, _config)
         {
-            physics = _body;
+            Physics = _body;
             game = (ContreJourGame)builder.Game;
             container = new Node();
-            physics.Snot = this;
+            Physics.Snot = this;
             InitSizes();
             clipContent = CreateClip();
             baseClip = ClipFactory.CreateWithAnchor(BaseClipName());
-            baseClip.Position = builder.ToIPadPoint(physics.GetWorldStartPoint());
+            baseClip.Position = builder.ToIPadPoint(Physics.GetWorldStartPoint());
             baseEndClip = ClipFactory.CreateWithAnchor(BaseEndClipName());
-            physics.EndBody.ApplyLinearImpulse(new Vector2(Maths.Rand(), Maths.Rand()) * physics.EndBody.Mass);
+            Physics.EndBody.ApplyLinearImpulse(new Vector2(Maths.Rand(), Maths.Rand()) * Physics.EndBody.Mass);
             eye = CreateEye();
             AddClipsToStage();
         }
 
-        public virtual Vector2 StartPosition
-        {
-            get
-            {
-                return physics.GetWorldStartPoint();
-            }
-        }
+        public virtual Vector2 StartPosition => Physics.GetWorldStartPoint();
 
         public virtual void InitSizes()
         {
@@ -79,7 +67,7 @@ namespace Default.Namespace
 
         protected virtual MonsterEye CreateEye()
         {
-            return new MonsterEye((ContreJourGame)builder.Game, false, physics.EyeBody.Position);
+            return new MonsterEye((ContreJourGame)builder.Game, false, Physics.EyeBody.Position);
         }
 
         public virtual SnotSprite CreateClip()
@@ -89,21 +77,15 @@ namespace Default.Namespace
 
         public virtual Vector2 EndPosition()
         {
-            return physics.EndBody.Position;
+            return Physics.EndBody.Position;
         }
 
-        public virtual Body EyeBody
-        {
-            get
-            {
-                return physics.EyeBody;
-            }
-        }
+        public virtual Body EyeBody => Physics.EyeBody;
 
         public override void Update(float time)
         {
             base.Update(time);
-            baseClip.Position = builder.ToIPadPoint(physics.GetWorldStartPoint());
+            baseClip.Position = builder.ToIPadPoint(Physics.GetWorldStartPoint());
             baseEndClip.Position = builder.ToIPadPoint(EndPosition());
             if (eye != null && eye.HasToUpdate)
             {
@@ -111,8 +93,6 @@ namespace Default.Namespace
                 eye.UpdateNode(time);
             }
         }
-
-        private SnotData physics;
 
         protected MonsterEye eye;
 

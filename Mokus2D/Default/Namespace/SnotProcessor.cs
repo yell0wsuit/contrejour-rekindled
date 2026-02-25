@@ -32,7 +32,7 @@ namespace Default.Namespace
             RopeMetricsWithCoords ropeMetricsEndItem = GetRopeMetricsEndItem(vector, vector2, item);
             Body body = GetBodyByWorld(vector);
             BodyClip bodyClip = body.UserData as BodyClip;
-            if (bodyClip != null && (bodyClip is PlasticinePartBodyClip || bodyClip is EnergyBodyClip))
+            if (bodyClip is not null and (PlasticinePartBodyClip or EnergyBodyClip))
             {
                 body = builder.GroundBody;
             }

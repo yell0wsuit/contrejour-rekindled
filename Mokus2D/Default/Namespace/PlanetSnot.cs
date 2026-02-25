@@ -12,14 +12,7 @@ namespace Default.Namespace
     {
         public float Depth
         {
-            get
-            {
-                return depth;
-            }
-            set
-            {
-                depth = value;
-            }
+            get => depth; set => depth = value;
         }
 
         public PlanetSnot()

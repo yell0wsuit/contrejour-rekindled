@@ -8,34 +8,21 @@ namespace Default.Namespace
     {
         public int Value
         {
-            get
-            {
-                return value;
-            }
-            set
-            {
-                this.value = value;
-            }
+            get => value; set => this.value = value;
         }
 
         public override void Update(float time)
         {
             currentStep++;
-            Clear();
-            AppendFormat(format, [CurrentValue]);
+            _ = Clear();
+            _ = AppendFormat(format, [CurrentValue]);
             if (currentStep == steps)
             {
                 UpdateEnabled = false;
             }
         }
 
-        public int CurrentValue
-        {
-            get
-            {
-                return (int)(value * (float)currentStep / steps);
-            }
-        }
+        public int CurrentValue => (int)(value * (float)currentStep / steps);
 
         protected string format = _format;
 

@@ -9,14 +9,7 @@ namespace Default.Namespace
     {
         public bool Active
         {
-            get
-            {
-                return active;
-            }
-            set
-            {
-                active = value;
-            }
+            get => active; set => active = value;
         }
 
         public override void Update(float time)
@@ -32,7 +25,7 @@ namespace Default.Namespace
             Vector2 startPosition = snot.StartPosition;
             Vector2 vector = snot.EndPosition();
             GraphUtil.GetCircleRadiusSegmentsResult(CocosUtil.ccp2Point(Box2DConfig.DefaultConfig.ToPoint(startPosition)), CocosUtil.r(startWidthPixels / 2f), 16, ref baseCircleSurface);
-            GraphUtil.GetCircleRadiusSegmentsResult(CocosUtil.ccp2Point(Box2DConfig.DefaultConfig.ToPoint(vector)), CocosUtil.r(endWidthPixels / 2f + 1f), 12, ref endCircleSurface);
+            GraphUtil.GetCircleRadiusSegmentsResult(CocosUtil.ccp2Point(Box2DConfig.DefaultConfig.ToPoint(vector)), CocosUtil.r((endWidthPixels / 2f) + 1f), 12, ref endCircleSurface);
             GraphUtil.CreateGradientBorderWidthVertices(new VertexPositionColorTextureListAdapter(baseCircleSurface), -borderWidth, baseCircle);
             GraphUtil.CreateGradientBorderWidthVertices(new VertexPositionColorTextureListAdapter(endCircleSurface), -borderWidth, endCircle);
         }

@@ -2,21 +2,9 @@
 {
     public class Level
     {
-        public ArrayList Items
-        {
-            get
-            {
-                return items;
-            }
-        }
+        public ArrayList Items => items;
 
-        public Hashtable LevelProperties
-        {
-            get
-            {
-                return levelProperties;
-            }
-        }
+        public Hashtable LevelProperties => levelProperties;
 
         public ArrayList items;
 

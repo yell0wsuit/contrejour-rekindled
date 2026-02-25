@@ -25,13 +25,17 @@ namespace Default.Namespace
             }
             else if (Constants.IS_RETINA)
             {
-                originalLogo = new Sprite(ClipFactory.CreateWithoutConfig("Default@2x"));
-                originalLogo.Rotation = -90f;
+                originalLogo = new Sprite(ClipFactory.CreateWithoutConfig("Default@2x"))
+                {
+                    Rotation = -90f
+                };
             }
             else
             {
-                originalLogo = new Sprite("Default.png");
-                originalLogo.Rotation = -90f;
+                originalLogo = new Sprite("Default.png")
+                {
+                    Rotation = -90f
+                };
             }
             originalLogo.Position = center;
             AddChild(originalLogo);
@@ -44,8 +48,8 @@ namespace Default.Namespace
                 title.Position = new Vector2(W7IPhoneWidthDiff / 2f, -40f);
             }
             Mokus2DGame.TouchController.AddListener(this, 0);
-            Schedule(new Action(StartLogo), 1f);
-            Schedule(new Action(PlaySplashSound), 0.6f);
+            _ = Schedule(new Action(StartLogo), 1f);
+            _ = Schedule(new Action(PlaySplashSound), 0.6f);
         }
 
         private void PlaySplashSound()
@@ -67,7 +71,7 @@ namespace Default.Namespace
 
         private void StartLogo()
         {
-            blackHeroPosition = (Constants.IS_IPAD ? BLACK_HERO_POSITION : BLACK_HERO_POSITION_IPHONE);
+            blackHeroPosition = Constants.IS_IPAD ? BLACK_HERO_POSITION : BLACK_HERO_POSITION_IPHONE;
             logo = (MovieClip)ClipFactory.CreateWithAnchor("McChillingoLogo");
             AddChild(logo);
             logo.Visible = false;
@@ -77,7 +81,7 @@ namespace Default.Namespace
                 logo.Scale = 0.9375f;
                 logo.Position = LOGO_POSITION_IPHONE;
             }
-            Schedule(new Action(Play), 0.5f);
+            _ = Schedule(new Action(Play), 0.5f);
             hero = new FakeHero();
             if (!Constants.IS_IPAD)
             {
@@ -134,7 +138,7 @@ namespace Default.Namespace
         {
             hero.Visible = true;
             hero.Run(new FadeIn(0.5f));
-            Schedule(new Action(EndJump), 0.5f);
+            _ = Schedule(new Action(EndJump), 0.5f);
             hero.Eye.Open();
         }
 
@@ -142,13 +146,13 @@ namespace Default.Namespace
         {
             logo.Visible = false;
             hero.SetViewAngle(0.7853982f, 1f);
-            Schedule(new Action(LookRight), 0.3f);
+            _ = Schedule(new Action(LookRight), 0.3f);
         }
 
         private void LookRight()
         {
             hero.SetViewAngle(2.3561945f, 1f);
-            Schedule(new Action(StartMove), 0.3f);
+            _ = Schedule(new Action(StartMove), 0.3f);
         }
 
         private void StartMove()
@@ -162,9 +166,9 @@ namespace Default.Namespace
             title.Run(easeIn2);
             EaseIn easeIn3 = new(new RotateToDegrees(2f, -1080f), 3f);
             hero.Background.Run(easeIn3);
-            Schedule(new Action(RefreshSpeed), 0.6f);
-            Schedule(new Action(SlowLookRight), 0.1f);
-            Schedule(new Action(ShowMokus), 2f);
+            _ = Schedule(new Action(RefreshSpeed), 0.6f);
+            _ = Schedule(new Action(SlowLookRight), 0.1f);
+            _ = Schedule(new Action(ShowMokus), 2f);
         }
 
         private void SlowLookRight()
@@ -187,7 +191,7 @@ namespace Default.Namespace
             AddChild(mokusLogo);
             mokusLogo.Position = center;
             background.Run(new FadeColor(1f, new Color(0, 0, 0)));
-            Schedule(new Action(MoveMokus), 1f);
+            _ = Schedule(new Action(MoveMokus), 1f);
         }
 
         private void MoveMokus()
@@ -202,7 +206,7 @@ namespace Default.Namespace
             blackHero.SetMoveAngle(-3.1415927f, CocosUtil.r(3f));
             blackHero.SetViewAngle(-3.1415927f, 1f);
             blackHero.Background.Run(easeOut2);
-            Schedule(new Action(MoveMokusOut), 1f);
+            _ = Schedule(new Action(MoveMokusOut), 1f);
         }
 
         private void MoveMokusOut()
@@ -217,7 +221,7 @@ namespace Default.Namespace
             blackHero.Background.Run(nodeAction2);
             NodeAction nodeAction3 = new EaseIn(new MoveTo(1f, center + vector), 3f);
             mokusLogo.Run(nodeAction3);
-            Schedule(new Action(SendEnd), 1.5f);
+            _ = Schedule(new Action(SendEnd), 1.5f);
         }
 
         private static void StopSplashSound()
@@ -310,15 +314,15 @@ namespace Default.Namespace
 
         private static readonly Vector2 JUMP_OFFSET = new(0f, 100f);
 
-        private static readonly Vector2 BLACK_HERO_POSITION_IPHONE = CocosUtil.Vector2Retina(360f + W7IPhoneWidthDiff / 4f, 153f);
+        private static readonly Vector2 BLACK_HERO_POSITION_IPHONE = CocosUtil.Vector2Retina(360f + (W7IPhoneWidthDiff / 4f), 153f);
 
         private static readonly Vector2 BLACK_HERO_POSITION = new(730f, 370f);
 
-        private static readonly Vector2 HERO_POSITION_IPHONE = CocosUtil.Vector2Retina(113f + W7IPhoneWidthDiff / 4f, 159f);
+        private static readonly Vector2 HERO_POSITION_IPHONE = CocosUtil.Vector2Retina(113f + (W7IPhoneWidthDiff / 4f), 159f);
 
         private static readonly Vector2 HERO_POSITION = new(241.3f, 382.9f);
 
-        private static readonly Vector2 LOGO_POSITION_IPHONE = CocosUtil.Vector2Retina(112.6f + W7IPhoneWidthDiff / 4f, 154.1f);
+        private static readonly Vector2 LOGO_POSITION_IPHONE = CocosUtil.Vector2Retina(112.6f + (W7IPhoneWidthDiff / 4f), 154.1f);
 
         private static readonly Vector2 LOGO_POSITION = new(241.55f, 372.25f);
     }

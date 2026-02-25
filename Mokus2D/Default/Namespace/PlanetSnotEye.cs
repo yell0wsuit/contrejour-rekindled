@@ -18,21 +18,9 @@ namespace Default.Namespace
             eyeBall = ClipFactory.CreateWithAnchor("McEyeBallMonster");
         }
 
-        protected override EyeAnimation[] Animations
-        {
-            get
-            {
-                return SNOT_ANIMATIONS;
-            }
-        }
+        protected override EyeAnimation[] Animations => SNOT_ANIMATIONS;
 
-        protected override float ViewRadius
-        {
-            get
-            {
-                return CocosUtil.iPadValue(7f);
-            }
-        }
+        protected override float ViewRadius => CocosUtil.iPadValue(7f);
 
         protected override float MaxAngle()
         {

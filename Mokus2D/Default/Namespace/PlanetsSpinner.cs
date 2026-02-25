@@ -13,10 +13,7 @@ namespace Default.Namespace
     {
         public float CurrentIndex
         {
-            get
-            {
-                return currentIndex;
-            }
+            get => currentIndex;
             set
             {
                 currentIndex = value;
@@ -27,23 +24,10 @@ namespace Default.Namespace
 
         public bool Enabled
         {
-            get
-            {
-                return pager.Enabled;
-            }
-            set
-            {
-                pager.Enabled = value;
-            }
+            get => pager.Enabled; set => pager.Enabled = value;
         }
 
-        public bool Exploding
-        {
-            get
-            {
-                return exploding;
-            }
-        }
+        public bool Exploding { get; private set; }
 
         public PlanetsSpinner(MainMenu menu)
         {
@@ -81,7 +65,7 @@ namespace Default.Namespace
             for (int i = 0; i < list.Count; i++)
             {
                 bool flag = CocosUtil.lite(false, i < Constants.NormalChaptersCount && UserData.StarsToUnlock(i) > totalStars);
-                Type type = (flag ? typeof(ChapterLocked) : list[i]);
+                Type type = flag ? typeof(ChapterLocked) : list[i];
                 ChapterItem chapterItem = (ChapterItem)ReflectUtil.CreateInstance(type, [i, menu]);
                 if (!flag && i >= data.UnlockedChapters && i < Constants.NormalChaptersCount && UserData.StarsToUnlock(i) > 0)
                 {
@@ -101,11 +85,13 @@ namespace Default.Namespace
 
         private void CreateExplodingChapter(ChapterItem chapter, MainMenu menu)
         {
-            exploding = true;
+            Exploding = true;
             pager.Enabled = false;
             data.UnlockChapter(chapter.Index);
-            explodingChapter = new ChapterLocked(chapter.Index, menu);
-            explodingChapter.TargetChapter = chapter;
+            explodingChapter = new ChapterLocked(chapter.Index, menu)
+            {
+                TargetChapter = chapter
+            };
             chapter.AddChild(explodingChapter);
             explodingChapter.ExplodeEvent.AddListenerSelector(delegate
             {
@@ -119,7 +105,7 @@ namespace Default.Namespace
         public void SetTargetChapter(int index)
         {
             pager.CurrentPosition = index - 1;
-            Schedule(delegate
+            _ = Schedule(delegate
             {
                 pager.SetTargetPosition(index);
             }, 0.3f);
@@ -144,7 +130,7 @@ namespace Default.Namespace
                     chapterItem.Depth = num2;
                     chapterItem.Scale = num2 * 1.5f;
                     float num3 = chapterItem.Scale * chapterItem.Scale;
-                    chapterItem.X = num * 550f + AccelerometerOffset.X * 200f * num3;
+                    chapterItem.X = (num * 550f) + (AccelerometerOffset.X * 200f * num3);
                     chapterItem.Y = AccelerometerOffset.Y * num3 / 4f;
                 }
             }
@@ -171,10 +157,8 @@ namespace Default.Namespace
 
         private ChapterLocked explodingChapter;
 
-        private GesturePager pager = new();
+        private readonly GesturePager pager = new();
 
         public Vector2 AccelerometerOffset = Vector2.Zero;
-
-        private bool exploding;
     }
 }

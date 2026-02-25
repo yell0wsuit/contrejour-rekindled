@@ -6,86 +6,37 @@ namespace Default.Namespace
     {
         public Vector2 Gravity
         {
-            get
-            {
-                return gravity;
-            }
-            set
-            {
-                gravity = value;
-            }
+            get => gravity; set => gravity = value;
         }
 
         public int VelocityIterations
         {
-            get
-            {
-                return velocityIterations;
-            }
-            set
-            {
-                velocityIterations = value;
-            }
+            get => velocityIterations; set => velocityIterations = value;
         }
 
         public int PositionIterations
         {
-            get
-            {
-                return positionIterations;
-            }
-            set
-            {
-                positionIterations = value;
-            }
+            get => positionIterations; set => positionIterations = value;
         }
 
         public float SizeMultiplier
         {
-            get
-            {
-                return sizeMultiplier;
-            }
-            set
-            {
-                sizeMultiplier = value;
-            }
+            get => sizeMultiplier; set => sizeMultiplier = value;
         }
 
         public float Density
         {
-            get
-            {
-                return density;
-            }
-            set
-            {
-                density = value;
-            }
+            get => density; set => density = value;
         }
 
         public float Restitution
         {
-            get
-            {
-                return restitution;
-            }
-            set
-            {
-                restitution = value;
-            }
+            get => restitution; set => restitution = value;
         }
 
         public float Friction
         {
-            get
-            {
-                return friction;
-            }
-            set
-            {
-                friction = value;
-            }
+            get => friction; set => friction = value;
         }
 
         public Box2DConfig()
@@ -103,11 +54,11 @@ namespace Default.Namespace
         {
             get
             {
-                if (defaultConfigValue == null)
+                if (field == null)
                 {
-                    defaultConfigValue = new Box2DConfig();
+                    field = new Box2DConfig();
                 }
-                return defaultConfigValue;
+                return field;
             }
         }
 
@@ -144,7 +95,5 @@ namespace Default.Namespace
         protected float restitution;
 
         protected float friction;
-
-        private static Box2DConfig defaultConfigValue;
     }
 }

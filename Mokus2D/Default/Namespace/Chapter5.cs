@@ -59,18 +59,18 @@ namespace Default.Namespace
             foreground.Position = -ScreenConstants.IPhoneScreenCenter;
             foregroundContainer.Position = -foreground.Position;
             menu.AddForeground(foregroundContainer);
-            AddForegroundPositionScaleAngle("McLeafView4", CocosUtil.iPad(new Vector2(624f, 721f), CocosUtil.ccpIPad(624f, 601f)), new Vector2(1.72f, 1.29f), 171f);
-            AddForegroundPositionScaleAngle("McLeafView3", CocosUtil.iPad(new Vector2(731f, 714f), CocosUtil.ccpIPad(731f, 584f)), new Vector2(2.37f, 2.37f), -172f);
-            AddForegroundPositionScaleAngle("McLeafView5", CocosUtil.iPad(new Vector2(978f, 693f), CocosUtil.ccpIPad(978f, 563f)), new Vector2(3.31f, 3.31f), -22f);
-            AddForegroundPositionScaleAngleRotationOffset("McLeafView1", CocosUtil.iPad(new Vector2(1095f, 644f), CocosUtil.ccpIPad(1095f, 564f)), new Vector2(2.71f, 2.71f), 0f, 5f);
-            AddForegroundPositionScaleAngleRotationOffset("McLeafView0", CocosUtil.iPad(new Vector2(1113f, 575f), CocosUtil.ccpIPad(1113f, 475f)), new Vector2(2.38f, 2.38f), -30f, -3f);
-            AddForegroundPositionScaleAngleRotationOffset("McLeafView0", new Vector2(1072f, 108f), new Vector2(2.45f, 2.45f), -52f, 1f);
-            AddForegroundPositionScaleAngleRotationOffset("McLeafView2", new Vector2(1092f, 167f), new Vector2(2.17f, 2.17f), -14f, -3f);
-            AddForegroundPositionScaleAngle("McLeafView4", new Vector2(409f, 66f), new Vector2(-1.7f, 1.4f), 0f);
-            AddForegroundPositionScaleAngle("McLeafView3", new Vector2(340f, 60f), new Vector2(-2.68f, 2.68f), 4f);
-            AddForegroundPositionScaleAngle("McLeafView5", new Vector2(262f, 63f), new Vector2(-2.13f, 2.13f), 0f);
-            AddForegroundPositionScaleAngleRotationOffset("McLeafView2", CocosUtil.ccpIPad(CocosUtil.iPad(-64, -124), 366f), new Vector2(-2.97f, 2.97f), 0f, 4f);
-            AddForegroundPositionScaleAngleRotationOffset("McLeafView1", CocosUtil.ccpIPad(CocosUtil.iPad(-112, -182), 404f), new Vector2(-2.76f, 2.76f), -12f, -3f);
+            _ = AddForegroundPositionScaleAngle("McLeafView4", CocosUtil.iPad(new Vector2(624f, 721f), CocosUtil.ccpIPad(624f, 601f)), new Vector2(1.72f, 1.29f), 171f);
+            _ = AddForegroundPositionScaleAngle("McLeafView3", CocosUtil.iPad(new Vector2(731f, 714f), CocosUtil.ccpIPad(731f, 584f)), new Vector2(2.37f, 2.37f), -172f);
+            _ = AddForegroundPositionScaleAngle("McLeafView5", CocosUtil.iPad(new Vector2(978f, 693f), CocosUtil.ccpIPad(978f, 563f)), new Vector2(3.31f, 3.31f), -22f);
+            _ = AddForegroundPositionScaleAngleRotationOffset("McLeafView1", CocosUtil.iPad(new Vector2(1095f, 644f), CocosUtil.ccpIPad(1095f, 564f)), new Vector2(2.71f, 2.71f), 0f, 5f);
+            _ = AddForegroundPositionScaleAngleRotationOffset("McLeafView0", CocosUtil.iPad(new Vector2(1113f, 575f), CocosUtil.ccpIPad(1113f, 475f)), new Vector2(2.38f, 2.38f), -30f, -3f);
+            _ = AddForegroundPositionScaleAngleRotationOffset("McLeafView0", new Vector2(1072f, 108f), new Vector2(2.45f, 2.45f), -52f, 1f);
+            _ = AddForegroundPositionScaleAngleRotationOffset("McLeafView2", new Vector2(1092f, 167f), new Vector2(2.17f, 2.17f), -14f, -3f);
+            _ = AddForegroundPositionScaleAngle("McLeafView4", new Vector2(409f, 66f), new Vector2(-1.7f, 1.4f), 0f);
+            _ = AddForegroundPositionScaleAngle("McLeafView3", new Vector2(340f, 60f), new Vector2(-2.68f, 2.68f), 4f);
+            _ = AddForegroundPositionScaleAngle("McLeafView5", new Vector2(262f, 63f), new Vector2(-2.13f, 2.13f), 0f);
+            _ = AddForegroundPositionScaleAngleRotationOffset("McLeafView2", CocosUtil.ccpIPad(CocosUtil.iPad(-64, -124), 366f), new Vector2(-2.97f, 2.97f), 0f, 4f);
+            _ = AddForegroundPositionScaleAngleRotationOffset("McLeafView1", CocosUtil.ccpIPad(CocosUtil.iPad(-112, -182), 404f), new Vector2(-2.76f, 2.76f), -12f, -3f);
         }
 
         public void AddLianaMiddleEndReduce(Vector2 start, Vector2 middle, Vector2 end, bool reduce)
@@ -97,7 +97,7 @@ namespace Default.Namespace
             foregroundContainer.Visible = foreground.Opacity > 0;
             if (foregroundContainer.Visible)
             {
-                foregroundContainer.Scale = 10f - (depth - 0.8f) * 5f * 9f;
+                foregroundContainer.Scale = 10f - ((depth - 0.8f) * 5f * 9f);
             }
         }
 

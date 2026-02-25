@@ -33,7 +33,7 @@ namespace Default.Namespace
             scaleChanger.SetMiddleProgress();
             scaleChanger.Update(0f);
             portal.ScaleStep = 0.1f;
-            Schedule(new Action(Hide), 8f);
+            _ = Schedule(new Action(Hide), 8f);
         }
 
         private void Hide()

@@ -29,7 +29,7 @@ namespace Default.Namespace
                 else
                 {
                     List<Body> bodiesByWorldReqResult2 = GetBodiesByWorldReqResult(vector, new BodyTypeReq(BodyType.Static));
-                    Body body = ((bodiesByWorldReqResult2.Count > 0) ? bodiesByWorldReqResult2[0] : builder.GroundBody);
+                    Body body = (bodiesByWorldReqResult2.Count > 0) ? bodiesByWorldReqResult2[0] : builder.GroundBody;
                     List<Body> list = new();
                     list.Add(body);
                     list.Add(bodiesByWorldReqResult[0]);

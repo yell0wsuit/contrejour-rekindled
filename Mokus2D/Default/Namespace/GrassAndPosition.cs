@@ -4,24 +4,11 @@ namespace Default.Namespace
 {
     public class GrassAndPosition(Particle particle, Vector2 position)
     {
-        public Particle Particle
-        {
-            get
-            {
-                return particle;
-            }
-        }
+        public Particle Particle => particle;
 
         public Vector2 Position
         {
-            get
-            {
-                return position;
-            }
-            set
-            {
-                position = value;
-            }
+            get => position; set => position = value;
         }
 
         protected Particle particle = particle;

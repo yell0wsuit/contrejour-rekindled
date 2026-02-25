@@ -7,7 +7,7 @@ namespace Default.Namespace
         private VariableSnotBodyClip(LevelBuilderBase _builder, SnotData _body, Node _clip, Hashtable _config)
             : base(_builder, _body, _clip, _config)
         {
-            new SnotVariator(this);
+            _ = new SnotVariator(this);
         }
     }
 }

@@ -28,6 +28,6 @@ namespace Mokus2D.Effects.Actions
             Reset();
         }
 
-        private float diff;
+        private readonly float diff;
     }
 }

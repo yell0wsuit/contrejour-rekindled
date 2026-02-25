@@ -31,13 +31,13 @@ namespace Default.Namespace
             if (flying != value)
             {
                 flying = value;
-                float num = (flying ? ROTATION : IDLE_ROTATION);
+                float num = flying ? ROTATION : IDLE_ROTATION;
                 topContainer.Run(new RotateTo(0.5f, num));
                 bottomContainer.Run(new RotateTo(0.5f, -num));
-                float num2 = (flying ? 1f : 0.5f);
+                float num2 = flying ? 1f : 0.5f;
                 top.Run(new ScaleTo(0.5f, new Vector2(1f, num2)));
                 bottom.Run(new ScaleTo(0.5f, new Vector2(1f, num2)));
-                float num3 = (flying ? 1f : 0.7f);
+                float num3 = flying ? 1f : 0.7f;
                 Run(new ScaleTo(0.5f, new Vector2(ScaleX, num3)));
             }
         }

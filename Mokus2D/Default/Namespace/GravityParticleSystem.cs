@@ -8,122 +8,49 @@ namespace Default.Namespace
     {
         public Range Speed
         {
-            get
-            {
-                return speed;
-            }
-            set
-            {
-                speed = value;
-            }
+            get => speed; set => speed = value;
         }
 
         public Range Angle
         {
-            get
-            {
-                return angle;
-            }
-            set
-            {
-                angle = value;
-            }
+            get => angle; set => angle = value;
         }
 
         public Range AngularSpeed
         {
-            get
-            {
-                return angularSpeed;
-            }
-            set
-            {
-                angularSpeed = value;
-            }
+            get => angularSpeed; set => angularSpeed = value;
         }
 
-        public Range ParticlesScale
-        {
-            get
-            {
-                return particlesScale;
-            }
-            set
-            {
-                particlesScale = value;
-            }
-        }
+        public Range ParticlesScale { get; set; } = new(1f, 0f);
 
         public Range HorizontalPosition
         {
-            get
-            {
-                return horizontalPosition;
-            }
-            set
-            {
-                horizontalPosition = value;
-            }
+            get => horizontalPosition; set => horizontalPosition = value;
         }
 
         public Range VerticalPosition
         {
-            get
-            {
-                return verticalPosition;
-            }
-            set
-            {
-                verticalPosition = value;
-            }
+            get => verticalPosition; set => verticalPosition = value;
         }
 
         public Vector2 TopRightBound
         {
-            get
-            {
-                return topRightBound;
-            }
-            set
-            {
-                topRightBound = value;
-            }
+            get => topRightBound; set => topRightBound = value;
         }
 
         public Vector2 BottomLeftBound
         {
-            get
-            {
-                return bottomLeftBound;
-            }
-            set
-            {
-                bottomLeftBound = value;
-            }
+            get => bottomLeftBound; set => bottomLeftBound = value;
         }
 
         public Range StartOpacity
         {
-            get
-            {
-                return startOpacity;
-            }
-            set
-            {
-                startOpacity = value;
-            }
+            get => startOpacity; set => startOpacity = value;
         }
 
         public Vector2 Gravity
         {
-            get
-            {
-                return gravity;
-            }
-            set
-            {
-                gravity = value;
-            }
+            get => gravity; set => gravity = value;
         }
 
         public GravityParticleSystem(string textureName)
@@ -159,7 +86,7 @@ namespace Default.Namespace
             gravityParticle.Speed = vector;
             gravityParticle.Opacity = (int)startOpacity.GetValueInRange();
             gravityParticle.AngularSpeed = angularSpeed.GetValueInRange();
-            gravityParticle.Scale = particlesScale.GetValueInRange();
+            gravityParticle.Scale = ParticlesScale.GetValueInRange();
             gravityParticle.Position = new Vector2(horizontalPosition.GetValueInRange(), verticalPosition.GetValueInRange());
         }
 
@@ -168,7 +95,7 @@ namespace Default.Namespace
             while (particles.Count < count)
             {
                 Vector2 vector = new(horizontalPosition.GetValueInRange(), verticalPosition.GetValueInRange());
-                AddParticle(vector);
+                _ = AddParticle(vector);
             }
         }
 
@@ -177,7 +104,7 @@ namespace Default.Namespace
             while (particles.Count < count)
             {
                 Vector2 vector = new(Maths.RandRangeMinMax(bottomLeftBound.X, topRightBound.X), Maths.RandRangeMinMax(bottomLeftBound.Y, topRightBound.Y));
-                AddParticle(vector);
+                _ = AddParticle(vector);
             }
         }
 
@@ -213,9 +140,6 @@ namespace Default.Namespace
         protected Range verticalPosition = new();
 
         protected Range angularSpeed = new();
-
-        private Range particlesScale = new(1f, 0f);
-
         protected Range startOpacity = new(255f, 0f);
 
         protected Vector2 bottomLeftBound = new(-100100100f, -100100100f);

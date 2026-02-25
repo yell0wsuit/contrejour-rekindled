@@ -14,7 +14,7 @@ namespace Mokus2D.Util
 
         public void RemoveUpdatable(IUpdatable updatable)
         {
-            updatables.Remove(updatable);
+            _ = updatables.Remove(updatable);
         }
 
         public void Schedule(Action action)
@@ -56,32 +56,26 @@ namespace Mokus2D.Util
             toRun.Clear();
         }
 
-        private Pool<Task> tasksPool = new(64, true, false, null, null);
+        private readonly Pool<Task> tasksPool = new(64, true, false, null, null);
 
         private float totalGameTime;
 
-        private List<Task> tasks = new();
+        private readonly List<Task> tasks = new();
 
-        private List<Action> toRun = new();
+        private readonly List<Action> toRun = new();
 
-        private List<IUpdatable> updatables = new();
+        private readonly List<IUpdatable> updatables = new();
 
         public class Task : IUpdatable, IDisposable
         {
             public Action Action { get; private set; }
 
-            public float TimeLeft
-            {
-                get
-                {
-                    return timeLeft;
-                }
-            }
+            public float TimeLeft { get; private set; }
 
             public void Initialize(Scheduler scheduler, float timeLeft, Action action)
             {
                 this.scheduler = scheduler;
-                this.timeLeft = timeLeft;
+                TimeLeft = timeLeft;
                 Action = action;
             }
 
@@ -93,16 +87,14 @@ namespace Mokus2D.Util
 
             public void Update(float time)
             {
-                timeLeft -= time;
+                TimeLeft -= time;
             }
 
             public void Dispose()
             {
                 RemoveReferences();
-                scheduler.tasks.Remove(this);
+                _ = scheduler.tasks.Remove(this);
             }
-
-            private float timeLeft;
 
             private Scheduler scheduler;
         }

@@ -17,7 +17,7 @@ namespace Default.Namespace
             game = _game;
             data = UserData.Instance;
             Mokus2DGame.SoundManager.MusicDisableEvent.AddListenerSelector(new Action(OnMusicDisable));
-            Color color = (game.BlackSide ? ColorUtil.Mult(ContreJourConstants.BLUE_LIGHT_COLOR, 1.5f) : ContreJourConstants.GREY_COLOR);
+            Color color = game.BlackSide ? ColorUtil.Mult(ContreJourConstants.BLUE_LIGHT_COLOR, 1.5f) : ContreJourConstants.GREY_COLOR;
             if (game.BonusChapter)
             {
                 color = ContreJourConstants.GreenLightColor;
@@ -49,7 +49,7 @@ namespace Default.Namespace
             clickableLayer.AddChild(restartButton);
             restartButton.ClickEvent.AddListenerSelector(new Action<TouchSprite>(OnRestartClick));
             float num2 = CocosUtil.Wp7Retina(CocosUtil.iPad(-130f, -78f));
-            restartButton.Position = new Vector2(num2, winSize.Height / 2f + CocosUtil.Wp7Retina(CocosUtil.iPad(100, 60)));
+            restartButton.Position = new Vector2(num2, (winSize.Height / 2f) + CocosUtil.Wp7Retina(CocosUtil.iPad(100, 60)));
             restartButton.Color = color;
             restartButton.RealScale = num;
             if (Constants.IS_IPAD)
@@ -59,24 +59,24 @@ namespace Default.Namespace
             Button button2 = Button.ButtonBigWithIcon("McMenuIcon");
             clickableLayer.AddChild(button2);
             button2.ClickEvent.AddListenerSelector(new Action(OnMenuClick));
-            button2.Position = new Vector2(num2, winSize.Height / 2f + CocosUtil.Wp7Retina(CocosUtil.iPad(50, 0)));
+            button2.Position = new Vector2(num2, (winSize.Height / 2f) + CocosUtil.Wp7Retina(CocosUtil.iPad(50, 0)));
             button2.Color = color;
             button2.RealScale = num;
             Button button3 = Button.ButtonBigWithIcon("McSkipIcon");
             clickableLayer.AddChild(button3);
             button3.ClickEvent.AddListenerSelector(new Action(OnSkipClick));
-            button3.Position = new Vector2(num2, winSize.Height / 2f - CocosUtil.Wp7Retina(CocosUtil.iPad(50, 60)));
+            button3.Position = new Vector2(num2, (winSize.Height / 2f) - CocosUtil.Wp7Retina(CocosUtil.iPad(50, 60)));
             button3.Color = color;
             button3.RealScale = num;
             soundButton = new ToggleButton("McSoundIcon", "McDisabledIcon");
             clickableLayer.AddChild(soundButton);
-            soundButton.Position = new Vector2(num2 + CocosUtil.Wp7Retina(CocosUtil.iPad(-40, -30)), winSize.Height / 2f - CocosUtil.Wp7Retina(CocosUtil.iPad(200, -120)));
+            soundButton.Position = new Vector2(num2 + CocosUtil.Wp7Retina(CocosUtil.iPad(-40, -30)), (winSize.Height / 2f) - CocosUtil.Wp7Retina(CocosUtil.iPad(200, -120)));
             soundButton.Color = color;
             soundButton.RealScale = CocosUtil.iPad(1f, 1.4f);
             soundButton.ToggleIcon.IgnoreParentColor = true;
             musicButton = new ToggleButton("McMusicIcon", "McDisabledIcon");
             clickableLayer.AddChild(musicButton);
-            musicButton.Position = new Vector2(num2 + CocosUtil.Wp7Retina(CocosUtil.iPad(40, 30)), winSize.Height / 2f - CocosUtil.Wp7Retina(CocosUtil.iPad(200, -120)));
+            musicButton.Position = new Vector2(num2 + CocosUtil.Wp7Retina(CocosUtil.iPad(40, 30)), (winSize.Height / 2f) - CocosUtil.Wp7Retina(CocosUtil.iPad(200, -120)));
             musicButton.Color = color;
             musicButton.ToggleIcon.IgnoreParentColor = true;
             musicButton.RealScale = CocosUtil.iPad(1f, 1.4f);
@@ -88,7 +88,7 @@ namespace Default.Namespace
             buttons = new List<Button>([button, restartButton, button2, button3]);
             if (Constants.IS_IPAD)
             {
-                buttons.Remove(restartButton);
+                _ = buttons.Remove(restartButton);
             }
             scoreLabel = ContreJourLabel.CreateLabel(CocosUtil.iPad(25, 15), true);
             scoreLabel.Position = CocosUtil.ccpIPad(CocosUtil.iPad(-130, -160), CocosUtil.iPad(40, 30));
@@ -153,7 +153,7 @@ namespace Default.Namespace
             }
             string text = string.Format(Messages.LEVEL, levelPosition.Chapter + 1, levelPosition.Index + 1, null);
             levelLabel.TextString = text;
-            scoreLabel.AppendFormat(Messages.BEST_SCORE, [(levelDataByFile == null) ? 0 : levelDataByFile.Score]);
+            _ = scoreLabel.AppendFormat(Messages.BEST_SCORE, [(levelDataByFile == null) ? 0 : levelDataByFile.Score]);
         }
 
         public void Show()
@@ -170,7 +170,7 @@ namespace Default.Namespace
             MoveTo moveTo = new(0.35f, new Vector2(winSize.Width + 10f, 0f));
             Run(new EaseOut(moveTo, 3f));
             buttonIndex = 0;
-            Schedule(new Action(ProcessNextButton), 0.15f);
+            _ = Schedule(new Action(ProcessNextButton), 0.15f);
             scoreLabel.Visible = true;
             scoreLabel.Run(new FadeIn(0.35f));
             levelLabel.Visible = true;
@@ -197,10 +197,10 @@ namespace Default.Namespace
             buttonIndex++;
             if (buttonIndex < buttons.Count)
             {
-                Schedule(new Action(ProcessNextButton), 0.1f);
+                _ = Schedule(new Action(ProcessNextButton), 0.1f);
                 return;
             }
-            Schedule(new Action(ShowMusic), 0.1f);
+            _ = Schedule(new Action(ShowMusic), 0.1f);
         }
 
         private void ShowMusic()
@@ -317,6 +317,6 @@ namespace Default.Namespace
 
         protected CGSize winSize;
 
-        private LayerColor backgroundLayer = new(Color.Black);
+        private readonly LayerColor backgroundLayer = new(Color.Black);
     }
 }

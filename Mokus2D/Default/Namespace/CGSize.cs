@@ -42,36 +42,16 @@ namespace Default.Namespace
             return !(sz1 == sz2);
         }
 
-        public readonly bool IsEmpty
-        {
-            get
-            {
-                return width == 0f && height == 0f;
-            }
-        }
+        public readonly bool IsEmpty => width == 0f && height == 0f;
 
         public float Width
         {
-            readonly get
-            {
-                return width;
-            }
-            set
-            {
-                width = value;
-            }
+            readonly get => width; set => width = value;
         }
 
         public float Height
         {
-            readonly get
-            {
-                return height;
-            }
-            set
-            {
-                height = value;
-            }
+            readonly get => height; set => height = value;
         }
 
         public static implicit operator Vector2(CGSize size)
@@ -106,7 +86,7 @@ namespace Default.Namespace
 
         public override readonly bool Equals(object obj)
         {
-            if (!(obj is CGSize))
+            if (obj is not CGSize)
             {
                 return false;
             }

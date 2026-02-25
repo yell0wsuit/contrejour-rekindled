@@ -13,13 +13,7 @@ namespace Default.Namespace
     {
         public bool Enabled { get; set; } = true;
 
-        private bool CanProcessTouch
-        {
-            get
-            {
-                return Enabled && NodeUtil.IsBranchVisible(this);
-            }
-        }
+        private bool CanProcessTouch => Enabled && NodeUtil.IsBranchVisible(this);
 
         public bool TouchMove(Touch touch)
         {
@@ -41,7 +35,7 @@ namespace Default.Namespace
                     }
                     foreach (ITouchNode touchNode2 in list2)
                     {
-                        list.Remove(touchNode2);
+                        _ = list.Remove(touchNode2);
                     }
                 }
                 return OnTouchMove(touch);
@@ -72,14 +66,14 @@ namespace Default.Namespace
                 TouchEndEvent.SendEvent();
                 List<ITouchNode> nodes = GetNodes(touch);
                 List<ITouchNode> list = clickNodes[touch];
-                clickNodes.Remove(touch);
+                _ = clickNodes.Remove(touch);
                 foreach (ITouchNode touchNode in nodes)
                 {
                     touchNode.TouchEnd(touch);
                     if (list.IndexOf(touchNode) != -1)
                     {
                         touchNode.Click(touch);
-                        list.Remove(touchNode);
+                        _ = list.Remove(touchNode);
                     }
                     if (!CanProcessTouch)
                     {
@@ -141,7 +135,7 @@ namespace Default.Namespace
         {
             if (node is ITouchNode && spriteRects.ContainsKey((ITouchNode)node))
             {
-                spriteRects.Remove((ITouchNode)node);
+                _ = spriteRects.Remove((ITouchNode)node);
             }
             base.RemoveChild(node);
         }

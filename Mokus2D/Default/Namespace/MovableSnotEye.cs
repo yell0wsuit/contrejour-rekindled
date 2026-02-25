@@ -115,7 +115,7 @@ namespace Default.Namespace
 
         public override bool TouchBegan(Touch touch)
         {
-            base.TouchBegan(touch);
+            _ = base.TouchBegan(touch);
             targetPosition = targetPoint.Body.Position;
             snot.StopParts();
             return true;
@@ -169,7 +169,7 @@ namespace Default.Namespace
 
         private float targetSpeed;
 
-        private SnotPoint initialPoint = targetPoint;
+        private readonly SnotPoint initialPoint = targetPoint;
 
         private Vector2 targetPosition;
     }

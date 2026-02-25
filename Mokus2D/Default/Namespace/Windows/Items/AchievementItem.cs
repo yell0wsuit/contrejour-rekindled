@@ -18,7 +18,7 @@ namespace Default.Namespace.Windows.Items
             label.AnchorX = 0f;
             label.Position = new Vector2(83f, -22f);
             AddChild(label);
-            float num = ((ContreJourLabel.CultureName == "de") ? 8.25f : 9f);
+            float num = (ContreJourLabel.CultureName == "de") ? 8.25f : 9f;
             Label label2 = ContreJourLabel.CreateLabel(num, achievement.Description, false);
             label2.Y = -10f;
             AddChild(label2);
@@ -44,26 +44,14 @@ namespace Default.Namespace.Windows.Items
             return sprite;
         }
 
-        public override Node ViewTarget
-        {
-            get
-            {
-                return goldLabel;
-            }
-        }
+        public override Node ViewTarget => goldLabel;
 
-        public override Vector2 Size
-        {
-            get
-            {
-                return ItemSize;
-            }
-        }
+        public override Vector2 Size => ItemSize;
 
         private static readonly Vector2 ItemSize = new(500f, 84f);
 
-        private Label goldLabel;
+        private readonly Label goldLabel;
 
-        private Sprite picture;
+        private readonly Sprite picture;
     }
 }

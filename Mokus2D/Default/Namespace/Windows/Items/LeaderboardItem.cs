@@ -30,27 +30,17 @@ namespace Default.Namespace.Windows.Items
             }
         }
 
-        public override Node ViewTarget
-        {
-            get
-            {
-                return scoreLabel;
-            }
-        }
+        public override Node ViewTarget => scoreLabel;
 
-        public override Vector2 Size
-        {
-            get
-            {
-                return new Vector2(400f, 100f);
-            }
-        }
+        public override Vector2 Size => new Vector2(400f, 100f);
 
         private void OnGetProfile(GamerProfile result)
         {
             Texture2D texture2D = Texture2D.FromStream(Mokus2DGame.Device, result.GetGamerPicture());
-            Sprite sprite = new(texture2D);
-            sprite.OpacityFloat = 0f;
+            Sprite sprite = new(texture2D)
+            {
+                OpacityFloat = 0f
+            };
             sprite.Run(new FadeIn(0.5f));
             CreatePicture(sprite);
             sprite.Y -= 1.7f;
@@ -58,6 +48,6 @@ namespace Default.Namespace.Windows.Items
 
         private const string Format = "{0}. {1}";
 
-        private Label scoreLabel;
+        private readonly Label scoreLabel;
     }
 }

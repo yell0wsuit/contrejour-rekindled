@@ -10,19 +10,13 @@ namespace Default.Namespace
 {
     public class StrongSnotBodyClip : SnotBodyClip
     {
-        public float NormalDistance
-        {
-            get
-            {
-                return normalDistance;
-            }
-        }
+        public float NormalDistance => normalDistance;
 
         public StrongSnotBodyClip(LevelBuilderBase _builder, SnotData _body, Node _clip, Hashtable _config)
             : base(_builder, _body, _clip, _config)
         {
             normalDistance = CurrentDistance();
-            maxSnotDistance = Maths.max(normalDistance * 1.25f, normalDistance + 30f * builder.EngineConfig.SizeMultiplier);
+            maxSnotDistance = Maths.max(normalDistance * 1.25f, normalDistance + (30f * builder.EngineConfig.SizeMultiplier));
             extremeSnotDistance = normalDistance * 2f;
             targetColor = 255f;
             DragableBodyClip dragableBodyClip = Physics.JoinedBody.UserData as DragableBodyClip;
@@ -32,13 +26,7 @@ namespace Default.Namespace
             }
         }
 
-        public new Vector2 Position
-        {
-            get
-            {
-                return Physics.FirstBody.Position;
-            }
-        }
+        public new Vector2 Position => Physics.FirstBody.Position;
 
         public override string[] OnSound()
         {
@@ -116,10 +104,12 @@ namespace Default.Namespace
         {
             if (base.TouchBegan(_touch))
             {
-                dragJoint = new FixedMouseJoint(Physics.EndBody, Physics.EndBody.Position);
-                dragJoint.MaxForce = 100f;
-                dragJoint.Frequency = 100f;
-                dragJoint.WorldAnchorB = GetDragTarget().Point;
+                dragJoint = new FixedMouseJoint(Physics.EndBody, Physics.EndBody.Position)
+                {
+                    MaxForce = 100f,
+                    Frequency = 100f,
+                    WorldAnchorB = GetDragTarget().Point
+                };
                 return true;
             }
             return false;

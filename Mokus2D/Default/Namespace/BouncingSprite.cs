@@ -15,22 +15,17 @@ namespace Default.Namespace
         public BouncingSprite(string filename)
             : base(filename)
         {
-            changer = new CosChanger(0.03f, 0.05f);
-            changer.MinValue = 0.95f;
-            changer.MaxValue = 1.04f;
+            changer = new CosChanger(0.03f, 0.05f)
+            {
+                MinValue = 0.95f,
+                MaxValue = 1.04f
+            };
             initialScale = 1f;
         }
 
         public float Step
         {
-            get
-            {
-                return changer.Step;
-            }
-            set
-            {
-                changer.Step = value;
-            }
+            get => changer.Step; set => changer.Step = value;
         }
 
         public override Vector2 ScaleVec

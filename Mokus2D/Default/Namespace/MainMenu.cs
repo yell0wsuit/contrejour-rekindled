@@ -18,13 +18,7 @@ namespace Default.Namespace
 {
     public class MainMenu : AccelerometerMenu, IActivatedDependent
     {
-        public bool PlanetsLoaded
-        {
-            get
-            {
-                return planetsLoaded;
-            }
-        }
+        public bool PlanetsLoaded => planetsLoaded;
 
         public MainMenu()
         {
@@ -112,10 +106,10 @@ namespace Default.Namespace
             RefreshSoundButtons();
             achievementsButton = new Button("McXBoxButton", null, null);
             ProcessXBoxButton(achievementsButton, "ACHIEVEMENTS", 12f, 18f, 1f);
-            achievementsButton.Position = new Vector2(soundButton.Position.X - (soundButton.Size.X + 68f) * soundButton.RealScale, 0f);
+            achievementsButton.Position = new Vector2(soundButton.Position.X - ((soundButton.Size.X + 68f) * soundButton.RealScale), 0f);
             leaderboardsButton = new Button("McXBoxButton", null, null);
             ProcessXBoxButton(leaderboardsButton, "LEADERBOARDS", 12f, 18f, 1f);
-            leaderboardsButton.Position = new Vector2(achievementsButton.Position.X - (achievementsButton.Size.X + 10f) * achievementsButton.RealScale, 0f);
+            leaderboardsButton.Position = new Vector2(achievementsButton.Position.X - ((achievementsButton.Size.X + 10f) * achievementsButton.RealScale), 0f);
             if (!Constants.IsTrial)
             {
                 achievementsButton.ClickEvent.AddListenerSelector(new Action(OnAchievementsClick));
@@ -124,7 +118,7 @@ namespace Default.Namespace
             }
             buyFullVersionMenuButton = new Button("McBuyFullVersionMenuButton", null, null);
             ProcessXBoxButton(buyFullVersionMenuButton, "BUY_FULL_VERSION", 14f, 22f, 0.92f);
-            buyFullVersionMenuButton.Position = new Vector2(buyFullVersionMenuButton.Size.X * buyFullVersionMenuButton.RealScale / 2f + 28f, 0f);
+            buyFullVersionMenuButton.Position = new Vector2((buyFullVersionMenuButton.Size.X * buyFullVersionMenuButton.RealScale / 2f) + 28f, 0f);
             achievementsButton.ClickEvent.AddListenerSelector(new Action(OnGetFullVersion));
             leaderboardsButton.ClickEvent.AddListenerSelector(new Action(OnGetFullVersion));
             buyFullVersionMenuButton.ClickEvent.AddListenerSelector(new Action(OnGetFullVersion));
@@ -209,8 +203,10 @@ namespace Default.Namespace
 
         public void CreateLabels()
         {
-            names = new NamesChanger();
-            names.Position = CocosUtil.iPad(NAMES_POSITION, NAMES_POSITION_IPHONE);
+            names = new NamesChanger
+            {
+                Position = CocosUtil.iPad(NAMES_POSITION, NAMES_POSITION_IPHONE)
+            };
             AddChild(names, 4);
             logo = ClipFactory.CreateWithAnchor("McMainMenuLogo");
             AddChild(logo, 4);
@@ -235,8 +231,10 @@ namespace Default.Namespace
                 if (HardwareCapabilities.IsLowMemoryDevice)
                 {
                     string texturePath = ClipFactory.GetTexturePath(string.Format("{0}Chapter16Bit", num));
-                    sprite = new Sprite(Mokus2DGame.SharedContent.Load<Texture2D>(texturePath));
-                    sprite.Position = ScreenConstants.IPhoneScreenCenter;
+                    sprite = new Sprite(Mokus2DGame.SharedContent.Load<Texture2D>(texturePath))
+                    {
+                        Position = ScreenConstants.IPhoneScreenCenter
+                    };
                 }
                 else
                 {
@@ -333,9 +331,9 @@ namespace Default.Namespace
 
         public void RefreshScore()
         {
-            int num = (inChapter ? data.GetChapterStars(currentChapter) : data.TotalStars);
-            int num2 = (inChapter ? data.GetChapterScore(currentChapter) : data.TotalScore);
-            int num3 = (inChapter ? 60 : (ContreJourConstants.LEVEL_COUNT * 3));
+            int num = inChapter ? data.GetChapterStars(currentChapter) : data.TotalStars;
+            int num2 = inChapter ? data.GetChapterScore(currentChapter) : data.TotalScore;
+            int num3 = inChapter ? 60 : (ContreJourConstants.LEVEL_COUNT * 3);
             string text = string.Format(Messages.STARS_AND_SCORE, num, num3, num2);
             starsField.TextString = text;
         }
@@ -664,7 +662,7 @@ namespace Default.Namespace
             GreenColor
         ];
 
-        private static readonly Color[] BackColors = (Constants.IsTrial ? new Color[]
+        private static readonly Color[] BackColors = Constants.IsTrial ? new Color[]
         {
             GREY_COLOR,
             BLUE_COLOR,
@@ -677,7 +675,7 @@ namespace Default.Namespace
             ColorUtil.Mult(GREY_COLOR, 0.5f),
             GREY_COLOR,
             GreenColor
-        ]);
+        ];
 
         private readonly Vector2 NAMES_POSITION_IPHONE = CocosUtil.Vector2Retina(80f, 236f);
 

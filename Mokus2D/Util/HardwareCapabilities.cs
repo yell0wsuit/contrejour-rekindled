@@ -27,13 +27,7 @@ namespace Mokus2D.Util
             }
         }
 
-        private static long ApplicationMemoryLimit
-        {
-            get
-            {
-                return (long)DeviceExtendedProperties.GetValue("ApplicationWorkingSetLimit");
-            }
-        }
+        private static long ApplicationMemoryLimit => (long)DeviceExtendedProperties.GetValue("ApplicationWorkingSetLimit");
 
         private const long NormalMemorySize = 94371840L;
 

@@ -13,13 +13,7 @@ namespace Default.Namespace
             bodies.Add(body);
         }
 
-        public List<Body> Bodies
-        {
-            get
-            {
-                return bodies;
-            }
-        }
+        public List<Body> Bodies => bodies;
 
         public int PointsCount()
         {

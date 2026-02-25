@@ -28,21 +28,9 @@ namespace Default.Namespace
             baseEndClip.Scale = eye.Scale;
         }
 
-        public override Body EyeBody
-        {
-            get
-            {
-                return Physics.EndBody;
-            }
-        }
+        public override Body EyeBody => Physics.EndBody;
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public bool DisableHeroFocus => true;
 
         public int Priority(Vector2 touchPoint)
         {
@@ -118,8 +106,8 @@ namespace Default.Namespace
                     Body body = Physics.BodyAt(i);
                     body.GravityScale = stabilize ? 0 : 1;
                 }
-                Physics.EndBody.GravityScale = (stabilize ? 0.2f : 0f);
-                float num2 = force / 4f * 3f + force * Maths.Cos(forceProgress) / 4f;
+                Physics.EndBody.GravityScale = stabilize ? 0.2f : 0f;
+                float num2 = (force / 4f * 3f) + (force * Maths.Cos(forceProgress) / 4f);
                 forceProgress += forceStep;
                 Physics.EndBody.ApplyForce(FarseerUtil.ToVecAngle(num2, eye.ViewAngle), Physics.EndBody.WorldCenter);
             }

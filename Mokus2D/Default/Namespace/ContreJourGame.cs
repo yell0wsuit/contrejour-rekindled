@@ -42,102 +42,32 @@ namespace Default.Namespace
 
         public int Frame
         {
-            get
-            {
-                return frame;
-            }
-            set
-            {
-                frame = value;
-            }
+            get => frame; set => frame = value;
         }
 
-        public WindManager WindManager
-        {
-            get
-            {
-                return windManager;
-            }
-        }
+        public WindManager WindManager => windManager;
 
-        public Node AlphaBackground
-        {
-            get
-            {
-                return alphaBackground;
-            }
-        }
+        public Node AlphaBackground => alphaBackground;
 
-        public bool BlackSide
-        {
-            get
-            {
-                return blackSide;
-            }
-        }
+        public bool BlackSide => blackSide;
 
-        public bool WhiteSide
-        {
-            get
-            {
-                return whiteSide;
-            }
-        }
+        public bool WhiteSide => whiteSide;
 
-        public int Chapter
-        {
-            get
-            {
-                return chapter;
-            }
-        }
+        public int Chapter => chapter;
 
-        public EventSender BackEvent
-        {
-            get
-            {
-                return backEvent;
-            }
-        }
+        public EventSender BackEvent => backEvent;
 
-        public EventSender RestartEvent
-        {
-            get
-            {
-                return restartEvent;
-            }
-        }
+        public EventSender RestartEvent => restartEvent;
 
-        public EventSender NextLevelEvent
-        {
-            get
-            {
-                return nextLevelEvent;
-            }
-        }
+        public EventSender NextLevelEvent => nextLevelEvent;
 
-        public HeroBodyClip Hero
-        {
-            get
-            {
-                return hero;
-            }
-        }
+        public HeroBodyClip Hero { get; private set; }
 
-        public Vector2 HeroPositionVec
-        {
-            get
-            {
-                return hero.Body.Position;
-            }
-        }
+        public Vector2 HeroPositionVec => Hero.Body.Position;
 
         public float FlyOpacity
         {
-            get
-            {
-                return flyOpacity;
-            }
+            get => flyOpacity;
             set
             {
                 if (Maths.FuzzyNotEquals(flyOpacity, value, 0.0001f))
@@ -147,194 +77,67 @@ namespace Default.Namespace
             }
         }
 
-        public List<PlasticineBodyClip> Plasticine
-        {
-            get
-            {
-                return plasticine;
-            }
-        }
+        public List<PlasticineBodyClip> Plasticine => plasticine;
 
         public Vector2 LightPoint
         {
-            get
-            {
-                return lightPoint;
-            }
-            set
-            {
-                lightPoint = value;
-            }
+            get => lightPoint; set => lightPoint = value;
         }
 
-        public bool LightPowerChanged
-        {
-            get
-            {
-                return lightPowerChanged;
-            }
-        }
+        public bool LightPowerChanged => lightPowerChanged;
 
-        public LightColor LightColor
-        {
-            get
-            {
-                return lightColor;
-            }
-        }
+        public LightColor LightColor => lightColor;
 
-        public ParticleSystem Flyes
-        {
-            get
-            {
-                return flyes;
-            }
-        }
+        public ParticleSystem Flyes => flyes;
 
-        public ParticleSystem Dust
-        {
-            get
-            {
-                return dust;
-            }
-        }
+        public ParticleSystem Dust => dust;
 
-        public ParticleSystem Grass
-        {
-            get
-            {
-                return grass;
-            }
-        }
+        public ParticleSystem Grass => grass;
 
-        public ParticleSystem Energy
-        {
-            get
-            {
-                return energy;
-            }
-        }
+        public ParticleSystem Energy => energy;
 
-        public GroundFall GroundFall
-        {
-            get
-            {
-                return groundFall;
-            }
-        }
+        public GroundFall GroundFall => groundFall;
 
         public EndLevelBodyClip EndLevel
         {
-            get
-            {
-                return endLevel;
-            }
-            set
-            {
-                endLevel = value;
-            }
+            get => endLevel; set => endLevel = value;
         }
 
         public bool TouchEnabled
         {
-            get
-            {
-                return touchEnabled;
-            }
-            set
-            {
-                touchEnabled = value;
-            }
+            get => touchEnabled; set => touchEnabled = value;
         }
 
-        public int LevelIndex
-        {
-            get
-            {
-                return levelIndex;
-            }
-        }
+        public int LevelIndex => levelIndex;
 
-        public int LevelPosition
-        {
-            get
-            {
-                return levelPosition;
-            }
-        }
+        public int LevelPosition => levelPosition;
 
         public IBonusAcceptable BonusTarget
         {
-            get
-            {
-                return bonusTarget ?? hero;
-            }
-            set
-            {
-                bonusTarget = value;
-            }
+            get => bonusTarget ?? Hero; set => bonusTarget = value;
         }
 
         public bool CanShowIntro { get; set; }
 
-        public int StarsCollected
-        {
-            get
-            {
-                return starsCollected;
-            }
-        }
+        public int StarsCollected => starsCollected;
 
         public bool SnotSend
         {
-            get
-            {
-                return snotSend;
-            }
-            set
-            {
-                snotSend = value;
-            }
+            get => snotSend; set => snotSend = value;
         }
 
-        public ClickableLayer ClickableLayer
-        {
-            get
-            {
-                return clickableLayer;
-            }
-        }
+        public ClickableLayer ClickableLayer => clickableLayer;
 
-        public Color ButtonsColor
-        {
-            get
-            {
-                return buttonsColor;
-            }
-        }
+        public Color ButtonsColor => buttonsColor;
 
         public bool RestartEnabled
         {
-            get
-            {
-                return restartEnabled;
-            }
-            set
-            {
-                restartEnabled = value;
-            }
+            get => restartEnabled; set => restartEnabled = value;
         }
 
         public bool Finished
         {
-            get
-            {
-                return finished;
-            }
-            set
-            {
-                finished = value;
-            }
+            get => finished; set => finished = value;
         }
 
         public ContreJourGame(int _chapter)
@@ -347,7 +150,7 @@ namespace Default.Namespace
             touchEnabled = true;
             CGSize cgsize = ScreenConstants.W7FromIPhoneSize;
             Vector2 vector = CocosUtil.toIPhone(new Vector2(cgsize.Width, cgsize.Height));
-            Vector2 vector2 = (blackSide ? new Vector2(cgsize.Width / 2f, cgsize.Height * 2f) : vector);
+            Vector2 vector2 = blackSide ? new Vector2(cgsize.Width / 2f, cgsize.Height * 2f) : vector;
             lightPoint = Box2DConfig.DefaultConfig.ToVec(vector2);
             lightPower = 1f;
             lightColor = ChooseSide(PlasticineConstants.BLUE, PlasticineConstants.BLACK_LIGHT, PlasticineConstants.LAST_LIGHT, PlasticineConstants.WHITE, PlasticineConstants.Green);
@@ -373,7 +176,7 @@ namespace Default.Namespace
             AddChild(restartLayer, 100);
             restartLayer.Visible = false;
             Color color = ColorUtil.Mult(ContreJourConstants.BLUE_LIGHT_COLOR, 2f);
-            buttonsColor = (blackSide ? color : ContreJourConstants.GREY_COLOR);
+            buttonsColor = blackSide ? color : ContreJourConstants.GREY_COLOR;
             int cornerOffset = CocosUtil.CornerOffset;
             pausePanel = new PausePanel(this);
             AddChild(pausePanel, 15);
@@ -382,17 +185,11 @@ namespace Default.Namespace
             starsCollected = 0;
             touchFixPoint = CocosUtil.ScreenPosition(new Vector2(0f, 1f));
             teleports = new Hashtable();
-            updater.CallAfterSelectorDelay(new Action(EnableRestart), 1.5f);
+            _ = updater.CallAfterSelectorDelay(new Action(EnableRestart), 1.5f);
             Mokus2DGame.KeysController.AddBackKeyListener(new Action(OnBackPress), 0);
         }
 
-        public new ContreJourLevelBuilder Builder
-        {
-            get
-            {
-                return (ContreJourLevelBuilder)base.Builder;
-            }
-        }
+        public new ContreJourLevelBuilder Builder => (ContreJourLevelBuilder)base.Builder;
 
         public override ClipFactory CreateClipFactory()
         {
@@ -440,7 +237,7 @@ namespace Default.Namespace
                 Hashtable levelProperties = level.levelProperties;
                 levelSize = new Vector2(levelProperties.GetFloat("Width"), levelProperties.GetFloat("Height"));
                 alphaBackground.Scale = levelSize.X / ScreenConstants.OsSizes.IPhoneRetina.X;
-                alphaBackground.Y = -(ScreenConstants.OsSizes.IPhoneRetina.Y * alphaBackground.Scale - levelSize.Y) / 2f;
+                alphaBackground.Y = -((ScreenConstants.OsSizes.IPhoneRetina.Y * alphaBackground.Scale) - levelSize.Y) / 2f;
                 screenControl = new ScreenControl(this);
                 AddUpdatable(screenControl);
                 RefreshScreenControlEnabled();
@@ -477,8 +274,10 @@ namespace Default.Namespace
                 }
             }
             string texturePath = ClipFactory.GetTexturePath(string.Format("{0}Chapter16Bit", chapter + 1));
-            Sprite sprite = new(Mokus2DGame.SharedContent.Load<Texture2D>(texturePath));
-            sprite.Anchor = new Vector2(0f, 1f);
+            Sprite sprite = new(Mokus2DGame.SharedContent.Load<Texture2D>(texturePath))
+            {
+                Anchor = new Vector2(0f, 1f)
+            };
             Builder.AddAlphaBackground(sprite);
         }
 
@@ -497,44 +296,17 @@ namespace Default.Namespace
             bool is_IPAD = Constants.IS_IPAD;
         }
 
-        public bool RoseChapter
-        {
-            get
-            {
-                return chapter == 4;
-            }
-        }
+        public bool RoseChapter => chapter == 4;
 
-        public bool BonusChapter
-        {
-            get
-            {
-                return chapter == 5;
-            }
-        }
+        public bool BonusChapter => chapter == 5;
 
-        public int HeroIndex
-        {
-            get
-            {
-                return Builder.Root.Children.IndexOf(hero.Clip);
-            }
-        }
+        public int HeroIndex => Builder.Root.Children.IndexOf(Hero.Clip);
 
-        public Vector2 HeroPositionPixels
-        {
-            get
-            {
-                return hero.Clip.Position;
-            }
-        }
+        public Vector2 HeroPositionPixels => Hero.Clip.Position;
 
         public float LightPower
         {
-            get
-            {
-                return lightPower;
-            }
+            get => lightPower;
             set
             {
                 if (Maths.FuzzyNotEquals(lightPower, value, 0.0001f))
@@ -600,12 +372,12 @@ namespace Default.Namespace
             }
             if (screenControl.Touch == touch)
             {
-                screenControl.TouchMove(touch);
+                _ = screenControl.TouchMove(touch);
             }
             if (draggingItems.ContainsKey(touch))
             {
                 IClickable clickable = draggingItems[touch];
-                clickable.TouchMove(touch);
+                _ = clickable.TouchMove(touch);
             }
             return true;
         }
@@ -614,18 +386,18 @@ namespace Default.Namespace
         {
             if (freeTouches.Contains(touch))
             {
-                freeTouches.Remove(touch);
+                _ = freeTouches.Remove(touch);
             }
             if (screenControl.Touch == touch)
             {
                 screenControl.TouchEnd(touch);
             }
-            freeDisabledTouches.Remove(touch);
+            _ = freeDisabledTouches.Remove(touch);
             screenControl.EndZoomTouch(touch);
             if (draggingItems.ContainsKey(touch))
             {
                 IClickable clickable = draggingItems[touch];
-                draggingItems.Remove(touch);
+                _ = draggingItems.Remove(touch);
                 clickable.TouchEnd(touch);
             }
             foreach (object obj in positionProviders)
@@ -730,9 +502,9 @@ namespace Default.Namespace
 
         public void HardRestart()
         {
-            if (hero != null)
+            if (Hero != null)
             {
-                hero.Removed = true;
+                Hero.Removed = true;
             }
             restartEvent.SendEvent();
             DisableEvents();
@@ -769,7 +541,7 @@ namespace Default.Namespace
 
         public void Restart()
         {
-            if (levelIndex == 0 || levelIndex == 66)
+            if (levelIndex is 0 or 66)
             {
                 HardRestart();
                 return;
@@ -790,7 +562,7 @@ namespace Default.Namespace
                 ]);
                 restartLayer.Run(sequence);
                 SoftRestart();
-                updater.CallAfterSelectorDelay(new Action(EnableRestart), 1.5f);
+                _ = updater.CallAfterSelectorDelay(new Action(EnableRestart), 1.5f);
             }
         }
 
@@ -804,9 +576,9 @@ namespace Default.Namespace
 
         public void Back()
         {
-            if (hero != null)
+            if (Hero != null)
             {
-                hero.Removed = true;
+                Hero.Removed = true;
             }
             backEvent.SendEvent();
             DisableEvents();
@@ -814,9 +586,9 @@ namespace Default.Namespace
 
         public void Skip()
         {
-            if (hero != null)
+            if (Hero != null)
             {
-                hero.Removed = true;
+                Hero.Removed = true;
             }
             LevelPosition levelPosition = LevelsMenu.GetLevelPosition(levelIndex);
             data.SkipLevel(levelPosition);
@@ -1075,7 +847,7 @@ namespace Default.Namespace
                 Restart();
                 return;
             }
-            Updater.CallAfterSelectorDelay(new Action(Restart), restartTime);
+            _ = Updater.CallAfterSelectorDelay(new Action(Restart), restartTime);
         }
 
         public void Finish(Vector2 zoomPoint)
@@ -1101,7 +873,7 @@ namespace Default.Namespace
             }
             CGSize cgsize = ScreenConstants.W7FromIPhoneSize;
             Vector2 vector = new(0f, 30f);
-            Vector2 vector2 = new(cgsize.Width * -0.20000005f, cgsize.Height * -0.20000005f - 30f);
+            Vector2 vector2 = new(cgsize.Width * -0.20000005f, (cgsize.Height * -0.20000005f) - 30f);
             ZoomToScaleRightTopLeftBottomTime(zoomPoint * gameRoot.Scale, 1.2f, vector, vector2, 2.4f);
         }
 
@@ -1119,7 +891,7 @@ namespace Default.Namespace
         public void ZoomToScaleRightTopLeftBottomTime(Vector2 zoomPoint, float scale, Vector2 rightTop, Vector2 leftBottom, float time)
         {
             CGSize cgsize = ScreenConstants.W7FromIPhoneSize;
-            Vector2 vector = new(cgsize.Width / 2f - zoomPoint.X * scale, cgsize.Height / 2f - zoomPoint.Y * scale);
+            Vector2 vector = new((cgsize.Width / 2f) - (zoomPoint.X * scale), (cgsize.Height / 2f) - (zoomPoint.Y * scale));
             Vector2 vector2 = vector;
             vector2.X = vector2.X.Clamp(leftBottom.X, rightTop.X);
             vector2.Y = vector2.Y.Clamp(leftBottom.Y, rightTop.Y);
@@ -1134,13 +906,13 @@ namespace Default.Namespace
 
         public void RegisterHero(HeroBodyClip _hero)
         {
-            hero = _hero;
+            Hero = _hero;
             AddPositionProvider(new PositionProviderValue(_hero, 5f));
         }
 
         private void RemovePositionProvider(PositionProviderValue provider)
         {
-            positionProviders.Remove(provider);
+            _ = positionProviders.Remove(provider);
             providersValue -= provider.Value;
         }
 
@@ -1240,7 +1012,7 @@ namespace Default.Namespace
             }
             foreach (object obj in arrayList)
             {
-                freeTouches.Remove((Touch)obj);
+                _ = freeTouches.Remove((Touch)obj);
             }
             foreach (IUpdatable updatable in backgrounds)
             {
@@ -1265,7 +1037,7 @@ namespace Default.Namespace
         {
             if (ProcessTouchIsFree(touch, true))
             {
-                freeTouches.Remove(touch);
+                _ = freeTouches.Remove(touch);
             }
         }
 
@@ -1339,7 +1111,7 @@ namespace Default.Namespace
 
         public void FreeTouch(Touch touch)
         {
-            draggingItems.Remove(touch);
+            _ = draggingItems.Remove(touch);
             if (!freeTouches.Contains(touch))
             {
                 freeTouches.Add(touch);
@@ -1409,9 +1181,6 @@ namespace Default.Namespace
         protected ParticleSystem grass;
 
         protected GroundFall groundFall;
-
-        private HeroBodyClip hero;
-
         protected int levelIndex;
 
         protected int levelPosition;

@@ -7,82 +7,28 @@ namespace Default.Namespace
 {
     public class GrassController : IGrassController, IUpdatable
     {
-        public Particle Grass
-        {
-            get
-            {
-                return grass;
-            }
-        }
+        public Particle Grass => grass;
 
-        public virtual float Y
-        {
-            get
-            {
-                return grass.Position.Y;
-            }
-        }
+        public virtual float Y => grass.Position.Y;
 
-        public virtual int GrassFrame
-        {
-            get
-            {
-                return Maths.Random(8);
-            }
-        }
+        public virtual int GrassFrame => Maths.Random(8);
 
-        public virtual float WindAngle
-        {
-            get
-            {
-                return 0.5235988f;
-            }
-        }
+        public virtual float WindAngle => 0.5235988f;
 
-        public virtual int SmallGrassFrame
-        {
-            get
-            {
-                return Maths.Random(5) + 8;
-            }
-        }
+        public virtual int SmallGrassFrame => Maths.Random(5) + 8;
 
-        public virtual float SmallGrassScale
-        {
-            get
-            {
-                return 0.5f;
-            }
-        }
+        public virtual float SmallGrassScale => 0.5f;
 
         public virtual float GetSmallGrassOffset(int index)
         {
             return Maths.RandRangeMinMax(-plasticine.Width, plasticine.Width);
         }
 
-        public virtual float TrampleAngle
-        {
-            get
-            {
-                return 0.5235988f;
-            }
-        }
+        public virtual float TrampleAngle => 0.5235988f;
 
-        public virtual float SmallGrassStep
-        {
-            get
-            {
-                return !touched ? 1f : 4f;
-            }
-        }
+        public virtual float SmallGrassStep => !touched ? 1f : 4f;
 
-        public virtual float GrassStep
-        {
-            get
-            {
-                return !touched ? 1f : 2.5f;
-            }
-        }
+        public virtual float GrassStep => !touched ? 1f : 2.5f;
 
         public GrassController(PlasticinePartBodyClip _plasticine)
         {
@@ -194,7 +140,7 @@ namespace Default.Namespace
         public void CreateFlyes()
         {
             flyes = new ArrayList();
-            int num = ((game.RoseChapter || game.BonusChapter) ? 1 : 2);
+            int num = (game.RoseChapter || game.BonusChapter) ? 1 : 2;
             for (int i = 0; i < num; i++)
             {
                 Vector2 vector = new(Maths.RandRangeMinMax(-plasticine.Width, plasticine.Width), Maths.RandRangeMinMax(1.3333334f, 2f));

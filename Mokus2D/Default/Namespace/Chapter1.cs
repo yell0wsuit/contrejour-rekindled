@@ -36,9 +36,11 @@ namespace Default.Namespace
             sprite.Run(new RepeatForever(sequence));
             Sprite sprite2 = ClipFactory.CreateWithAnchor("McRoseForeground");
             container.AddChild(sprite2);
-            eye = new PlanetEye(null, true, Vector2.Zero);
-            eye.Scale = 0.9f;
-            eye.Position = CocosUtil.ccpIPad(10f, -10f);
+            eye = new PlanetEye(null, true, Vector2.Zero)
+            {
+                Scale = 0.9f,
+                Position = CocosUtil.ccpIPad(10f, -10f)
+            };
             container.AddChild(eye);
             AddSpikes(CocosUtil.ccpIPad(-92f, 8f), 1f, -200f, 4f, 0f);
             AddSpikes(CocosUtil.ccpIPad(-90f, 23f), 0.85f, -300f, 3f, 1.0471976f);
@@ -48,20 +50,24 @@ namespace Default.Namespace
 
         private void AddSpikes(Vector2 position, float scale, float speed, float amplitude, float progress)
         {
-            MovingRotatingSprite movingRotatingSprite = new("McMenuCircleSpikes");
-            movingRotatingSprite.Position = position;
-            movingRotatingSprite.Scale = scale;
-            movingRotatingSprite.Speed = speed;
+            MovingRotatingSprite movingRotatingSprite = new("McMenuCircleSpikes")
+            {
+                Position = position,
+                Scale = scale,
+                Speed = speed
+            };
             movingRotatingSprite.Initialize(amplitude, progress);
             container.AddChild(movingRotatingSprite);
         }
 
         public void CreateSnotRotationScale(Vector2 position, float rotation, float scale)
         {
-            PlanetSnot planetSnot = new();
-            planetSnot.Position = position;
-            planetSnot.Rotation = rotation;
-            planetSnot.Scale = scale;
+            PlanetSnot planetSnot = new()
+            {
+                Position = position,
+                Rotation = rotation,
+                Scale = scale
+            };
             container.AddChild(planetSnot);
             depthDependent.Add(planetSnot);
         }

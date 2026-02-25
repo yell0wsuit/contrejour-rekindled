@@ -11,24 +11,11 @@ namespace Default.Namespace
 {
     public class DragableBodyClip : ContreJourBodyClip, IClickable, IRestartable, ISnotHolder
     {
-        public EventSender DragStartEvent
-        {
-            get
-            {
-                return dragStartEvent;
-            }
-        }
+        public EventSender DragStartEvent => dragStartEvent;
 
         public StrongSnotBodyClip Snot
         {
-            get
-            {
-                return snot;
-            }
-            set
-            {
-                snot = value;
-            }
+            get => snot; set => snot = value;
         }
 
         public DragableBodyClip(ContreJourLevelBuilder _builder, object _body, Node _clip, Hashtable _config)
@@ -114,13 +101,7 @@ namespace Default.Namespace
             return true;
         }
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool DisableHeroFocus => false;
 
         public int Priority(Vector2 touchPoint)
         {
@@ -141,7 +122,7 @@ namespace Default.Namespace
                 dragStartEvent.SendEvent();
                 ContreJourGame contreJourGame = (ContreJourGame)builder.Game;
                 contreJourGame.IncreaseZoomOut();
-                Schedule(new Action(contreJourGame.FocusOnHero), 0.05f);
+                _ = Schedule(new Action(contreJourGame.FocusOnHero), 0.05f);
                 draging = true;
                 initialMousePosition = builder.TouchRootVec(touch);
                 initialDragOffset = Body.Position - initialPosition;
@@ -189,7 +170,7 @@ namespace Default.Namespace
                 if (snot != null && snot.Joined && Maths.Between(vector2.Y, -1.3333334f, 0f))
                 {
                     HeroBodyClip heroBodyClip = (HeroBodyClip)snot.Linked;
-                    if (Maths.Abs(heroBodyClip.Body.LinearVelocity.X) < 0.16666667f && heroBodyClip.Body.Position.Y < snot.Position.Y - snot.NormalDistance * 0.8f && heroBodyClip.Body.LinearVelocity.Y > vector2.Y)
+                    if (Maths.Abs(heroBodyClip.Body.LinearVelocity.X) < 0.16666667f && heroBodyClip.Body.Position.Y < snot.Position.Y - (snot.NormalDistance * 0.8f) && heroBodyClip.Body.LinearVelocity.Y > vector2.Y)
                     {
                         heroBodyClip.Body.LinearVelocity = new Vector2(heroBodyClip.Body.LinearVelocity.X, vector2.Y * 2f);
                     }
@@ -219,7 +200,7 @@ namespace Default.Namespace
                 Body.BodyType = BodyType.Static;
                 Body.SetTransform(initialPosition, Body.Rotation);
             }
-            float num = (draging ? 255f : 150f);
+            float num = draging ? 255f : 150f;
             SetAlpha(Maths.stepTo(currentAlpha, num, 5f));
             base.Update(time);
         }

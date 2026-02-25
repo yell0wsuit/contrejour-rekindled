@@ -4,13 +4,7 @@ namespace Default.Namespace
 {
     public class PhysicsUpdater : Updatable
     {
-        public World World
-        {
-            get
-            {
-                return world;
-            }
-        }
+        public World World => world;
 
         public PhysicsUpdater(World _world)
         {

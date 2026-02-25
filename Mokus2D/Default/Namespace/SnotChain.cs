@@ -2,32 +2,13 @@
 {
     public class SnotChain(SnotBodyClip _snot, float _distance)
     {
-        public SnotBodyClip Snot
-        {
-            get
-            {
-                return snot;
-            }
-        }
+        public SnotBodyClip Snot => snot;
 
-        public float Distance
-        {
-            get
-            {
-                return distance;
-            }
-        }
+        public float Distance => distance;
 
         public float Diff
         {
-            get
-            {
-                return diff;
-            }
-            set
-            {
-                diff = value;
-            }
+            get => diff; set => diff = value;
         }
 
         public static object CreateWithSnotDistance(SnotBodyClip _snot, float _distance)

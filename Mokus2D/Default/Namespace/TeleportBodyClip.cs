@@ -15,23 +15,10 @@ namespace Default.Namespace
     {
         public TeleportBodyClip Sibling
         {
-            get
-            {
-                return sibling;
-            }
-            set
-            {
-                sibling = value;
-            }
+            get => sibling; set => sibling = value;
         }
 
-        public EventSender UseEvent
-        {
-            get
-            {
-                return useEvent;
-            }
-        }
+        public EventSender UseEvent => useEvent;
 
         public TeleportBodyClip(LevelBuilderBase _builder, object _body, Node _clip, Hashtable _config)
             : base(_builder, _body, null, _config)
@@ -51,7 +38,7 @@ namespace Default.Namespace
             }
             else
             {
-                text2 = (contreJourGame.BlackSide ? "McTeleportPartBlue.png" : "McTeleportPart.png");
+                text2 = contreJourGame.BlackSide ? "McTeleportPartBlue.png" : "McTeleportPart.png";
             }
             portal = new Portal(contreJourGame, _clip.Position, text2);
             if (contreJourGame.BonusChapter)
@@ -82,8 +69,8 @@ namespace Default.Namespace
         {
             useEvent.SendEvent();
             portal.TargetScale = 0.2f;
-            builder.Game.Updater.CallAfterSelectorDelay(new Action(RestoreScale), 0.1f);
-            builder.Game.Updater.CallAfterSelectorDelay(new Action(SetMaxScale), 0.033333335f);
+            _ = builder.Game.Updater.CallAfterSelectorDelay(new Action(RestoreScale), 0.1f);
+            _ = builder.Game.Updater.CallAfterSelectorDelay(new Action(SetMaxScale), 0.033333335f);
         }
 
         private void SetMaxScale()
@@ -115,11 +102,11 @@ namespace Default.Namespace
                 Mokus2DGame.SoundManager.PlaySound("teleport", 0.5f, 0f, 0f);
                 teleportable.SnotEnabled = false;
                 float num = body2.LinearVelocity.Length() / builder.EngineConfig.SizeMultiplier;
-                float num2 = ((num > 200f) ? (20f / num) : 0.1f);
+                float num2 = (num > 200f) ? (20f / num) : 0.1f;
                 num2 = Maths.max(num2, 0.01f);
                 teleportable.SetScaleTime(0f, num2);
                 portal.TargetScale = 0.2f;
-                Schedule(delegate
+                _ = Schedule(delegate
                 {
                     MoveHero(bodyClip);
                 }, num2);
@@ -133,7 +120,7 @@ namespace Default.Namespace
             BodyClip bodyClip = (BodyClip)body2.UserData;
             if (teleportables.Contains(bodyClip))
             {
-                teleportables.Remove(bodyClip);
+                _ = teleportables.Remove(bodyClip);
             }
         }
 
@@ -152,7 +139,7 @@ namespace Default.Namespace
             teleportable.AfterTeleport();
             teleportable.SnotEnabled = true;
             portal.TargetScale = 1.2f;
-            builder.Game.Updater.CallAfterSelectorDelay(new Action(RestoreScale), 0.1f);
+            _ = builder.Game.Updater.CallAfterSelectorDelay(new Action(RestoreScale), 0.1f);
             teleportable.ForceClipPosition();
             ScaleHero(bodyClip);
             UpdateTeleportTime();

@@ -8,10 +8,7 @@ namespace Default.Namespace
     {
         public float InitialAngle
         {
-            get
-            {
-                return initialAngle;
-            }
+            get => initialAngle;
             set
             {
                 initialAngle = value;
@@ -22,32 +19,20 @@ namespace Default.Namespace
 
         public float ContactAngle
         {
-            get
-            {
-                return contactAngle;
-            }
-            set
-            {
-                contactAngle = value;
-            }
+            get => contactAngle; set => contactAngle = value;
         }
 
         public Particle Particle
         {
-            get
-            {
-                return particle;
-            }
-            set
-            {
-                particle = value;
-            }
+            get => particle; set => particle = value;
         }
 
         public RotatorGrass(Particle _particle)
         {
-            rotationChanger = new CosChanger(-15f, 15f, Maths.randRange(0.005f, 0.01f));
-            rotationChanger.Progress = Maths.randRange(0f, 6.2831855f);
+            rotationChanger = new CosChanger(-15f, 15f, Maths.randRange(0.005f, 0.01f))
+            {
+                Progress = Maths.randRange(0f, 6.2831855f)
+            };
             particle = _particle;
             contactAngle = 0f;
             currentContactAngle = 0f;

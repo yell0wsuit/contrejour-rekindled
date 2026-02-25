@@ -32,7 +32,7 @@ namespace Default.Namespace
             verticalStepDiff = CocosUtil.iPadValue(Maths.RandRangeMinMax(0.01f, 0.02f));
         }
 
-        private CosOpacityChanger opacityChanger;
+        private readonly CosOpacityChanger opacityChanger;
 
         protected Vector2 initialPosition;
 

@@ -23,7 +23,7 @@ namespace Default.Namespace
         public override void initParticle(GravityParticle gravityParticle)
         {
             base.initParticle(gravityParticle);
-            gravityParticle.Opacity = (int)(40f + 20f * gravityParticle.Scale);
+            gravityParticle.Opacity = (int)(40f + (20f * gravityParticle.Scale));
             float num = 20f * gravityParticle.Scale;
             gravityParticle.Speed *= num;
         }

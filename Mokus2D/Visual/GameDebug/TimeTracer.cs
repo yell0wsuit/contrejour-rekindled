@@ -9,7 +9,7 @@ namespace Mokus2D.Visual.GameDebug
             Mokus2D.Util.DebugLog.infoFmt("elapsed time {0}", [DateTime.Now - start]);
         }
 
-        private DateTime start = DateTime.Now;
+        private readonly DateTime start = DateTime.Now;
     }
 }
 

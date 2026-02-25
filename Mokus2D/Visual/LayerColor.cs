@@ -21,10 +21,7 @@ namespace Mokus2D.Visual
 
         public override Color Color
         {
-            get
-            {
-                return base.Color;
-            }
+            get => base.Color;
             set
             {
                 if (base.Color != value)
@@ -66,7 +63,7 @@ namespace Mokus2D.Visual
             }
         }
 
-        private VertexPositionColor[] vertices = new VertexPositionColor[4];
+        private readonly VertexPositionColor[] vertices = new VertexPositionColor[4];
 
         private bool colorChanged;
     }

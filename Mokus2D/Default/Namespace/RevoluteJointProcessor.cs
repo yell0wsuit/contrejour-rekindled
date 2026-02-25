@@ -41,7 +41,7 @@ namespace Default.Namespace
                     num += bodies[i].Inertia;
                 }
                 revoluteJoint.MotorSpeed = config.GetFloat("motorSpeed");
-                revoluteJoint.MaxMotorTorque = (config.Exists("maxMotorTorque") ? config.GetFloat("maxMotorTorque") : (30f * num));
+                revoluteJoint.MaxMotorTorque = config.Exists("maxMotorTorque") ? config.GetFloat("maxMotorTorque") : (30f * num);
                 revoluteJoint.MotorEnabled = true;
             }
             if (config.Exists("upperAngle"))
@@ -51,7 +51,7 @@ namespace Default.Namespace
                 revoluteJoint.UpperLimit = MathHelper.ToRadians(config.GetFloat("upperAngle"));
             }
             revoluteJoint.CollideConnected = false;
-            CreateJointConfig(revoluteJoint, config);
+            _ = CreateJointConfig(revoluteJoint, config);
         }
 
         private const float MOTOR_TORQUE_MULT = 30f;

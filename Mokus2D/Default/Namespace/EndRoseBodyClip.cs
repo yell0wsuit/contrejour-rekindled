@@ -25,7 +25,7 @@ namespace Default.Namespace
             {
                 movie.MaxFrame = movie.MaxFrame * 0.55f;
             }
-            maxTime = (saved ? 4f : 2.9629629f);
+            maxTime = saved ? 4f : 2.9629629f;
             movie.Color = ContreJourConstants.BLACK_COLOR_3;
             colorChanger = new CosChanger(-0.1f, 0f, 0.05f);
             builder.RegisterObject(this, "rose");
@@ -36,16 +36,16 @@ namespace Default.Namespace
             if (!started)
             {
                 started = true;
-                Schedule(new Action(Start), saved ? 5 : 6);
+                _ = Schedule(new Action(Start), saved ? 5 : 6);
             }
-            float num = ((Math.Abs(movie.CurrentFrame - movie.MaxFrame) < 8f) ? 0.03f : 0.01f);
+            float num = (Math.Abs(movie.CurrentFrame - movie.MaxFrame) < 8f) ? 0.03f : 0.01f;
             colorStep = Math.Max(num, colorStep + 0.003f);
         }
 
         public Vector2 BonusTarget()
         {
             Vector2 vector = clip.Position + CocosUtil.ccpIPad(28f, 78f);
-            return vector + CocosUtil.ccpIPad(-20f, 20f) * movie.CurrentFrame / movie.MaxFrame;
+            return vector + (CocosUtil.ccpIPad(-20f, 20f) * movie.CurrentFrame / movie.MaxFrame);
         }
 
         private void AddLight(float direction)
@@ -54,7 +54,7 @@ namespace Default.Namespace
             sprite.Position = CocosUtil.ccpIPad(22f, 114f) + clip.Position;
             sprite.Blend = BlendState.Additive;
             sprite.Opacity = 120;
-            builder.AddChild(sprite);
+            _ = builder.AddChild(sprite);
             sprite.Run(new RepeatForever(new RotateBy(Maths.randRange(12f, 15f), direction)));
             sprite.Run(new FadeIn(2f));
         }
@@ -69,7 +69,7 @@ namespace Default.Namespace
         {
             MovieClip movieClip = (MovieClip)ClipFactory.CreateWithAnchor("McTear");
             movieClip.Repeat = false;
-            builder.AddChild(movieClip);
+            _ = builder.AddChild(movieClip);
             movieClip.Position = clip.Position;
             movieClip.Speed = 0.7f;
         }
@@ -81,7 +81,7 @@ namespace Default.Namespace
             {
                 float num = Maths.Clamp((Game.TotalTime - startTime) / maxTime, 0f, 1f);
                 float num2 = Maths.easeInOutSine(num, movie.MaxFrame);
-                movie.CurrentFrame = (goingDown ? (movie.MaxFrame - num2) : num2);
+                movie.CurrentFrame = goingDown ? (movie.MaxFrame - num2) : num2;
                 if (movie.CurrentFrame == movie.MaxFrame)
                 {
                     if (!saved && !goingDown)

@@ -20,7 +20,7 @@ namespace Default.Namespace
             CGSize cgsize = ScreenConstants.W7FromIPhoneSize;
             Vector2 vector = CocosUtil.iPad(BORDER_OFFSET, BORDER_OFFSET_IPHONE);
             Vector2 vector2 = new Vector2(vector.X, cgsize.Height - vector.Y) - ScreenConstants.W7FromIPhoneScreenCenter;
-            Vector2 vector3 = new((cgsize.Width - vector.X * 2f) / (COLUMNS - 1), (cgsize.Height - vector.Y * 2f) / (ROWS - 1));
+            Vector2 vector3 = new((cgsize.Width - (vector.X * 2f)) / (COLUMNS - 1), (cgsize.Height - (vector.Y * 2f)) / (ROWS - 1));
             UserData instance = UserData.Instance;
             if (!Constants.IsTrial && instance.LastLevelOpen && chapter == 4)
             {
@@ -37,8 +37,10 @@ namespace Default.Namespace
                 {
                     flag3 = i >= (ROWS - LockedRows) * COLUMNS;
                 }
-                LevelItem levelItem = new(num, flag2 && !flag3, flag3);
-                levelItem.RealScale = 1.15f;
+                LevelItem levelItem = new(num, flag2 && !flag3, flag3)
+                {
+                    RealScale = 1.15f
+                };
                 AddChild(levelItem);
                 levelItem.Position = vector2 + new Vector2(vector3.X * (i % COLUMNS), -vector3.Y * (i / COLUMNS));
                 levelItem.ClickEvent.AddListenerSelector(new Action<TouchSprite>(OnLevelClick));
@@ -65,7 +67,7 @@ namespace Default.Namespace
                 base.Position = value;
                 if (adsButton != null)
                 {
-                    adsButton.Position = adsButtonPosition + (Position - initialPosition) * 0.7f;
+                    adsButton.Position = adsButtonPosition + ((Position - initialPosition) * 0.7f);
                 }
             }
         }
@@ -85,13 +87,7 @@ namespace Default.Namespace
             return sprite;
         }
 
-        private static int LockedRows
-        {
-            get
-            {
-                return Constants.NormalChaptersCount - UserData.Instance.UnlockedChapters;
-            }
-        }
+        private static int LockedRows => Constants.NormalChaptersCount - UserData.Instance.UnlockedChapters;
 
         private Sprite CreateGetMoreButton(int chapter)
         {
@@ -110,8 +106,10 @@ namespace Default.Namespace
             touchSprite.ClickEvent.AddListenerSelector(new Action(GetMoreEvent.SendEvent));
             node.Y = 10f;
             touchSprite.Scale = 1.45f;
-            ButtonSprite buttonSprite = new(touchSprite);
-            buttonSprite.TargetScale = touchSprite.Scale * 1.03f;
+            ButtonSprite buttonSprite = new(touchSprite)
+            {
+                TargetScale = touchSprite.Scale * 1.03f
+            };
             AddChild(touchSprite);
             adsButtonPosition = GetMorePosition;
             touchSprite.Position = GetMorePosition;
@@ -126,10 +124,10 @@ namespace Default.Namespace
         {
             Button button = new("McRoseButton.png", null, null);
             AddChild(button);
-            button.Position = new Vector2(winSize.Width / 2f, borderOffset.Y - button.Size.Y / 2f - 15f) - ScreenConstants.W7FromIPhoneScreenCenter;
+            button.Position = new Vector2(winSize.Width / 2f, borderOffset.Y - (button.Size.Y / 2f) - 15f) - ScreenConstants.W7FromIPhoneScreenCenter;
             button.ClickEvent.AddListenerSelector(new Action(OnRoseClick));
             button.RealScale = 1.15f;
-            position.Y += button.Size.Y / 2f - 15f;
+            position.Y += (button.Size.Y / 2f) - 15f;
             Scale = 0.85f;
             initialScale = Scale;
             Node node = ClipFactory.CreateWithAnchor("McVenzel");
@@ -217,7 +215,7 @@ namespace Default.Namespace
 
         public static List<List<int>> LEVELS_LIST = new();
 
-        private float RowOffset = 120f;
+        private readonly float RowOffset = 120f;
 
         public static int[,] LEVELS = new int[,]
         {
@@ -253,7 +251,7 @@ namespace Default.Namespace
 
         private Vector2 initialPosition;
 
-        private Sprite adsButton;
+        private readonly Sprite adsButton;
 
         private Vector2 adsButtonPosition;
     }

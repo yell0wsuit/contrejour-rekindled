@@ -6,8 +6,8 @@ namespace Mokus2D.Visual
     {
         public void SetValues(params object[] args)
         {
-            Clear();
-            AppendFormat(format, args);
+            _ = Clear();
+            _ = AppendFormat(format, args);
         }
     }
 }

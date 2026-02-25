@@ -87,8 +87,8 @@ namespace Default.Namespace
             }
             Vector2 vector = item.GetVector("end");
             Vector2 vector2 = item.GetVector("start");
-            FarseerUtil.CreateRevoluteJoint(builder.World, builder.GroundBody, snotData.EndBody, vector, false);
-            FarseerUtil.CreateRevoluteJoint(builder.World, builder.GroundBody, snotData.FirstBody, vector2, false);
+            _ = FarseerUtil.CreateRevoluteJoint(builder.World, builder.GroundBody, snotData.EndBody, vector, false);
+            _ = FarseerUtil.CreateRevoluteJoint(builder.World, builder.GroundBody, snotData.FirstBody, vector2, false);
             builder.World.RemoveBody(snotData.EyeBody);
             snotData.EyeBody = null;
             return snotData;

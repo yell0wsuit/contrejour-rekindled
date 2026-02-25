@@ -2,12 +2,6 @@
 {
     public class FakeHeroEyeGreen : FakeHeroEyeWhite
     {
-        protected override string EyeBall
-        {
-            get
-            {
-                return "McFakeHeroEyeBall_6";
-            }
-        }
+        protected override string EyeBall => "McFakeHeroEyeBall_6";
     }
 }

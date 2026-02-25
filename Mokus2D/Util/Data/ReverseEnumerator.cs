@@ -28,23 +28,11 @@ namespace Mokus2D.Util.Data
             currentIndex = Enumerable.Count(source);
         }
 
-        public T Current
-        {
-            get
-            {
-                return source[currentIndex];
-            }
-        }
+        public T Current => source[currentIndex];
 
-        object IEnumerator.Current
-        {
-            get
-            {
-                return Current;
-            }
-        }
+        object IEnumerator.Current => Current;
 
-        private IList<T> source;
+        private readonly IList<T> source;
 
         private int currentIndex;
     }

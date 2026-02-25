@@ -8,13 +8,7 @@ namespace Default.Namespace
 {
     public class SnotEye(SnotBodyClip _snot, Body _body) : ContreJourBodyClip(_snot.Builder, _body, null, null), IClickable
     {
-        public SnotBodyClip Snot
-        {
-            get
-            {
-                return snot;
-            }
-        }
+        public SnotBodyClip Snot => snot;
 
         public bool AcceptFreeTouches()
         {
@@ -26,13 +20,7 @@ namespace Default.Namespace
             return false;
         }
 
-        public bool DisableHeroFocus
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public bool DisableHeroFocus => true;
 
         public virtual int Priority(Vector2 touchPoint)
         {

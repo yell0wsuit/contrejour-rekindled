@@ -20,14 +20,7 @@ namespace Mokus2D.Visual
 
         public Vector2 SpritesScaleFactor
         {
-            get
-            {
-                return rootState.SpritesScaleFactor;
-            }
-            set
-            {
-                rootState.SpritesScaleFactor = value;
-            }
+            get => rootState.SpritesScaleFactor; set => rootState.SpritesScaleFactor = value;
         }
 
         public void DrawAll()
@@ -35,6 +28,6 @@ namespace Mokus2D.Visual
             DrawNode(rootState);
         }
 
-        private VisualState rootState;
+        private readonly VisualState rootState;
     }
 }

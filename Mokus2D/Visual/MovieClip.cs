@@ -9,102 +9,64 @@ namespace Mokus2D.Visual
 {
     public class MovieClip(TextureData config) : Sprite(config)
     {
-        public bool Rewind
-        {
-            get
-            {
-                return rewind;
-            }
-            set
-            {
-                rewind = value;
-            }
-        }
+        public bool Rewind { get; set; }
 
-        public bool Stoped
-        {
-            get
-            {
-                return stoped;
-            }
-            set
-            {
-                stoped = value;
-            }
-        }
+        public bool Stoped { get; set; }
 
-        public uint TotalFrames
-        {
-            get
-            {
-                return (uint)Config.Frames;
-            }
-        }
+        public uint TotalFrames => (uint)Config.Frames;
 
         public float MinFrame
         {
-            get
+            get; set
             {
-                return minFrame;
-            }
-            set
-            {
-                minFrame = value;
-                if (currentFrame < minFrame)
+                field = value;
+                if (CurrentFrame < field)
                 {
-                    CurrentFrame = minFrame;
+                    CurrentFrame = field;
                 }
             }
         }
 
         public float MaxFrame
         {
-            get
+            get; set
             {
-                return maxFrame;
-            }
-            set
-            {
-                maxFrame = value - 0.0001f;
-                if (currentFrame > maxFrame)
+                field = value - 0.0001f;
+                if (CurrentFrame > field)
                 {
-                    CurrentFrame = maxFrame;
+                    CurrentFrame = field;
                 }
             }
-        }
+        } = config.Config.Frames - 0.0001f;
 
         public float CurrentFrame
         {
-            get
+            get; set
             {
-                return currentFrame;
-            }
-            set
-            {
-                if ((value > maxFrame || value < minFrame) && !stoped && !Repeat)
+                if ((value > MaxFrame || value < MinFrame) && !Stoped && !Repeat)
                 {
-                    if (value > maxFrame)
+                    if (value > MaxFrame)
                     {
-                        value = maxFrame;
+                        value = MaxFrame;
                     }
-                    if (value < minFrame)
+                    if (value < MinFrame)
                     {
-                        value = minFrame;
+                        value = MinFrame;
                     }
-                    stoped = true;
+                    Stoped = true;
                 }
-                while (value > maxFrame)
+                while (value > MaxFrame)
                 {
-                    value = value - maxFrame + minFrame;
+                    value = value - MaxFrame + MinFrame;
                 }
-                while (value < minFrame)
+                while (value < MinFrame)
                 {
-                    value = value - minFrame + maxFrame;
+                    value = value - MinFrame + MaxFrame;
                 }
-                currentFrame = value;
-                if ((uint)currentFrame != frameValue)
+                field = value;
+                if ((uint)field != frameValue)
                 {
-                    frameValue = (uint)currentFrame;
+                    frameValue = (uint)field;
                     currentFrameBounds = config.FramesBounds[(int)frameValue];
                 }
             }
@@ -115,13 +77,13 @@ namespace Mokus2D.Visual
         public override void Update(float time)
         {
             base.Update(time);
-            if (!stoped)
+            if (!Stoped)
             {
-                int num = (rewind ? (-1) : 1);
+                int num = Rewind ? (-1) : 1;
                 float num2 = time * fps * Speed * num;
-                float num3 = currentFrame + num2;
+                float num3 = CurrentFrame + num2;
                 CurrentFrame = num3;
-                if ((num3 > maxFrame && !rewind) || (num3 < minFrame && rewind))
+                if ((num3 > MaxFrame && !Rewind) || (num3 < MinFrame && Rewind))
                 {
                     EndEvent.Dispatch();
                 }
@@ -130,13 +92,13 @@ namespace Mokus2D.Visual
 
         public void GotoAndPlay(uint frame)
         {
-            stoped = false;
+            Stoped = false;
             CurrentFrame = frame;
         }
 
         public void GotoAndStop(uint frame)
         {
-            stoped = true;
+            Stoped = true;
             CurrentFrame = frame;
         }
 
@@ -150,21 +112,10 @@ namespace Mokus2D.Visual
         public bool Repeat = true;
 
         public float Speed = 1f;
-
-        private float currentFrame;
-
         private Rectangle currentFrameBounds = config.Config.FramesBounds[0];
 
-        private float fps = 30f;
+        private readonly float fps = 30f;
 
         private uint frameValue = 1U;
-
-        private float maxFrame = config.Config.Frames - 0.0001f;
-
-        private float minFrame;
-
-        private bool rewind;
-
-        private bool stoped;
     }
 }

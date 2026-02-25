@@ -32,7 +32,7 @@ namespace Default.Namespace
 
         public override float GetDensityTotal(int index, int total)
         {
-            return 0.13f + (total - (float)index) / total * 0.13f;
+            return 0.13f + ((total - (float)index) / total * 0.13f);
         }
 
         public override Joint JoinBodiesEndBodyStartEndIndexTotal(Body startBody, Body endBody, Vector2 start, Vector2 end, int index, int total)

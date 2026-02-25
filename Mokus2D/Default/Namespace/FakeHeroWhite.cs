@@ -6,13 +6,7 @@ namespace Default.Namespace
 {
     public class FakeHeroWhite : FakeHeroBlack
     {
-        protected override Color TailColor
-        {
-            get
-            {
-                return ContreJourConstants.WHITE_TAIL_COLOR;
-            }
-        }
+        protected override Color TailColor => ContreJourConstants.WHITE_TAIL_COLOR;
 
         protected override string ProcessName(string name)
         {

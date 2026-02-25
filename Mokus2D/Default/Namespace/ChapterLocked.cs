@@ -13,25 +13,21 @@ namespace Default.Namespace
         public ChapterLocked(int _index, MainMenu _menu)
             : base(_index, _menu)
         {
-            explosion = new Explosion("McSmokeBlack.png");
-            explosion.Rotation = 90f;
-            explosion.ScaleStep = -0.5f;
-            explosion.HorizontalPosition = new Range(0f, 20f);
-            explosion.VerticalPosition = new Range(0f, 20f);
-            explosion.Speed = new Range(220f, 60f);
-            explosion.ParticlesScale = new Range(1f, 0.5f);
+            explosion = new Explosion("McSmokeBlack.png")
+            {
+                Rotation = 90f,
+                ScaleStep = -0.5f,
+                HorizontalPosition = new Range(0f, 20f),
+                VerticalPosition = new Range(0f, 20f),
+                Speed = new Range(220f, 60f),
+                ParticlesScale = new Range(1f, 0.5f)
+            };
             explosion.CreateOnStartPosition(75);
         }
 
         public ChapterItem TargetChapter { get; set; }
 
-        public EventSender ExplodeEvent
-        {
-            get
-            {
-                return explodeEvent;
-            }
-        }
+        public EventSender ExplodeEvent => explodeEvent;
 
         protected override void CreateClickListener()
         {
@@ -45,9 +41,11 @@ namespace Default.Namespace
         {
             background = ClipFactory.CreateWithAnchor("McPlanetLocked");
             container.AddChild(background);
-            tablo = new Tablo();
-            tablo.Position = CocosUtil.ccpIPad(-74f, 28f);
-            tablo.Color = ((index == 1) ? ContreJourConstants.BLUE_LIGHT_COLOR : ContreJourConstants.GREY_COLOR);
+            tablo = new Tablo
+            {
+                Position = CocosUtil.ccpIPad(-74f, 28f),
+                Color = (index == 1) ? ContreJourConstants.BLUE_LIGHT_COLOR : ContreJourConstants.GREY_COLOR
+            };
             container.AddChild(tablo);
             background.Color = tablo.Color;
             int num = UserData.StarsToUnlock(index);
@@ -91,7 +89,7 @@ namespace Default.Namespace
                     Mokus2DGame.SoundManager.PlaySound("boom0", 0.7f, 0f, 0f);
                     NodeAction nodeAction = Actions.ShakeWithDurationOffsetCount(0.2f, 5f, 20);
                     Run(nodeAction);
-                    Schedule(new Action(DoExplode), 0.4f);
+                    _ = Schedule(new Action(DoExplode), 0.4f);
                 }
             }
         }
@@ -103,7 +101,7 @@ namespace Default.Namespace
             explosion.IgnoreParentOpacity = true;
             Parent.AddChild(explosion);
             explosion.Position = Position;
-            Schedule(new Action(explodeEvent.SendEvent), 1f);
+            _ = Schedule(new Action(explodeEvent.SendEvent), 1f);
             Run(new DelayedAction(new Action(RemoveFromParent), 1.5f));
         }
 

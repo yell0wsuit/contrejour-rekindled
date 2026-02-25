@@ -21,30 +21,17 @@ namespace Default.Namespace
 
         public bool Dragging
         {
-            get
-            {
-                return dragging;
-            }
-            set
-            {
-                dragging = value;
-            }
+            get => dragging; set => dragging = value;
         }
 
-        public bool HasRemove
-        {
-            get
-            {
-                return hasRemove;
-            }
-        }
+        public bool HasRemove => hasRemove;
 
         public void Update(float time)
         {
             float num = time * 3f * Maths.min(particle.Opacity / 255f, 0.3f);
             Vector2 vector = speed * num;
             particle.Position = particle.Position + vector;
-            particle.OpacityFloat -= (dragging ? (alphaDiff * 10f) : alphaDiff);
+            particle.OpacityFloat -= dragging ? (alphaDiff * 10f) : alphaDiff;
             if (particle.Opacity <= 0)
             {
                 particle.Visible = false;

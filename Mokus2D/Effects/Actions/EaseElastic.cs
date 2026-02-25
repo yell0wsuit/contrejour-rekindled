@@ -5,7 +5,7 @@
         internal override void UpdateNode(float ratio)
         {
             float num;
-            if (ratio == 0f || ratio == 1f)
+            if (ratio is 0f or 1f)
             {
                 num = ratio;
             }

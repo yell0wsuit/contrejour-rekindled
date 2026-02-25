@@ -12,21 +12,18 @@ namespace Mokus2D.Visual
     {
         public string TextString
         {
-            get
-            {
-                return text.ToString();
-            }
+            get => text.ToString();
             set
             {
-                text.Clear();
-                text.Append(value);
+                _ = text.Clear();
+                _ = text.Append(value);
             }
         }
 
         public Label(SpriteFont font, string textString)
             : this(font)
         {
-            Append(textString);
+            _ = Append(textString);
         }
 
         public Label(SpriteFont font)
@@ -56,255 +53,234 @@ namespace Mokus2D.Visual
 
         public Label Append(char value, int repeatCount)
         {
-            text.Append(value, repeatCount);
+            _ = text.Append(value, repeatCount);
             textDirty = true;
             return this;
         }
 
         public Label Append(char[] value, int startIndex, int charCount)
         {
-            text.Append(value, startIndex, charCount);
+            _ = text.Append(value, startIndex, charCount);
             textDirty = true;
             return this;
         }
 
         public Label Append(string value)
         {
-            text.Append(value);
+            _ = text.Append(value);
             textDirty = true;
             return this;
         }
 
         public Label AppendLine()
         {
-            text.AppendLine();
+            _ = text.AppendLine();
             textDirty = true;
             return this;
         }
 
         public Label AppendLine(string value)
         {
-            text.AppendLine(value);
+            _ = text.AppendLine(value);
             textDirty = true;
             return this;
         }
 
         public Label Append(string value, int startIndex, int count)
         {
-            text.Append(value, startIndex, count);
+            _ = text.Append(value, startIndex, count);
             textDirty = true;
             return this;
         }
 
         public Label Insert(int index, string value, int count)
         {
-            text.Insert(index, value, count);
+            _ = text.Insert(index, value, count);
             textDirty = true;
             return this;
         }
 
         public Label Remove(int startIndex, int length)
         {
-            text.Remove(startIndex, length);
+            _ = text.Remove(startIndex, length);
             textDirty = true;
             return this;
         }
 
         public Label Append(bool value)
         {
-            text.Append(value);
+            _ = text.Append(value);
             textDirty = true;
             return this;
         }
 
         public Label Append(sbyte value)
         {
-            text.Append(value);
+            _ = text.Append(value);
             textDirty = true;
             return this;
         }
 
         public Label Append(byte value)
         {
-            text.Append(value);
+            _ = text.Append(value);
             textDirty = true;
             return this;
         }
 
         public Label Append(char value)
         {
-            text.Append(value);
+            _ = text.Append(value);
             textDirty = true;
             return this;
         }
 
         public Label Append(short value)
         {
-            text.Append(value);
+            _ = text.Append(value);
             textDirty = true;
             return this;
         }
 
         public Label Append(int value)
         {
-            text.Append(value);
+            _ = text.Append(value);
             textDirty = true;
             return this;
         }
 
         public Label Append(long value)
         {
-            text.Append(value);
+            _ = text.Append(value);
             textDirty = true;
             return this;
         }
 
         public Label Append(float value)
         {
-            text.Append(value);
+            _ = text.Append(value);
             textDirty = true;
             return this;
         }
 
         public Label Append(double value)
         {
-            text.Append(value);
+            _ = text.Append(value);
             textDirty = true;
             return this;
         }
 
         public Label Append(ushort value)
         {
-            text.Append(value);
+            _ = text.Append(value);
             textDirty = true;
             return this;
         }
 
         public Label Append(uint value)
         {
-            text.Append(value);
+            _ = text.Append(value);
             textDirty = true;
             return this;
         }
 
         public Label Append(ulong value)
         {
-            text.Append(value);
+            _ = text.Append(value);
             textDirty = true;
             return this;
         }
 
         public Label Append(object value)
         {
-            text.Append(value);
+            _ = text.Append(value);
             textDirty = true;
             return this;
         }
 
         public Label Append(char[] value)
         {
-            text.Append(value);
+            _ = text.Append(value);
             textDirty = true;
             return this;
         }
 
         public Label Insert(int index, string value)
         {
-            text.Insert(index, value);
+            _ = text.Insert(index, value);
             textDirty = true;
             return this;
         }
 
         public Label Insert(int index, char[] value)
         {
-            text.Insert(index, value);
+            _ = text.Insert(index, value);
             textDirty = true;
             return this;
         }
 
         public Label Insert(int index, char[] value, int startIndex, int charCount)
         {
-            text.Insert(index, value, startIndex, charCount);
+            _ = text.Insert(index, value, startIndex, charCount);
             textDirty = true;
             return this;
         }
 
         public Label AppendFormat(string format, params object[] args)
         {
-            text.AppendFormat(format, args);
+            _ = text.AppendFormat(format, args);
             textDirty = true;
             return this;
         }
 
         public Label AppendFormat(IFormatProvider provider, string format, params object[] args)
         {
-            text.AppendFormat(provider, format, args);
+            _ = text.AppendFormat(provider, format, args);
             textDirty = true;
             return this;
         }
 
         public Label Replace(string oldValue, string newValue)
         {
-            text.Replace(oldValue, newValue);
+            _ = text.Replace(oldValue, newValue);
             textDirty = true;
             return this;
         }
 
         public Label Replace(string oldValue, string newValue, int startIndex, int count)
         {
-            text.Replace(oldValue, newValue, startIndex, count);
+            _ = text.Replace(oldValue, newValue, startIndex, count);
             textDirty = true;
             return this;
         }
 
         public Label Replace(char oldChar, char newChar)
         {
-            text.Replace(oldChar, newChar);
+            _ = text.Replace(oldChar, newChar);
             textDirty = true;
             return this;
         }
 
         public Label Replace(char oldChar, char newChar, int startIndex, int count)
         {
-            text.Replace(oldChar, newChar, startIndex, count);
+            _ = text.Replace(oldChar, newChar, startIndex, count);
             textDirty = true;
             return this;
         }
 
         public int Length
         {
-            get
-            {
-                return text.Length;
-            }
-            set
-            {
-                text.Length = value;
-            }
+            get => text.Length; set => text.Length = value;
         }
 
         public int Capacity
         {
-            get
-            {
-                return text.Capacity;
-            }
-            set
-            {
-                text.Capacity = value;
-            }
+            get => text.Capacity; set => text.Capacity = value;
         }
 
         public char this[int index]
         {
-            get
-            {
-                return text[index];
-            }
-            set
-            {
-                text[index] = value;
-            }
+            get => text[index]; set => text[index] = value;
         }
 
         public int EnsureCapacity(int capacity)
@@ -314,14 +290,14 @@ namespace Mokus2D.Visual
 
         public Label Clear()
         {
-            text.Clear();
+            _ = text.Clear();
             textDirty = true;
             return this;
         }
 
         public Label AppendText(object value)
         {
-            text.Append(value);
+            _ = text.Append(value);
             textDirty = true;
             return this;
         }

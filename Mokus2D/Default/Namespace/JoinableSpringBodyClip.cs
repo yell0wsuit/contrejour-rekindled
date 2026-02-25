@@ -40,13 +40,7 @@ namespace Default.Namespace
             }
         }
 
-        protected override bool IsMoving
-        {
-            get
-            {
-                return rotator != null && rotator.Body.AngularVelocity != 0f;
-            }
-        }
+        protected override bool IsMoving => rotator != null && rotator.Body.AngularVelocity != 0f;
 
         public override void Update(float time)
         {

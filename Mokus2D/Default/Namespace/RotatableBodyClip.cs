@@ -23,7 +23,7 @@ namespace Default.Namespace
             if (!destroying)
             {
                 scaleProgress += scaleStep;
-                clip.ScaleX = 1f + Maths.Cos(scaleProgress) * scaleDiff;
+                clip.ScaleX = 1f + (Maths.Cos(scaleProgress) * scaleDiff);
                 clip.ScaleX = scaleSign * clip.ScaleY;
             }
         }

@@ -71,9 +71,7 @@ namespace Microsoft.Xna.Framework.GamerServices
 
     public class Gamer
     {
-        private static readonly SignedInGamerCollection signedInGamers = new();
-
-        public static SignedInGamerCollection SignedInGamers => signedInGamers;
+        public static SignedInGamerCollection SignedInGamers { get; } = new();
 
         public virtual string DisplayName { get; protected set; } = "Player";
 

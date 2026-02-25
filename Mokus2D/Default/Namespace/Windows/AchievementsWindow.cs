@@ -23,7 +23,7 @@ namespace Default.Namespace.Windows
         protected override void GetData()
         {
             base.GetData();
-            gamer.BeginGetAchievements(new AsyncCallback(OnGetAchievements), gamer);
+            _ = gamer.BeginGetAchievements(new AsyncCallback(OnGetAchievements), gamer);
         }
 
         private void OnGetAchievements(IAsyncResult result)

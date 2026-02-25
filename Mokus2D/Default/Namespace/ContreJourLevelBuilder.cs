@@ -28,13 +28,7 @@ namespace Default.Namespace
             processors.Add(new FakeProcessor("hint", this));
         }
 
-        public ContreJourGame ContreJour
-        {
-            get
-            {
-                return (ContreJourGame)game;
-            }
-        }
+        public ContreJourGame ContreJour => (ContreJourGame)game;
 
         public void AddAlphaBackground(Node child)
         {

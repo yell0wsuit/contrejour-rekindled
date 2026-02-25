@@ -40,10 +40,7 @@ namespace Default.Namespace
 
         public float RealScale
         {
-            get
-            {
-                return realScale;
-            }
+            get => realScale;
             set
             {
                 realScale = value;
@@ -53,23 +50,10 @@ namespace Default.Namespace
 
         public bool Enabled
         {
-            get
-            {
-                return enabled;
-            }
-            set
-            {
-                enabled = value;
-            }
+            get => enabled; set => enabled = value;
         }
 
-        public Sprite Icon
-        {
-            get
-            {
-                return icon;
-            }
-        }
+        public Sprite Icon => icon;
 
         public static Button ButtonBigWithIcon(string _iconName)
         {
@@ -140,7 +124,7 @@ namespace Default.Namespace
         public void HidePressed()
         {
             touching = false;
-            Schedule(new Action(DoHidePressed), 0.2f);
+            _ = Schedule(new Action(DoHidePressed), 0.2f);
         }
 
         private void DoHidePressed()
