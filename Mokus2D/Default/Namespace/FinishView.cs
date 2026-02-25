@@ -42,8 +42,9 @@ namespace Default.Namespace
             ClipFactory.Cache("McFakeHeroEyeSmile");
         }
 
-        public new void Dispose()
+        protected override void Dispose(bool disposing)
         {
+            base.Dispose(disposing);
         }
 
         public void ShowWithLevelStarsScoreTimeNewHighScore(LevelPosition level, int _stars, int _score, float _time, bool _newHighScore)

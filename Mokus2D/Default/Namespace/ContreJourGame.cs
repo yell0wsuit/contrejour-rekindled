@@ -551,12 +551,16 @@ namespace Default.Namespace
             pausePanel.RefreshSoundButtons();
         }
 
-        public new void Dispose()
+        protected override void Dispose(bool disposing)
         {
-            Mokus2DGame.TouchController.RemoveListener(this);
-            Mokus2DGame.KeysController.RemoveBackKeyListener(new Action(OnBackPress));
-            pausePanel.Dispose();
-            finishView.Dispose();
+            if (disposing)
+            {
+                Mokus2DGame.TouchController.RemoveListener(this);
+                Mokus2DGame.KeysController.RemoveBackKeyListener(new Action(OnBackPress));
+                pausePanel.Dispose();
+                finishView.Dispose();
+            }
+            base.Dispose(disposing);
         }
 
         public List<string> TexturesToUnload()
