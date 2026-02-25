@@ -21,10 +21,10 @@ namespace Default.Namespace
             Type type = contreJourGame.ChooseSide(typeof(BlackPlasticineSprite), typeof(WhitePlasticineSprite), typeof(PlasticineSprite));
             clipContent = (PlasticineSprite)ReflectUtil.CreateInstance(type, []);
             Create(points);
-            builder.AddChild(clipContent);
+            _ = builder.AddChild(clipContent);
             firstItem.BodyClip.UpdateParent = true;
             wideBorder = new PlasticineWideBorder();
-            builder.AddChild(wideBorder);
+            _ = builder.AddChild(wideBorder);
             InitBorder(contreJourGame);
             InitFillSprite();
             if (CocosUtil.isArmV7() && !contreJourGame.RoseChapter)
@@ -33,7 +33,7 @@ namespace Default.Namespace
             }
             if (highlite != null)
             {
-                builder.AddChild(highlite);
+                _ = builder.AddChild(highlite);
             }
             changed = false;
             draggingItems = new Dictionary<Touch, DraggingItem>();
@@ -220,7 +220,7 @@ namespace Default.Namespace
         public void StopDragTouch(PlasticineItem item, Touch touch)
         {
             DraggingItem draggingItem = draggingItems[touch];
-            draggingItems.Remove(touch);
+            _ = draggingItems.Remove(touch);
             draggingItem.Finish();
         }
 

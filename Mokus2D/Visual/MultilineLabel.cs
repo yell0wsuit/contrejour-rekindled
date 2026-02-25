@@ -48,7 +48,7 @@ namespace Mokus2D.Visual
             lines.Clear();
             Split(text, '\n', lines);
             sizes.Clear();
-            sizes.EnsureCapacity(lines.Count);
+            _ = sizes.EnsureCapacity(lines.Count);
             foreach (StringBuilder stringBuilder in lines)
             {
                 sizes.Add(MeasureString(stringBuilder).X);
@@ -67,7 +67,7 @@ namespace Mokus2D.Visual
                 }
                 else
                 {
-                    stringBuilder.Append(input[i]);
+                    _ = stringBuilder.Append(input[i]);
                 }
             }
             if (stringBuilder.Length > 0)

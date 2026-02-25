@@ -132,7 +132,7 @@ namespace ContreJour
                 LoadLevel(0);
                 return;
             }
-            ChangeScene(new Func<MainMenu>(CreateMainMenu));
+            _ = ChangeScene(new Func<MainMenu>(CreateMainMenu));
         }
 
         private FadeTransition ChangeScene<T>(Func<T> sceneFactory) where T : Node
@@ -186,7 +186,7 @@ namespace ContreJour
                 func = CleanLoad(func);
             }
             lastLevel = _level;
-            ChangeScene(func);
+            _ = ChangeScene(func);
         }
 
         private Func<T> CleanLoad<T>(Func<T> action) where T : Node
@@ -216,13 +216,13 @@ namespace ContreJour
             {
                 func = CleanLoad(new Func<MainMenu>(CreateMainMenu));
             }
-            ChangeScene(func);
+            _ = ChangeScene(func);
         }
 
         private void RestartLevel()
         {
             canShowIntro = false;
-            ChangeScene(new Func<ContreJourGame>(ProcessLoadLevel));
+            _ = ChangeScene(new Func<ContreJourGame>(ProcessLoadLevel));
         }
 
         public void NextLevel()
@@ -237,13 +237,13 @@ namespace ContreJour
             }
             if (levelPosition.Chapter == 5)
             {
-                ChangeScene(() => CreateMainMenu(5));
+                _ = ChangeScene(() => CreateMainMenu(5));
                 return;
             }
             if (CocosUtil.lite(true, levelPosition.Chapter + 1 < Constants.NormalChaptersCount))
             {
                 int chapter = levelPosition.Chapter + 1;
-                ChangeScene(() => CreateMainMenu(chapter));
+                _ = ChangeScene(() => CreateMainMenu(chapter));
                 return;
             }
             LoadLevel(169);

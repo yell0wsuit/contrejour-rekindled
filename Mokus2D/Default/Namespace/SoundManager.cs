@@ -180,7 +180,7 @@ namespace Default.Namespace
         {
             PreloadSound(path);
             SoundEffect soundEffect = sounds[path];
-            soundEffect.Play(volume, pitch, pan);
+            _ = soundEffect.Play(volume, pitch, pan);
         }
 
         public void PlayMusic(Song song)

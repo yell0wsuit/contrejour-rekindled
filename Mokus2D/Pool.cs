@@ -35,7 +35,7 @@ public class Pool<T> where T : class, new()
         }
         this.resizable = resizable;
         items = new List<T>(initialSize);
-        items.EnsureCapacity(initialSize);
+        _ = items.EnsureCapacity(initialSize);
         validate = validateFunc;
         Func<T> func = allocateFunc;
         if (allocateFunc == null)
@@ -105,7 +105,7 @@ public class Pool<T> where T : class, new()
             InvalidCount++;
             if (InvalidCount >= items.Capacity)
             {
-                items.EnsureCapacity(items.Capacity * 2);
+                _ = items.EnsureCapacity(items.Capacity * 2);
             }
             items[items.Count] = items[0];
             items[0] = default(T);

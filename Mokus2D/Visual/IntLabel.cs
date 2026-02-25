@@ -11,7 +11,7 @@ namespace Mokus2D.Visual
 
         protected override void DrawSprite(VisualState state, Color color)
         {
-            batch.DrawInt32(Font, TextValue, Vector2.Zero, color, 0f, Vector2.Zero, state.SpritesScaleFactor, SpriteEffects.None, 0);
+            _ = batch.DrawInt32(Font, TextValue, Vector2.Zero, color, 0f, Vector2.Zero, state.SpritesScaleFactor, SpriteEffects.None, 0);
         }
 
         public override Vector2 Size => default(Vector2);

@@ -14,8 +14,8 @@ namespace Default.Namespace
         public override void Update(float time)
         {
             currentStep++;
-            Clear();
-            AppendFormat(format, [CurrentValue]);
+            _ = Clear();
+            _ = AppendFormat(format, [CurrentValue]);
             if (currentStep == steps)
             {
                 UpdateEnabled = false;

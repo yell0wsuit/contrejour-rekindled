@@ -65,7 +65,7 @@ namespace Mokus2D.Content
             }
             foreach (string text in toRemove)
             {
-                assetReferences.Remove(text);
+                _ = assetReferences.Remove(text);
                 Util.DebugLog.infoFmt("Unloading unused ressource {0}", [text]);
             }
             toRemove.Clear();

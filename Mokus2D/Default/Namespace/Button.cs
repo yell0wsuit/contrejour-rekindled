@@ -124,7 +124,7 @@ namespace Default.Namespace
         public void HidePressed()
         {
             touching = false;
-            Schedule(new Action(DoHidePressed), 0.2f);
+            _ = Schedule(new Action(DoHidePressed), 0.2f);
         }
 
         private void DoHidePressed()

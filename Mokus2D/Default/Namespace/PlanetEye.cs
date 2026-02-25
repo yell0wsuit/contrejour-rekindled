@@ -43,7 +43,7 @@ namespace Default.Namespace
 
         protected override void ScheduleAnimation()
         {
-            Schedule(new Action(Animate), Maths.randRange(3f, 10f));
+            _ = Schedule(new Action(Animate), Maths.randRange(3f, 10f));
         }
 
         protected override void ChangePositionProvider()

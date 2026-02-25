@@ -36,7 +36,7 @@ namespace Default.Namespace
             if (!started)
             {
                 started = true;
-                Schedule(new Action(Start), saved ? 5 : 6);
+                _ = Schedule(new Action(Start), saved ? 5 : 6);
             }
             float num = (Math.Abs(movie.CurrentFrame - movie.MaxFrame) < 8f) ? 0.03f : 0.01f;
             colorStep = Math.Max(num, colorStep + 0.003f);
@@ -54,7 +54,7 @@ namespace Default.Namespace
             sprite.Position = CocosUtil.ccpIPad(22f, 114f) + clip.Position;
             sprite.Blend = BlendState.Additive;
             sprite.Opacity = 120;
-            builder.AddChild(sprite);
+            _ = builder.AddChild(sprite);
             sprite.Run(new RepeatForever(new RotateBy(Maths.randRange(12f, 15f), direction)));
             sprite.Run(new FadeIn(2f));
         }
@@ -69,7 +69,7 @@ namespace Default.Namespace
         {
             MovieClip movieClip = (MovieClip)ClipFactory.CreateWithAnchor("McTear");
             movieClip.Repeat = false;
-            builder.AddChild(movieClip);
+            _ = builder.AddChild(movieClip);
             movieClip.Position = clip.Position;
             movieClip.Speed = 0.7f;
         }

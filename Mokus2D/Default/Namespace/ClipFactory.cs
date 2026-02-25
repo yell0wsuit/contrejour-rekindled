@@ -56,7 +56,7 @@ namespace Default.Namespace
 
         public static void Cache(string name)
         {
-            GetAnchorConfig(name);
+            _ = GetAnchorConfig(name);
         }
 
         public static Sprite CreateWithAnchor(string name)

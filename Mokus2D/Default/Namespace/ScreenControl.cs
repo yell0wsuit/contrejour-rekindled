@@ -106,7 +106,7 @@ namespace Default.Namespace
             }
             if (zoomTouches.Contains(_touch))
             {
-                zoomTouches.Remove(_touch);
+                _ = zoomTouches.Remove(_touch);
                 if (zooming && (_touch == zoomTouch1 || _touch == zoomTouch2))
                 {
                     zooming = false;

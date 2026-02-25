@@ -14,7 +14,7 @@ namespace Mokus2D.Util
 
         public void RemoveUpdatable(IUpdatable updatable)
         {
-            updatables.Remove(updatable);
+            _ = updatables.Remove(updatable);
         }
 
         public void Schedule(Action action)
@@ -93,7 +93,7 @@ namespace Mokus2D.Util
             public void Dispose()
             {
                 RemoveReferences();
-                scheduler.tasks.Remove(this);
+                _ = scheduler.tasks.Remove(this);
             }
 
             private float timeLeft;

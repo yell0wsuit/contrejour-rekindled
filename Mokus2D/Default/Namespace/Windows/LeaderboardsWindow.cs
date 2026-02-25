@@ -24,7 +24,7 @@ namespace Default.Namespace.Windows
             if (gamer != null)
             {
                 LeaderboardIdentity leaderboardIdentity = LeaderboardIdentity.Create(LeaderboardKey.BestScoreLifeTime);
-                LeaderboardReader.BeginRead(leaderboardIdentity, gamer, 50, new AsyncCallback(OnLeaderboardRead), null);
+                _ = LeaderboardReader.BeginRead(leaderboardIdentity, gamer, 50, new AsyncCallback(OnLeaderboardRead), null);
             }
         }
 

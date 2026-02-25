@@ -125,7 +125,7 @@ namespace Default.Namespace
             }
             foreach (object obj in arrayList)
             {
-                updatables.Remove((IRemovable)obj);
+                _ = updatables.Remove((IRemovable)obj);
             }
         }
 

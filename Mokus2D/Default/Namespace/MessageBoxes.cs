@@ -20,7 +20,7 @@ namespace Default.Namespace
         {
             if (!Guide.IsVisible)
             {
-                Guide.BeginShowMessageBox(title.Localize(), message.Localize(), ["OK".Localize()], 0, MessageBoxIcon.None, callback, null);
+                _ = Guide.BeginShowMessageBox(title.Localize(), message.Localize(), ["OK".Localize()], 0, MessageBoxIcon.None, callback, null);
             }
         }
 

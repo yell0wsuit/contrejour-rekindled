@@ -90,7 +90,7 @@ namespace Default.Namespace
         {
             movie.EndEvent -= new Action(OnCloseEnd);
             movie.GotoAndStop(movie.TotalFrames - 1U);
-            Schedule(new Action(Open), 1f);
+            _ = Schedule(new Action(Open), 1f);
         }
 
         private void Open()
@@ -121,7 +121,7 @@ namespace Default.Namespace
                 new FadeOut(2f)
             ]);
             node.Run(sequence);
-            Schedule(new Action(bodyClip.Destroy), 2.3f);
+            _ = Schedule(new Action(bodyClip.Destroy), 2.3f);
             Vector2 vector = FarseerUtil.rotate(new Vector2(Maths.randRange01(), 3f), BodyAngle);
             vector *= (float)Math.Pow((double)hero.DeadEyeScale(), 2.0);
             body.ApplyLinearImpulse(vector, body.WorldCenter);

@@ -39,7 +39,7 @@ namespace Default.Namespace.Windows
             hero.Tail.UpdateSpeed = 0.7f;
             hero.Tail.Rotation = -10f;
             ScheduleBlink();
-            Schedule(new Action(ScheduleChangeView), 1f);
+            _ = Schedule(new Action(ScheduleChangeView), 1f);
             scrollLayer.TouchBeginEvent.AddListenerSelector(new Action(OnScrollBegin));
         }
 
@@ -47,7 +47,7 @@ namespace Default.Namespace.Windows
         {
             if (Maths.Rand() < 0.5f && items.Count > 0)
             {
-                TryLookAtList();
+                _ = TryLookAtList();
             }
         }
 
@@ -61,7 +61,7 @@ namespace Default.Namespace.Windows
 
         private void ScheduleBlink()
         {
-            Schedule(new Action(Blink), Maths.randRange(3f, 8f));
+            _ = Schedule(new Action(Blink), Maths.randRange(3f, 8f));
         }
 
         private void Blink()
@@ -76,7 +76,7 @@ namespace Default.Namespace.Windows
 
         private void ScheduleChangeView()
         {
-            Schedule(new Action(ScheduleChangeView), Maths.randRange(10f, 16f));
+            _ = Schedule(new Action(ScheduleChangeView), Maths.randRange(10f, 16f));
             ChangeView();
         }
 

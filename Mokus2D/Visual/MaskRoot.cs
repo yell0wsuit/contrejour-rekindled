@@ -21,7 +21,7 @@ namespace Mokus2D.Visual
 
         public override void RemoveChild(Node node)
         {
-            Children.Remove(node);
+            _ = Children.Remove(node);
         }
     }
 }

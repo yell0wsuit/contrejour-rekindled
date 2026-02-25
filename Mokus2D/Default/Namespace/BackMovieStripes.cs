@@ -8,7 +8,7 @@
             : base(false, false)
         {
             backEvent = new EventSender();
-            CocosUtil.iPad(36, 50);
+            _ = CocosUtil.iPad(36, 50);
             clickableLayer = new ClickableLayer(0);
             AddChild(clickableLayer, 5);
             ShowBack();

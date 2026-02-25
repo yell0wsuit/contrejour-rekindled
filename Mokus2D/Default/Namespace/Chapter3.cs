@@ -23,9 +23,9 @@ namespace Default.Namespace
             rotatingSprite = AddShesterna("McPlanetShesterna", 10, CocosUtil.ccpIPad(-27f, -5f));
             rotatingSprite.Scale = 1.8f;
             rotatingSprite.Color = new Color(100, 100, 100);
-            AddShesterna("McPlanetShesternaBlur", 90, CocosUtil.ccpIPad(19f, -58f));
-            AddShesterna("McPlanetShesterna2", -20, CocosUtil.ccpIPad(40f, 30f));
-            AddShesterna("McPlanetShesterna3", -400, CocosUtil.ccpIPad(74f, 25f));
+            _ = AddShesterna("McPlanetShesternaBlur", 90, CocosUtil.ccpIPad(19f, -58f));
+            _ = AddShesterna("McPlanetShesterna2", -20, CocosUtil.ccpIPad(40f, 30f));
+            _ = AddShesterna("McPlanetShesterna3", -400, CocosUtil.ccpIPad(74f, 25f));
             rotatingSprite = AddShesterna("McPlanetCross", -200, CocosUtil.ccpIPad(104f, 24f));
             alphaItems.Add(rotatingSprite);
             rotatingSprite = AddShesterna("McMenuCircleSpikes", -400, CocosUtil.ccpIPad(50f, 69f));

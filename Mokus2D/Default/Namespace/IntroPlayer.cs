@@ -15,7 +15,7 @@ namespace Default.Namespace
         {
             game = _game;
             textPosition = CocosUtil.ccpIPad(0.5f * game.LevelSize.X, 0.7f * game.LevelSize.Y);
-            Schedule(new Action(PlayItem), 2f);
+            _ = Schedule(new Action(PlayItem), 2f);
             messages = new List<string>(["PRODUCER", "MUSIC_BY", "GRAPHICS_BY", "DIRECTED_BY"]);
             rightMessages = new List<string>(["TOM_KINNINBUGRH", "DAVID_LEON", "MIHAI_MAKSYM", "BY_MAKSYM_HRYNIV"]);
         }
@@ -27,7 +27,7 @@ namespace Default.Namespace
                 ShowMessageRightMessageIndex(messages[messages.Count - 1], rightMessages[rightMessages.Count - 1], 4 - messages.Count);
                 messages.RemoveAt(messages.Count - 1);
                 rightMessages.RemoveAt(rightMessages.Count - 1);
-                Schedule(new Action(PlayItem), 3.75f);
+                _ = Schedule(new Action(PlayItem), 3.75f);
                 return;
             }
             PlayInspired();
@@ -35,7 +35,7 @@ namespace Default.Namespace
 
         public void PlayInspired()
         {
-            Schedule(new Action(PlayLogo), 6f);
+            _ = Schedule(new Action(PlayLogo), 6f);
         }
 
         private void PlayLogo()

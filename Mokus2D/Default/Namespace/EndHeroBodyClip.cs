@@ -80,13 +80,13 @@ namespace Default.Namespace
                 sleep = true;
                 EyeMoveAllowed = false;
                 Mokus2DGame.SoundManager.PlaySound("petitkoIsHoping", 0.3f, 0f, 0f);
-                Schedule(new Action(LookAtRose), 0.2f);
+                _ = Schedule(new Action(LookAtRose), 0.2f);
                 if (data.RoseSaved)
                 {
-                    Schedule(new Action(SmileAfterLook), 2f);
+                    _ = Schedule(new Action(SmileAfterLook), 2f);
                     return;
                 }
-                Schedule(new Action(LookAtTear), 1.5f);
+                _ = Schedule(new Action(LookAtTear), 1.5f);
             }
         }
 
@@ -94,19 +94,19 @@ namespace Default.Namespace
         {
             EndRoseBodyClip endRoseBodyClip = (EndRoseBodyClip)builder.GetObject("rose");
             endRoseBodyClip.DropTear();
-            Schedule(new Action(LookAfterTear), 1f);
+            _ = Schedule(new Action(LookAfterTear), 1f);
         }
 
         private void LookAfterTear()
         {
             SetEyeTargetAngle(3.7699113f);
-            Schedule(new Action(LookAtRose2), 1.5f);
+            _ = Schedule(new Action(LookAtRose2), 1.5f);
         }
 
         private void LookAtRose2()
         {
             LookAtRose();
-            Schedule(new Action(BecomeSad), 2f);
+            _ = Schedule(new Action(BecomeSad), 2f);
         }
 
         private void BecomeSad()
@@ -119,7 +119,7 @@ namespace Default.Namespace
             ((MovieClip)eye.CurrentBackground).Repeat = false;
             NodeAction nodeAction = new EaseInOut(new RotateBy(2f, -70.ToRadians()), 2f);
             tail.Run(nodeAction);
-            Schedule(new Action(ShowOutro), 1f);
+            _ = Schedule(new Action(ShowOutro), 1f);
         }
 
         public void LookAtRose()
@@ -131,7 +131,7 @@ namespace Default.Namespace
         {
             eye.ViewDistance = 0f;
             eye.Smile();
-            Schedule(new Action(ShowOutro), 1f);
+            _ = Schedule(new Action(ShowOutro), 1f);
         }
 
         private void ShowOutro()
@@ -160,7 +160,7 @@ namespace Default.Namespace
             }
             NodeAction nodeAction = Actions.ShakeWithDurationPositionOffsetCountScaleDiff(8f, clip.Position, 4f, 50, 0.1f);
             clip.Run(nodeAction);
-            Schedule(new Action(AfterShake), 8f);
+            _ = Schedule(new Action(AfterShake), 8f);
             CreateLights();
             Game.ZoomToScaleTime(clip.Position, CocosUtil.iPad(1.4f, 1.6f), 10f);
             Game.TouchEnabled = false;
@@ -168,7 +168,7 @@ namespace Default.Namespace
             EyeAnimationsAllowed = false;
             AddStripesView();
             Game.RenewGround();
-            Schedule(new Action(PlayShakeSound), 7f);
+            _ = Schedule(new Action(PlayShakeSound), 7f);
         }
 
         private void PlayShakeSound()
@@ -184,7 +184,7 @@ namespace Default.Namespace
             {
                 float num3 = (float)Math.Sin((double)(num2 / num * 1.5707964f));
                 float num4 = 8f * num3;
-                Schedule(new Action(CreateLight), num4);
+                _ = Schedule(new Action(CreateLight), num4);
                 num2++;
             }
             energySpeed = 200f;

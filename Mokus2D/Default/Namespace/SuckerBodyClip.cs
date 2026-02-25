@@ -251,7 +251,7 @@ namespace Default.Namespace
             neck.LightBounce();
             eye.Visible = true;
             eye.PositionProvider = this;
-            Schedule(new Action(RefreshPositionProvider), Maths.randRange(1.5f, 2.5f));
+            _ = Schedule(new Action(RefreshPositionProvider), Maths.randRange(1.5f, 2.5f));
             FinishDragEvent.SendEvent();
         }
 
@@ -283,7 +283,7 @@ namespace Default.Namespace
                 if (flag)
                 {
                     creating = true;
-                    Schedule(new Action(CreateBodies), 0.2f);
+                    _ = Schedule(new Action(CreateBodies), 0.2f);
                 }
                 else
                 {

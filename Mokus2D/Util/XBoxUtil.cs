@@ -18,7 +18,7 @@ namespace Mokus2D.Util
             }
             if (!awardedAchievements.Contains(achievement) && Gamer.SignedInGamers.Count > 0)
             {
-                Gamer.SignedInGamers[PlayerIndex.One].BeginAwardAchievement(achievement, null, null);
+                _ = Gamer.SignedInGamers[PlayerIndex.One].BeginAwardAchievement(achievement, null, null);
                 awardedAchievements.Add(achievement);
             }
         }
@@ -27,7 +27,7 @@ namespace Mokus2D.Util
         {
             try
             {
-                gamer.BeginGetProfile(delegate (IAsyncResult result)
+                _ = gamer.BeginGetProfile(delegate (IAsyncResult result)
                 {
                     if (result.IsCompleted)
                     {
@@ -51,7 +51,7 @@ namespace Mokus2D.Util
         {
             if (!Guide.IsVisible)
             {
-                Guide.BeginShowMessageBox("TITLE_UPDATE_AVAILABLE".Localize(), "UPDATE_IS_AVAILABLE".Localize(),
+                _ = Guide.BeginShowMessageBox("TITLE_UPDATE_AVAILABLE".Localize(), "UPDATE_IS_AVAILABLE".Localize(),
                 [
                     "YES".Localize(),
                     "NO".Localize()

@@ -512,7 +512,7 @@ namespace Default.Namespace
         {
             for (int i = 0; i < 2; i++)
             {
-                FixtureFactory.AttachEdge(start, end, groundBody);
+                _ = FixtureFactory.AttachEdge(start, end, groundBody);
                 start += direction;
                 end += direction;
             }

@@ -103,7 +103,7 @@ namespace Default.Namespace
         public void SetTargetChapter(int index)
         {
             pager.CurrentPosition = index - 1;
-            Schedule(delegate
+            _ = Schedule(delegate
             {
                 pager.SetTargetPosition(index);
             }, 0.3f);

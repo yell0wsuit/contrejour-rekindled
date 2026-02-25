@@ -23,7 +23,7 @@ namespace Default.Namespace
         {
             if (SpriteContainsPoint(touch))
             {
-                base.TouchBegin(touch);
+                _ = base.TouchBegin(touch);
                 return true;
             }
             return false;

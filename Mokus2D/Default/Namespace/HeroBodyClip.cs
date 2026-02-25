@@ -97,10 +97,10 @@ namespace Default.Namespace
             if (Game.LevelIndex != 0 || !Game.CanShowIntro)
             {
                 initializeBody();
-                Schedule(new Action(FirstRespawn), FirstRespawnTime);
+                _ = Schedule(new Action(FirstRespawn), FirstRespawnTime);
                 if (Game.EndLevel != null)
                 {
-                    Schedule(new Action(Game.EndLevel.ShowPortal), 1.6f);
+                    _ = Schedule(new Action(Game.EndLevel.ShowPortal), 1.6f);
                 }
                 portal = new Portal(Game, _clip.Position);
                 builder.AddChildBefore(portal, clip);
@@ -180,7 +180,7 @@ namespace Default.Namespace
                     new Hide()
                 ]));
             }
-            CallAfter(new Action(HideBody), 0.1f);
+            _ = CallAfter(new Action(HideBody), 0.1f);
         }
 
         private void HideBody()
@@ -281,7 +281,7 @@ namespace Default.Namespace
             Body.SetTransform(initialPosition, Body.Rotation);
             ForceClipPosition();
             portal.TargetScale = 1f;
-            Schedule(new Action(ShowClip), 0.7f);
+            _ = Schedule(new Action(ShowClip), 0.7f);
             Mokus2DGame.SoundManager.PlaySound("begin5", 0.5f, 0f, 0f);
             NewBlackTail();
         }
@@ -295,13 +295,13 @@ namespace Default.Namespace
             clip.Visible = true;
             clip.Scale = 0f;
             clip.Run(new ScaleTo(0.2f, 1f));
-            CallAfter(new Action(StartPlay), 0.2f);
+            _ = CallAfter(new Action(StartPlay), 0.2f);
         }
 
         private void StartPlay()
         {
             Body.BodyType = BodyType.Dynamic;
-            CallAfter(new Action(RemovePortal), 0.2f);
+            _ = CallAfter(new Action(RemovePortal), 0.2f);
         }
 
         private void RemovePortal()
@@ -343,7 +343,7 @@ namespace Default.Namespace
                 }
                 foreach (object obj in arrayList)
                 {
-                    blackTails.Remove((BlackTail)obj);
+                    _ = blackTails.Remove((BlackTail)obj);
                 }
             }
             if (finishSet)
@@ -679,7 +679,7 @@ namespace Default.Namespace
                 {
                     Game.Finished = true;
                 }
-                Schedule(new Action(OnFinish), 0.5f);
+                _ = Schedule(new Action(OnFinish), 0.5f);
             }
             FinishEvent.SendEvent();
             teleportEvent.SendEvent();
@@ -708,7 +708,7 @@ namespace Default.Namespace
                 Game.Finish(builder.ToPoint(finishPosition));
                 return;
             }
-            Schedule(new Action(CallFail), finishPause);
+            _ = Schedule(new Action(CallFail), finishPause);
         }
 
         protected virtual void FinishLevelSpeed(Vector2 targetPosition, float _finishSpeed)
@@ -762,7 +762,7 @@ namespace Default.Namespace
                 bodyBackground.Run(new FadeOut(num));
                 HideEye();
                 hotspot.Run(new FadeOut(num));
-                Schedule(new Action(Hide), num);
+                _ = Schedule(new Action(Hide), num);
                 if (tail != null)
                 {
                     tail.Visible = false;

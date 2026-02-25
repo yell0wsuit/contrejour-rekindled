@@ -278,7 +278,7 @@ namespace Default.Namespace
                 }
                 foreach (object obj in arrayList)
                 {
-                    dust.Remove((DustData)obj);
+                    _ = dust.Remove((DustData)obj);
                 }
             }
             if (dragging && circle != null)

@@ -88,7 +88,7 @@ namespace Default.Namespace
             buttons = new List<Button>([button, restartButton, button2, button3]);
             if (Constants.IS_IPAD)
             {
-                buttons.Remove(restartButton);
+                _ = buttons.Remove(restartButton);
             }
             scoreLabel = ContreJourLabel.CreateLabel(CocosUtil.iPad(25, 15), true);
             scoreLabel.Position = CocosUtil.ccpIPad(CocosUtil.iPad(-130, -160), CocosUtil.iPad(40, 30));
@@ -153,7 +153,7 @@ namespace Default.Namespace
             }
             string text = string.Format(Messages.LEVEL, levelPosition.Chapter + 1, levelPosition.Index + 1, null);
             levelLabel.TextString = text;
-            scoreLabel.AppendFormat(Messages.BEST_SCORE, [(levelDataByFile == null) ? 0 : levelDataByFile.Score]);
+            _ = scoreLabel.AppendFormat(Messages.BEST_SCORE, [(levelDataByFile == null) ? 0 : levelDataByFile.Score]);
         }
 
         public void Show()
@@ -170,7 +170,7 @@ namespace Default.Namespace
             MoveTo moveTo = new(0.35f, new Vector2(winSize.Width + 10f, 0f));
             Run(new EaseOut(moveTo, 3f));
             buttonIndex = 0;
-            Schedule(new Action(ProcessNextButton), 0.15f);
+            _ = Schedule(new Action(ProcessNextButton), 0.15f);
             scoreLabel.Visible = true;
             scoreLabel.Run(new FadeIn(0.35f));
             levelLabel.Visible = true;
@@ -197,10 +197,10 @@ namespace Default.Namespace
             buttonIndex++;
             if (buttonIndex < buttons.Count)
             {
-                Schedule(new Action(ProcessNextButton), 0.1f);
+                _ = Schedule(new Action(ProcessNextButton), 0.1f);
                 return;
             }
-            Schedule(new Action(ShowMusic), 0.1f);
+            _ = Schedule(new Action(ShowMusic), 0.1f);
         }
 
         private void ShowMusic()

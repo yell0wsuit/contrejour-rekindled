@@ -36,7 +36,7 @@ namespace Default.Namespace
             }
             foreach (object obj2 in arrayList)
             {
-                items.Remove(obj2);
+                _ = items.Remove(obj2);
             }
             if (body.BodyType == BodyType.Static || body.LinearVelocity.Length() > 0.1f)
             {

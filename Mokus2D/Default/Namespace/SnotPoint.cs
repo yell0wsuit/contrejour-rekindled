@@ -51,7 +51,7 @@ namespace Default.Namespace
             FarseerUtil.SetSensor(Body, true);
             Game.SnotPoints.Add(this);
             clip = new Sprite("McSnotPoint");
-            builder.AddChild(clip, 3);
+            _ = builder.AddChild(clip, 3);
         }
 
         private static float Radius = 20f;

@@ -31,7 +31,7 @@ namespace Default.Namespace
             {
                 hasToRun = true;
                 showing = true;
-                Schedule(new Action(Hide), 10f);
+                _ = Schedule(new Action(Hide), 10f);
             }
         }
 

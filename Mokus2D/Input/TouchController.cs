@@ -76,15 +76,15 @@ namespace Mokus2D.Input
         public void RemoveListener(ITouchListener listener)
         {
             int num = priorities[listener];
-            priorities.Remove(listener);
+            _ = priorities.Remove(listener);
             foreach (KeyValuePair<Touch, List<ITouchListener>> keyValuePair in touches)
             {
                 if (keyValuePair.Value.Contains(listener))
                 {
-                    keyValuePair.Value.Remove(listener);
+                    _ = keyValuePair.Value.Remove(listener);
                 }
             }
-            GetListeners(num).Remove(listener);
+            _ = GetListeners(num).Remove(listener);
         }
 
         private List<ITouchListener> GetListeners(int priority)
@@ -103,7 +103,7 @@ namespace Mokus2D.Input
             foreach (Touch touch in toEnd)
             {
                 List<ITouchListener> list = touches[touch];
-                touches.Remove(touch);
+                _ = touches.Remove(touch);
                 touchesPool.Delete(touch);
                 if (!stoped.Contains(touch))
                 {

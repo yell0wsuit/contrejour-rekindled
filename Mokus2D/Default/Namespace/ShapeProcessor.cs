@@ -68,7 +68,7 @@ namespace Default.Namespace
         public virtual void AddShapesItem(Body body, Hashtable item)
         {
             Shape shape = CreateShape(item);
-            AddShapeItemShape(body, item, shape);
+            _ = AddShapeItemShape(body, item, shape);
         }
 
         public virtual Shape CreateShape(Hashtable item)

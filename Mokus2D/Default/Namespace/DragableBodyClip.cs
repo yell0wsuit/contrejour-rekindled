@@ -122,7 +122,7 @@ namespace Default.Namespace
                 dragStartEvent.SendEvent();
                 ContreJourGame contreJourGame = (ContreJourGame)builder.Game;
                 contreJourGame.IncreaseZoomOut();
-                Schedule(new Action(contreJourGame.FocusOnHero), 0.05f);
+                _ = Schedule(new Action(contreJourGame.FocusOnHero), 0.05f);
                 draging = true;
                 initialMousePosition = builder.TouchRootVec(touch);
                 initialDragOffset = Body.Position - initialPosition;

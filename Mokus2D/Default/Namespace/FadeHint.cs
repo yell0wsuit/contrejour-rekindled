@@ -52,7 +52,7 @@ namespace Default.Namespace
             if (((ContreJourGame)builder.Game).TouchEnabled && hasToRun)
             {
                 hasToRun = false;
-                CallAfterDelay(new Action(Show), 2f);
+                _ = CallAfterDelay(new Action(Show), 2f);
             }
         }
 
@@ -72,7 +72,7 @@ namespace Default.Namespace
             clip.Run(new FadeIn(2f));
             if (HasToHide())
             {
-                CallAfterDelay(new Action(Hide), 5f);
+                _ = CallAfterDelay(new Action(Hide), 5f);
             }
         }
 

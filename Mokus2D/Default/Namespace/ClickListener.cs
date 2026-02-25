@@ -39,7 +39,7 @@ namespace Default.Namespace
         {
             if (IsOutStartPosition(touch, startPositions[touch]))
             {
-                startPositions.Remove(touch);
+                _ = startPositions.Remove(touch);
                 return false;
             }
             return true;
@@ -53,7 +53,7 @@ namespace Default.Namespace
                 {
                     clickEvent.SendEvent(touch);
                 }
-                startPositions.Remove(touch);
+                _ = startPositions.Remove(touch);
             }
         }
 

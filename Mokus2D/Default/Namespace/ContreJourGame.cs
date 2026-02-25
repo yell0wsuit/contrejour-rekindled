@@ -185,7 +185,7 @@ namespace Default.Namespace
             starsCollected = 0;
             touchFixPoint = CocosUtil.ScreenPosition(new Vector2(0f, 1f));
             teleports = new Hashtable();
-            updater.CallAfterSelectorDelay(new Action(EnableRestart), 1.5f);
+            _ = updater.CallAfterSelectorDelay(new Action(EnableRestart), 1.5f);
             Mokus2DGame.KeysController.AddBackKeyListener(new Action(OnBackPress), 0);
         }
 
@@ -370,12 +370,12 @@ namespace Default.Namespace
             }
             if (screenControl.Touch == touch)
             {
-                screenControl.TouchMove(touch);
+                _ = screenControl.TouchMove(touch);
             }
             if (draggingItems.ContainsKey(touch))
             {
                 IClickable clickable = draggingItems[touch];
-                clickable.TouchMove(touch);
+                _ = clickable.TouchMove(touch);
             }
             return true;
         }
@@ -384,18 +384,18 @@ namespace Default.Namespace
         {
             if (freeTouches.Contains(touch))
             {
-                freeTouches.Remove(touch);
+                _ = freeTouches.Remove(touch);
             }
             if (screenControl.Touch == touch)
             {
                 screenControl.TouchEnd(touch);
             }
-            freeDisabledTouches.Remove(touch);
+            _ = freeDisabledTouches.Remove(touch);
             screenControl.EndZoomTouch(touch);
             if (draggingItems.ContainsKey(touch))
             {
                 IClickable clickable = draggingItems[touch];
-                draggingItems.Remove(touch);
+                _ = draggingItems.Remove(touch);
                 clickable.TouchEnd(touch);
             }
             foreach (object obj in positionProviders)
@@ -560,7 +560,7 @@ namespace Default.Namespace
                 ]);
                 restartLayer.Run(sequence);
                 SoftRestart();
-                updater.CallAfterSelectorDelay(new Action(EnableRestart), 1.5f);
+                _ = updater.CallAfterSelectorDelay(new Action(EnableRestart), 1.5f);
             }
         }
 
@@ -845,7 +845,7 @@ namespace Default.Namespace
                 Restart();
                 return;
             }
-            Updater.CallAfterSelectorDelay(new Action(Restart), restartTime);
+            _ = Updater.CallAfterSelectorDelay(new Action(Restart), restartTime);
         }
 
         public void Finish(Vector2 zoomPoint)
@@ -910,7 +910,7 @@ namespace Default.Namespace
 
         private void RemovePositionProvider(PositionProviderValue provider)
         {
-            positionProviders.Remove(provider);
+            _ = positionProviders.Remove(provider);
             providersValue -= provider.Value;
         }
 
@@ -1010,7 +1010,7 @@ namespace Default.Namespace
             }
             foreach (object obj in arrayList)
             {
-                freeTouches.Remove((Touch)obj);
+                _ = freeTouches.Remove((Touch)obj);
             }
             foreach (IUpdatable updatable in backgrounds)
             {
@@ -1035,7 +1035,7 @@ namespace Default.Namespace
         {
             if (ProcessTouchIsFree(touch, true))
             {
-                freeTouches.Remove(touch);
+                _ = freeTouches.Remove(touch);
             }
         }
 
@@ -1109,7 +1109,7 @@ namespace Default.Namespace
 
         public void FreeTouch(Touch touch)
         {
-            draggingItems.Remove(touch);
+            _ = draggingItems.Remove(touch);
             if (!freeTouches.Contains(touch))
             {
                 freeTouches.Add(touch);

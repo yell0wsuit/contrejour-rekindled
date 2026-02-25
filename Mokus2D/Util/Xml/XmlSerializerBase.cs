@@ -35,7 +35,7 @@ namespace Mokus2D.Util.Xml
                 IList list = target as IList;
                 while (list.Count < num + 1)
                 {
-                    list.Add(null);
+                    _ = list.Add(null);
                 }
                 list[num] = targetValue;
                 return;
@@ -45,7 +45,7 @@ namespace Mokus2D.Util.Xml
                 ((IDictionary)target)[key] = targetValue;
                 return;
             }
-            target.Reflect().FieldOrProperty(key).SetValue(targetValue);
+            _ = target.Reflect().FieldOrProperty(key).SetValue(targetValue);
         }
 
         private string UnprocessAttributeName(string attributeName)

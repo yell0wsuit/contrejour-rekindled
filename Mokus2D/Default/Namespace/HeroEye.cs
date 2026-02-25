@@ -80,7 +80,7 @@ namespace Default.Namespace
         {
             if (!TryPlaySound(animation.Background))
             {
-                TryPlaySound(animation.EyeBall);
+                _ = TryPlaySound(animation.EyeBall);
             }
         }
 

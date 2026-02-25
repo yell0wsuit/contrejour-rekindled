@@ -51,7 +51,7 @@ namespace Default.Namespace
                 revoluteJoint.UpperLimit = MathHelper.ToRadians(config.GetFloat("upperAngle"));
             }
             revoluteJoint.CollideConnected = false;
-            CreateJointConfig(revoluteJoint, config);
+            _ = CreateJointConfig(revoluteJoint, config);
         }
 
         private const float MOTOR_TORQUE_MULT = 30f;

@@ -18,7 +18,7 @@ namespace Default.Namespace
             {
                 _clip = new Node();
                 _clip.Scale = _config.GetVector("scale").X;
-                _builder.AddChild(_clip);
+                _ = _builder.AddChild(_clip);
                 clip = _clip;
             }
             grassStep = 6.2831855f / GrassCount();

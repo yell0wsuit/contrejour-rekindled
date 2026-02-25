@@ -50,10 +50,10 @@ namespace Default.Namespace
             dynamicDrag = config.GetBool("dynamicDrag");
             if (game.LevelIndex == 169)
             {
-                game.Updater.CallAfterSelectorDelay(new Action(Blink), Maths.randRange(5f, 8f));
+                _ = game.Updater.CallAfterSelectorDelay(new Action(Blink), Maths.randRange(5f, 8f));
                 return;
             }
-            game.Updater.CallAfterSelectorDelay(new Action(Blink), Maths.randRange(1f, 2f));
+            _ = game.Updater.CallAfterSelectorDelay(new Action(Blink), Maths.randRange(1f, 2f));
         }
 
         public bool Enabled
@@ -201,12 +201,12 @@ namespace Default.Namespace
 
         public void Blink()
         {
-            game.Updater.CallAfterSelectorDelay(new Action(Blink), Maths.randRange(10f, 25f));
+            _ = game.Updater.CallAfterSelectorDelay(new Action(Blink), Maths.randRange(10f, 25f));
             if (stickyJoint == null)
             {
                 blinking = true;
                 eye.Open = true;
-                game.Updater.CallAfterSelectorDelay(new Action(EndBlink), Maths.randRange(2f, 5f));
+                _ = game.Updater.CallAfterSelectorDelay(new Action(EndBlink), Maths.randRange(2f, 5f));
             }
         }
 

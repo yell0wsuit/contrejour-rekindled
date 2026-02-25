@@ -138,7 +138,7 @@ namespace Mokus2D.Visual
                 cachedActionsToRemove.Add(action);
                 return;
             }
-            actions.Remove(action);
+            _ = actions.Remove(action);
         }
 
         public void StopAllActions()
@@ -156,7 +156,7 @@ namespace Mokus2D.Visual
             if (nodeLayer != node.layer)
             {
                 node.layer = nodeLayer;
-                children.Remove(node);
+                _ = children.Remove(node);
                 children.Add(node);
             }
         }
@@ -301,7 +301,7 @@ namespace Mokus2D.Visual
             {
                 foreach (NodeAction nodeAction2 in cachedActionsToRemove)
                 {
-                    actions.Remove(nodeAction2);
+                    _ = actions.Remove(nodeAction2);
                 }
             }
             actions.AddRange(actionsToAdd);
@@ -330,7 +330,7 @@ namespace Mokus2D.Visual
             drawTracer.Start();
             Draw(compositeState);
             drawTracer.End();
-            DrawChildrenPart(num, true);
+            _ = DrawChildrenPart(num, true);
             compositeState.TransformationDirty = false;
         }
 

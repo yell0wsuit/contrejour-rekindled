@@ -38,7 +38,7 @@ namespace Default.Namespace
         {
             for (int i = 0; i < count; i++)
             {
-                AddParticle(new Vector2(0f, 0f));
+                _ = AddParticle(new Vector2(0f, 0f));
             }
         }
 
@@ -150,7 +150,7 @@ namespace Default.Namespace
             invisibleParticles.AddRange(cachedInvisible);
             for (int i = 0; i < cachedInvisible.Count; i++)
             {
-                particles.Remove(cachedInvisible[i]);
+                _ = particles.Remove(cachedInvisible[i]);
             }
         }
 

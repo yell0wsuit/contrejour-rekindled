@@ -131,7 +131,7 @@ namespace Default.Namespace
             }
             try
             {
-                Directory.CreateDirectory(GetSaveDirectoryPath());
+                _ = Directory.CreateDirectory(GetSaveDirectoryPath());
                 using StreamWriter writer = new(GetSaveFilePath());
                 serializer.Serialize(writer, instance);
             }
@@ -200,7 +200,7 @@ namespace Default.Namespace
             {
                 if (!Directory.Exists(path))
                 {
-                    Directory.CreateDirectory(path);
+                    _ = Directory.CreateDirectory(path);
                 }
                 string testFile = Path.Combine(path, ".write_test");
                 File.WriteAllText(testFile, "test");
@@ -336,7 +336,7 @@ namespace Default.Namespace
         {
             for (int i = 0; i < Constants.ChaptersCount * 20 - 1; i++)
             {
-                CompleteLevel(new LevelPosition(i / 20, i % 20), 3, 100f);
+                _ = CompleteLevel(new LevelPosition(i / 20, i % 20), 3, 100f);
             }
         }
 

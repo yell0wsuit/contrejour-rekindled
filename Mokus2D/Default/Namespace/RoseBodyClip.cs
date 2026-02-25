@@ -89,7 +89,7 @@ namespace Default.Namespace
             game.ClickableLayer.AddChild(skipButton);
             skipButton.Position = ScreenConstants.W7FromIPhoneSize - new Vector2(60f);
             intro = new IntroPlayer(game);
-            builder.AddChild(intro);
+            _ = builder.AddChild(intro);
             stalk = (MovieClip)ClipFactory.CreateWithAnchor("McStebloAnimation");
             headLight = ClipFactory.CreateWithAnchor("McRoseHeadLight");
             headBack = ClipFactory.CreateWithAnchor("McRoseHeadBack");
@@ -106,14 +106,14 @@ namespace Default.Namespace
             puddle.Visible = false;
             puddle.Stoped = true;
             puddle.Speed = 0.7f;
-            builder.AddChild(puddle);
+            _ = builder.AddChild(puddle);
             foreach (MovieClip movieClip in roseParts)
             {
                 movieClip.Repeat = false;
                 movieClip.Stoped = true;
                 clip.AddChild(movieClip);
             }
-            builder.AddChild(leafMain);
+            _ = builder.AddChild(leafMain);
             leafMain.Repeat = false;
             leafMain.Stoped = true;
             leafMain.Position = clip.Position;
@@ -148,7 +148,7 @@ namespace Default.Namespace
         private void OnLeafMainEnd()
         {
             leafMain.EndEvent += new Action(OnLeafMainEnd);
-            Schedule(new Action(ShowPuddle), 1f);
+            _ = Schedule(new Action(ShowPuddle), 1f);
         }
 
         private void ShowPuddle()
@@ -169,8 +169,8 @@ namespace Default.Namespace
             game.Hero.EyeAnimationsAllowed = false;
             game.Hero.Body.ApplyLinearImpulse(HERO_JUMP_IMPULSE, game.Hero.Body.WorldCenter);
             game.Hero.Body.FixedRotation = true;
-            Schedule(new Action(OnHeroJump), 0.5f);
-            Schedule(new Action(LookAtRose), 2.5f);
+            _ = Schedule(new Action(OnHeroJump), 0.5f);
+            _ = Schedule(new Action(LookAtRose), 2.5f);
         }
 
         private void OnHeroJump()
@@ -184,14 +184,14 @@ namespace Default.Namespace
         {
             game.Hero.EyeMoveAllowed = false;
             game.Hero.SetEyeTargetAngle(MathHelper.ToRadians(30f));
-            Schedule(new Action(LookAtBonuses), 1.5f);
-            Schedule(new Action(game.ShowBonuses), 1f);
+            _ = Schedule(new Action(LookAtBonuses), 1.5f);
+            _ = Schedule(new Action(game.ShowBonuses), 1f);
         }
 
         private void LookAtBonuses()
         {
             game.Hero.SetEyeTargetAngle(MathHelper.ToRadians(160f));
-            Schedule(new Action(FinishMovie), 1.5f);
+            _ = Schedule(new Action(FinishMovie), 1.5f);
             skipButton.ClickEvent.RemoveListenerSelector(new Action(OnSkipClick));
             skipButton.Run(new Sequence(
             [

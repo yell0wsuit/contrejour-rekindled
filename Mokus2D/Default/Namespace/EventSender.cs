@@ -50,7 +50,7 @@ namespace Default.Namespace
 
         public void RemoveListenerSelector(Action selector)
         {
-            listeners.Remove(selector);
+            _ = listeners.Remove(selector);
         }
 
         protected List<Action> listeners = new(64);

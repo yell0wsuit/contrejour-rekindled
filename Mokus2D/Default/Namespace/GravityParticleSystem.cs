@@ -98,7 +98,7 @@ namespace Default.Namespace
             while (particles.Count < count)
             {
                 Vector2 vector = new(horizontalPosition.GetValueInRange(), verticalPosition.GetValueInRange());
-                AddParticle(vector);
+                _ = AddParticle(vector);
             }
         }
 
@@ -107,7 +107,7 @@ namespace Default.Namespace
             while (particles.Count < count)
             {
                 Vector2 vector = new(Maths.RandRangeMinMax(bottomLeftBound.X, topRightBound.X), Maths.RandRangeMinMax(bottomLeftBound.Y, topRightBound.Y));
-                AddParticle(vector);
+                _ = AddParticle(vector);
             }
         }
 

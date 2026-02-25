@@ -114,7 +114,7 @@ namespace Default.Namespace
                 return;
             }
             destroyLaterCalled = true;
-            CallAfter(new Action(Destroy), 0.01f);
+            _ = CallAfter(new Action(Destroy), 0.01f);
         }
 
         public virtual void Clear()

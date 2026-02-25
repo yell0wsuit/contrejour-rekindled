@@ -31,7 +31,7 @@ namespace Default.Namespace
             providerEnabled = true;
             Open = _visible;
             Visible = _visible;
-            Schedule(new Action(ChangePositionProvider), 0.1f);
+            _ = Schedule(new Action(ChangePositionProvider), 0.1f);
             if (Game != null)
             {
                 Game.AddPositionDependent(this);
@@ -104,7 +104,7 @@ namespace Default.Namespace
                 randomPositionProvider = Game.GetRandomPositionProvider();
             }
             StopAllActions();
-            Schedule(new Action(ChangePositionProvider), Maths.RandRangeMinMax(3f, 15f));
+            _ = Schedule(new Action(ChangePositionProvider), Maths.RandRangeMinMax(3f, 15f));
         }
 
         public override void Update(float time)

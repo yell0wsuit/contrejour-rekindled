@@ -18,7 +18,7 @@ namespace Default.Namespace
             sprite.Scale = 1f / ScreenConstants.Scales.fromIPhone2ByHeight;
             container.AddChild(sprite);
             buyButton = new TouchSprite("McBuyFullVersionButton");
-            new ButtonSound(buyButton);
+            _ = new ButtonSound(buyButton);
             clickableLayer.AddChild(buyButton);
             buyButton.Position = new Vector2(592f, 263f) / ScreenConstants.Scales.fromIPhone2ByHeight;
             buyButton.Scale = sprite.Scale;

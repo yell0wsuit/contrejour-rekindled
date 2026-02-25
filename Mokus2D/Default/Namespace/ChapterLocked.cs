@@ -85,7 +85,7 @@ namespace Default.Namespace
                     Mokus2DGame.SoundManager.PlaySound("boom0", 0.7f, 0f, 0f);
                     NodeAction nodeAction = Actions.ShakeWithDurationOffsetCount(0.2f, 5f, 20);
                     Run(nodeAction);
-                    Schedule(new Action(DoExplode), 0.4f);
+                    _ = Schedule(new Action(DoExplode), 0.4f);
                 }
             }
         }
@@ -97,7 +97,7 @@ namespace Default.Namespace
             explosion.IgnoreParentOpacity = true;
             Parent.AddChild(explosion);
             explosion.Position = Position;
-            Schedule(new Action(explodeEvent.SendEvent), 1f);
+            _ = Schedule(new Action(explodeEvent.SendEvent), 1f);
             Run(new DelayedAction(new Action(RemoveFromParent), 1.5f));
         }
 
