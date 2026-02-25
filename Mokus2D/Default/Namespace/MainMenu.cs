@@ -98,9 +98,11 @@ namespace Mokus2D.Default.Namespace
             achievementsButton = new Button("McXBoxButton", null, null);
             ProcessXBoxButton(achievementsButton, "ACHIEVEMENTS", 12f, 18f, 1f);
             achievementsButton.Position = new Vector2(soundButton.Position.X - ((soundButton.Size.X + 68f) * soundButton.RealScale), 0f);
+            achievementsButton.ClickEvent.AddListenerSelector(new Action(OnAchievementsClick));
             leaderboardsButton = new Button("McXBoxButton", null, null);
             ProcessXBoxButton(leaderboardsButton, "LEADERBOARDS", 12f, 18f, 1f);
             leaderboardsButton.Position = new Vector2(achievementsButton.Position.X - ((achievementsButton.Size.X + 10f) * achievementsButton.RealScale), 0f);
+            leaderboardsButton.ClickEvent.AddListenerSelector(new Action(OnLeaderboardsClick));
         }
 
         private void ProcessXBoxButton(Button button, string text, float textSize = 12f, float labelOffset = 18f, float scaleMult = 1f)
@@ -631,4 +633,3 @@ namespace Mokus2D.Default.Namespace
         private readonly float RADIUS = CocosUtil.iPadValue(CocosUtil.lite(340, 360));
     }
 }
-
