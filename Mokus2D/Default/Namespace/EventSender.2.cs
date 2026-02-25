@@ -57,6 +57,6 @@ namespace Default.Namespace
 
         protected List<Action<T>> parameterListeners = new(64);
 
-        private List<Action<T>> parameterListenersCopy = new(64);
+        private readonly List<Action<T>> parameterListenersCopy = new(64);
     }
 }

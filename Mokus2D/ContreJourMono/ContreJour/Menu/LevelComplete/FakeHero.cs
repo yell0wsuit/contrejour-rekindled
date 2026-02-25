@@ -124,7 +124,7 @@ namespace ContreJourMono.ContreJour.Menu.LevelComplete
 
         private readonly HeroTail tail;
 
-        private bool breathing;
+        private readonly bool breathing;
 
         private Vector2 realPosition;
 

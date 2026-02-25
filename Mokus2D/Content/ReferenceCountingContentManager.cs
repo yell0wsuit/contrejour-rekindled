@@ -73,7 +73,7 @@ namespace Mokus2D.Content
 
         private readonly Dictionary<string, AssetReference> assetReferences = new();
 
-        private List<string> toRemove = new(64);
+        private readonly List<string> toRemove = new(64);
     }
 }
 

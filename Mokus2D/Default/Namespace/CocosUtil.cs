@@ -229,8 +229,8 @@ namespace Default.Namespace
 
         private const int RETINA_COORDS_MULTIPLIER = 2;
 
-        private static bool armChecked;
+        private static readonly bool armChecked;
 
-        private static bool _isArmV7;
+        private static readonly bool _isArmV7;
     }
 }

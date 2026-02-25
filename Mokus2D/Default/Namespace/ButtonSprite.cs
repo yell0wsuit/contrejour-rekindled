@@ -28,6 +28,6 @@ namespace Default.Namespace
 
         private float targetScale;
 
-        private float initialScale;
+        private readonly float initialScale;
     }
 }

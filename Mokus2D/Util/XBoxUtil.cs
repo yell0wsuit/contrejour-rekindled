@@ -67,8 +67,8 @@ namespace Mokus2D.Util
             }
         }
 
-        private static List<string> awardedAchievements = new(64);
+        private static readonly List<string> awardedAchievements = new(64);
 
-        private static bool achievementShown;
+        private static readonly bool achievementShown;
     }
 }

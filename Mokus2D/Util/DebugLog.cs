@@ -156,7 +156,7 @@ namespace Mokus2D.Util
             WriteLog(LogType.fatal, string.Format(message, args), 2, e);
         }
 
-        private static List<string> notImplemented = new();
+        private static readonly List<string> notImplemented = new();
 
         private enum LogType
         {

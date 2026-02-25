@@ -133,7 +133,7 @@ public class Pool<T> where T : class, new()
         return allocate != null ? allocate.Invoke() : default(T);
     }
 
-    private List<T> items;
+    private readonly List<T> items;
 
     private readonly Predicate<T> validate;
 

@@ -55,6 +55,6 @@ namespace Default.Namespace
 
         protected List<Action> listeners = new(64);
 
-        private List<Action> listenersCopy = new(64);
+        private readonly List<Action> listenersCopy = new(64);
     }
 }

@@ -56,15 +56,15 @@ namespace Mokus2D.Util
             toRun.Clear();
         }
 
-        private Pool<Task> tasksPool = new(64, true, false, null, null);
+        private readonly Pool<Task> tasksPool = new(64, true, false, null, null);
 
         private float totalGameTime;
 
-        private List<Task> tasks = new();
+        private readonly List<Task> tasks = new();
 
-        private List<Action> toRun = new();
+        private readonly List<Action> toRun = new();
 
-        private List<IUpdatable> updatables = new();
+        private readonly List<IUpdatable> updatables = new();
 
         public class Task : IUpdatable, IDisposable
         {

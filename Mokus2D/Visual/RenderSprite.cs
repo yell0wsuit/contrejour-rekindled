@@ -38,6 +38,6 @@ namespace Mokus2D.Visual
 
         protected readonly RootNode renderRoot;
 
-        private RenderTarget2D renderTarget;
+        private readonly RenderTarget2D renderTarget;
     }
 }

@@ -54,7 +54,7 @@ namespace Default.Namespace
             _ = builder.AddChild(clip, 3);
         }
 
-        private static float Radius = 20f;
+        private static readonly float Radius = 20f;
 
         private bool used;
 

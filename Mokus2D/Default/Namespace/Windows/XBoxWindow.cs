@@ -255,15 +255,15 @@ namespace Default.Namespace.Windows
 
         protected Label titleLabel;
 
-        private FakeHero hero = new();
+        private readonly FakeHero hero = new();
 
-        private List<XBoxItem> items = new(64);
+        private readonly List<XBoxItem> items = new(64);
 
         private XBoxItem targetItem;
 
         private Sprite picture;
 
-        private Sprite pictureBackground;
+        private readonly Sprite pictureBackground;
 
         private Sprite loadingIcon;
     }

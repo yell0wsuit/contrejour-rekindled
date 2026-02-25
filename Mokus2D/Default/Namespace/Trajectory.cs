@@ -71,6 +71,6 @@ namespace Default.Namespace
 
         private bool enabled;
 
-        private float enabledOpacity;
+        private readonly float enabledOpacity;
     }
 }

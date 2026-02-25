@@ -169,7 +169,7 @@ namespace Default.Namespace
 
         private float targetSpeed;
 
-        private SnotPoint initialPoint = targetPoint;
+        private readonly SnotPoint initialPoint = targetPoint;
 
         private Vector2 targetPosition;
     }

@@ -310,6 +310,6 @@ namespace ContreJour
 
         private static readonly Dictionary<int, SpriteFont> fonts = new();
 
-        private GamerServicesComponent gamerServicesComponent;
+        private readonly GamerServicesComponent gamerServicesComponent;
     }
 }

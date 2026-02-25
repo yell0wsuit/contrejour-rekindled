@@ -16,6 +16,6 @@ namespace Default.Namespace
             return -1f;
         }
 
-        private List<Fixture> fixtures = new();
+        private readonly List<Fixture> fixtures = new();
     }
 }

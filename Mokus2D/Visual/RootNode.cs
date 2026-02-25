@@ -28,6 +28,6 @@ namespace Mokus2D.Visual
             DrawNode(rootState);
         }
 
-        private VisualState rootState;
+        private readonly VisualState rootState;
     }
 }

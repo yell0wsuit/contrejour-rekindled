@@ -63,7 +63,7 @@ namespace Mokus2D.Visual
             }
         }
 
-        private VertexPositionColor[] vertices = new VertexPositionColor[4];
+        private readonly VertexPositionColor[] vertices = new VertexPositionColor[4];
 
         private bool colorChanged;
     }

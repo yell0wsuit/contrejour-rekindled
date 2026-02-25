@@ -74,6 +74,6 @@ namespace Default.Namespace
 
         protected List<int> partsLength = new();
 
-        private float MAX_PART_LENGHT = 0.26666668f;
+        private readonly float MAX_PART_LENGHT = 0.26666668f;
     }
 }

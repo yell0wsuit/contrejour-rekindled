@@ -57,10 +57,10 @@ namespace Mokus2D.Content
 
         private readonly string clip_root = "Levels/";
 
-        private XmlSerializer serializer = new();
+        private readonly XmlSerializer serializer = new();
 
-        private Dictionary<string, Level> cache = new();
+        private readonly Dictionary<string, Level> cache = new();
 
-        private ReferenceCountingContentManager content;
+        private readonly ReferenceCountingContentManager content;
     }
 }

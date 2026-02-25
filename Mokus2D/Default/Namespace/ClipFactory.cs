@@ -139,18 +139,18 @@ namespace Default.Namespace
 
         public static LevelBuilderBase debug_builder;
 
-        private static ClipFactory instance = new();
+        private static readonly ClipFactory instance = new();
 
-        private static string clip_root = "mc/hd/";
+        private static readonly string clip_root = "mc/hd/";
 
-        private static XmlSerializer serializer = new();
+        private static readonly XmlSerializer serializer = new();
 
         public static ReferenceCountingContentManager content;
 
-        private static Dictionary<string, ClipData> configsCache = new();
+        private static readonly Dictionary<string, ClipData> configsCache = new();
 
-        private static StringDictionary fullPaths = new();
+        private static readonly StringDictionary fullPaths = new();
 
-        private static Dictionary<object, Dictionary<int, MovieClip>> debugPoints = new();
+        private static readonly Dictionary<object, Dictionary<int, MovieClip>> debugPoints = new();
     }
 }

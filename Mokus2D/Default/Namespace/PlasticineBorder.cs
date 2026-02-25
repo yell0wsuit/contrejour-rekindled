@@ -83,6 +83,6 @@ namespace Default.Namespace
 
         private static readonly Color CENTER_COLOR = new(127, 127, 127);
 
-        private float WIDTH = 4f;
+        private readonly float WIDTH = 4f;
     }
 }

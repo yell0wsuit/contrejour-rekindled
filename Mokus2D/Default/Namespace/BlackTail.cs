@@ -234,7 +234,7 @@ namespace Default.Namespace
 
         protected bool moving;
 
-        private float LOW_FPS_TIME = 0.04f;
+        private readonly float LOW_FPS_TIME = 0.04f;
 
         private bool opacityDirty;
     }

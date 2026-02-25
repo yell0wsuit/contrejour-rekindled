@@ -94,7 +94,7 @@ namespace Default.Namespace
             }
         }
 
-        private SnotData physics;
+        private readonly SnotData physics;
 
         protected MonsterEye eye;
 

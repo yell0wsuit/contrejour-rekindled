@@ -215,7 +215,7 @@ namespace Default.Namespace
 
         public static List<List<int>> LEVELS_LIST = new();
 
-        private float RowOffset = 120f;
+        private readonly float RowOffset = 120f;
 
         public static int[,] LEVELS = new int[,]
         {
@@ -251,7 +251,7 @@ namespace Default.Namespace
 
         private Vector2 initialPosition;
 
-        private Sprite adsButton;
+        private readonly Sprite adsButton;
 
         private Vector2 adsButtonPosition;
     }

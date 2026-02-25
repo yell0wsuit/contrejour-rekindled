@@ -603,7 +603,7 @@ namespace Default.Namespace
 
         protected float touchEndTime;
 
-        private bool movable;
+        private readonly bool movable;
 
         private bool enabled = true;
 

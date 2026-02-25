@@ -18,6 +18,6 @@ namespace Default.Namespace
 
         private float horizontalStep;
 
-        private float step = Maths.randRange(0.01f, 0.03f);
+        private readonly float step = Maths.randRange(0.01f, 0.03f);
     }
 }

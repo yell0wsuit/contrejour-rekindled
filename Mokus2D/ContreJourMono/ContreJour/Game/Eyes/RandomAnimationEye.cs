@@ -158,7 +158,7 @@ namespace ContreJourMono.ContreJour.Game.Eyes
 
         private bool _animationsAllowed = true;
 
-        private Action clipEndAction;
+        private readonly Action clipEndAction;
 
         private bool isPlaying;
 

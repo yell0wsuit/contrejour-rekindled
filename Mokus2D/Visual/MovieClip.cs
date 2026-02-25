@@ -126,7 +126,7 @@ namespace Mokus2D.Visual
 
         private Rectangle currentFrameBounds = config.Config.FramesBounds[0];
 
-        private float fps = 30f;
+        private readonly float fps = 30f;
 
         private uint frameValue = 1U;
 

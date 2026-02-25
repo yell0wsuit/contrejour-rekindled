@@ -32,7 +32,7 @@ namespace Mokus2D.Util.Data
 
         object IEnumerator.Current => Current;
 
-        private IList<T> source;
+        private readonly IList<T> source;
 
         private int currentIndex;
     }

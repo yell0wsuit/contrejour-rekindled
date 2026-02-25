@@ -979,6 +979,6 @@ namespace Default.Namespace
 
         protected bool speedLocked;
 
-        private float eyeScale;
+        private readonly float eyeScale;
     }
 }

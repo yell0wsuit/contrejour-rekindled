@@ -80,7 +80,7 @@ namespace Default.Namespace.Windows
 
         public readonly EventSender OpenChangeEvent = new();
 
-        private FadeEffect howerEffect;
+        private readonly FadeEffect howerEffect;
 
         private bool open;
 

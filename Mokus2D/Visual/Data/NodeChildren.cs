@@ -15,6 +15,6 @@ namespace Mokus2D.Visual.Data
             return num < 0 ? ~num : throw new InvalidOperationException("items can not be equal");
         }
 
-        private static NodeComparer comparer = new();
+        private static readonly NodeComparer comparer = new();
     }
 }

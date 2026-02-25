@@ -52,11 +52,11 @@ public static class SpriteBatchExtensions
         return position;
     }
 
-    private static string[] digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    private static readonly string[] digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-    private static string[] charBuffer = new string[10];
+    private static readonly string[] charBuffer = new string[10];
 
-    private static float[] xposBuffer = new float[10];
+    private static readonly float[] xposBuffer = new float[10];
 
     private static readonly string minValue = int.MinValue.ToString(CultureInfo.InvariantCulture);
 }

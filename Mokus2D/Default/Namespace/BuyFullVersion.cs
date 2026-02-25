@@ -89,10 +89,10 @@ namespace Default.Namespace
 
         private static readonly Vector2 IPHONE_POSITION = CocosUtil.ccpIPad(310f, VERTICAL_POSITION);
 
-        private ButtonSprite buyButtonEffect;
+        private readonly ButtonSprite buyButtonEffect;
 
-        private TouchSprite buyButton;
+        private readonly TouchSprite buyButton;
 
-        private Node textSprite;
+        private readonly Node textSprite;
     }
 }

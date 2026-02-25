@@ -48,6 +48,6 @@ namespace Default.Namespace.Windows.Items
 
         private const string Format = "{0}. {1}";
 
-        private Label scoreLabel;
+        private readonly Label scoreLabel;
     }
 }

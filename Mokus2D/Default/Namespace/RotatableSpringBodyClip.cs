@@ -208,7 +208,7 @@ namespace Default.Namespace
 
         private float touchPointSpeed;
 
-        private float touchPointNeededSpeed;
+        private readonly float touchPointNeededSpeed;
 
         private float lastDirection = 1f;
 
@@ -224,12 +224,12 @@ namespace Default.Namespace
 
         private float touchAngle;
 
-        private float minOpacity = 0.5f;
+        private readonly float minOpacity = 0.5f;
 
-        private float startSpringWidth;
+        private readonly float startSpringWidth;
 
-        private Trajectory trajectory;
+        private readonly Trajectory trajectory;
 
-        private ContreJourGame game;
+        private readonly ContreJourGame game;
     }
 }

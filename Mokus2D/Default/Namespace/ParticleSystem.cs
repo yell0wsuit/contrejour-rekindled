@@ -179,7 +179,7 @@ namespace Default.Namespace
 
         protected List<Particle> invisibleParticles = new();
 
-        private List<Particle> cachedInvisible = new();
+        private readonly List<Particle> cachedInvisible = new();
 
         protected bool paused;
     }

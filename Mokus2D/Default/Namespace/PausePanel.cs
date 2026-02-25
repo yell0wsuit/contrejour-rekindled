@@ -317,6 +317,6 @@ namespace Default.Namespace
 
         protected CGSize winSize;
 
-        private LayerColor backgroundLayer = new(Color.Black);
+        private readonly LayerColor backgroundLayer = new(Color.Black);
     }
 }

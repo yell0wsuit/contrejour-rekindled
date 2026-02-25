@@ -33,8 +33,8 @@ namespace Default.Namespace
 
         private readonly List<ButterFly> parts = new(128);
 
-        private Range orbit = new(115f, 5f);
+        private readonly Range orbit = new(115f, 5f);
 
-        private Range startScale = new(0.3f, 0.15f);
+        private readonly Range startScale = new(0.3f, 0.15f);
     }
 }

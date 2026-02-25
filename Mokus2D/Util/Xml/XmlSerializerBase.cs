@@ -53,6 +53,6 @@ namespace Mokus2D.Util.Xml
             return attributeName.StartsWith("__") ? attributeName[2..] : UnprocessValue(attributeName);
         }
 
-        private Dictionary<string, string> aliases = new();
+        private readonly Dictionary<string, string> aliases = new();
     }
 }

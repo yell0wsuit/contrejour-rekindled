@@ -31,7 +31,7 @@ namespace ContreJourMono.ContreJour.Game.Hero
 
         public float Angle;
         private Vector2 position = new(length * 0.5f, 0f);
-        private float amplitude = 4f;
+        private readonly float amplitude = 4f;
 
         private float fawnProgress;
     }

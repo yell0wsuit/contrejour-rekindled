@@ -79,7 +79,7 @@ namespace Mokus2D.Effects.Transitions
 
         private NodeAction currentAction;
 
-        private LayerColor layer = new(Color.Black)
+        private readonly LayerColor layer = new(Color.Black)
         {
             OpacityFloat = 0f
         };

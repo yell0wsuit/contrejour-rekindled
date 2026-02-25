@@ -27,6 +27,6 @@ namespace Default.Namespace
             }
         }
 
-        private RotatableSpringBodyClip spring;
+        private readonly RotatableSpringBodyClip spring;
     }
 }

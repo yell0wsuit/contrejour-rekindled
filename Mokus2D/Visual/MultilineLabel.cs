@@ -91,9 +91,9 @@ namespace Mokus2D.Visual
 
         private const char SEPARATOR = '\n';
 
-        private List<StringBuilder> lines = new(16);
+        private readonly List<StringBuilder> lines = new(16);
 
-        private List<float> sizes = new(16);
+        private readonly List<float> sizes = new(16);
 
         private float lineSpacing;
     }

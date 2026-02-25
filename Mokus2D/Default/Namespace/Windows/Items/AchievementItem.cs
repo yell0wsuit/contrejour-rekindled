@@ -50,8 +50,8 @@ namespace Default.Namespace.Windows.Items
 
         private static readonly Vector2 ItemSize = new(500f, 84f);
 
-        private Label goldLabel;
+        private readonly Label goldLabel;
 
-        private Sprite picture;
+        private readonly Sprite picture;
     }
 }

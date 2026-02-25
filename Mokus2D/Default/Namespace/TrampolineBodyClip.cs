@@ -340,7 +340,7 @@ namespace Default.Namespace
 
         protected TrampolinePartBodyClip part;
 
-        private Trajectory trajectory;
+        private readonly Trajectory trajectory;
 
         protected float startDistance;
 
