@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class SnotLinkHint(ContreJourLevelBuilder _builder, object _body, Sprite _clip, Hashtable _config) : FadeHint(_builder, null, _clip, _config)
     {

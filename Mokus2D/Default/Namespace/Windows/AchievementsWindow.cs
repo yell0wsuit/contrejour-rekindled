@@ -1,10 +1,10 @@
-using Default.Namespace.Windows.Items;
+using Mokus2D.Default.Namespace.Windows.Items;
 
 using Microsoft.Xna.Framework;
 
 using Mokus2D.Visual;
 
-namespace Default.Namespace.Windows
+namespace Mokus2D.Default.Namespace.Windows
 {
     public class AchievementsWindow : XBoxWindow
     {

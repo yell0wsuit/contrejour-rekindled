@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class FlyEye(ContreJourGame _game, bool _visible, Vector2 position) : MonsterEye(_game, _visible, position)
     {

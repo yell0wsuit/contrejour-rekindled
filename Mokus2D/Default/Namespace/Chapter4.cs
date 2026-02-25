@@ -3,7 +3,7 @@
 using Mokus2D.Util;
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class Chapter4(int _index, MainMenu _menu) : Chapter2(_index, _menu)
     {

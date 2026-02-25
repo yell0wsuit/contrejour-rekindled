@@ -1,13 +1,13 @@
 ﻿using System;
 
-using Default.Namespace;
+using Mokus2D.Default.Namespace;
 
 using Microsoft.Xna.Framework;
 
 using Mokus2D.Effects.Actions;
 using Mokus2D.Util.MathUtils;
 
-namespace ContreJourMono.ContreJour.Game.Eyes
+namespace Mokus2D.ContreJourMono.ContreJour.Game.Eyes
 {
     public class RandomAnimationEye : EyeBase
     {

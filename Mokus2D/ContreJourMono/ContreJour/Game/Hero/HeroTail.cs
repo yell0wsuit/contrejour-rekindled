@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using Default.Namespace;
+using Mokus2D.Default.Namespace;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,7 +13,7 @@ using Mokus2D.Visual;
 using Mokus2D.Visual.Data;
 using Mokus2D.Visual.Util;
 
-namespace ContreJourMono.ContreJour.Game.Hero
+namespace Mokus2D.ContreJourMono.ContreJour.Game.Hero
 {
     public class HeroTail : PrimitivesNode
     {

@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 
-using Default.Namespace.Interfaces;
-using Default.Namespace.Windows;
+using Mokus2D.Default.Namespace.Interfaces;
+using Mokus2D.Default.Namespace.Windows;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,7 +14,7 @@ using Mokus2D.Util;
 using Mokus2D.Visual;
 using Mokus2D.Visual.Util;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class MainMenu : AccelerometerMenu, IActivatedDependent
     {

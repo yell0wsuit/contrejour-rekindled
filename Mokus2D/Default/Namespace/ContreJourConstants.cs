@@ -2,7 +2,7 @@
 
 using Mokus2D.Extensions;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public static class ContreJourConstants
     {
@@ -77,8 +77,6 @@ namespace Default.Namespace
         public const string LowMemoryBackgroundFormat = "{0}Chapter16Bit";
 
         public const float END_SHAKE_TIME = 8f;
-
-        public const string NAMESPACE_PREFIX = "Default.Namespace.";
 
         public const float HERO_RADIUS_PIXELS = 25f;
 

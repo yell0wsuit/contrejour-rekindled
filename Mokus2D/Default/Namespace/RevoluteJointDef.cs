@@ -4,7 +4,7 @@ using FarseerPhysics.Factories;
 
 using Microsoft.Xna.Framework;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class RevoluteJointDef(RevoluteJoint joint)
     {

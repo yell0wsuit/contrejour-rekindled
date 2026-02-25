@@ -1,4 +1,4 @@
-﻿using Default.Namespace;
+﻿using Mokus2D.Default.Namespace;
 
 using Microsoft.Xna.Framework;
 
@@ -6,7 +6,7 @@ using Mokus2D.Extensions;
 using Mokus2D.Util.MathUtils;
 using Mokus2D.Visual;
 
-namespace ContreJourMono.ContreJour.Game.Eyes
+namespace Mokus2D.ContreJourMono.ContreJour.Game.Eyes
 {
     public abstract class EyeBase : Node
     {

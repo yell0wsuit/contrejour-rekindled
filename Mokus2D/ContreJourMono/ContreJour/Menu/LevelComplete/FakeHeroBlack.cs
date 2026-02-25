@@ -2,7 +2,7 @@
 
 using Mokus2D.Visual.Util;
 
-namespace ContreJourMono.ContreJour.Menu.LevelComplete
+namespace Mokus2D.ContreJourMono.ContreJour.Menu.LevelComplete
 {
     public class FakeHeroBlack : FakeHero
     {

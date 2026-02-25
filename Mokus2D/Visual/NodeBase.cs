@@ -1,6 +1,6 @@
 ﻿using System;
 
-using Default.Namespace;
+using Mokus2D.Default.Namespace;
 
 using Microsoft.Xna.Framework;
 

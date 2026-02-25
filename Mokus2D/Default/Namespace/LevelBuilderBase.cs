@@ -11,7 +11,7 @@ using Mokus2D.Input;
 using Mokus2D.Util;
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class LevelBuilderBase : Updatable, IDisposable
     {

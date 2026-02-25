@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Default.Namespace.Windows.Items
+namespace Mokus2D.Default.Namespace.Windows.Items
 {
     public sealed class Achievement
     {

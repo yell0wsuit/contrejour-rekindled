@@ -5,7 +5,7 @@ using FarseerPhysics.Dynamics.Joints;
 
 using Microsoft.Xna.Framework;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class RevoluteJointProcessor : JointProcessorBase
     {

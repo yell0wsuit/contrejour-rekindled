@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public static class IReqHelper
     {

@@ -2,7 +2,7 @@
 
 using Mokus2D.Visual.Util;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class TexturedSuckerNeck : SuckerNeckSprite
     {

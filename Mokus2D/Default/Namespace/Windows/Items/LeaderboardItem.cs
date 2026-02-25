@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 
 using Mokus2D.Visual;
 
-namespace Default.Namespace.Windows.Items
+namespace Mokus2D.Default.Namespace.Windows.Items
 {
     public class LeaderboardItem : XBoxItem
     {

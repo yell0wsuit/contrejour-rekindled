@@ -4,7 +4,7 @@ using Mokus2D;
 using Mokus2D.Util.MathUtils;
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class EndLastLevelBodyClip(LevelBuilderBase _builder, object _body, Sprite _clip, Hashtable _config) : EndLevelBodyClip(_builder, _body, _clip, _config)
     {

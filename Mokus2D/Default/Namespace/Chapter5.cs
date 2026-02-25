@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class Chapter5(int _index, MainMenu _menu) : ChapterItem(_index, _menu)
     {

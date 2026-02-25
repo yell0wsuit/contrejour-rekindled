@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using Default.Namespace;
+using Mokus2D.Default.Namespace;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;

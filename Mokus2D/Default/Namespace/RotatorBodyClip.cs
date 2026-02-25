@@ -8,7 +8,7 @@ using Mokus2D.Effects.Actions;
 using Mokus2D.Input;
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class RotatorBodyClip : FurBodyClip, IClickable, IRestartable, ISnotHolder
     {

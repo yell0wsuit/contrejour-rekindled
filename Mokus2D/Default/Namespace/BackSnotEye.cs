@@ -1,8 +1,8 @@
-﻿using ContreJourMono.ContreJour.Game.Eyes;
+using Mokus2D.ContreJourMono.ContreJour.Game.Eyes;
 
 using Microsoft.Xna.Framework;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class BackSnotEye : MonsterEye
     {

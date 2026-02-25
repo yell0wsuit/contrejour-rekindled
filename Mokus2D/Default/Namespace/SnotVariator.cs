@@ -1,6 +1,6 @@
 ﻿using Mokus2D.Util.MathUtils;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class SnotVariator : ContreJourBodyClip, IRemovable, IUpdatable
     {

@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 
 using Mokus2D.Visual.Data;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class FilledSystem(TextureData config) : ParticleSystem(config)
     {

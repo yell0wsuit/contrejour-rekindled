@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-using Default.Namespace;
+using Mokus2D.Default.Namespace;
 
 namespace Mokus2D.Util
 {

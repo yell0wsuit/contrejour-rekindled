@@ -2,7 +2,7 @@
 
 using Mokus2D.Input;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class SuckerEndBodyClip(SuckerBodyClip _sucker, object _body) : ContreJourBodyClip(_sucker.Builder, _body, null, null), IClickable
     {

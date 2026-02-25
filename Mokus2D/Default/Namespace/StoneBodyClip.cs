@@ -2,7 +2,7 @@
 
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class StoneBodyClip(LevelBuilderBase builder, object body, Node clip, Hashtable config) : ContreJourBodyClip(builder, body, clip, config)
     {

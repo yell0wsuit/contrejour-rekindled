@@ -3,7 +3,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class Portal : ParticleSystem
     {

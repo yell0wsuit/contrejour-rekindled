@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 using Mokus2D.Input;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class TouchCircle(Touch _touch, LevelBuilderBase _builder) : BodyClip(_builder, CreateBody(_builder, _touch), null, null)
     {

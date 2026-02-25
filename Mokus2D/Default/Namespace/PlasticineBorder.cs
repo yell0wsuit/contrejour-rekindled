@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Mokus2D.Visual;
 using Mokus2D.Visual.Util;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class PlasticineBorder : PrimitivesNode, IOpacity
     {

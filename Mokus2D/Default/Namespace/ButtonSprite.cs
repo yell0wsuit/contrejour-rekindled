@@ -1,6 +1,6 @@
 ﻿using Mokus2D.Effects.Actions;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class ButtonSprite : TouchEffect
     {

@@ -1,10 +1,10 @@
-﻿using ContreJourMono.ContreJour.Menu.LevelComplete;
+using Mokus2D.ContreJourMono.ContreJour.Menu.LevelComplete;
 
 using Microsoft.Xna.Framework;
 
 using Mokus2D.Extensions;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class FakeHeroGreen : FakeHeroBlack
     {

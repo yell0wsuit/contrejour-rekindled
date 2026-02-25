@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-using Default.Namespace;
+using Mokus2D.Default.Namespace;
 
 using Mokus2D.Visual.GameDebug;
 using Mokus2D.win.PlatformSupport.Input;

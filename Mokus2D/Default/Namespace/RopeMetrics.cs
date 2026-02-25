@@ -1,4 +1,4 @@
-﻿namespace Default.Namespace
+﻿namespace Mokus2D.Default.Namespace
 {
     public class RopeMetrics(int _parts, float _partSize)
     {

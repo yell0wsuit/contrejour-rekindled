@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Media;
 using Mokus2D;
 using Mokus2D.Util.MathUtils;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class SoundManager : IUpdatable
     {

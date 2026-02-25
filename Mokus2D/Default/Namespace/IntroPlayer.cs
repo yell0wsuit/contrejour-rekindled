@@ -7,7 +7,7 @@ using Mokus2D.Effects.Actions;
 using Mokus2D.Util;
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class IntroPlayer : Node
     {

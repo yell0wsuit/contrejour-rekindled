@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class ButterFly(Particle _particle, float _scale) : FlyBase(_particle, _scale)
     {

@@ -1,7 +1,7 @@
 ﻿using FarseerPhysics.Collision.Shapes;
 using FarseerPhysics.Common;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class PolygonProcessor(LevelBuilderBase _builder) : ShapeProcessor("polygon", _builder)
     {

@@ -1,4 +1,4 @@
-﻿namespace Default.Namespace
+﻿namespace Mokus2D.Default.Namespace
 {
     public class SnotChain(SnotBodyClip _snot, float _distance)
     {

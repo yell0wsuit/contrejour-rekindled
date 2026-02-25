@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Mokus2D.Extensions;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class PlasticinePartHighlite : IUpdatable
     {

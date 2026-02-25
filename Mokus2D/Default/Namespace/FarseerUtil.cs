@@ -11,7 +11,7 @@ using FarseerPhysics.Factories;
 
 using Microsoft.Xna.Framework;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public static class FarseerUtil
     {

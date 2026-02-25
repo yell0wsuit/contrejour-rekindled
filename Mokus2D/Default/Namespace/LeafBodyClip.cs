@@ -1,7 +1,7 @@
 ﻿using Mokus2D.Util.MathUtils;
 using Mokus2D.Visual;
 
-namespace Default.Namespace
+namespace Mokus2D.Default.Namespace
 {
     public class LeafBodyClip : ForegroundBase
     {
